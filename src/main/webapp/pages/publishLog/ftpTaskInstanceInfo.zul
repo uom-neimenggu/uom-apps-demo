@@ -1,0 +1,10 @@
+<?page title="数据量统计" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./ftpTaskInstanceInfoMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window title="数据量统计" id="ftpTaskInstanceInfoMainWin" width="800px" 
+	    closable="true" apply="${ftpTaskInstanceInfoComposer}">
+	    <div id="systemInfoDiv" visible="false"></div>
+	    <div id="ftpTaskInstanceInfoDiv"></div>
+</window>
+</zk>

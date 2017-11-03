@@ -1,0 +1,11 @@
+<?page title="接口日志" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./interfaceLogMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="interfaceLogMainWin" width="800px" 
+	    closable="true" apply="${interfaceLogComposer}">
+	    <div id="systemInfoDiv" visible="false">您好，暂无下发日志！</div>
+		<div id="interfaceLogQueryDiv" >
+		</div>
+	</window>
+</zk>

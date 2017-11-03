@@ -1,0 +1,41 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffBandboxExt" extends="bandbox" class="cn.ffcs.uom.staff.component.StaffBandboxExt" ?>
+<?component name="gridUnitBandboxExt" extends="bandbox" class="cn.ffcs.uom.gridUnit.component.GridUnitBandboxExt"?>
+<zk>
+	<window id="staffGridUnitTranEditComposer" border="none"
+		width="680px" closable="true"
+		apply="${staffGridUnitTranEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="网格单元" />
+							<gridUnitBandboxExt id="gridUnitBandbox"
+								width="98%" />
+							<label value="员工" />
+							<staffBandboxExt id="staff" width="98%" />
+						</row>
+						<row>
+							<label value="关联类型" />
+							<listbox id="ralaCd" mold="select"
+								width="97%" />
+							<label value="员工排序" />
+							<longbox id="staffSort" width="97%"></longbox>
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<toolbar id="btnToolBar" align="center" mold="panel">
+			<button id="saveStaff" label="确定" forward="onStaffTranOk" />
+			<button id="cancelStaff" label="取消" forward="onCancel" />
+		</toolbar>
+	</window>
+</zk>

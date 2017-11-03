@@ -1,0 +1,9 @@
+#Fri Dec 13 10:02:41 CST 2013
+cn.ffcs.uom.webservices.bean.querystaff.Certification=cn.ffcs.uom.webservices.bean.querystaff.descriptors.CertificationDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.Error=cn.ffcs.uom.webservices.bean.querystaff.descriptors.ErrorDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.ContactInfo=cn.ffcs.uom.webservices.bean.querystaff.descriptors.ContactInfoDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.OutParam=cn.ffcs.uom.webservices.bean.querystaff.descriptors.OutParamDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.InParam=cn.ffcs.uom.webservices.bean.querystaff.descriptors.InParamDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.StaffInfo=cn.ffcs.uom.webservices.bean.querystaff.descriptors.StaffInfoDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.Root=cn.ffcs.uom.webservices.bean.querystaff.descriptors.RootDescriptor
+cn.ffcs.uom.webservices.bean.querystaff.MsgBody=cn.ffcs.uom.webservices.bean.querystaff.descriptors.MsgBodyDescriptor

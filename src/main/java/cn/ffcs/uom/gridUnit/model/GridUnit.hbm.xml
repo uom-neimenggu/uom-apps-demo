@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.gridUnit.model.GridUnit" table="GRID_UNIT">
+		<comment>网格单元标识</comment>
+		<id name="gridUnitId" type="java.lang.Long">
+			<column name="GRID_UNIT_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_GRID_UNIT_ID</param>
+			</generator>
+		</id>
+		<property name="areaEid" type="java.lang.String">
+			<column name="AREA_EID" length="50">
+				<comment>区域ID</comment>
+			</column>
+		</property>
+		<property name="areaName" type="java.lang.String">
+			<column name="AREA_NAME" length="100">
+				<comment>区域名称</comment>
+			</column>
+		</property>
+		<property name="district" type="java.lang.String">
+			<column name="DISTRICT" length="50">
+				<comment>子区域ID</comment>
+			</column>
+		</property>
+		<property name="subareaName" type="java.lang.String">
+			<column name="SUBAREA_NAME" length="50">
+				<comment>子区域名称</comment>
+			</column>
+		</property>
+		<property name="mmeFid" type="java.lang.Long">
+			<column name="MME_FID" length="12">
+				<comment>网格单元ID</comment>
+			</column>
+		</property>
+		<property name="gridName" type="java.lang.String">
+			<column name="GRID_NAME" length="100">
+				<comment>网格单元名称</comment>
+			</column>
+		</property>
+		<property name="gridType" type="java.lang.String">
+			<column name="GRID_TYPE" length="50">
+				<comment>网格单元大类</comment>
+			</column>
+		</property>
+		<property name="gridSubtype" type="java.lang.String">
+			<column name="GRID_SUBTYPE" length="50">
+				<comment>网格单元小类</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

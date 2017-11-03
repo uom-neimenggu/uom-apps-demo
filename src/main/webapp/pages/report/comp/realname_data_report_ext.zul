@@ -1,0 +1,49 @@
+<?page title="实名制数据统计报表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./realnameDataReportExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+<zk>
+	<panel id="realnameDataReportExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" style="width:auto;float:left;">
+				<hbox>
+					<label value="日期" sclass="list-item-center" />
+					<datebox id="date" format="yyyy-MM"
+						width="100px" readonly="true" />
+					<toolbarbutton label="查询" forward="onQuery"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" style="width:auto;float:right;">
+				<hbox>
+					<hbox>
+						<toolbarbutton id="exportButton"
+							forward="onExport" label="导出" />
+					</hbox>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="reportListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="日期" width="10%" />
+					<listheader label="单位" width="10%" />
+					<listheader label="有效已实名数量" width="20%" />
+					<listheader label="有效未实名数量" width="20%" />
+					<listheader label="失效已实名数量" width="20%" />
+					<listheader label="失效未实名数量" width="20%" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.createDate}" ></listcell>
+					<listcell label="@{current.hrname}" ></listcell>
+					<listcell label="@{current.c1}" ></listcell>
+					<listcell label="@{current.c2}" ></listcell>
+					<listcell label="@{current.c3}" ></listcell>
+					<listcell label="@{current.c4}" ></listcell>
+				</listitem>
+			</listbox>
+			<paging id="reportListboxPaging"
+				forward="onListboxPaging" pageSize="15" />
+		</panelchildren>
+	</panel>
+</zk>

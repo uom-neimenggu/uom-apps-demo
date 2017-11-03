@@ -1,0 +1,182 @@
+<?page title="家庭信息管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="编码" /><textbox id="" width="80px" />
+						<label value="帐号" /><textbox id="" width="80px" />
+						<label value="姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton forward="onView" id="" label="查看" />
+							<toolbarbutton forward="onAdd" id="" label="新增" />
+							<toolbarbutton forward="onEdit" id="" label="修改" />
+							<toolbarbutton forward="onDel" id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员姓名" width="8%" align="center" />
+					<listheader label="人员编号" width="8%" align="center" />
+					<listheader label="性别" width="6%" align="center" />
+					<listheader label="工作单位" width="8%" align="center" visible="false"/>
+					<listheader label="政治面貌" width="8%" align="center" />
+					<listheader label="联系电话" width="14%" align="center" />
+					<listheader label="与本人关系" width="14%" align="center" />
+					<listheader label="家庭成员姓名" width="6%" align="center" />
+					<listheader label="出生日期" width="10%" align="center" />
+					<listheader label="家庭地址" width="" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="樊鹏" />
+					<listcell label="8500390735" />
+					<listcell label="男" />
+					<listcell label="福富软件" />
+					<listcell label="团员" />
+					<listcell label="13637773680" />
+					<listcell label="父亲" />
+					<listcell label="樊大同" />
+					<listcell label="1978/8/29" />
+					<listcell label="安徽省当涂县年陡乡公元枯下焊自然村" />
+				</listitem>
+				<listitem>
+					<listcell label="钱雨婷" />
+					<listcell label="8500390843" />
+					<listcell label="女" />
+					<listcell label="科大讯飞" />
+					<listcell label="党员" />
+					<listcell label="15930653967" />
+					<listcell label="母亲" />
+					<listcell label="颜煜翔" />
+					<listcell label="1982/5/29" />
+					<listcell label="安徽省合肥市蜀山区长江西路422号" />
+				</listitem>
+				<listitem>
+					<listcell label="颜煜翔" />
+					<listcell label="8701390845" />
+					<listcell label="男" />
+					<listcell label="科大国创" />
+					<listcell label="党员" />
+					<listcell label="13930053789" />
+					<listcell label="兄弟" />
+					<listcell label="颜煜飞" />
+					<listcell label="1992/6/20" />
+					<listcell label="萧县龙城镇火车站路99号" />
+				</listitem>
+				<listitem>
+					<listcell label="方向宏" />
+					<listcell label="8500391003" />
+					<listcell label="男" />
+					<listcell label="福富软件" />
+					<listcell label="团员" />
+					<listcell label="15131153977" />
+					<listcell label="兄弟" />
+					<listcell label="方向富" />
+					<listcell label="1982/7/29" />
+					<listcell label="安徽省当涂县年陡乡公元枯下焊自然村" />
+				</listitem>
+				<listitem>
+					<listcell label="程海英" />
+					<listcell label="8500390843" />
+					<listcell label="女" />
+					<listcell label="科大国创" />
+					<listcell label="党员" />
+					<listcell label="15130053967" />
+					<listcell label="母亲" />
+					<listcell label="钱雨婷" />
+					<listcell label="1993/5/22" />
+					<listcell label="淮南八公山新庄孜治西一村6楼3单元14号" />
+				</listitem>
+				<listitem>
+					<listcell label="王家胜" />
+					<listcell label="8500390861" />
+					<listcell label="男" />
+					<listcell label="科大智能" />
+					<listcell label="团员" />
+					<listcell label="15030053965" />
+					<listcell label="父亲" />
+					<listcell label="王强" />
+					<listcell label="1995/4/22" />
+					<listcell label="安徽省淮南市八公山区山王镇李山村10楼" />
+				</listitem>
+				<listitem>
+					<listcell label="陈晶晶" />
+					<listcell label="8500391006" />
+					<listcell label="女" />
+					<listcell label="福富软件" />
+					<listcell label="团员" />
+					<listcell label="15730053964" />
+					<listcell label="父亲" />
+					<listcell label="谢飞" />
+					<listcell label="1990/3/12" />
+					<listcell label="肥西三河镇中街" />
+				</listitem>
+				<listitem>
+					<listcell label="汪锦芬" />
+					<listcell label="8500391034" />
+					<listcell label="女" />
+					<listcell label="福富软件" />
+					<listcell label="党员" />
+					<listcell label="13330053965" />
+					<listcell label="父亲" />
+					<listcell label="汪飞" />
+					<listcell label="1991/1/22" />
+					<listcell label="安徽省池州市东至县尧渡镇环城北路田园新村5栋4单元" />
+				</listitem>
+				<listitem>
+					<listcell label="徐世菁" />
+					<listcell label="8500391177" />
+					<listcell label="女" />
+					<listcell label="合肥心迹网络" />
+					<listcell label="团员" />
+					<listcell label="13930053963" />
+					<listcell label="表姐" />
+					<listcell label="谢飞" />
+					<listcell label="1992/8/9" />
+					<listcell label="安徽省阜阳市颍州区西湖北路180号力业家园6幢" />
+				</listitem>
+				<listitem>
+					<listcell label="曹子雯" />
+					<listcell label="8500390861" />
+					<listcell label="男" />
+					<listcell label="合肥用友科技" />
+					<listcell label="团员" />
+					<listcell label="15030053965" />
+					<listcell label="父亲" />
+					<listcell label="曹亮" />
+					<listcell label="1988/7/8" />
+					<listcell label="安徽省蚌埠市南湖新村14栋1单元11号" />
+				</listitem>
+				<listitem>
+					<listcell label="江颍" />
+					<listcell label="8500391006" />
+					<listcell label="女" />
+					<listcell label="科大讯飞" />
+					<listcell label="党员" />
+					<listcell label="15730053964" />
+					<listcell label="父亲" />
+					<listcell label="江朋友" />
+					<listcell label="1989/912" />
+					<listcell label="安徽省黄山市歙县北岸镇大阜村4组" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

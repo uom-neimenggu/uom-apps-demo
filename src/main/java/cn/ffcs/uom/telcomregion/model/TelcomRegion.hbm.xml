@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.telcomregion.model.TelcomRegion" table="TELCOM_REGION">
+		<comment>电信管理区域</comment>
+		<id name="telcomRegionId" type="java.lang.Long">
+			<column name="TELCOM_REGION_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_TELCOM_REGION_ID</param>
+			</generator>
+		</id>
+		<property name="regionCode" type="java.lang.String">
+			<column name="REGION_CODE" length="30">
+				<comment>电信区域编码</comment>
+			</column>
+		</property>
+		<property name="regionName" type="java.lang.String">
+			<column name="REGION_NAME" length="250">
+				<comment>电信区域名称</comment>
+			</column>
+		</property>
+		<property name="regionDesc" type="java.lang.String">
+			<column name="REGION_DESC" length="250">
+				<comment>电信区域描述</comment>
+			</column>
+		</property>
+		<property name="regionType" type="java.lang.String">
+			<column name="REGION_TYPE" length="6">
+				<comment>电信区域类型</comment>
+			</column>
+		</property>
+		<property name="regionAbbr" type="java.lang.String">
+			<column name="REGION_ABBR" length="30">
+				<comment>电信区域简拼</comment>
+			</column>
+		</property>
+		<property name="upRegionId" type="java.lang.Long">
+			<column name="UP_REGION_ID" length="12">
+				<comment>上级电信区域标识</comment>
+			</column>
+		</property>
+		<property name="preOrgCode" type="java.lang.String">
+			<column name="PRE_ORG_CODE" length="20">
+				<comment>组织编码前缀</comment>
+			</column>
+		</property>
+		<property name="areaCode" type="java.lang.String">
+			<column name="AREA_CODE" length="20">
+				<comment>区号</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

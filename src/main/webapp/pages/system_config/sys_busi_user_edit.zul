@@ -1,0 +1,24 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./businessSystemEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="businessSystemEditWin" border="none"
+		apply="${sysBusiUserEditComposer}" closable="true" width="350px"
+		height="200px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<label value="* 配置短信发送系统"
+						class="z-info-required" />
+					<listbox id="businessSystem" rows="5" multiple="true" checkmark="true" fixedLayout="true"
+								width="98%">
+					</listbox>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

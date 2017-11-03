@@ -1,0 +1,42 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleTelcomRegionListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+
+	<panel id="roleTelcomRegionListboxComp" vflex="1">
+		<toolbar align="end" sclass="toolbar-user">
+			<div id="roleTelcomRegionWindowDiv">
+				<hbox>
+					<toolbarbutton id="addRoleTelcomRegionButton"
+						forward="onRoleTelcomRegionAdd" label="新增" />
+					<toolbarbutton id="delRoleTelcomRegionButton"
+						forward="onRoleTelcomRegionDel" label="删除" />
+				</hbox>
+			</div>
+		</toolbar>
+		<panelchildren>
+			<listbox id="RoleTelcomRegionListBox"
+				forward="onSelect=onSelectRoleTelcomRegion" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="电信管理区域" />
+					<listheader label="生效时间" />
+					<listheader label="失效时间" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell
+						label="@{current.telcomRegion.regionName}">
+					</listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="RoleTelcomRegionListPaging" pageSize="10"
+				forward="onQueryRoleTelcomRegionResponse" />
+		</panelchildren>
+	</panel>
+</zk>

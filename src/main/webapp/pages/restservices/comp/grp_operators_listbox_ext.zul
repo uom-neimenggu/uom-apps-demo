@@ -1,0 +1,78 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./grpOperatorsListboxExtPanel" ?>
+<zk>
+	<panel id="grpOperatorsListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="经营主体编码" />
+					<textbox id="operatorsNbr" width="80px" />
+					<label value="经营主体名称" />
+					<textbox id="operatorsName" width="80px" />
+					<toolbarbutton label="查询"
+						forward="onGrpOperatorsQuery" autodisable="self" />
+					<toolbarbutton label="重置"
+						forward="onGrpOperatorsReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="grpOperatorsWindowDiv">
+						<hbox>
+							<toolbarbutton id="updateGrpOperatorsButton"
+								label="更新" forward="onGrpOperatorsUpdate" />
+						</hbox>
+					</div>
+					<div id="grpOperatorsBandboxDiv" visible="false">
+						<hbox>
+							<toolbarbutton id="selectGrpOperatorsButton"
+								label="选择" forward="onSelectGrpOperatorsInfo" visible="false" />
+							<toolbarbutton id="closeGrpOperatorsButton"
+								label="关闭" forward="onCloseGrpOperatorsInfo" />
+							<toolbarbutton id="cleanGrpOperatorsButton"
+								label="清空" forward="onCleanGrpOperatorsInfo" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="grpOperatorsListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onGrpOperatorsSelectRequest"
+				style="height:200px">
+				<listhead sizable="true">
+					<listheader label="经营主体标识" align="center" />
+					<listheader label="经营主体编码" align="center" />
+					<listheader label="经营主体名称" align="center" />
+					<listheader label="上级经营主体编码" align="center" />
+					<listheader label="电信管理区域" align="center" />
+					<listheader label="证件类型" align="center" />
+					<listheader label="证件号" align="center" />
+					<listheader label="级别" align="center" />
+					<listheader label="状态" align="center" />
+					<listheader label="生效时间" align="center" />
+				</listhead>
+				<listitem self="@{each='grpOperators'}"
+					value="@{grpOperators}"
+					tooltiptext="@{grpOperators.grpOperatorsName}">
+					<listcell label="@{grpOperators.grpOperatorsId}" />
+					<listcell label="@{grpOperators.operatorsNbr}" />
+					<listcell label="@{grpOperators.operatorsName}" />
+					<listcell label="@{grpOperators.parentOperNbr}" />
+					<listcell
+						label="@{grpOperators.commonRegionIdName}" />
+					<listcell label="@{grpOperators.certTypeName}" />
+					<listcell label="@{grpOperators.certNbr}" />
+					<listcell
+						label="@{grpOperators.operatorsAreaGradeName}" />
+					<listcell label="@{grpOperators.statusCdName}" />
+					<listcell label="@{grpOperators.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="grpOperatorsListboxPaging"
+				forward="onGrpOperatorsListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

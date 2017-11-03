@@ -1,0 +1,84 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyContactInfoListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="partyContactInfoListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline;float:left">
+				<div id="partyContactInfoSearchDiv">
+					<hbox>
+						<label value="名称" />
+						<textbox id="contactName" width="95px" />
+						<button label="查询"
+							forward="onQueryPartyContactInfo" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetPartyContactInfo" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="display:inline">
+				<hbox>
+					<div id="partyContactInfoBandboxDiv">
+						<hbox>
+							<toolbarbutton
+								forward="onPartyContactInfoAdd" id="addPartyContactInfoButton"
+								label="新增" />
+							<toolbarbutton
+								forward="onPartyContactInfoEdit" id="editPartyContactInfoButton"
+								label="修改" />
+							<toolbarbutton
+								forward="onPartyContactInfoDel" id="delPartyContactInfoButton"
+								label="删除" />
+							<!-- 
+								<toolbarbutton id="cleanPartyContactInfoButton" label="清空" forward="onCleaningPartyContactInfo" />
+							-->
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="partyContactInfoListbox" sizedByContent="false"
+				sclass="zl-listbox"
+				forward="onSelect=onPartyContactInfoSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="首选联系人" width="10%" />
+					<listheader label="类型" width="10%" />
+					<listheader label="名称" width="10%" />
+					<listheader label="性别" width="5%" />
+					<listheader label="移动电话" width="10%" />
+					<listheader label="移动电话(备用)" width="10%" />
+					<listheader label="办公电话" width="10%" />
+					<listheader label="邮箱" width="12%" />
+					<listheader label="集团统一邮箱" width="13%" />
+					<!-- <listheader label="QQ号码" width="10%"/> -->
+					<listheader label="传真" width="10%" />
+				</listhead>
+				<listitem self="@{each='partyContactInfo'}"
+					value="@{partyContactInfo}"
+					tooltiptext="@{partyContactInfo.contactName}">
+					<listcell label="@{partyContactInfo.headFlagName}" />
+					<listcell
+						label="@{partyContactInfo.contactTypeName}" />
+					<listcell label="@{partyContactInfo.contactName}" />
+					<listcell
+						label="@{partyContactInfo.contactGenderName}" />
+					<listcell label="@{partyContactInfo.mobilePhone}" />
+					<listcell
+						label="@{partyContactInfo.mobilePhoneSpare}" />
+					<listcell label="@{partyContactInfo.officePhone}" />
+					<listcell label="@{partyContactInfo.email}" />
+					<listcell label="@{partyContactInfo.grpUnEmail}" />
+					<!-- <listcell label="@{partyContactInfo.qqNumber}" /> -->
+					<listcell label="@{partyContactInfo.fax}" />
+				</listitem>
+			</listbox>
+			<paging id="partyContactInfoListboxPaging"
+				forward="onPartyContactInfoListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

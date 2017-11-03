@@ -1,0 +1,8 @@
+#Thu Jul 18 17:50:02 CST 2013
+cn.ffcs.uom.webservices.bean.ftpinform.InParam=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.InParamDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.MsgBody=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.MsgBodyDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.FileList=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.FileListDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.OutParam=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.OutParamDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.FileInfo=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.FileInfoDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.Error=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.ErrorDescriptor
+cn.ffcs.uom.webservices.bean.ftpinform.Root=cn.ffcs.uom.webservices.bean.ftpinform.descriptors.RootDescriptor

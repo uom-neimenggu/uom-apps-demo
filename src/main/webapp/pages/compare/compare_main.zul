@@ -1,0 +1,69 @@
+<?page title="人力较正" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationRelationTreeBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationRelationTreeBandboxExt" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./compareMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="compareMainWin" apply="${compareHrComposer}" width="100%" height="480px">
+		<panel id="compareListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="组织树" />
+						<organizationRelationTreeBandboxExt id="organizationRelationTreeBandboxExt" />
+						<label value="员工编码" />
+						<textbox id="staffCode" width="80px" />
+						<label value="员工账号" />
+						<textbox id="staffAccount" width="80px" />
+						<label value="员工名称" />
+						<textbox id="staffName" width="80px" />
+						<label value="数据状态" />
+						<listbox id="currentStatusListbox" mold="select" rows="1" />
+						<toolbarbutton label="查询" forward="onStaffQuery" autodisable="self" />
+						<toolbarbutton label="重置" forward="onStaffReset" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user" style="width:auto;float:right;">
+					<hbox>
+						<div id="staffWindowDiv" >
+							<hbox>
+								<toolbarbutton forward="onReviseStaff" id="reviseButton" label="校正" />
+							</hbox>
+						</div>						
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="compareListbox" sizedByContent="true" forward="onSelect=onCompareSelectRequest" vflex="1">
+					<listhead sizable="true">
+						<listheader label="员工标识" width="11%" align="center"/>
+						<listheader label="员工名称" width="10%" align="center"/>
+						<listheader label="员工账号" width="10%" align="center"/>
+						<listheader label="人力系统账号" width="9%" align="center"/>
+						<listheader label="员工工号" width="10%" align="center"/>
+						<listheader label="人力系统工号" width="8%" align="center"/>
+						<listheader label="员工职位" width="6%" align="center"/>
+						<listheader label="用工性质" width="10%" align="center"/>
+						<listheader label="生效时间" width="8%" align="center"/>
+						<listheader label="失效时间" width="8%" align="center"/>
+						<listheader label="状态" width="10%" align="center"/>
+					</listhead>
+					<listitem self="@{each='staff'}" value="@{staff}" tooltiptext="@{staff.staffName}">
+						<listcell label="@{staff.staffId}"/>
+						<listcell label="@{staff.staffName}"/>
+						<listcell label="@{staff.staffAccount}"/>
+						<listcell label="@{staff.hrStaffNbr}"/>
+						<listcell label="@{staff.staffNbr}"/>
+						<listcell label="@{staff.hrStaffNbr}"/>
+						<listcell label="@{staff.staffPositionName}"/>
+						<listcell label="@{staff.workPropName}"/>
+						<listcell label="@{staff.effDate}"/>
+						<listcell label="@{staff.expDate}"/>
+						<listcell label="@{staff.statusCdName}"/>
+					</listitem>
+				</listbox>
+				<paging id="compareListPaging" pageSize="10"
+					forward="onQueryComparePaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

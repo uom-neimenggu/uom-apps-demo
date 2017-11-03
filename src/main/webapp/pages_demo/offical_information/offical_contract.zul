@@ -1,0 +1,145 @@
+<?page title="合同管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="员工工号" /><textbox id="" width="80px" />
+						<label value="员工姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="员工工号" width="12%" align="center" />
+					<listheader label="员工姓名" width="12%" align="center" />
+					<listheader label="合同编号" width="16%" align="center" />
+					<listheader label="业务类型" width="14%" align="center" />
+					<listheader label="赔偿金" width="16%" align="center" />
+					<listheader label="合同开始日期" width="16%" align="center" />
+					<listheader label="合同结束日期" width="14%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="34000094" />
+					<listcell label="江安" />
+					<listcell label="3400009434000094-01" />
+					<listcell label="签订" />
+					<listcell label="2002-09-01" />
+					<listcell label="2008-09-01" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34000139" />
+					<listcell label="梅小英" />
+					<listcell label="340001393410011151" />
+					<listcell label="签订" />
+					<listcell label="2002-09-01" />
+					<listcell label="2008-08-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34000245" />
+					<listcell label="解松明" />
+					<listcell label="3400024500078" />
+					<listcell label="签订" />
+					<listcell label="2022/3/5" />
+					<listcell label="2012-09-01" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34000320" />
+					<listcell label="洪雯" />
+					<listcell label="340003203400032004" />
+					<listcell label="续签" />
+					<listcell label="2010-08-16" />
+					<listcell label="2010-08-16" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010025" />
+					<listcell label="梁波" />
+					<listcell label="3401002534010025+02" />
+					<listcell label="续签" />
+					<listcell label="2010-08-16" />
+					<listcell label="2013-08-15" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010077" />
+					<listcell label="胡志文" />
+					<listcell label="34010077000250" />
+					<listcell label="签订" />
+					<listcell label="2006-08-01" />
+					<listcell label="2009-07-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010113" />
+					<listcell label="戚萍" />
+					<listcell label="3401011334010113-3" />
+					<listcell label="变更" />
+					<listcell label="2002-08-01" />
+					<listcell label="2009-07-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010210" />
+					<listcell label="伍东平" />
+					<listcell label="34010210qy020102" />
+					<listcell label="签订" />
+					<listcell label="2002-08-01" />
+					<listcell label="2017-12-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010409" />
+					<listcell label="肖艳萍" />
+					<listcell label="3401040934010409-1" />
+					<listcell label="续签" />
+					<listcell label="2013-01-01" />
+					<listcell label="2013-07-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34020140" />
+					<listcell label="吕亚东" />
+					<listcell label="3402014034020140-3" />
+				    <listcell label="续签" />
+					<listcell label="2005-09-01" />
+					<listcell label="2008-08-31" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34020183" />
+					<listcell label="蔡东敏" />
+					<listcell label="340201833411002785" />
+					<listcell label="续签" />
+					<listcell label="2005-09-01" />
+					<listcell label="2010-07-31" />
+					<listcell label="0" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

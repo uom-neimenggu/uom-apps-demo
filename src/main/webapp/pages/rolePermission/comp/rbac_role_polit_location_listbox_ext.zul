@@ -1,0 +1,72 @@
+<?page title="角色行政管理区域列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRolePolitLocationListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRolePolitLocationListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRolePolitLocationSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="90px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="90px" />
+						<label value="行政区域编码" />
+						<textbox id="locationCode" width="90px" />
+						<label value="行政区域名称" />
+						<textbox id="locationName" width="90px" />
+						<button label="查询"
+							forward="onQueryRbacRolePolitLocation" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacRolePolitLocation" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacRolePolitLocationButton"
+						label="新增" forward="onRbacRolePolitLocationAdd" />
+					<toolbarbutton id="editRbacRolePolitLocationButton"
+						label="修改" forward="onRbacRolePolitLocationEdit" />
+					<toolbarbutton id="delRbacRolePolitLocationButton"
+						label="删除" forward="onRbacRolePolitLocationDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRolePolitLocationListbox"
+				forward="onSelect=onRbacRolePolitLocationSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="行政区域编码" />
+					<listheader label="行政区域名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRolePolitLocation'}"
+					value="@{rbacRolePolitLocation}">
+					<listcell
+						label="@{rbacRolePolitLocation.rbacRolePolitLocationId}" />
+					<listcell
+						label="@{rbacRolePolitLocation.rbacRoleCode}" />
+					<listcell
+						label="@{rbacRolePolitLocation.rbacRoleName}" />
+					<listcell
+						label="@{rbacRolePolitLocation.locationCode}" />
+					<listcell
+						label="@{rbacRolePolitLocation.locationName}" />
+					<listcell label="@{rbacRolePolitLocation.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacRolePolitLocationListPaging" pageSize="16"
+				forward="onRbacRolePolitLocationListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 配置spring的javaMail -->
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- 发件服务器SMTP -->
+		<property name="host" value="134.64.101.132"></property>
+		<!-- 发件服务器SMTP端口 -->
+		<property name="port" value="25"></property>
+		<!-- 邮件发送地址 -->
+		<property name="username" value="AHUOM@anhuitelecom.com"></property>
+		<!-- 邮件发送密码 -->
+		<property name="password" value="UOM20141112"></property>
+		<!-- 发送时使用的字符集 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- javaMail相关参数设置 -->
+		<property name="javaMailProperties">
+			<props>
+				<!-- 发送模式 debug -->
+				<prop key="mail.debug">true</prop>
+				<!-- 是否需要auth认证 -->
+				<prop key="mail.smtp.auth">true</prop>
+				<!-- 邮件发送超时时间 -->
+				<prop key="mail.smtp.timeout">25000</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 配置Mail实例 -->
+	<bean id="mail" class="cn.ffcs.uom.audit.model.Mail">
+		<!-- 邮件发送者 -->
+		<property name="from" value="AHUOM@anhuitelecom.com"></property>
+		<!-- 邮件发送者别名 -->
+		<property name="displayName" value="安徽统一用户平台"></property>
+		<!-- 邮件接受者 -->
+		<property name="to" value=""></property>
+		<!-- 邮件主题 -->
+		<property name="subject" value="安徽统一用户系统数据一致性稽核结果"></property>
+		<!-- 邮件内容 -->
+		<property name="content"
+			value="各位领导和同事：
+       您好！附件中是组织稽核统计清单和员工稽核统计表，请审阅。
+       详单查询页面请访问页面：http://134.64.116.90:9018/uom-apps/pages/audit/audit_no_login_main.zul ，选择指标后 点击 “导出详细清单”。"></property>
+	</bean>
+
+</beans>

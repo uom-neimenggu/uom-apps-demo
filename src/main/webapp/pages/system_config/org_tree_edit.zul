@@ -1,0 +1,51 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="orgTreeEditWin" border="none"
+		apply="${orgTreeEditComposer}" closable="true" width="650px"
+		height="125px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 组织树名称"
+									class="z-info-required" />
+								<textbox id="orgTreeName" width="96%">
+								</textbox>
+								<label value="是否是推导树" />
+								<listbox id="ISCalc" width="96%"
+									mold="select">
+									<listitem label="是" value="1"></listitem>
+									<listitem label="否" value="0"></listitem>
+								</listbox>
+							</row>
+							<row>
+								<label value="* 上次发布时间"
+									class="z-info-required" />
+								<datebox id="preTime"
+									format="yyyy-MM-dd HH:mm:ss" width="98%" readonly="true" />
+								<label value="* 最后发布时间"
+									class="z-info-required" />
+								<datebox id="lastTime"
+									format="yyyy-MM-dd HH:mm:ss" width="95%" readonly="true" />
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

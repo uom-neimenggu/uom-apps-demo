@@ -1,0 +1,28 @@
+<?page title="集团数据与主数据关系管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="groupUomOrgListboxExt" extends="div" class="cn.ffcs.uom.group.component.GroupUomOrgListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./groupUomMainWin"?>
+<zk>
+	<window id="groupUomMainWin" width="100%" height="100%"
+		apply="${groupUomMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="groupUomOrgTab" label="集团组织" />
+				<tab id="groupUomStaffTab" label="集团员工" visible="false" />
+				<tab id="tempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel id="groupUomOrgTabpanel" style="padding:1px;"
+					vflex="1">
+					<groupUomOrgListboxExt id="groupUomOrgListboxExt"
+						vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="groupUomStaffTabpanel"
+					visible="false">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel id="tempTabpanel" visible="false"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

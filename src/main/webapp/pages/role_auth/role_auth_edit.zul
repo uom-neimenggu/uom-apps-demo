@@ -1,0 +1,34 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffRoleBandboxExt" extends="bandbox" class="cn.ffcs.uom.staffrole.component.StaffRoleTreeBandboxExt" ?>
+<?component name="authBandboxExt" extends="bandbox" class="cn.ffcs.uom.roleauth.component.AuthorityTreeBandboxExt" ?>
+<zk>
+	<window id="roleAuthEditWindow" border="none"
+		width="500px" closable="true"
+		apply="${roleAuthEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="10%" align="center" />
+						<column width="40%" />
+						<column width="10%" align="center" />
+						<column width="40%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="角色：" />
+							<staffRoleBandboxExt id="staffRoleBandboxExt" width="186px" />
+							<label value="权限：" />
+							<authBandboxExt id="authBandboxExt" width="186px" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

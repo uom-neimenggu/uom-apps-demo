@@ -1,0 +1,52 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./mdCostcenterListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="mdCostcenterListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="名称" />
+				<textbox id="name" width="100px" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="mdCostcenterListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="成本中心" />
+					<listheader label="生效日期" />
+					<listheader label="失效日期" />
+					<listheader label="名称" />
+					<listheader label="描述" />
+					<listheader label="负责人" />
+					<listheader label="公司代码" />
+					<listheader label="利润中心" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.kostl}">
+					</listcell>
+					<listcell label="@{current.datab}">
+					</listcell>
+					<listcell label="@{current.datbi}">
+					</listcell>
+					<listcell label="@{current.ktext}">
+					</listcell>
+					<listcell label="@{current.ltext}">
+					</listcell>
+					<listcell label="@{current.verak}">
+					</listcell>
+					<listcell label="@{current.bukrs}">
+					</listcell>
+					<listcell label="@{current.prctr}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="mdCostcenterListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

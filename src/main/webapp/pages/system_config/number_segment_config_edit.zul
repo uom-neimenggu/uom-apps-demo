@@ -1,0 +1,51 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./numberSegmentEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="numberSegmentEditWin" border="none"
+		apply="${numberSegmentEditComposer}" closable="true" width="650px"
+		height="132px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 网络运营商"  class="z-info-required" />
+								<listbox id="operationBusiness" width="96%" mold="select">
+									<listitem label="电信" value="电信"></listitem>
+									<listitem label="移动" value="移动"></listitem>
+									<listitem label="联通" value="联通"></listitem>
+								</listbox>
+								<label value="* 号码段" class="z-info-required" />
+								<textbox id="numberSegment" width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="网络类型" />
+								<textbox id="remarks" width="96%">
+								</textbox>
+								<label value="* 状态" class="z-info-required" />
+								<listbox id="statusCd" width="96%"
+									mold="select">
+									<listitem label="生效" value="1000"></listitem>
+									<listitem label="失效" value="1100"></listitem>
+								</listbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

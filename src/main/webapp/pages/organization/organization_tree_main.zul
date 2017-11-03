@@ -1,0 +1,156 @@
+<?page title="组织树维护" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationTreeMainWindow" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationRelationTree" extends="tree" class="cn.ffcs.uom.organization.component.OrganizationRelationTree"?>
+<?component name="partyAttr" macroURI="/pages/party/party_edit.zul" ?>
+<?component name="organizationRelationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationRelationListboxComposer" ?>
+<?component name="organizationTranListboxExt" extends="div" class="cn.ffcs.uom.organization.component.OrganizationTranListboxExt"?>
+<?component name="uomGroupOrgTranListboxExt" extends="div" class="cn.ffcs.uom.organization.component.UomGroupOrgTranListboxExt"?>
+<?component name="staffOrganizationListbox" extends="div" class="cn.ffcs.uom.organization.action.StaffOrganizationListboxComposer" ?>
+<?component name="organizationPositionListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationPositionExt" ?>
+<?component name="politicalTreeExt" extends="div" class="cn.ffcs.uom.organization.component.PoliticalTreeExt"?>
+<?component name="agentTreeExt" extends="div" class="cn.ffcs.uom.organization.component.AgentTreeExt"?>
+<?component name="ibeTreeExt" extends="div" class="cn.ffcs.uom.organization.component.IbeTreeExt"?>
+<?component name="supplierTreeExt" extends="div" class="cn.ffcs.uom.organization.component.SupplierTreeExt"?>
+<?component name="organizationInfoEditExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationInfoEditExt"?>
+<?component name="partyCertificationListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyCertificationListboxExt" ?>
+<?component name="partyContactInfoListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyContactInfoListboxExt" ?>
+<?component name="staffPositionListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffPositionListboxExt"?>
+<?component name="organizationPartyAttrExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationPartyAttrExt"?>
+<?component name="ossTreeExt" extends="div" class="cn.ffcs.uom.organization.component.OssTreeExt"?>
+<?component name="staffOrgTranListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffOrgTranListboxExt"?>
+
+<window id="organizationTreeMainWindow"
+	apply="${organizationTreeMainComposer}" vflex="1" width="100%"
+	height="100%">
+	<borderlayout>
+		<west width="22%">
+			<tabbox id="leftTabbox" vflex="1">
+				<tabs>
+					<tab id="politicalTab" label="内部管理界面"
+						forward="onClickLeftTab" />
+					<tab id="tempTab" visible="false" />
+					<tab id="agentTab" label="代理商管理界面"
+						forward="onClickLeftTab" />
+					<tab id="ibeTab" label="内部经营实体管理界面"
+						forward="onClickLeftTab" />
+					<tab id="supplierTab" label="供应商管理界面"
+						forward="onClickLeftTab" />
+					<tab id="ossTab" label="中通服管理界面"
+						forward="onClickLeftTab" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1" id="politicalTabpanel">
+						<politicalTreeExt id="politicalTreeExt"
+							vflex="1" />
+					</tabpanel>
+					<tabpanel id="tempTabpanel" />
+					<tabpanel vflex="1" id="agentTabpanel">
+						<agentTreeExt id="agentTreeExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1" id="ibeTabpanel">
+						<ibeTreeExt id="ibeTreeExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1" id="supplierTabpanel">
+						<supplierTreeExt id="supplierTreeExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1" id="ossTabpanel">
+						<ossTreeExt id="ossTreeExt" vflex="1" />
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</west>
+		<center vflex="1">
+			<tabbox id="tabBox" vflex="1">
+				<tabs>
+					<tab id="orgAttrTab" label="组织属性"
+						forward="onClickTab" />
+					<tab id="orgRelaTab" label="组织关系"
+						forward="onClickTab" />
+					<tab id="orgTranTab" label="域内业务关系"
+						forward="onClickTab" />
+					<tab id="uomGroupOrgTranTab" label="跨域内外业务关系"
+						forward="onClickTab" />
+					<tab id="orgStaffTab" label="组织员工"
+						forward="onClickTab" />
+					<tab id="orgPositionTab" label="组织职位"
+						forward="onClickTab" />
+					<!--  
+						<tab id="orgPartyTab" label="组织参与人"
+						forward="onClickTab" visible="false"/>
+					-->
+					<tab id="orgPartyAttrTab" label="组织参与人"
+						forward="onClickTab" visible="false" />
+					<tab label="员工组织业务关系" id="staffOrgTranTab" forward="onClickTab" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1">
+						<organizationInfoEditExt
+							id="organizationInfoEditExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1">
+						<organizationRelationListbox
+							id="organizationRelationListbox" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1">
+						<organizationTranListboxExt
+							id="organizationTranListboxExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1">
+						<uomGroupOrgTranListboxExt
+							id="uomGroupOrgTranListboxExt" vflex="1" />
+					</tabpanel>
+					<tabpanel vflex="1">
+						<staffOrganizationListbox
+							id="staffOrganizationListbox" vflex="1" />
+						<tabbox id="tabBoxParty" vflex="1">
+							<tabs>
+								<tab label="员工联系人"
+									id="partyContactInfoTab" forward="onClickPartyTab" />
+								<tab label="员工证件"
+									id="partyCertificationTab" forward="onClickPartyTab" />
+								<tab label="员工职位列表"
+									id="staffPositionTab" forward="onClickPartyTab" />
+							</tabs>
+							<tabpanels>
+								<tabpanel style="padding:1px;"
+									vflex="1">
+									<partyContactInfoListboxExt
+										id="partyContactInfoListboxExt" vflex="1" />
+								</tabpanel>
+								<tabpanel style="padding:1px;"
+									vflex="1">
+									<partyCertificationListboxExt
+										id="partyCertificationListboxExt" vflex="1" />
+								</tabpanel>
+								<tabpanel style="padding:1px;"
+									vflex="1">
+									<staffPositionListboxExt
+										id="staffPositionListboxExt" vflex="1" />
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</tabpanel>
+					<tabpanel vflex="1">
+						<organizationPositionListbox
+							id="organizationPositionListbox" vflex="1" />
+					</tabpanel>
+					<!-- 
+						<tabpanel vflex="1"
+						style="height:120%;overflow:scroll;">
+						<partyAttr id="partyAttr" vflex="1" />
+						</tabpanel>
+					-->
+					<tabpanel vflex="1"
+						style="height:120%;overflow:scroll;">
+						<organizationPartyAttrExt
+							id="organizationPartyAttrExt" vflex="1" />
+					</tabpanel>
+					<tabpanel style="padding:1px;" vflex="1">
+						<staffOrgTranListboxExt id="staffOrgTranListboxExt" vflex="1" />
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+</window>

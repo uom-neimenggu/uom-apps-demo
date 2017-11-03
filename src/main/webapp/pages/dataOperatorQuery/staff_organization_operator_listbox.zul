@@ -1,0 +1,35 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffOrganizationListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="staffOrganizationListboxComp" vflex="1">
+		<panelchildren>
+			<listbox id="staffOrganizationListBox"
+				forward="onSelect=onStaffOrganizationSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织" width="22%"/>
+					<listheader label="关联类型" width="5%"/>
+					<listheader label="状态" width="5%"/>
+					<listheader label="创建人" width="10%"/>
+					<listheader label="创建时间" width="11%"/>
+					<listheader label="最后修改人" width="10%"/>
+					<listheader label="最后修改时间" width="12%"/>
+					<listheader label="操作原因" width="25%"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.organizationName}"></listcell>
+					<listcell label="@{current.ralaCdName}"></listcell>
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.createStaffName}" />
+					<listcell label="@{current.createDate}" />
+					<listcell label="@{current.updateStaffName2}" />
+					<listcell label="@{current.updateDate}" />
+					<listcell label="@{current.reason}" />
+				</listitem>
+			</listbox>
+			<paging id="staffOrganizationListPaging" pageSize="5"
+				forward="onQueryStaffOrganizationPaging" />
+		</panelchildren>
+	</panel>
+</zk>

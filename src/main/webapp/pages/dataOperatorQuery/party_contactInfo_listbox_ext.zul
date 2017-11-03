@@ -1,0 +1,36 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyContactInfoListboxExtPanel" ?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="partyContactInfoListboxExtPanel" vflex="1">
+		<panelchildren>
+			<textbox id="contactName" width="95px" visible="false"/>
+			<listbox id="partyContactInfoListbox" sizedByContent="false" sclass="zl-listbox" forward="onSelect=onPartyContactInfoSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="首选联系人" width="5%"/>
+					<listheader label="类型" width="5%"/>
+					<listheader label="名称" width="10%"/>
+					<listheader label="状态" width="8%"/>
+					<listheader label="创建人" width="10%"/>
+					<listheader label="创建时间" width="13%"/>
+					<listheader label="最后修改人" width="10%"/>
+					<listheader label="最后修改时间" width="14%"/>
+					<listheader label="操作原因" width="25%"/>
+				</listhead>
+				<listitem self="@{each='partyContactInfo'}" value="@{partyContactInfo}" tooltiptext="@{partyContactInfo.contactName}">
+					<listcell label="@{partyContactInfo.headFlagName}"/>
+					<listcell label="@{partyContactInfo.contactTypeName}"/>
+					<listcell label="@{partyContactInfo.contactName}"/>
+					<listcell label="@{partyContactInfo.statusCdName}" />
+					<listcell label="@{partyContactInfo.createStaffName}" />
+					<listcell label="@{partyContactInfo.createDate}" />
+					<listcell label="@{partyContactInfo.updateStaffName2}" />
+					<listcell label="@{partyContactInfo.updateDate}" />
+					<listcell label="@{partyContactInfo.reason}" />
+				</listitem>
+			</listbox>
+			<paging id="partyContactInfoListboxPaging" forward="onPartyContactInfoListboxPaging" pageSize="10"/>
+		</panelchildren>
+	</panel>
+</zk>

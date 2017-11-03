@@ -1,0 +1,30 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="roleEditWindow" border="none" apply="${roleEditComposer}" vflex="1" width="460px;"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="30%" align="center" />
+						<column width="70%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="角色编码" />
+							<textbox id="roleCode" width="95%"/>
+						</row>
+						<row>
+							<label value="角色名称" />
+							<textbox id="roleName" width="95%" />
+						</row>
+					</rows>
+				</grid>
+				<toolbar align="center" mold="panel">
+					<button id="okButton" label="确定" forward="onOk" />
+					<button id="cancelButton" label="取消" forward="onCancel" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

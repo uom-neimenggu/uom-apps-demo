@@ -1,0 +1,85 @@
+<?page title="员工角色系统列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacUserRoleBusinessSystemListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacUserRoleBusinessSystemListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacUserRoleBusinessSystemSearchDiv">
+					<hbox>
+						<label value="系统编码" />
+						<textbox id="rbacBusinessSystemCode"
+							width="70px" />
+						<label value="系统名称" />
+						<textbox id="rbacBusinessSystemName"
+							width="70px" />
+						<label value="员工账号" />
+						<textbox id="staffAccount" width="70px" />
+						<label value="员工名称" />
+						<textbox id="staffName" width="70px" />
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="70px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="70px" />
+						<button label="查询"
+							forward="onQueryRbacUserRoleBusinessSystem" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacUserRoleBusinessSystem" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton
+						id="addRbacUserRoleBusinessSystemButton" label="新增"
+						forward="onRbacUserRoleBusinessSystemAdd" />
+					<toolbarbutton
+						id="delRbacUserRoleBusinessSystemButton" label="删除"
+						forward="onRbacUserRoleBusinessSystemDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacUserRoleBusinessSystemListbox"
+				forward="onSelect=onRbacUserRoleBusinessSystemSelectRequest"
+				vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="标识" />
+					<listheader label="系统编码" />
+					<listheader label="系统名称" />
+					<listheader label="员工账号" />
+					<listheader label="员工名称" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacUserRoleBusinessSystem'}"
+					value="@{rbacUserRoleBusinessSystem}">
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.rbacUserRoleBusSysId}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.rbacBusinessSystemCode}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.rbacBusinessSystemName}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.staffAccount}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.staffName}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.rbacRoleCode}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.rbacRoleName}" />
+					<listcell
+						label="@{rbacUserRoleBusinessSystem.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacUserRoleBusinessSystemListPaging"
+				pageSize="16" forward="onRbacUserRoleBusinessSystemListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,34 @@
+<?page title="PI财务组织查询列表" contentType="text/html;charset=UTF-8"?>
+<?component name="mdCostcenterListboxComp" extends="div" class="cn.ffcs.uom.organization.action.MdCostcenterListboxComposer" ?>
+<?component name="mdProfitcenterListboxComp" extends="div" class="cn.ffcs.uom.organization.action.MdProfitcenterListboxComposer" ?>
+<?component name="mdmSupplierCreateListboxComp" extends="div" class="cn.ffcs.uom.organization.action.MdmSupplierCreateListboxComposer" ?>
+<?component name="mdmContractListboxComp" extends="div" class="cn.ffcs.uom.organization.action.MdmContractListboxComposer" ?>
+
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="piFinanceOrgMainWin" width="100%" height="95%"
+		apply="${piFinanceOrgMainComposer}">
+		<tabbox id="tabbox" width="99%" vflex="1">
+			<tabs>
+				<tab id="mdCostcenterTab" label="成本中心" forward="onClickTab" />
+				<tab id="mdProfitcenterTab" label="利润中心" forward="onClickTab" />
+				<tab id="mdmSupplierCreateTab" label="供应商" forward="onClickTab" />
+				<tab id="mdmContractTab" label="合同" forward="onClickTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="mdCostcenterTabpanel">
+					<mdCostcenterListboxComp id="mdCostcenterListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="mdProfitcenterTabpanel">
+					<mdProfitcenterListboxComp id="mdProfitcenterListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="mdmSupplierCreateTabpanel">
+					<mdmSupplierCreateListboxComp id="mdmSupplierCreateListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="mdmContractTabpanel">
+					<mdmContractListboxComp id="mdmContractListboxComp" vflex="1" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

@@ -1,0 +1,150 @@
+<?page title="教育经历管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="人员编码" />
+						<textbox id="" width="80px" />
+						<label value="人员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员编码" width="10%" align="center" />
+					<listheader label="人员姓名" width="10%" align="center" />
+					<listheader label="证书编码" width="12%" align="center" />
+					<listheader label="专业" width="16%" align="center" />
+					<listheader label="学校" width="16%" align="center" />
+					<listheader label="是否是第一学历" width="12%" align="center" />
+					<listheader label="是否是最高学历" width="12%" align="center" />
+					<listheader label="毕业日期" width="14%" align="center" />
+				</listhead>
+
+				<listitem>
+					<listcell label="34920157" />
+					<listcell label="严为民" />
+					<listcell label="1" />
+					<listcell label="汉语言文学" />
+					<listcell label="安徽师范大学" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="1992-07-01" />
+				</listitem>
+				<listitem>
+					<listcell label="34980368" />
+					<listcell label="张军" />
+					<listcell label="0000000000" />
+					<listcell label="电子工程" />
+					<listcell label="合肥工业大学" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="1998-07-01" />
+				</listitem>
+				<listitem>
+					<listcell label="34115807" />
+					<listcell label="时衬" />
+					<listcell label="1105942011000163" />
+					<listcell label="通信工程" />
+					<listcell label="合肥学院" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="2011-07-10" />
+				</listitem>
+				<listitem>
+					<listcell label="34030201" />
+					<listcell label="罗焱" />
+					<listcell label="Z1035832008000894" />
+					<listcell label="工商管理" />
+					<listcell label="中国科学技术大学" />
+					<listcell label="N" />
+					<listcell label="Y" />
+					<listcell label="2008-12-20" />
+				</listitem>
+				<listitem>
+					<listcell label="34950217" />
+					<listcell label="张新宝" />
+					<listcell label="08502890" />
+					<listcell label="经济管理" />
+					<listcell label="中共安徽省委党校" />
+					<listcell label="N" />
+					<listcell label="Y" />
+					<listcell label="2008-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34146969" />
+					<listcell label="张群菲" />
+					<listcell label="123" />
+					<listcell label="通信工程" />
+					<listcell label="安徽工程大学" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="2014-07-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34930283" />
+					<listcell label="于艳" />
+					<listcell label="Z1036132009000034" />
+					<listcell label="电气工程" />
+					<listcell label="安徽理工大学" />
+					<listcell label="N" />
+					<listcell label="Y" />
+					<listcell label="2009-06-22" />
+				</listitem>
+				<listitem>
+					<listcell label="34020094" />
+					<listcell label="陈莺丽" />
+					<listcell label="Z1036132009000034" />
+					<listcell label="计算机应用" />
+					<listcell label="安徽农业大学" />
+					<listcell label="N" />
+					<listcell label="Y" />
+					<listcell label="2014-08-29" />
+				</listitem>
+				<listitem>
+					<listcell label="34020094" />
+					<listcell label="陈莺丽" />
+					<listcell label="103644020821" />
+					<listcell label="计算机应用" />
+					<listcell label="安徽农业大学" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="2002-06-20" />
+				</listitem>
+				<listitem>
+					<listcell label="71033985" />
+					<listcell label="徐瑞" />
+					<listcell label="1173020225" />
+					<listcell label="软件工程" />
+					<listcell label="电子科技大学信息与软件工程学院" />
+					<listcell label="Y" />
+					<listcell label="Y" />
+					<listcell label="2015-06-01" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

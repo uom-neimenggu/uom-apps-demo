@@ -1,0 +1,44 @@
+<?page title="角色管理" contentType="text/html;charset=UTF-8"?>
+<?component name="roleListbox" extends="div" class="cn.ffcs.uom.dataPermission.action.RoleListboxComposer" ?>
+<?component name="roleTelcomRegionListbox" extends="div" class="cn.ffcs.uom.dataPermission.action.RoleTelcomRegionListboxComposer" ?>
+<?component name="roleOrganizationListbox" extends="div" class="cn.ffcs.uom.dataPermission.action.RoleOrganizationListboxComposer" ?>
+<?component name="roleProfessionalTreeListbox" extends="div" class="cn.ffcs.uom.dataPermission.action.RoleProfessionalTreeListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="roleMainWin" height="100%"
+		apply="${roleMainComposer}">
+		<borderlayout>
+			<north size="50%">
+				<div vflex="1">
+					<roleListbox id="roleListbox" vflex="1" />
+				</div>
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1" style="padding:1px">
+					<tabs>
+						<tab label="关联电信管理区域" id="roleTelcomRegionTab"
+							forward="onClickTab" />
+						<tab label="关联组织" id="roleOrganizationTab"
+							forward="onClickTab" />
+						<tab label="专业树数据权" id="roleProfessionalTreeTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;">
+							<roleTelcomRegionListbox
+								id="roleTelcomRegionListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<roleOrganizationListbox
+								id="roleOrganizationListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<roleProfessionalTreeListbox
+								id="roleProfessionalTreeListbox" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

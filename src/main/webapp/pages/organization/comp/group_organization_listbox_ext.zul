@@ -1,0 +1,66 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./groupOrganizationListboxExtPanel"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="groupOrganizationListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="组织来源" />
+				<listbox id="orgType" mold="select" />
+				<label value="组织编码" />
+				<textbox id="orgCode" width="90px" />
+				<label value="组织名称" />
+				<textbox id="orgName" width="100px" />
+				<label value="备注" />
+				<textbox id="tDesc2" width="100px" />
+				<button label="查询" forward="onQueryGroupOrganization"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onResetGroupOrganization"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="groupOrganizationBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeGroupOrganizationButton"
+							label="关闭" forward="onCloseGroupOrganization" />
+						<toolbarbutton id="cleanGroupOrganizationButton"
+							label="清空" forward="onCleanGroupOrganization" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="groupOrganizationListBox" style="height:200px"
+				forward="onSelect=onGroupOrganizationSelect" mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织编码" width="80px" />
+					<listheader label="组织名称" />
+					<!-- <listheader label="分组编码" /> -->
+					<listheader label="组织全称" />
+					<listheader label="供应商编码" />
+					<listheader label="供应商名称" />
+					<listheader label="状态" width="40px" />
+					<listheader label="组织来源" />
+					<!-- <listheader label="组织类型说明" /> -->
+					<listheader label="备注" width="460px" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<!-- <listcell label="@{current.orgGroup}"></listcell> -->
+					<listcell label="@{current.orgFullName}"></listcell>
+					<listcell label="@{current.supplierCode}"></listcell>
+					<listcell label="@{current.supplierName}"></listcell>
+					<listcell label="@{current.statusCdName}"></listcell>
+					<listcell label="@{current.orgTypeName}"></listcell>
+					<!-- <listcell label="@{current.orgDesc}"></listcell> -->
+					<listcell label="@{current.tDesc}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="groupOrganizationListPaging" pageSize="14"
+				forward="onGroupOrganizationListboxExtPaging" />
+		</panelchildren>
+	</panel>
+</zk>

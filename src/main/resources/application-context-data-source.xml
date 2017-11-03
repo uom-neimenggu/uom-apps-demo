@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 数据源 -->
+	<!-- 生产环境 
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/uomPool"/>-->
+	<!-- 测试库 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver">
+		</property>
+		<property name="url" value="jdbc:oracle:thin:@134.64.14.90:1521:ahorgmng">
+		</property>
+		<property name="username" value="uom"></property>
+		<property name="password" value="uom12345"></property>
+	</bean>
+
+	<!-- lob 相关 -->
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+	<bean name="lobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true">
+		<property name="nativeJdbcExtractor">
+			<ref local="nativeJdbcExtractor" />
+		</property>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />	<!-- 数据源 -->
+		<property name="lobHandler" ref="lobHandler" />
+		<property name="mappingLocations">
+			<list>
+				<value>
+					classpath*:/cn/ffcs/u*/**/model/*.hbm.xml <!-- Hibernate的实体bean的映射文件-->
+				</value>
+			</list>
+		</property>
+		<!-- hibernateProperties是用来配置Hibernate的属性信息 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.query.substitutions">
+					true 'Y', false 'N'
+				</prop>
+				<prop key="org.hibernate.SQL">false</prop>
+				<prop key="hibernate.show_sql">true</prop>
+
+				<prop key="hibernate.query.factory_class">
+					org.hibernate.hql.ast.ASTQueryTranslatorFactory
+				</prop>
+				<prop key="hibernate.cache.region.factory_class">
+					net.sf.ehcache.hibernate.EhCacheRegionFactory
+				</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+				<!-- <prop key="hibernate.bytecode.provider">javassist</prop> -->
+				<!-- <prop key="current_session_context_class">thread</prop> -->
+			</props>
+		</property>
+	</bean>
+</beans>

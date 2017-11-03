@@ -1,0 +1,56 @@
+<?page title="系统接口配置" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="businessSystemListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.BusinessSystemListExt"?>
+<?component name="systemIntfInfoConfigListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SystemIntfInfoConfigListExt"?>
+<?component name="systemOrgTreeConfigListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SystemOrgTreeConfigListExt"?>
+<?component name="systemMessageConfigListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SystemMessageConfigListExt"?>
+<?component name="systemMonitorConfigListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SystemMonitorConfigListExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./interfaceConfigMainWin"?>
+<zk>
+	<window id="interfaceConfigMainWin" height="500px"
+		apply="${interfaceConfigMainConposer}">
+		<borderlayout>
+			<north size="50%">
+				<businessSystemListExt id="businessSystemListExt"
+					vflex="1">
+				</businessSystemListExt>
+			</north>
+			<south size="50%">
+				<tabbox id="tabbox" vflex="1" style="padding:1px">
+					<tabs>
+						<tab id="systemIntfInfoConfigTab"
+							label="系统接口信息配置" forward="onClickTab" />
+						<tab id="systemOrgTreeConfigTab"
+							label="系统接口组织树配置" forward="onClickTab" />
+						<tab id="systemMessageConfigTab"
+							label="系统接口短信通知配置" forward="onClickTab" />
+						<tab id="systemMonitorConfigTab"
+							label="系统接口监控配置" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;">
+							<systemIntfInfoConfigListExt
+								id="systemIntfInfoConfigListExt" vflex="1">
+							</systemIntfInfoConfigListExt>
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<systemOrgTreeConfigListExt
+								id="systemOrgTreeConfigListExt" vflex="1">
+							</systemOrgTreeConfigListExt>
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<systemMessageConfigListExt
+								id="systemMessageConfigListExt" vflex="1">
+							</systemMessageConfigListExt>
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<systemMonitorConfigListExt
+								id="systemMonitorConfigListExt" vflex="1">
+							</systemMonitorConfigListExt>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-31 9:31:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="cn.ffcs.uac.staff.model.UacStaffUomRelation" table="UAC_STAFF_UOM_RELATION">
+		<comment>uac人员相关信息uom关系表</comment>
+		<id name="relaId" type="java.lang.Long">
+			<column name="RELA_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_UAC_UOM_RELA_ID</param>
+			</generator>
+		</id>
+		<property name="uacStaffId" type="java.lang.Long">
+			<column name="UAC_STAFF_ID" precision="12" scale="0">
+				<comment>人员id</comment>
+			</column>
+		</property>
+		<property name="uacCertId" type="java.lang.Long">
+			<column name="UAC_CERT_ID" precision="12" scale="0">
+				<comment>uac证件id</comment>
+			</column>
+		</property>
+		<property name="uacContactId" type="java.lang.Long">
+			<column name="UAC_CONTACT_ID" precision="12" scale="0">
+				<comment>uac联系人id</comment>
+			</column>
+		</property>
+		<property name="attachedInfoId" type="java.lang.Long">
+			<column name="ATTACHED_INFO_ID" precision="12" scale="0">
+				<comment>uac相关信息id</comment>
+			</column>
+		</property>
+		<property name="extendIds" type="java.lang.String">
+			<column name="EXTEND_IDS" length="60">
+				<comment>认证账号</comment>
+			</column>
+		</property>
+		<property name="staffId" type="java.lang.Long">
+			<column name="STAFF_ID" precision="12" scale="0">
+				<comment>uom人员id</comment>
+			</column>
+		</property>
+		<property name="staffAccountId" type="java.lang.Long">
+			<column name="STAFF_ACCOUNT_ID" precision="12" scale="0">
+				<comment>uom人员账号id</comment>
+			</column>
+		</property>
+		<property name="partyId" type="java.lang.Long">
+			<column name="PARTY_ID" precision="12" scale="0">
+				<comment>uom参与人id</comment>
+			</column>
+		</property>
+		<property name="partyRoleId" type="java.lang.Long">
+			<column name="PARTY_ROLE_ID" precision="12" scale="0">
+				<comment>uom参与人角色id</comment>
+			</column>
+		</property>
+		<property name="contactId" type="java.lang.Long">
+			<column name="CONTACT_ID" precision="12" scale="0">
+				<comment>uom联系人id</comment>
+			</column>
+		</property>
+		<property name="partyCertId" type="java.lang.Long">
+			<column name="PARTY_CERT_ID" precision="12" scale="0">
+				<comment>uom参与人证件id</comment>
+			</column>
+		</property>
+		<property name="individualId" type="java.lang.Long">
+			<column name="INDIVIDUAL_ID" precision="12" scale="0">
+				<comment>uom参与人个人信息id</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" precision="12" scale="0">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" precision="12" scale="0">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

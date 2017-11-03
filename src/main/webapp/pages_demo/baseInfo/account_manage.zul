@@ -1,0 +1,195 @@
+<?page title="账号信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="管理员帐号" />
+						<textbox id="" width="80px" />
+						<label value="管理员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="批量导入" />
+							<toolbarbutton label="模板下载" />
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="账号ID" width="10%" align="center" />
+					<listheader label="账号类型" width="10%" align="center" />
+					<listheader label="加密信息" width="10%" align="center" />
+					<listheader label="密码强度" width="10%" align="center" />
+					<listheader label="密码策略" width="12%" align="center" />
+					<listheader label="数据来源" width="12%" align="center" />
+					<listheader label="操作人名" width="12%" align="center" />
+					<listheader label="创建时间" width="12%" align="center" />
+					<listheader label="修改时间" width="12%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="8734390847" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="MD5加密" />
+					<listcell label="" />
+					<listcell label="樊鹏" />
+					<listcell label="2016/7/7" />
+					<listcell label="20175/25" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390843" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="钱雨婷" />
+					<listcell label="2016/8/3" />
+					<listcell label="2017/5/30" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390850" />
+					<listcell label="操作系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="DES加密" />
+					<listcell label="" />
+					<listcell label="颜煜翔" />
+					<listcell label="2016/8/3" />
+					<listcell label="2017/5/30" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390855" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="较强" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="方向宏" />
+					<listcell label="2016/4/23" />
+					<listcell label="2017/7/22" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390861" />
+					<listcell label="操作系统账号" />
+					<listcell label="" />
+					<listcell label="弱" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="程海英" />
+					<listcell label="2016/9/25" />
+					<listcell label="2017/6/11" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390643" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="弱" />
+					<listcell label="DES加密" />
+					<listcell label="" />
+					<listcell label="王家胜" />
+					<listcell label="2016/12/3" />
+					<listcell label="2017/3/12" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390747" />
+					<listcell label="数据库账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="MD5加密" />
+					<listcell label="" />
+					<listcell label="陈晶晶" />
+					<listcell label="2016/4/3" />
+					<listcell label="2017/4/12" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390112" />
+					<listcell label="操作系统账号" />
+					<listcell label="" />
+					<listcell label="较强" />
+					<listcell label="RSA加密" />
+					<listcell label="" />
+					<listcell label="汪锦芬" />
+					<listcell label="2016/8/3" />
+					<listcell label="2017/6/29" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390211" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="弱" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="徐世菁" />
+					<listcell label="2016/8/12" />
+					<listcell label="2017/5/23" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390344" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="MD5加密" />
+					<listcell label="" />
+					<listcell label="曹子雯" />
+					<listcell label="2016/4/3" />
+					<listcell label="2017/8/30" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390456" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="RSA加密" />
+					<listcell label="" />
+					<listcell label="周亚文" />
+					<listcell label="2017/8/3" />
+					<listcell label="2017/9/30" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390567" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="钱雨婷" />
+					<listcell label="2015/6/6" />
+					<listcell label="2016/5/28" />
+				</listitem>
+				<listitem>
+					<listcell label="8500390789" />
+					<listcell label="应用系统账号" />
+					<listcell label="" />
+					<listcell label="强" />
+					<listcell label="HMAC加密" />
+					<listcell label="" />
+					<listcell label="江颍" />
+					<listcell label="2016/3/2" />
+					<listcell label="2017/6/30" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

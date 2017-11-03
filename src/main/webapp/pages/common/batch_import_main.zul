@@ -1,0 +1,58 @@
+<?page title="批量导入" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./batchImportMainWin"?>
+<zk>
+	<window id="batchImportMainWin" width="100%" height="100%"
+		apply="${batchImportMainComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="员工" />
+							<div>
+								<button label="导入" upload="true,maxsize=300" id="staffImport" 
+								autodisable="self" mold="trendy" />
+								<button label="模板下载" forward="onDownloadStaffTemplate" 
+								autodisable="self" mold="trendy" />
+							</div>
+							<label value="员工组织关系" />
+							<button label="导入" forward="onStaffOrganizationImport" 
+							autodisable="self" mold="trendy" />
+						</row>
+						<row>
+							<label value="员工组织业务关系" />
+							<div>
+								<button label="导入" upload="true,maxsize=300" id="staffOrgTranImport" 
+								autodisable="self" mold="trendy" />
+								<button label="模板下载" forward="onDownloadStaffOrgTranTemplate" 
+								autodisable="self" mold="trendy" />
+							</div>
+							<label value="员工角色关系" />
+							<div>
+								<button label="导入" upload="true,maxsize=300" id="staffRoleImport" 
+								autodisable="self" mold="trendy" />
+								<button label="模板下载" forward="onDownloadStaffRoleTemplate" 
+								autodisable="self" mold="trendy" />
+							</div>
+						</row>
+						<row>
+							<label value="参与人证件" />
+							<button label="导入" forward="onPartyCertificationImport" 
+							autodisable="self" mold="trendy" />
+							<label value="组织" />
+							<button label="导入" forward="onOrganizationImport" 
+							autodisable="self" mold="trendy" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

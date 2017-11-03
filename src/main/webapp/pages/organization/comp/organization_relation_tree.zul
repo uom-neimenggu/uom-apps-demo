@@ -1,0 +1,9 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationRelationWin"?>
+<?component name="organizationRelationTree" extends="tree" class="cn.ffcs.uom.organization.component.OrganizationRelationTree"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+	<window id="organizationRelationWin" height="100%" width="100%">
+		<organizationRelationTree treeType="10" id="organizationRelationTree"></organizationRelationTree>
+	</window>
+</zk>

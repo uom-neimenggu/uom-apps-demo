@@ -1,0 +1,48 @@
+<?page title="发布日志" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./publishLogMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="publishLogMainWin" width="800px" height="460px"
+		title="查看发布日志" closable="true" forward="onOK=onQueryPublishLogRequest"
+		apply="${publishLogComposer}">
+		<panel id="publishLogListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" id="toolbarId"
+					sclass="toolbar-user" style="width:auto;float:left;">
+					<div>
+						<hbox>
+							<label value="组织树名称" />
+							<listbox id="orgTreeNameListbox"
+								mold="select" rows="1" width="160px">
+							</listbox>
+							<button label="查询"
+								forward="onQueryPublishLogRequest" autodisable="self" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="publishLogListbox" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="发布日志标识" />
+						<listheader label="发布人" />
+						<listheader label="发布时间" />
+						<listheader label="树生成时间" />
+						<listheader label="上次树生成时间" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.publishLogId}"></listcell>
+						<listcell label="@{current.createStaff}"></listcell>
+						<listcell label="@{current.publishDate}"></listcell>
+						<listcell label="@{current.genDate}"></listcell>
+						<listcell label="@{current.lastGenDate}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="publishLogListPaging" pageSize="10"
+					forward="onQueryPublishLogPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

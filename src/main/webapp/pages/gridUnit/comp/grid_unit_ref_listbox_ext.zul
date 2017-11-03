@@ -1,0 +1,59 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./gridUnitRefListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="gridUnitRefListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="gridUnitRefSearchDiv">
+					<hbox>
+						<label value="网格组织编码" />
+						<textbox id="orgCode" width="85px" />
+						<label value="网格名称" />
+						<textbox id="orgName" width="85px" />
+						<label value="全息网格标识" />
+						<longbox id="mmeFid" width="85px" />
+						<label value="网格单元名称" />
+						<textbox id="gridName" width="85px" />
+						<button label="查询" forward="onQueryGridUnitRef"
+							autodisable="self" mold="trendy" />
+						<button label="重置" forward="onResetGridUnitRef"
+							autodisable="self" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="gridUnitRefListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectGridUnitRefRequest"
+				vflex="1">
+				<listhead sizable="true">
+					<listheader label="网格单元关系标识" />
+					<listheader label="全息网格标识" />
+					<listheader label="网格单元名称" />
+					<listheader label="网格组织编码" />
+					<listheader label="网格名称" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+					<listheader label="失效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.gridUnitRefId}">
+					<listcell label="@{current.gridUnitRefId}"></listcell>
+					<listcell label="@{current.mmeFid}"></listcell>
+					<listcell label="@{current.gridName}"></listcell>
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.statusCdName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="gridUnitRefListboxPaging"
+				forward="onGridUnitRefListboxPaging" pageSize="14" />
+		</panelchildren>
+	</panel>
+</zk>

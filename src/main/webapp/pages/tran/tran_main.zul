@@ -1,0 +1,28 @@
+<?page title="域内业务关系管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationTranListboxExt" extends="div" class="cn.ffcs.uom.organization.component.OrganizationTranListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./tranMainWin"?>
+<zk>
+	<window id="tranMainWin" height="100%"
+		apply="${tranMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="organizationTranTab" label="组织" />
+				<tab id="staffTranTab" label="员工" visible="false" />
+				<tab id="tempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel id="organizationTranTabpanel"
+					style="padding:1px;" vflex="1">
+					<organizationTranListboxExt
+						id="organizationTranListboxExt" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="staffTranTabpanel"
+					visible="false">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel id="tempTabpanel" visible="false"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

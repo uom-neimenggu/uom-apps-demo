@@ -1,0 +1,24 @@
+#raptornuke-plugin-common配置文件
+#版本2013-03-15
+
+#是否是portal环境，servlet环境为false，portlet环境为true
+#注意raptornuke扩展工程为servlet环境
+PORTLET=true
+
+#ByteArrayMaker初始化大小
+BYTE_ARRAY_MAKER_INITIAL_SIZE=8000
+
+#StringBundler界限，可选值32768 (32 kb)或65536 (64 kb)
+STRING_BUNDLER_UNSAFE_CREATE_THRESHOLD=0
+
+#ZK主题存储方式，可选值cookie
+ZK_THEME_STORE_TYPE=cookie
+
+#ZK主题风格cookie键
+ZK_THEME_STYLE_COOKIE_KEY=zkthemestyle
+
+#ZK字体大小cookie键
+ZK_FONT_SIZE_COOKIE_KEY=zkfontsize
+
+#ZK默认主题风格名称，可选值breeze、classicblue、sapphire、silvergray或空
+ZK_THEME_STYLE_DEFAULT=sapphire

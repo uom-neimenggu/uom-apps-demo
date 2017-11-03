@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-13 12:02:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uom.organization.model.HanaTelSyncCostcenter" table="HANA_TEL_SYNC_COSTCENTER" >
+    		<comment>人力组织成本中心基础数据</comment>
+			<id name="id" type="java.lang.Long">
+				<column name="ID" precision="22" scale="0" />
+				<generator class="sequence">
+					<param name="sequence">SEQ_CT_ORGANIZATION_ID</param>
+				</generator>
+			</id>
+           <property name="monthId" type="int">
+               <column name="MONTH_ID" precision="8" scale="0" />
+           </property>
+           <property name="unitId" type="string">
+               <column name="UNIT_ID" length="12" />
+           </property>
+           <property name="pkCostcenter" type="string">
+               <column name="PK_COSTCENTER" length="20" />
+           </property>
+           <property name="kostl" type="string">
+               <column name="KOSTL" length="50" />
+           </property>
+           <property name="bukrs" type="string">
+               <column name="BUKRS" length="50" />
+           </property>
+           <property name="datbi" type="string">
+               <column name="DATBI" length="50" />
+           </property>
+           <property name="datab" type="string">
+               <column name="DATAB" length="50" />
+           </property>
+           <property name="ktext" type="string">
+               <column name="KTEXT" length="100" />
+           </property>
+           <property name="ltext" type="string">
+               <column name="LTEXT" length="200" />
+           </property>
+           <property name="verak" type="string">
+               <column name="VERAK" length="50" />
+           </property>
+           <property name="abtei" type="string">
+               <column name="ABTEI" length="50" />
+           </property>
+           <property name="kosar" type="string">
+               <column name="KOSAR" length="50" />
+           </property>
+           <property name="khinr" type="string">
+               <column name="KHINR" length="50" />
+           </property>
+           <property name="gsber" type="string">
+               <column name="GSBER" length="50" />
+           </property>
+           <property name="funcArea" type="string">
+               <column name="FUNC_AREA" length="50" />
+           </property>
+           <property name="waersq" type="string">
+               <column name="WAERSQ" length="50" />
+           </property>
+           <property name="prctr" type="string">
+               <column name="PRCTR" length="50" />
+           </property>
+           <property name="flowSign" type="string">
+               <column name="FLOW_SIGN" length="50" />
+           </property>
+           <property name="remark1" type="string">
+               <column name="REMARK1" length="50" />
+           </property>
+           <property name="remark2" type="string">
+               <column name="REMARK2" length="50" />
+           </property>
+           <property name="remark3" type="string">
+               <column name="REMARK3" length="50" />
+           </property>
+           <property name="remark4" type="string">
+               <column name="REMARK4" length="50" />
+           </property>
+           <property name="remark5" type="string">
+               <column name="REMARK5" length="200" />
+           </property>
+           <property name="kokrs" type="string">
+               <column name="KOKRS" length="4" />
+           </property>
+           <property name="remark6" type="string">
+               <column name="REMARK6" length="200" />
+           </property>
+           <property name="remark7" type="string">
+               <column name="REMARK7" length="200" />
+           </property>
+           <property name="remark8" type="string">
+               <column name="REMARK8" length="200" />
+           </property>
+           <property name="remark9" type="string">
+               <column name="REMARK9" length="200" />
+           </property>
+           <property name="remark10" type="string">
+               <column name="REMARK10" length="200" />
+           </property>
+           <property name="datab2" type="string">
+               <column name="DATAB2" length="8" />
+           </property>
+           <property name="datbi2" type="string">
+               <column name="DATBI2" length="8" />
+           </property>
+           <property name="datastatus" type="string">
+               <column name="DATASTATUS" length="6" />
+           </property>
+           <property name="isVirtual" type="string">
+               <column name="IS_VIRTUAL" length="10" />
+           </property>
+           <property name="ts" type="string">
+               <column name="TS" length="19" />
+           </property>
+           <property name="dr" type="java.lang.Long">
+               <column name="DR" precision="10" scale="0" />
+           </property>
+           <property name="loadDate" type="date">
+               <column name="LOAD_DATE" length="7" />
+           </property>
+           <property name="etlDay" type="java.lang.Long">
+               <column name="ETL_DAY" precision="10" scale="0" />
+           </property>
+           <property name="localPartitionId" type="java.lang.Byte">
+               <column name="LOCAL_PARTITION_ID" precision="2" scale="0" />
+           </property>
+    </class>
+</hibernate-mapping>

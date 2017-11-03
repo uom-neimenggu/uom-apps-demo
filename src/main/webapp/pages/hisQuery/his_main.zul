@@ -1,0 +1,227 @@
+<?page title="历史查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./hisQueryWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="hisQueryWin" width="100%" height="100%"
+		apply="${hisQueryMainComposer}">
+		<borderlayout>
+			<west width="23%" vflex="1">
+				<panel title="查询条件" vflex="1">
+					<panelchildren>
+						<grid style="border:none;">
+							<columns>
+								<column label="" width="35%" />
+								<column label="" width="60%" />
+								<column label="" width="15%" />
+							</columns>
+							<rows>
+								<row spans="1,2">
+									<label value="组织" />
+									<longbox id="orgId" width="98%">
+							       </longbox>
+								</row>
+								<row spans="1,2">
+									<label value="查询时间点" />
+									<datebox id="queryDate"
+										format="yyyy-MM-dd hh:mm:ss" width="95%" readonly="true">
+									</datebox>
+								</row>
+								<row>
+									<div align="center" width="100%"
+										style="padding:5px;">
+										<button label="查询"
+											forward="onQueryHis" />
+										<button label="重置"
+											forward="onQueryHisReset" />
+									</div>
+								</row>
+							</rows>
+						</grid>
+						<panel id="orgRelHisTreePanel" title="行政关系历史组织树"
+							vflex="1">
+						</panel>
+					</panelchildren>
+				</panel>
+			</west>
+			<center>
+				<tabbox id="tabBox" width="100%" vflex="1">
+					<tabs>
+						<tab id="orgHisTab" label="历史组织"
+							forward="onClickTab" />
+						<tab id="positionHisTab" label="历史职位"
+							forward="onClickTab" />
+						<tab id="staffHisTab" label="历史员工"
+							forward="onClickTab" />
+						<tab id="orgRelaBsHisTab" label="历史组织业务关系"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:0px;">
+							<toolbar align="end">
+								<toolbarbutton id="showOrgDetailBtn"
+									label="查看详情" forward="onQueryOrgDetailRequest" style="padding-right:10px;" disabled="true"/>
+							</toolbar>
+							<listbox id="orgHisListbox" vflex="1"
+							         forward="onClickOrg">
+								<listhead sizable="true">
+									<listheader label="组织标识" />
+									<listheader label="组织编码" />
+									<listheader label="组织名称" />
+									<listheader label="组织状态" />
+									<listheader label="生效时间" />
+									<listheader label="失效时间" />
+								</listhead>
+								<listitem self="@{each='org'}"
+									value="@{org}" tooltiptext="@{org.orgName}">
+									<listcell label="@{org.orgId}">
+									</listcell>
+									<listcell label="@{org.orgCode}">
+									</listcell>
+									<listcell label="@{org.orgName}">
+									</listcell>
+									<listcell
+										label="@{org.statusCdName}">
+									</listcell>
+									<listcell label="@{org.effDate}">
+									</listcell>
+									<listcell label="@{org.expDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="orgListboxPaging"
+								forward="onOrgListboxPaging" pageSize="30">
+							</paging>
+						</tabpanel>
+						<tabpanel style="padding:0px;">
+						   <toolbar align="end">
+								<toolbarbutton id="showPositionetailBtn"
+									label="查看详情" forward="onQueryPositionDetailRequest" style="padding-right:10px;" disabled="true"/>
+							</toolbar>
+							<listbox id="positionHisListbox"
+								vflex="1" forward="onClickPosition">
+								<listhead sizable="true">
+									<listheader label="职位标识" />
+									<listheader label="职位编码" />
+									<listheader label="职位名称" />
+									<listheader label="职位状态" />
+									<listheader label="生效时间" />
+									<listheader label="失效时间" />
+								</listhead>
+								<listitem self="@{each='position'}"
+									value="@{position}" tooltiptext="@{position.positionName}">
+									<listcell
+										label="@{position.positionId}">
+									</listcell>
+									<listcell
+										label="@{position.positionCode}">
+									</listcell>
+									<listcell
+										label="@{position.positionName}">
+									</listcell>
+									<listcell
+										label="@{position.statusCdName}">
+									</listcell>
+									<listcell
+										label="@{position.effDate}">
+									</listcell>
+									<listcell
+										label="@{position.expDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="positionListboxPaging"
+								forward="onPositionListboxPaging" pageSize="30">
+							</paging>
+						</tabpanel>
+						<tabpanel style="padding:0px;">
+						   <toolbar align="end">
+								<toolbarbutton id="showStaffDetailBtn"
+									label="查看详情" forward="onQueryStaffDetailRequest" style="padding-right:10px;" disabled="true"/>
+							</toolbar>
+							<listbox id="staffHisListbox" vflex="1"
+							         forward="onClickStaff">
+								<listhead sizable="true">
+									<listheader label="员工标识" />
+									<listheader label="员工编号" />
+									<listheader label="员工名称" />
+									<listheader label="员工状态" />
+									<listheader label="生效时间" />
+									<listheader label="失效时间" />
+								</listhead>
+								<listitem self="@{each='staff'}"
+									value="@{staff}" tooltiptext="@{staff.staffName}">
+									<listcell
+										label="@{staff.staffId}">
+									</listcell>
+									<listcell
+										label="@{staff.staffCode}">
+									</listcell>
+									<listcell
+										label="@{staff.staffName}">
+									</listcell>
+									<listcell
+										label="@{staff.statusCdName}">
+									</listcell>
+									<listcell
+										label="@{staff.effDate}">
+									</listcell>
+									<listcell
+										label="@{staff.expDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="staffListboxPaging"
+								forward="onStaffListboxPaging" pageSize="30">
+							</paging>
+						</tabpanel>
+						<tabpanel style="padding:0px;">
+						 <toolbar align="end">
+								<toolbarbutton id="showOrgBsRelaDetailBtn"
+									label="查看详情" forward="onQueryOrgBsRelaDetailRequest" style="padding-right:10px;" disabled="true"/>
+							</toolbar>
+							<listbox id="orgBsRelaHisListbox"
+								vflex="1" forward="onClickOrgBsRela">
+								<listhead sizable="true">
+									<listheader label="业务关系标识" />
+									<listheader label="组织关系标识" />
+									<listheader label="关联组织关系标识" />
+									<listheader label="关系类型" />
+									<listheader label="关系状态" />
+									<listheader label="生效时间" />
+									<listheader label="失效时间" />
+								</listhead>
+								<listitem self="@{each='orgBsRela'}"
+									value="@{orgBsRela}">
+									<listcell
+										label="@{orgBsRela.orgRelId}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.orgId}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.relaOrgId}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.relaCdName}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.statusCdName}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.effDate}">
+									</listcell>
+									<listcell
+										label="@{orgBsRela.expDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="orgBsRelaListboxPaging"
+								forward="onOrgBsRelaListboxPaging" pageSize="30">
+							</paging>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

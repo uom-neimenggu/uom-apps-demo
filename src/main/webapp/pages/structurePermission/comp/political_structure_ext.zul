@@ -1,0 +1,78 @@
+<?page title="内部组织" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./unpoliticalStructureExtPanel"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<panel id="unpoliticalStructureExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="组织ID" />
+					<textbox id="orgId" width="80px" />
+					<label value="组织编码" />
+					<textbox id="orgCode" width="80px" />
+					<label value="组织名称" />
+					<textbox id="orgName" width="80px" />
+					<label value="组织UUID" />
+					<textbox id="orgUuId" width="80px" />
+					<label value="区域" />
+					<telcomRegionTreeBandbox id="telcomRegion"
+						isConfigPage="true" width="80px" />
+					<checkbox id="includeChildren" checked="true"
+						tooltiptext="勾选包含区域下级">
+					</checkbox>
+					<label value="根组织" />
+					<organizationBandboxExt id="org" isConfigPage="true"
+						isExcluseAgent="true" width="100px" />
+					<label value="行数" />
+					<listbox id="unpageListbox" mold="select" rows="1"
+						forward="onSelect=onPageSizeSelect" width="60px">
+						<listitem label="10" value="10" />
+						<listitem label="20" value="20" selected="true" />
+						<listitem label="50" value="50" />
+						<listitem label="100" value="100" />
+					</listbox>
+					<toolbarbutton label="查询"
+						forward="onQueryOrgStructure" autodisable="self" />
+					<toolbarbutton label="重置"
+						forward="onOrgStructureReset" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="unorgStructureListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="组织树" width="15%" align="center" />
+					<listheader label="组织ID" width="10%" align="center" />
+					<listheader label="组织编码" width="10%" align="center" />
+					<listheader label="组织名称" width="15%" align="center" />
+					<listheader label="组织全称" width="10%" align="center" />
+					<listheader label="电信管理区域" width="10%"
+						align="center" />
+					<listheader label="组织UUID" width="10%"
+						align="center" />
+					<listheader label="组织FIXID" width="10%"
+						align="center" />
+					<listheader label="上级组织ID" width="10%"
+						align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgTreeName}"></listcell>
+					<listcell label="@{current.orgId}"></listcell>
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.orgFullName}"></listcell>
+					<listcell label="@{current.regionName}"></listcell>
+					<listcell label="@{current.orgUuId}"></listcell>
+					<listcell label="@{current.orgFixId}"></listcell>
+					<listcell label="@{current.relaOrgId}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="unorgStructureListboxPaging"
+				forward="onOrgStructureListboxPaging" pageSize="20" />
+		</panelchildren>
+	</panel>
+</zk>

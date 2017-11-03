@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-31 9:31:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uac.staff.model.UacStaff" table="UAC_STAFF">
+        <comment>人员基本信息</comment>
+        <id name="staffId" type="java.lang.Long">
+            <column name="STAFF_ID" precision="12" scale="0" />
+            <generator class="sequence">
+				<param name="sequence">SEQ_UAC_STAFF_ID</param>
+			</generator>
+        </id>
+        <property name="contactId" type="java.lang.Long">
+            <column name="CONTACT_ID" precision="12" scale="0">
+                <comment>联系人标识</comment>
+            </column>
+        </property>
+        <property name="certId" type="java.lang.Long">
+            <column name="CERT_ID" precision="12" scale="0">
+                <comment>证件标识</comment>
+            </column>
+        </property>
+        <property name="property" type="java.lang.String">
+            <column name="PROPERTY" length="5">
+                <comment>人员性质</comment>
+            </column>
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="ACCOUNT" length="10">
+                <comment>认证账号</comment>
+            </column>
+        </property>
+        <property name="ecode" type="java.lang.String">
+            <column name="ECODE" length="12">
+                <comment>人员编码</comment>
+            </column>
+        </property>
+        <property name="staffName" type="java.lang.String">
+            <column name="STAFF_NAME" length="80">
+                <comment>人员名</comment>
+            </column>
+        </property>
+        <property name="hrCode" type="java.lang.String">
+            <column name="HR_CODE" length="30">
+                <comment>人力系统完整工号</comment>
+            </column>
+        </property>
+        <property name="guid" type="java.lang.String">
+            <column name="GUID" length="11">
+                <comment>GUID</comment>
+            </column>
+        </property>
+        <property name="irrePasswd" type="java.lang.String">
+            <column name="IRRE_PASSWD" length="128">
+                <comment>单向不可逆密码</comment>
+            </column>
+        </property>
+        <property name="revePasswd" type="java.lang.String">
+            <column name="REVE_PASSWD" length="128">
+                <comment>双向可逆密码</comment>
+            </column>
+        </property>
+        <property name="uuid" type="java.lang.String">
+            <column name="UUID" length="35">
+                <comment>UUID</comment>
+            </column>
+        </property>
+        <property name="ossId" type="java.lang.Long">
+            <column name="OSS_ID" precision="12" scale="0">
+                <comment>OSS定制标识</comment>
+            </column>
+        </property>
+        <property name="transactionRecord" type="java.lang.String">
+            <column name="TRANSACTION_RECORD" length="30">
+                <comment>单据标识</comment>
+            </column>
+        </property>
+        <property name="empDesc" type="java.lang.String">
+            <column name="EMP_DESC" length="50">
+                <comment>描述</comment>
+            </column>
+        </property>
+        <property name="duty" type="java.lang.String">
+            <column name="DUTY" length="50">
+                <comment>职务</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.Long">
+            <column name="TYPE" precision="12" scale="0">
+                <comment>类型</comment>
+            </column>
+        </property>
+        <property name="effDate" type="java.util.Date">
+            <column name="EFF_DATE" length="7">
+                <comment>生效时间</comment>
+            </column>
+        </property>
+        <property name="expDate" type="java.util.Date">
+            <column name="EXP_DATE" length="7">
+                <comment>失效时间</comment>
+            </column>
+        </property>
+        <property name="statusCd" type="java.lang.String">
+            <column name="STATUS_CD" length="6">
+                <comment>状态</comment>
+            </column>
+        </property>
+        <property name="statusDate" type="java.util.Date">
+            <column name="STATUS_DATE" length="7">
+                <comment>状态时间</comment>
+            </column>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATE_DATE" length="7">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="createStaff" type="java.lang.Long">
+            <column name="CREATE_STAFF" precision="12" scale="0">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="updateDate" type="java.util.Date">
+            <column name="UPDATE_DATE" length="7">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="updateStaff" type="java.lang.Long">
+            <column name="UPDATE_STAFF" precision="12" scale="0">
+                <comment>修改人</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

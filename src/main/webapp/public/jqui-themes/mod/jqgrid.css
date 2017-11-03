@@ -1,0 +1,51 @@
+.ui-jqgrid .ui-jqgrid-title {
+	font-size: 12px;
+}
+
+.ui-jqgrid-sortable {
+	font-size: 12px;
+}
+
+.ui-jqgrid tr.jqgrow td {
+	font-size: 12px;
+}
+
+.ui-pg-table td {
+	font-size: 12px;
+}
+/*pager jumping*/
+table.ui-pg-table {
+	border-collapse: separate;
+}
+
+.ui-jqgrid .ui-pg-table td{
+	padding:auto;
+} 
+/*pager input|select size*/
+.ui-pg-table input[type="text"],
+.ui-pg-table select,
+.ui-pg-table textarea,
+.ui-pg-table  .textarea	{
+	padding:3px 1px !important;	
+}
+.ui-jqgrid .ui-pg-selbox {
+	height:auto !important;
+}
+
+/*pager height ++ */
+.ui-jqgrid .ui-jqgrid-pager {
+	height:27px !important;
+}
+
+/*operation hyper links*/
+.ui-jqgrid tr.jqgrow a{
+	color:#369;
+	text-decoration: underline;
+	cursor:pointer;
+}
+.ui-jqgrid tr.jqgrow a:hover{
+	color:#369;
+	text-decoration: underline;
+	cursor:pointer;
+}
+

@@ -1,0 +1,55 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./grpStaffChannelRelaListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="grpStaffChannelRelaListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline;float:left">
+				<div id="grpStaffChannelRelaSearchDiv">
+					<hbox>
+						<label value="销售员编码" />
+						<textbox id="salesCode" width="95px" />
+						<label value="销售员名称" />
+						<textbox id="staffName" width="95px" />
+						<button label="查询"
+							forward="onQueryGrpStaffChannelRela" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetGrpStaffChannelRela" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="grpStaffChannelRelaListbox" vflex="1"
+				forward="onSelect=onSelectGrpStaffChannelRelaList">
+				<listhead sizable="true">
+					<listheader label="销售员编码" />
+					<listheader label="销售员名称" />
+					<listheader label="渠道单元编码" />
+					<listheader label="渠道单元名称" />
+					<listheader label="关系类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						class="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.staffName}">
+					<listcell label="@{current.salesCode}" />
+					<listcell label="@{current.staffName}" />
+					<listcell label="@{current.channelNbr}" />
+					<listcell label="@{current.channelName}" />
+					<listcell label="@{current.relaTypeName}" />
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.effDate}" />
+
+				</listitem>
+			</listbox>
+			<paging id="grpStaffChannelRelaListboxPaging"
+				forward="onGrpStaffChannelRelaListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

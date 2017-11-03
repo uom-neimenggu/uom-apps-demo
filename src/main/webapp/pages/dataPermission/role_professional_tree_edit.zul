@@ -1,0 +1,44 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="roleProfessionalTreeEditWindow" border="none"
+		width="500px" closable="true"
+		apply="${roleProfessionalTreeEditComposer}">
+		<panel  height="400px">
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="120px"></column>
+						<column width="360px"></column>
+					</columns>
+					<rows>
+						<row>
+							<label value="选择业务树" />
+							<listbox id="orgTreeNameListbox" mold="select" rows="1" width="180px">
+							</listbox>
+						</row>
+					</rows>
+				</grid>
+				<div height="380px" style="overflow-y:auto">
+				<tree width="98%" id = "orgTreeRootNode">
+				    <treecols>
+				    	<treecol id ="treecol" label="数据权配置"/>
+				    </treecols>
+				    <treechildren>
+				    	<treeitem open="false" >
+				        	<treerow>
+				            	<treecell label="Intel Snares XML"/>
+				         	</treerow>
+				     		<treechildren/>
+				      	</treeitem>
+				   	</treechildren>
+				</tree>
+				</div>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

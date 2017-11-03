@@ -1,0 +1,54 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyRoleListboxPanel" ?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+
+	<panel id="partyRoleListboxPanel" vflex="1">
+		<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+			style="width:auto;float:left;">
+			<div id="partyRoleSearchDiv">
+				<hbox>
+					<label value="角色类型" />
+					<listbox id="roleType" mold="select" rows="1" width="120">
+					</listbox>
+					<button label="查询" forward="onQueryPartyRole"
+						autodisable="self"  mold="trendy"/>
+					<button label="重置"
+						forward="onResetPartyRole" autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar height="5px" align="end">
+				<hbox>
+					<div id="partyRoleBandboxDiv" >
+						<hbox>
+							<toolbarbutton forward="onPartyRoleAdd" id="addPartyRoleButton" label="新增" />
+							<toolbarbutton forward="onPartyRoleEdit" id="editPartyRoleButton" label="修改" />
+							<toolbarbutton forward="onPartyRoleDel" id="delPartyRoleButton" label="删除" />							
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="partyRoleListbox" sizedByContent="false" sclass="zl-listbox" forward="onSelect=onPartyRoleSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="参与人标识" width="20%" align="center"/>
+					<listheader label="参与人角色类型" width="20%" align="center"/>
+					<listheader label="生效时间" sclass="listheader-time-width"/>
+					<listheader label="失效时间" sclass="listheader-time-width"/>
+					<listheader label="生失效状态" width="20%"/>
+				</listhead>
+				<listitem self="@{each='partyRole'}" value="@{partyRole}" tooltiptext="@{partyRole.roleTypeName}">
+					<listcell label="@{partyRole.partyId}"/>
+					<listcell label="@{partyRole.roleTypeName}"/>
+					<listcell label="@{partyRole.effDate}"/>
+					<listcell label="@{partyRole.expDate}"/>
+					<listcell label="@{partyRole.statusCdName}"/>
+				</listitem>
+			</listbox>
+			<paging id="partyRoleListboxPaging" forward="onPartyRoleListboxPaging" pageSize="10"/>
+		</panelchildren>
+	</panel>
+</zk>

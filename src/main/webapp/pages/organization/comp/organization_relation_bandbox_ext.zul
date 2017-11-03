@@ -1,0 +1,12 @@
+<?page title="职位信息" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationRelationListBox" macroURI="/pages/organization/organization_relation_listbox.zul" ?>
+<zk>
+	<bandpopup width="600px" height="50%">
+		<panel>
+			<panelchildren>
+				<organizationRelationListBox id="organizationRelationListBox">
+				</organizationRelationListBox>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

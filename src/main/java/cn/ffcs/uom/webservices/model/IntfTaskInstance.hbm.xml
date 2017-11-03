@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.webservices.model.IntfTaskInstance"
+		table="INTF_TASK_INSTANCE">
+		<comment>接口任务实例表</comment>
+		<id name="intfTaskInstanceId" type="java.lang.Long">
+			<column name="INTF_TASK_INSTANCE_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_INTF_TASK_INSTANCE_ID</param>
+			</generator>
+		</id>
+		<property name="targetSystem" type="java.lang.String">
+			<column name="TARGET_SYSTEM" length="6">
+				<comment>目标系统</comment>
+			</column>
+		</property>
+		<property name="intfCode" type="java.lang.String">
+			<column name="INTF_CODE" length="300">
+				<comment>接口编码</comment>
+			</column>
+		</property>
+		<property name="msgType" type="java.lang.String">
+			<column name="MSG_TYPE" length="300">
+				<comment>请求类型</comment>
+			</column>
+		</property>
+		<property name="invokeResule" type="java.lang.Long">
+			<column name="INVOKE_RESULE" length="1">
+				<comment>通知结果</comment>
+			</column>
+		</property>
+		<property name="invokeTimes" type="java.lang.Long">
+			<column name="INVOKE_TIMES" length="12">
+				<comment>通知次数</comment>
+			</column>
+		</property>
+		<property name="requestContent" type="java.lang.String">
+			<column name="REQUEST_CONTENT" length="7">
+				<comment>请求参数</comment>
+			</column>
+		</property>
+				<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="ftpTaskInstanceId" type="java.lang.Long">
+			<column name="FTP_TASK_INSTANCE_ID" length="12">
+				<comment>FTP任务实例标识</comment>
+			</column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

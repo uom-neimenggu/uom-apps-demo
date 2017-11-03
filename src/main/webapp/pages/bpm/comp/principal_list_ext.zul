@@ -1,0 +1,45 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton id="addPrincipalButton"
+								forward="onPrincipalAdd" label="新增" />
+							<toolbarbutton id="editPrincipalButton"
+								forward="onPrincipalEdit" label="修改" />
+							<toolbarbutton id="delPrincipalButton"
+								forward="onPrincipalDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="principalListBox"
+					forward="onSelect=onSelectPrincipal" vflex="1">
+					<listhead sizable="true">
+						<listheader label="干系人标识" />
+						<listheader label="干系人名称" />
+						<listheader label="联系号码" />
+						<listheader label="邮箱" />
+						<listheader label="排序号" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.principalId}">
+						</listcell>
+						<listcell label="@{current.principalName}">
+						</listcell>
+						<listcell label="@{current.cellNum}"></listcell>
+						<listcell label="@{current.email}"></listcell>
+						<listcell label="@{current.sort}"></listcell>
+					</listitem>
+				</listbox>
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

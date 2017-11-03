@@ -1,0 +1,57 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgPublishDetectionListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="orgPublishDetectionListboxComp" vflex="1">
+	<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="display:inline-table;float:left">
+			<div>
+				<hbox>
+					<label value="组织编码" />
+					<textbox id="orgCode" width="95px" />
+					<label value="组织名称" />
+					<textbox id="orgName" width="225px" />
+					<button label="查询" forward="onQueryOrgPublishDetection" autodisable="self"  mold="trendy"/>
+					<button label="重置" forward="onResetOrgPublishDetection" autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar align="end" sclass="toolbar-user" style="width:auto;float:right;">
+			<hbox>
+				<toolbarbutton forward="onView" id="viewButton" label="查看" />
+			</hbox>
+		</toolbar>
+	</caption>
+	<panelchildren>
+			<listbox id="orgPublishDetectionListBox" forward="onSelect=onOrgPublishDetectionSelectRequest" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织编码" width="88px" />
+					<listheader label="组织名称" />
+					<listheader label="组织全称" />
+					<listheader label="组织类型" width="110px" />
+					<listheader label="组织级别" width="62px" />
+					<listheader label="组织规模" width="80px" />
+					<listheader label="行政区域" width="116px" />
+					<listheader label="组织状态" width="62px" />
+					<listheader label="生效时间" width="120px" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.orgFullName}"></listcell>
+					<listcell label="@{current.organizationTypeName}"></listcell>
+					<listcell label="@{current.orgLeaveName}"></listcell>
+					<listcell label="@{current.orgScaleName}"></listcell>
+					<listcell
+						label="@{current.politicalLocation.locationName}">
+					</listcell>
+					<listcell label="@{current.statusCdName}">
+					</listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgPublishDetectionListPaging" pageSize="10"
+				forward="onQueryOrgPublishDetection" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,84 @@
+<?page title="资源列表" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacResourcePanel"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacResourcePanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacResourceSearchDiv">
+					<hbox>
+						<label value="资源编码：" />
+						<textbox id="rbacResourceCode" width="100px" />
+						<label value="资源名称：" />
+						<textbox id="rbacResourceName" width="100px" />
+						<button id="queryRbacResource" label="查询"
+							forward="onQueryRbacResource" mold="trendy" />
+						<button id="resetRbacResource" label="重置"
+							forward="onResetRbacResource" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="rbacResourceOptDiv" style="float:left;">
+					<hbox>
+						<toolbarbutton forward="onRbacResourceAdd"
+							id="addRbacResourceButton" label="新增" />
+						<toolbarbutton forward="onRbacResourceView"
+							id="viewRbacResourceButton" label="查看" />
+						<toolbarbutton forward="onRbacResourceEdit"
+							id="editRbacResourceButton" label="修改" />
+						<toolbarbutton forward="onRbacResourceDel"
+							id="delRbacResourceButton" label="删除" />
+					</hbox>
+				</div>
+				<div id="rbacResourceBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeRbacResourceButton"
+							label="关闭" forward="onCloseRbacResource" />
+						<toolbarbutton id="cleanRbacResourceButton"
+							label="清空" forward="onCleanRbacResource" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacResourceListbox" style="height:200px"
+				forward="onSelect=onRbacResourceSelectRequest">
+				<listhead sizable="true">
+					<listheader label="资源标识" />
+					<listheader label="资源编码" />
+					<listheader label="资源名称" />
+					<listheader label="叶子节点" />
+					<listheader label="资源URL" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacResource'}"
+					value="@{rbacResource}">
+					<listcell label="@{rbacResource.rbacResourceId}"></listcell>
+					<listcell
+						label="@{rbacResource.rbacResourceCode}">
+					</listcell>
+					<listcell
+						label="@{rbacResource.rbacResourceName}">
+					</listcell>
+					<listcell
+						label="@{rbacResource.rbacResourceLeafName}">
+					</listcell>
+					<listcell label="@{rbacResource.rbacResourceUrl}">
+					</listcell>
+					<listcell label="@{rbacResource.statusCdName}">
+					</listcell>
+					<listcell label="@{rbacResource.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="rbacResourceListboxPaging"
+				forward="onRbacResourceListboxPaging" pageSize="16">
+			</paging>
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,115 @@
+<?page title="下发查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./publishQueryMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	
+	<window id="publishQueryMainWin"  width="100%" height="480px" 
+	    apply="${publishQueryMainComposer}" forward="onOK=onPublishQueryIssuedRequest"> 
+    <borderlayout>
+			<north size="50%">
+				<panel vflex="1">
+					<caption>
+						<toolbar align="start" 
+					        sclass="toolbar-user" style="width:auto;float:left;">
+							<hbox>
+								<label value="业务系统:" />
+								<listbox id="businessSystemListbox" mold="select"
+								    rows="1" width="130px">
+							    </listbox>
+							    <toolbarbutton label="查询"  autodisable="self"
+								    forward="onBusinessSystemQueryRequest" />
+							</hbox>
+						</toolbar>
+						<toolbar align="start" sclass="toolbar-user"
+					        style="width:auto;float:right;">
+					    <div>
+						    <hbox>
+							    <toolbarbutton id="publishAgainToolbarbutton"
+								    forward="onPublishLogRequest" label="重发" />
+							    <toolbarbutton id="publishLogToolbarbutton" 
+								    forward="onInterfaceLogResponse" label="接口日志" />
+								<toolbarbutton id="ftpTaskInstanceInfoToolbarbutton"
+								    forward="onFtpTaskInstanceInfoRequest" label="数据量统计" />
+								<toolbarbutton id="publishDetectionToolbarbutton"
+								    forward="onPublishDetectionRequest" label="下发检测" />
+						    </hbox>
+					    </div>
+					    </toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="businessSystemQueryResults"
+							  forward="onSelect=onSelectBusinessSystemRequest" vflex="1" 
+							  mold="paging">
+							<listhead sizable="true">
+								<listheader label="系统名" width="10%" />
+								<listheader label="同步类型" width="7%" />
+								<listheader label="下发结果" width="7%" />
+								<listheader label="下发次数" width="6%" />
+								<listheader label="下发开始时间" width="15%" />
+								<listheader label="下发结束时间" width="15%" />
+								<listheader label="远程文本路径" width="20%" />
+								<listheader label="本地文本路径" width="20%" />
+							</listhead>
+							<listitem self="@{each='current'}" value="@{current}">
+								<listcell label="@{current.systemDesc }"></listcell>
+								<listcell label="@{current.syncTypeName }" ></listcell>
+								<listcell label="@{current.invokeResule }"></listcell>
+								<listcell label="@{current.invokeTimes }"></listcell>
+								<listcell label="@{current.lastDate }"></listcell>
+								<listcell label="@{current.thisDate }"></listcell>
+								<listcell label="@{current.remotePath }"></listcell>
+								<listcell label="@{current.noticePath }"></listcell>
+							</listitem>
+						</listbox>
+						<paging id="businessSystemPaging" pageSize="10"
+							 />
+					</panelchildren>
+				</panel>
+			</north>
+			<center>
+		<panel id="queryMainWinListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" id="toolbarId"
+					sclass="toolbar-user" style="width:auto;float:left;">
+					<div>
+						<hbox>
+							<label value="组织树:" />
+							<listbox id="orgTreeId" mold="select"
+								rows="1" width="120px">
+							</listbox>
+							<label value="同步类型:" />
+							<listbox id="syncType" mold="select"
+								rows="1"  width="60px">
+								<listitem label="增量" value="0" selected="true" />
+								<listitem label="全量" value="1" />
+							</listbox>
+							<label value="下发表名:" />
+							<listbox id="tableName" mold="select"
+								rows="1" width="120px">
+							</listbox>
+							<label value="开始下发时间:" />
+							<datebox id="lastTime" cols="16" constraint="no future , after 2009-1-1 " readonly="true" format="yyyy-MM-dd HH:mm:ss"
+							    onCreate="self.value = new Date()"/>
+							<label value="结束下发时间:" />
+							<datebox id="thisTime" cols="16" constraint="no future" readonly="true" format="yyyy-MM-dd HH:mm:ss"  
+							    onCreate="self.value = new Date()"/>
+							    <label value="关键字:"></label>
+							<textbox id="publishKeyWordQuery" width="80px">
+					        </textbox>
+							<toolbarbutton label="查询"
+								forward="onPublishQueryIssuedRequest" autodisable="self" />
+							<toolbarbutton label="重置" 
+							    forward="onQueryReset" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<textbox id="publishQueryResults" readonly="true" width="150%" rows="50"></textbox>	
+			</panelchildren>
+		</panel>
+		</center>
+		
+		</borderlayout>
+	</window>
+</zk>

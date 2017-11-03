@@ -1,0 +1,183 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="成本中心编码" /><textbox id="" width="80px" />
+						<label value="公司代码" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="批量导入" />
+							<toolbarbutton id="" label="模板下载" />
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="成本中心编码" width="6%" align="center" />
+					<listheader label="名称" width="14%" align="center" />
+					<listheader label="负责人" width="16%" align="center" />
+					<listheader label="公司代码" width="16%" align="center" />
+					<listheader label="层次结构代码" width="6%" align="center" />
+					<listheader label="描述" width="14%" align="center" />
+					<listheader label="英文名称" width="6%" align="center" />
+					<listheader label="公司简介" width="14%" align="center" />
+					<listheader label="创建时间" width="8%" align="center" />
+					<listheader label="最后修改时间" width="8%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="34345000" />
+					<listcell label="中国电信集团安徽省电信公司" />
+					<listcell label="" />
+					<listcell label="34345000" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34342800" />
+					<listcell label="中国电信股份有限公司安徽商务领航支撑中心" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34341800" />
+					<listcell label="中国电信股份有限公司安徽分公司本部" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34342000" />
+					<listcell label="中国电信股份有限公司安徽网络监控维护中心(网络安全维护中心)" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34345600" />
+					<listcell label="安徽省电信公司安庆分公司" />
+					<listcell label="" />
+					<listcell label="34345500" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="99002243" />
+					<listcell label="中国电信股份有限公司安徽政企客户部" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34340300" />
+					<listcell label="中国电信股份有限公司安徽财务共享服务中心" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34346000" />
+					<listcell label="中国电信股份有限公司安徽校园客户部" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34343100" />
+					<listcell label="安徽省电信公司合肥分公司" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="34342300" />
+					<listcell label="中国电信安徽股份有限公司安徽号百信息服务分公司（封存）" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+				<listitem>
+					<listcell label="99002243" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="" />
+					<listcell label="99002243" />
+					<listcell label="" />
+					<listcell label="安徽省合肥市淮河路303号" />
+					<listcell label="" />
+					<listcell label="中国电信股份有限公司安徽分公司综合服务支撑中心" />
+					<listcell label="2016-01-15 17:00:33" />
+					<listcell label="2016-01-28 14:12:04" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

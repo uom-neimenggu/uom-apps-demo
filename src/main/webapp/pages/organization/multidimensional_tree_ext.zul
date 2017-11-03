@@ -1,0 +1,36 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<vbox vflex="1">
+	<toolbar align="start" hflex="1">
+		<toolbarbutton id="addChildButton" label="添加子节点" forward="onAddChildNode" />
+		<toolbarbutton id="delChildButton" label="删除节点" forward="onDelNode" />
+	</toolbar>
+	<grid>
+		<columns>
+			<column width="35%"></column>
+			<column width="63%"></column>
+		</columns>
+		<rows>
+			<row>
+				<label value="选择业务树" />
+				<listbox id="orgTreeNameListbox" mold="select" rows="1" width="100%">
+				</listbox>
+			</row>
+		</rows>
+	</grid>
+	<div height="380px" style="overflow-y:auto">
+	<tree width="98%" id = "mdsionOrgRelationTree">
+	    <treecols>
+	    	<treecol id ="treecol" label="111"/>
+	    </treecols>
+	    <treechildren>
+	    	<treeitem open="false" >
+	        	<treerow>
+	            	<treecell label="Intel Snares XML"/>
+	         	</treerow>
+	     		<treechildren/>
+	      	</treeitem>
+	   	</treechildren>
+	</tree>
+	</div>
+	
+</vbox>

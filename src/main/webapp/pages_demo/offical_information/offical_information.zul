@@ -1,0 +1,157 @@
+<?page title="任职信息管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="员工工号" /><textbox id="" width="80px" />
+						<label value="员工姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="员工工号" width="12%" align="center" />
+					<listheader label="员工姓名" width="14%" align="center" />
+					<listheader label="任职文号" width="16%" align="center" />
+					<listheader label="免职文号" width="16%" align="center" />
+					<listheader label="岗位" width="12%" align="center" />
+					<listheader label="职务名称" width="14%" align="center" />
+					<listheader label="部门名称" width="6%" align="center" />
+					<listheader label="现职时间" width="14%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="34910045" />
+					<listcell label="徐苏平" />
+					<listcell label="中电信皖调字〔2016〕15号" />
+					<listcell label="中电信滁州党〔2017〕10号" />
+					<listcell label="市公司审计组组长" />
+					<listcell label="审计组组长" />
+					<listcell label="审计组" />
+					<listcell label="2017-02-10" />
+				</listitem>
+				<listitem>
+					<listcell label="34000079" />
+					<listcell label="徐鑫" />
+					<listcell label="中电信马鞍山人力〔2017〕1 号" />
+					<listcell label="中电信马鞍山党〔2016〕87 号" />
+					<listcell label="市公司政企客户部渠道管理" />
+					<listcell label="渠道管理" />
+					<listcell label="政企客户部" />
+					<listcell label="2017-01-06" />
+				</listitem>
+				<listitem>
+					<listcell label="34000079" />
+					<listcell label="徐亮" />
+					<listcell label="中电信马鞍山人力〔2016〕116 号" />
+					<listcell label="中电信马鞍山党〔2016〕87 号" />
+					<listcell label="市公司销售部终端运营管理" />
+					<listcell label="终端运营管理" />
+					<listcell label="销售部" />
+					<listcell label="2015-11-30" />
+				</listitem>
+				<listitem>
+					<listcell label="34030170" />
+					<listcell label="耿成光" />
+					<listcell label="中电信含山〔2015〕111号" />
+					<listcell label="中电信含山〔2015〕109号" />
+					<listcell label="县公司农村营业部农村营业部销售经理" />
+					<listcell label="CEO" />
+					<listcell label="含山县陶厂农村营业部" />
+					<listcell label="2016-01-28" />
+				</listitem>
+				<listitem>
+					<listcell label="34030170" />
+					<listcell label="耿成光" />
+					<listcell label="中电信含山〔2015〕111号" />
+					<listcell label="中电信含山〔2015〕109号" />
+					<listcell label="县公司农村营业部农村营业部销售经理" />
+					<listcell label="CEO" />
+					<listcell label="和县党政军金融团队" />
+					<listcell label="2016-01-28" />
+				</listitem>
+				<listitem>
+					<listcell label="34940255" />
+					<listcell label="汪昶" />
+					<listcell label="中电信滁州党〔2017〕14号" />
+					<listcell label="中电信滁州党〔2017〕14号" />
+					<listcell label="市公司采购中心经理" />
+					<listcell label="" />
+					<listcell label="采购中心" />
+					<listcell label="2016-01-15" />
+				</listitem>
+				<listitem>
+					<listcell label="34920466" />
+					<listcell label="何武" />
+					<listcell label="中国电信股份有限公司安徽分公司" />
+					<listcell label="关于徐鑫等同志免职的通知_中电信马鞍山党〔2016〕84号" />
+					<listcell label="县公司政企客户部经理" />
+					<listcell label="高级总监" />
+					<listcell label="和县党政军金融团队" />
+					<listcell label="2016-01-28" />
+				</listitem>
+				<listitem>
+					<listcell label="34346000" />
+					<listcell label="鲍永刚" />
+					<listcell label="中电信滁州党〔2017〕14号" />
+					<listcell label="中电信滁州党〔2017〕14号" />
+					<listcell label="市公司网络运营部副经理" />
+					<listcell label="" />
+					<listcell label="网络运营部（工程管理中心）" />
+					<listcell label="2016-01-28" />
+				</listitem>
+				<listitem>
+					<listcell label="34860181" />
+					<listcell label="秦德宇" />
+					<listcell label="中电信滁州党〔2017〕14号" />
+					<listcell label="中电信滁州党〔2017〕12号" />
+					<listcell label="市公司电子渠道运营中心（存量经营中心）副经理" />
+					<listcell label="" />
+					<listcell label="电子渠道运营中心（存量经营中心）" />
+					<listcell label="2016-01-15" />
+				</listitem>
+				<listitem>
+					<listcell label="34960196" />
+					<listcell label="孟祥武" />
+					<listcell label="中电信滁州党〔2017〕20号" />
+					<listcell label="中电信滁州党〔2017〕20号" />
+					<listcell label="市公司业务管理中心/IT支撑中心经理" />
+					<listcell label="" />
+					<listcell label="业务管理中心（IT支撑中心）" />
+					<listcell label="2016-01-28" />
+				</listitem>
+				<listitem>
+					<listcell label="99002243" />
+					<listcell label="张志斌" />
+					<listcell label="中电信滁州党〔2017〕17号" />
+					<listcell label="中电信滁州党〔2017〕17号" />
+					<listcell label="市公司部门高级顾问(综合支撑类)" />
+					<listcell label="" />
+					<listcell label="综合管理部、安全保卫部" />
+					<listcell label="2016-02-22" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

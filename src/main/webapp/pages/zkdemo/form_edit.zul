@@ -1,0 +1,5 @@
+<window title="ZK Application" border="normal"
+	apply="cn.ffcs.uom.zkdemo.action.FormEditCtrl">
+	<label value="Hello World in Edit!" />
+	<button id="jumpBtn" label="回到VIEW" />
+</window>

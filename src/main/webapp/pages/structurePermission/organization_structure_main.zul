@@ -1,0 +1,36 @@
+<?page title="组织机构查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./unorgStructureMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="unpoliticalStructureExt" extends="div" class="cn.ffcs.uom.structurePermission.component.UnPoliticalStructureExt"?>
+<zk>
+	<window id="unorgStructureMainWin" width="100%" height="98%"
+		apply="${unorgStructureMainComposer}">
+		<tabbox id="untabBox" vflex="1">
+			<tabs>
+				<tab id="unpoliticalTab" label="内部组织"
+					forward="onClickTab" />
+				<tab id="unagentTab" label="代理商组织" forward="onClickTab" />
+				<tab id="unsupplierTab" label="供应商组织"
+					forward="onClickTab" />
+				<tab id="unossTab" label="中通服组织" forward="onClickTab" />
+				<tab id="untempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="unpoliticalTabpanel">
+					<unpoliticalStructureExt
+						id="unpoliticalStructureExt" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="unagentTabpanel">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel vflex="1" id="unsupplierTabpanel">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel vflex="1" id="unossTabpanel">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel id="untempTabpanel"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

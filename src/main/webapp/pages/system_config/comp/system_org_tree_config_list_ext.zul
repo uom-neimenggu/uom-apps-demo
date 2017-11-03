@@ -1,0 +1,59 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemOrgTreeConfigListPanel"?>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" id="systemOrgTreeConfigListPanel"
+			height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton
+								id="addSystemOrgTreeConfigButton"
+								forward="onSystemOrgTreeConfigAdd" label="新增" />
+							<toolbarbutton
+								id="editSystemOrgTreeConfigButton"
+								forward="onSystemOrgTreeConfigEdit" label="修改" />
+							<toolbarbutton
+								id="delSystemOrgTreeConfigButton"
+								forward="onSystemOrgTreeConfigDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="systemOrgTreeConfigListBox"
+					forward="onSelect=onSystemOrgTreeConfigSelect" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="标识" />
+						<listheader label="系统名称" />
+						<listheader label="组织树名称" />
+						<listheader label="报文生成开关" />
+						<listheader label="创建时间" />
+						<listheader label="生效时间" />
+						<listheader label="失效时间" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell
+							label="@{current.systemOrgTreeConfigId}">
+						</listcell>
+						<listcell label="@{current.systemName}"></listcell>
+						<listcell label="@{current.orgTreeName}"></listcell>
+						<listcell
+							label="@{current.generationSwitchName}">
+						</listcell>
+						<listcell label="@{current.createDate}"></listcell>
+						<listcell label="@{current.effDate}"></listcell>
+						<listcell label="@{current.expDate}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="systemOrgTreeConfigListPaging" pageSize="10"
+					forward="onSystemOrgTreeConfigListboxPaging" />
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

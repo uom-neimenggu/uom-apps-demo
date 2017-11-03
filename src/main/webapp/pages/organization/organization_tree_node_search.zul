@@ -1,0 +1,23 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationTreeNodeSearchWindow" ?>
+<zk>
+	<window id="organizationTreeNodeSearchWindow" border="none"
+		width="425px" closable="true" height="80px"
+		apply="${organizationTreeNodeSearchComposer}">
+		<grid>
+			<columns>
+				<column width="15%" />
+				<column width="65%" />
+				<column width="20%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="组织名称:" />
+					<textbox id="orgName" width="97%"></textbox>
+					<toolbarbutton id="serarchButton" label="查找下一个"
+						forward="onSearch" />
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

@@ -1,0 +1,44 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton id="addTreeBindingButton"
+								forward="onTreeBindingAdd" label="新增" />
+							<toolbarbutton id="delTreeBindingButton"
+								forward="onTreeBindingDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="treeBindingListBox"
+					forward="onSelect=onTreeBindingSelect" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="组织树名称" />
+						<listheader label="关系类型" />
+						<listheader label="关系名称" />
+						<listheader label="创建时间" />
+						<listheader label="生效时间" />
+						<listheader label="失效时间" />
+					</listhead>
+					<listitem self="@{each='current'}" value="@{current}">
+						<listcell label="@{current.refTreeName}"></listcell>
+						<listcell label="@{current.refOrgRelaCd}"></listcell>
+						<listcell label="@{current.orgRelaCdName}"></listcell>
+						<listcell label="@{current.createDate}"></listcell>
+						<listcell label="@{current.effDate}"></listcell>
+						<listcell label="@{current.expDate}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="treeBindingListPaging" pageSize="10"
+					forward="onTreeBindingListboxPaging" />
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

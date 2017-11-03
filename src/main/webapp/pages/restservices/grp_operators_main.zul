@@ -1,0 +1,30 @@
+<?page title="经营主体管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="grpOperatorsListboxExt" extends="div" class="cn.ffcs.uom.restservices.component.GrpOperatorsListboxExt" ?>
+<?component name="grpChannelOperatorsRelaListboxExt" extends="div" class="cn.ffcs.uom.restservices.component.GrpChannelOperatorsRelaListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./grpOperatorsMainWin"?>
+<zk>
+	<window id="grpOperatorsMainWin" width="100%" height="100%"
+		apply="${grpOperatorsMainComposer}">
+		<borderlayout>
+			<north size="50%">
+				<grpOperatorsListboxExt id="grpOperatorsListboxExt"
+					vflex="1" />
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab id="grpChannelOperatorsRelaTab"
+							label="渠道单元关联经营主体" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" vflex="1">
+							<grpChannelOperatorsRelaListboxExt
+								id="grpChannelOperatorsRelaListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

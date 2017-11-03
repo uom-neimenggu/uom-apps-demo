@@ -1,0 +1,33 @@
+<?page id="bmpConfigMainPage" title="数据质量管理配置" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<zscript>
+    tabIds = new String[] {"indicator_config_main","bmp_system_config_main","inform_config_main","principal_config_main" };
+    tabNames = new String[] {"指标管理","稽核系统管理","通知方式管理","干系人管理" };
+</zscript>
+	<window id="bmpConfigMainWindow" width="100%" height="100%">
+		<tabbox id="tabBox">
+			<attribute name="onSelect">
+    {
+        if (self.selectedIndex > 0) {
+            Include inc = (Include) Path.getComponent("//bmpConfigMainPage/bmpConfigMainWindow/"
+                + tabIds[self.selectedIndex]);
+            inc.setSrc(tabIds[self.selectedIndex] + ".zul");
+        }
+    }
+</attribute>
+			<tabs>
+				<tab forEach="${tabNames}" label="${each}" />
+			</tabs>
+			<tabpanels>
+				<tabpanel height="500px" forEach="${tabIds}">
+					<include id="${each}" src="" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+	<zscript>
+    Include inc = (Include) Path.getComponent("//bmpConfigMainPage/bmpConfigMainWindow/"
+        + tabIds[0]);
+    inc.setSrc(tabIds[0] + ".zul");
+</zscript>
+</zk>

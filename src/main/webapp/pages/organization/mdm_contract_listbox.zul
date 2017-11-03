@@ -1,0 +1,70 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./mdmContractListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="mdmContractListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="合同名称" />
+				<textbox id="name" width="100px" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="mdmContractListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="单据编号" />
+					<listheader label="正式编号" />
+					<listheader label="发起号" />
+					<listheader label="合同类型" />
+					<listheader label="签约类型" />
+					<listheader label="收付类型" />
+					<listheader label="合同名称" />
+					<listheader label="合同金额" />
+					<listheader label="合同类型ID" />
+					<listheader label="我方名称" />
+					<listheader label="承办部门名称" />
+					<listheader label="承办人ehr人员编号" />
+					<listheader label="承办人ehr人员姓名" />
+					<listheader label="创建日期" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.contractid}">
+					</listcell>
+					<listcell label="@{current.contractcode}">
+					</listcell>
+					<listcell label="@{current.signcode}">
+					</listcell>
+					<listcell label="@{current.operatetypeName}">
+					</listcell>
+					<listcell label="@{current.frameflagName}">
+					</listcell>
+					<listcell label="@{current.fundflagName}">
+					</listcell>
+					<listcell label="@{current.contractname}">
+					</listcell>
+					<listcell label="@{current.tradesum}">
+					</listcell>
+					<listcell label="@{current.concode3class}">
+					</listcell>
+					<listcell label="@{current.partaname}">
+					</listcell>
+					<listcell label="@{current.applydept}">
+					</listcell>
+					<listcell label="@{current.applyuserid}">
+					</listcell>
+					<listcell label="@{current.applyusername}">
+					</listcell>
+					<listcell label="@{current.creadate}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="mdmContractListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

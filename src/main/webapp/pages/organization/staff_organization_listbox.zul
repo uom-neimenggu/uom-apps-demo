@@ -1,0 +1,101 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffOrganizationListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="staffOrganizationListboxComp" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline-table;float:left">
+				<div id="staffOrganizationSearchDiv">
+					<hbox>
+						<label value="员工姓名" />
+						<textbox id="staffName" width="85px" />
+						<div id="staffAccountDiv" visible="false">
+							<label value="员工账号" />
+							<textbox id="staffAccount" width="85px" />
+						</div>
+						<label value="OA帐号" />
+						<textbox id="userCode" width="85px" />
+						<button label="查询"
+							forward="onQueryOrganizationStaff" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetStaffOrganization" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="display:inline-table">
+				<div id="staffOrganizationWindowDiv">
+					<hbox>
+						<!-- 导入员工组织关系 xiaof -->
+						<toolbarbutton id="importStaffOrganizationButton"
+							forward="onStaffOrganizationImport" label="导入" />
+						<toolbarbutton id="viewStaffOrganizationButton"
+							forward="onStaffOrganizationView" label="查看" />
+						<toolbarbutton id="addStaffOrganizationButton"
+							forward="onStaffOrganizationAdd" label="添加组织" />
+						<toolbarbutton
+							id="addStaffOrganizationButtonAll"
+							forward="onStaffOrganizationAddAll" label="新增员工" />
+						<toolbarbutton
+							id="updateStaffOrganizationButtonAll"
+							forward="onStaffOrganizationUpdateAll" label="修改员工" />
+						<toolbarbutton
+							id="updateStaffOrganizationButton"
+							forward="onStaffOrganizationUpdate" label="修改关系" />
+						<toolbarbutton id="moveStaffOrganizationButton"
+							forward="onStaffOrganizationBatchMove" label="移动" />
+						<toolbarbutton id="delStaffOrganizationButton"
+							forward="onStaffOrganizationDel" label="删除" />
+					</hbox>
+				</div>
+				<div id="StaffOrganizationBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeStaffOrganizationButton"
+							label="关闭" forward="onCloseStaffOrganization" />
+						<toolbarbutton id="cleanStaffOrganizationButton"
+							label="清空" forward="onCleanStaffOrganization" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="StaffOrganizationListBox"
+				forward="onSelect=onStaffOrganizationSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="员工标识" width="10%" />
+					<listheader label="员工姓名" width="11%" />
+					<listheader label="员工账号" width="11%" />
+					<listheader label="OA帐号" width="10%" />
+					<listheader label="组织" width="30%" />
+					<listheader label="组织编码" width="10%" />
+					<listheader label="关联类型" width="10%" />
+					<listheader label="备注" width="5%" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+					<listheader label="失效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.staffId}"></listcell>
+					<listcell label="@{current.staffName}"></listcell>
+					<listcell label="@{current.staffAccount}"></listcell>
+					<listcell label="@{current.userCode}"></listcell>
+					<listcell label="@{current.organizationName}">
+					</listcell>
+					<listcell label="@{current.organizationCode}">
+					</listcell>
+					<listcell label="@{current.ralaCdName}"></listcell>
+					<listcell label="@{current.note}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="StaffOrganizationListPaging" pageSize="5"
+				forward="onQueryStaffOrganization" />
+		</panelchildren>
+	</panel>
+</zk>

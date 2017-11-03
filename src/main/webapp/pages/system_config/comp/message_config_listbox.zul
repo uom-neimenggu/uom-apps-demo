@@ -1,0 +1,72 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./messageConfigListPanel"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<panel vflex="1" id="messageConfigListPanel">
+			<caption>
+				<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="姓名" />
+				<textbox id="userName" width="85px" />
+				<label value="手机号码" />
+				<textbox id="telephoneNumber" width="210px" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+			
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="messageConfigWindowDiv">
+					<hbox>
+						<toolbarbutton
+							id="addSystemMessageConfigButton"
+							forward="onMessageConfigAdd" label="新增" />
+						<toolbarbutton
+							id="editSystemMessageConfigButton"
+							forward="onSystemMessageConfigEdit" label="修改" />
+						<toolbarbutton
+							id="delSystemMessageConfigButton"
+							forward="onSystemMessageConfigDel" label="删除" />
+					</hbox>
+				</div>
+				
+				<div id="messageConfigBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeMessageConfigButton"
+							label="关闭" forward="onCloseMessageConfigUser" />
+						<toolbarbutton id="cleanMessageConfigButton"
+							label="清空" forward="onCleanMessageConfigUser" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren vflex="1">
+			<listbox id="systemMessageConfigListBox"
+				forward="onSelect=onSystemMessageConfigSelect" style="height:200px"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="联系人姓名" />
+					<listheader label="手机号码" />						
+					<listheader label="主数据工号" />						
+					<listheader label="邮件地址" />
+					<listheader label="全局管理标识" visible="false" />
+					<listheader label="全局管理标识" />
+					<listheader label="生效时间" />
+				</listhead>
+				<listitem self="@{each='current'}"
+					value="@{current}">
+					<listcell label="@{current.userName}"></listcell>
+					<listcell label="@{current.telephoneNumber}"></listcell>
+					<listcell label="@{current.uomAcct}"></listcell>
+					<listcell label="@{current.emailAddress}"></listcell>
+					<listcell label="@{current.overallSituation}" visible="false"></listcell>
+					<listcell label="@{current.overallSituationName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="systemMessageConfigListPaging" pageSize="10"
+				forward="onMessageConfigListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

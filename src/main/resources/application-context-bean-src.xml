@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- application util -->
+	<bean id="applicationContextUtil" class="cn.ffcs.uom.common.util.ApplicationContextUtil">
+	</bean>
+	<!--默认dao-->
+	<bean id="defaultBaseDao" class="cn.ffcs.uom.common.dao.BaseDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
+	<!-- 公共 -->
+	<bean id="orgTreeAction" class="cn.ffcs.uom.common.action.OrgTreeAction" autowire="byName">
+	</bean>
+	
+	<!-- 信息发布中心 -->
+	<bean id="articleDaoImpl" class="cn.ffcs.uom.information.dao.impl.ArticleDaoImpl" autowire="byName">
+	</bean>
+	<bean id="categoryDaoImpl" class="cn.ffcs.uom.information.dao.impl.CategoryDaoImpl" autowire="byName">
+	</bean>
+	<bean id="attachmentDaoImpl" class="cn.ffcs.uom.information.dao.impl.AttachmentDaoImpl" autowire="byName">
+	</bean>
+	<bean id="imageDaoImpl" class="cn.ffcs.uom.information.dao.impl.ImageDaoImpl" autowire="byName">
+	</bean>
+	<bean id="thumbnailDaoImpl" class="cn.ffcs.uom.information.dao.impl.ThumbnailDaoImpl" autowire="byName">
+	</bean>
+	<bean id="informationAction" class="cn.ffcs.uom.information.action.InformationAction" autowire="byName">
+	</bean>
+	
+	<bean id="staticParameter" class="cn.ffcs.uom.common.util.StaticParameter" autowire="byName"></bean>
+	<bean id="md5Util" class="cn.ffcs.uom.common.util.Md5Util" autowire="byName"></bean>
+</beans>

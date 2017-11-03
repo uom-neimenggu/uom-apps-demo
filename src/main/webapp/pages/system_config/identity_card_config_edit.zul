@@ -1,0 +1,56 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./identityCardConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="identityCardConfigEditWin" border="none"
+		apply="${identityCardConfigEditComposer}" closable="true"
+		width="720px" height="140px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="18%" />
+							<column label="" width="35%" />
+							<column label="" width="18%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="身份证类型标识" />
+								<textbox id="identityCardId" width="96%"
+									disabled="true">
+								</textbox>
+								<label value="* 身份证类型开关"
+									class="z-info-required" />
+								<listbox id="identityCardSwitch"
+									width="96%" mold="select">
+									<listitem label="开" value="1"
+										selected="true">
+									</listitem>
+									<listitem label="关" value="0"></listitem>
+								</listbox>
+							</row>
+							<row>
+								<label value="* 身份证类型名称"
+									class="z-info-required" />
+								<textbox id="identityCardName"
+									width="96%">
+								</textbox>
+								<label value="* 身份证类型前缀"
+									class="z-info-required" />
+								<textbox id="identityCardPrefix"
+									width="96%">
+								</textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

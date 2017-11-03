@@ -1,0 +1,72 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationRelationListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="organizationRelationListboxComp" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline;float:left">
+				<div id="organizationRelationSearchDiv">
+					<hbox>
+						<label value="关联组织编码" />
+						<textbox id="orgCode" width="95px" />
+						<label value="关联组织名称" />
+						<textbox id="orgName" width="95px" />
+						<button label="查询" forward="onQueryOrganization"
+							autodisable="self" mold="trendy" />
+						<button label="重置" forward="onResetOrganization"
+							autodisable="self" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="display:inline">
+				<div id="organizationRelationWindowDiv">
+					<hbox>
+						<toolbarbutton
+							id="addOrganizationRelationButton"
+							forward="onOrganizationRelationAdd" label="新增" visible="false" />
+						<toolbarbutton
+							id="delOrganizationRelationButton"
+							forward="onOrganizationRelationDel" label="删除" visible="false" />
+						<toolbarbutton id="showOrganizationPathButton"
+							forward="onOrganizationPathShow" label="查看树路径" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="OrganizationRelationListBox"
+				forward="onSelect=onSelectOrganizationRelation" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织" />
+					<listheader label="组织编码" />
+					<listheader label="上级组织" />
+					<listheader label="上级组织编码" />
+					<listheader label="关系类型" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell
+						label="@{current.orgId,converter='cn.ffcs.uom.organization.zkUtil.organizationInfoConvert'}">
+					</listcell>
+					<listcell
+						label="@{current.orgCode}">
+					</listcell>
+					<listcell
+						label="@{current.relaOrgId,converter='cn.ffcs.uom.organization.zkUtil.organizationInfoConvert'}">
+					</listcell>
+					<listcell
+						label="@{current.relaOrgId,converter='cn.ffcs.uom.organization.zkUtil.OrganizationCodeConvert'}">
+					</listcell>
+					<listcell label="@{current.relaCdName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="OrganizationRelationListPaging" pageSize="10"
+				forward="onQueryOrganizationRelationResponse" />
+		</panelchildren>
+	</panel>
+</zk>

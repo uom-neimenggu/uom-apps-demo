@@ -1,0 +1,157 @@
+<?page title="离退组织关系管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="员工工号" /><textbox id="" width="80px" />
+						<label value="员工姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="员工工号" width="12%" align="center" />
+					<listheader label="员工姓名" width="10%" align="center" />
+					<listheader label="用工形式" width="10%" align="center" />
+					<listheader label="退出日期" width="16%" align="center" />
+					<listheader label="入职来源" width="16%" align="center" />
+					<listheader label="是否转入人员档案" width="14%" align="center" />
+					<listheader label="进入集团日期" width="10%" align="center" />
+					<listheader label="是否原军队转业干部" width="14%" align="center" visible="false"/>
+				</listhead>
+				<listitem>
+					<listcell label="34910045" />
+					<listcell label="徐苏平" />
+					<listcell label="550" />
+					<listcell label="2002/3/4" />
+					<listcell label="2022/3/5" />
+					<listcell label="审计组组长" />
+					<listcell label="2000" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34000116" />
+					<listcell label="徐鑫" />
+					<listcell label="500" />
+					<listcell label="1998/4/21" />
+					<listcell label="2010/4/21" />
+					<listcell label="渠道管理" />
+					<listcell label="2100" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34000079" />
+					<listcell label="徐亮" />
+					<listcell label="520" />
+					<listcell label="2002/3/4" />
+					<listcell label="2022/3/5" />
+					<listcell label="终端运营管理" />
+					<listcell label="2200" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34030170" />
+					<listcell label="耿成光" />
+					<listcell label="300" />
+					<listcell label="2016/7/8" />
+					<listcell label="2036/7/8" />
+					<listcell label="含山县陶厂农村营业部组长" />
+					<listcell label="3000" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34030170" />
+					<listcell label="耿成光" />
+					<listcell label="230" />
+					<listcell label="2015/4/23" />
+					<listcell label="2035/4/23" />
+					<listcell label="和县党政军金融团队队长" />
+					<listcell label="3000" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34940255" />
+					<listcell label="汪昶" />
+					<listcell label="700" />
+					<listcell label="2016/7/8" />
+					<listcell label="2036/7/8" />
+					<listcell label="采购中心经理" />
+					<listcell label="2300" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34920466" />
+					<listcell label="何武" />
+					<listcell label="230" />
+					<listcell label="2013/4/5" />
+					<listcell label="2023/4/5" />
+					<listcell label="高级总监" />
+					<listcell label="4000" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34346000" />
+					<listcell label="鲍永刚" />
+					<listcell label="430" />
+					<listcell label="2009/7/29" />
+					<listcell label="2029/8/1" />
+					<listcell label="网络运营部（工程管理中心）经理" />
+					<listcell label="3400" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34860181" />
+					<listcell label="秦德宇" />
+					<listcell label="500" />
+					<listcell label="2013/4/5" />
+					<listcell label="2023/4/5" />
+					<listcell label="电子渠道运营中心主任" />
+					<listcell label="2300" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="34960196" />
+					<listcell label="孟祥武" />
+					<listcell label="500" />
+				    <listcell label="2009/7/29" />
+					<listcell label="2029/8/1" />
+					<listcell label="IT支撑中心干事" />
+					<listcell label="3000" />
+					<listcell label="否" />
+				</listitem>
+				<listitem>
+					<listcell label="99002243" />
+					<listcell label="张志斌" />
+					<listcell label="250" />
+					<listcell label="2013/4/5" />
+					<listcell label="2023/4/5" />
+					<listcell label="综合管理部、安全保卫部部长" />
+					<listcell label="400" />
+					<listcell label="否" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

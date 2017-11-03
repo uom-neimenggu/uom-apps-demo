@@ -1,0 +1,41 @@
+<?page title="统一目录树管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./unitedDirectoryTreeMainWindow" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="unitedDirectoryTreeExt" extends="div" class="cn.ffcs.uom.organization.component.UnitedDirectoryTreeExt"?>
+<?component name="unitedDirectoryInfoEditExt" extends="div" class="cn.ffcs.uom.organization.action.UnitedDirectoryInfoEditExt"?>
+<window id="unitedDirectoryTreeMainWindow"
+	apply="${unitedDirectoryTreeMainComposer}" vflex="1" width="100%"
+	height="100%">
+	<borderlayout>
+		<west width="22%">
+			<tabbox id="leftTabbox" vflex="1">
+				<tabs>
+					<tab id="unitedDirectoryTab" label="统一目录树管理界面"
+						forward="onClickLeftTab" />
+					<tab id="leftTempTab" visible="false" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1" id="unitedDirectoryTabpanel">
+						<unitedDirectoryTreeExt
+							id="unitedDirectoryTreeExt" vflex="1" />
+					</tabpanel>
+					<tabpanel id="leftTempTabpanel" />
+				</tabpanels>
+			</tabbox>
+		</west>
+		<center vflex="1">
+			<tabbox id="rightTabBox" vflex="1">
+				<tabs>
+					<tab id="unitedDirectoryInfoTab" label="统一目录属性"
+						forward="onClickTab" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1">
+						<unitedDirectoryInfoEditExt
+							id="unitedDirectoryInfoEditExt" vflex="1" />
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+</window>

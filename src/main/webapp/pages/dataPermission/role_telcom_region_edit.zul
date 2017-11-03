@@ -1,0 +1,29 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<zk>
+	<window id="roleTelcomRegionEditWindow" border="none" width="300px"
+		closable="true" apply="${roleTelcomRegionEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="30%" align="center" />
+						<column width="70%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="电信管理区域" />
+							<telcomRegionTreeBandbox
+								id="telcomRegionTreeBandbox" width="99%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

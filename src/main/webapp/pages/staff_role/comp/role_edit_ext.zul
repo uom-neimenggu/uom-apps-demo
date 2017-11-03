@@ -1,0 +1,57 @@
+<?page title="角色信息" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleEditExtPanel"?>
+<zk>
+	<panel id="roleEditExtPanel">
+		<caption>
+			<toolbar align="end">
+				<hbox>
+					<toolbarbutton id="editButton" label="编辑"
+						forward="onEdit" />
+					<toolbarbutton id="saveButton" label="保存"
+						forward="onSave" />
+					<toolbarbutton id="recoverButton" label="恢复"
+						forward="onRecover" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<grid>
+				<columns>
+					<column width="15%" align="center" />
+					<column width="30%" />
+					<column width="15%" align="center" />
+					<column width="40%" />
+				</columns>
+				<rows>
+					<row>
+						<label value="角色编码" />
+						<textbox id="roleCode" width="97%"
+							disabled="true">
+						</textbox>
+						<label value="角色名称" />
+						<textbox id="roleName" width="97%"
+							disabled="true">
+						</textbox>
+					</row>
+					<row>
+						<label value="生效时间" />
+						<textbox id="effDateStr" width="97%"
+							disabled="true">
+						</textbox>
+						<label value="失效时间" />
+						<textbox id="expDateStr" width="97%"
+							disabled="true">
+						</textbox>
+					</row>
+					<row spans="1,3">
+						<label value="职位状态" />
+						<textbox id="statusCdName" width="97%"
+							disabled="true">
+						</textbox>
+					</row>
+				</rows>
+			</grid>
+		</panelchildren>
+	</panel>
+</zk>

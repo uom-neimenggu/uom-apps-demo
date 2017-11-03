@@ -1,0 +1,40 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleOrganizationListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<panel id="roleOrganizationListboxComp" vflex="1">
+		<toolbar align="end" sclass="toolbar-user">
+			<div id="roleOrganizationWindowDiv">
+				<hbox>
+					<toolbarbutton id="addRoleOrganizationButton"
+						forward="onRoleOrganizationAdd" label="新增" />
+					<toolbarbutton id="delRoleOrganizationButton"
+						forward="onRoleOrganizationDel" label="删除" />
+				</hbox>
+			</div>
+		</toolbar>
+		<panelchildren>
+			<listbox id="roleOrganizationListBox"
+				forward="onSelect=onSelectRoleOrganization" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="关联组织名称" />
+					<listheader label="关联组织全称" />
+					<listheader label="生效时间" />
+					<listheader label="失效时间" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell
+						label="@{current.organization.orgName}">
+					</listcell>
+					<listcell
+						label="@{current.organization.orgFullName}">
+					</listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="roleOrganizationListPaging" pageSize="10"
+				forward="onRoleOrganizationListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

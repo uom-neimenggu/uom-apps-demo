@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<c:if test="<%= !isPortlet %>">
+	<head>
+</c:if>
+	<cj:block name="heads"></cj:block>
+<c:if test="<%= !isPortlet %>">
+	</head>
+	<body>
+</c:if>
+	<cj:block name="bodyContent"></cj:block>
+<c:if test="<%= !isPortlet %>">
+	</body>
+</c:if>
+</html>

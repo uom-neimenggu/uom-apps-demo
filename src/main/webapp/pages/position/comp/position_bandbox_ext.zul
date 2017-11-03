@@ -1,0 +1,12 @@
+<?page title="职位信息" contentType="text/html;charset=UTF-8"?>
+<?component name="positionListboxDiv" extends="div" class="cn.ffcs.uom.position.action.PositionListboxDiv" ?>
+<zk>
+	<bandpopup width="600px" height="50%">
+		<panel>
+			<panelchildren>
+				<positionListboxDiv id="positionListboxDiv">
+				</positionListboxDiv>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

@@ -1,0 +1,71 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./groupListboxExtPanel"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="groupListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="float:left;display:inline-table;">
+				<label value="用户姓名" />
+				<textbox id="userName" width="80px" />
+				<label value="员工编码" />
+				<textbox id="loginName" width="80px" />
+				<label value="用户帐号" />
+				<textbox id="ctHrUserCode" width="80px" />
+				<label value="证件号" />
+				<textbox id="ctIdentityNumber" width="80px" />
+				<!--<label value="员工状态" />
+					<listbox id="ctStatus" width="120px" mold="select">
+					<listitem label="在岗" value="1"></listitem>
+					<listitem label="不在岗" value="2"></listitem>
+					<listitem label="无职位" value="3"></listitem>
+					</listbox> -->
+				<button label="查询" forward="onGroupRequest"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onGroupReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="groupWindowDiv">
+					<hbox>
+						<toolbarbutton id="proofreadButton"
+							forward="onGroupProofread" label="校对" />
+						<toolbarbutton id="localProofreadButton"
+							forward="onGroupLocalProofread" label="关联" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="groupListBox" sclass="zl-listbox"
+				sizedByContent="false" style="height:200px" mold="paging"
+				forward="onSelect=onSelectonGroupRequest">
+				<listhead sizable="true">
+					<listheader label="员工编号" width="8%" align="center" />
+					<listheader label="用户姓名" width="8%" align="center" />
+					<listheader label="用户帐号" width="10%" align="center" />
+					<listheader label="员工编码" width="10%" align="center" />
+					<listheader label="证件号" width="16%" align="center" />
+					<listheader label="主数据员工ID" width="13%"
+						align="center" />
+					<listheader label="归属组织" width="19%" align="center" />
+					<listheader label="创建时间" width="16%" align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.id}"></listcell>
+					<listcell label="@{current.userName}"></listcell>
+					<listcell label="@{current.ctHrUserCode}"></listcell>
+					<listcell label="@{current.loginName}">
+					</listcell>
+					<listcell label="@{current.ctIdentityNumber}"></listcell>
+					<listcell label="@{current.staffId}"></listcell>
+					<listcell label=""></listcell>
+					<listcell label="@{current.createDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="groupListPaging" pageSize="9"
+				forward="onGroupListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

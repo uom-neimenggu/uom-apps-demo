@@ -1,0 +1,58 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./mdmSupplierCreateListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="mdmSupplierCreateListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="公司全称" />
+				<textbox id="name" width="100px" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="mdmSupplierCreateListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="操作类型" />
+					<listheader label="申请单id" />
+					<listheader label="账号" />
+					<listheader label="帐户组" />
+					<listheader label="公司全称" />
+					<listheader label="城市" />
+					<listheader label="联系电话" />
+					<listheader label="公司性质" />
+					<listheader label="主要联系人" />
+					<listheader label="合作业务类型" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.status}">
+					</listcell>
+					<listcell label="@{current.zsqdId}">
+					</listcell>
+					<listcell label="@{current.lifnr}">
+					</listcell>
+					<listcell label="@{current.ktokk}">
+					</listcell>
+					<listcell label="@{current.name1}">
+					</listcell>
+					<listcell label="@{current.city1}">
+					</listcell>
+					<listcell label="@{current.telf1}">
+					</listcell>
+					<listcell label="@{current.zprop}">
+					</listcell>
+					<listcell label="@{current.zcont}">
+					</listcell>
+					<listcell label="@{current.zdxhzywlxfw}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="mdmSupplierCreateListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

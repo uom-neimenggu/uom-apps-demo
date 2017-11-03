@@ -1,0 +1,39 @@
+<?page title="生成临时身份证" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./identityMainWin"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="identityMainWin" border="none"
+		apply="${identityMainComposer}" width="650px" closable="true">
+		<div style="height:450px;overflow:auto;">
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="35%" />
+							<column width="15%" align="center" />
+							<column width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="身份证类型" />
+								<listbox id="identityCardNameListbox"
+									mold="select" rows="1" width="160px">
+								</listbox>
+								<label value="生成数量" />
+								<longbox id="identityCardCount"
+									width="93%" />
+							</row>
+							<row spans="4">
+								<button id="identityButton"
+									forward="onIdentityRequest" label="生成">
+								</button>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,12 @@
+<?component name="partyListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyListboxExt" ?>
+<zk>
+	<bandpopup width="1020px" height="385px">
+		<borderlayout>
+			<center autoscroll="true" vflex="1">
+				<div vflex="1">
+					<partyListboxExt id="partyBandListboxExt"  vflex="1" />
+				</div>
+			</center>
+		</borderlayout>
+	</bandpopup>
+</zk>

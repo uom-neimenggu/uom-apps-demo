@@ -1,0 +1,15 @@
+<?page title="实名制数据统计报表" contentType="text/html;charset=UTF-8"?>
+<?component name="realnameDataReportExt" extends="div" class="cn.ffcs.uom.report.component.RealnameDataReportExt" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="realnameDataReportMainWin" height="96%" apply="${realnameDataReportMainComposer}">
+		<borderlayout>
+			<north size="97%">
+				<div vflex="1">
+					<realnameDataReportExt id="realnameDataReportExt"
+						vflex="1" />
+				</div>
+			</north>
+		</borderlayout>
+	</window>
+</zk>

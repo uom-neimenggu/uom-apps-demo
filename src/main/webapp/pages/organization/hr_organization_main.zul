@@ -1,0 +1,53 @@
+<?page title="人力组织查询列表" contentType="text/html;charset=UTF-8"?>
+<?component name="hiPsnorgListboxComp" extends="div" class="cn.ffcs.uom.organization.action.HiPsnorgListboxComposer" ?>
+<?component name="wbCorpListboxComp" extends="div" class="cn.ffcs.uom.organization.action.WbCorpListboxComposer" ?>
+<?component name="orgDeptListboxComp" extends="div" class="cn.ffcs.uom.organization.action.OrgDeptListboxComposer" ?>
+<?component name="orgOrgsListboxComp" extends="div" class="cn.ffcs.uom.organization.action.OrgOrgsListboxComposer" ?>
+<?component name="telDeptCostConListboxComp" extends="div" class="cn.ffcs.uom.organization.action.TelDeptCostConListboxComposer" ?>
+<?component name="telSyncCostcenterListboxComp" extends="div" class="cn.ffcs.uom.organization.action.TelSyncCostcenterListboxComposer" ?>
+<?component name="wbPsnMsgListboxComp" extends="div" class="cn.ffcs.uom.organization.action.WbPsnMsgListboxComposer" ?>
+<?component name="omPostseriesListboxComp" extends="div" class="cn.ffcs.uom.organization.action.OmPostseriesListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="hrOrganizationMainWin" width="100%" height="95%"
+		apply="${hrOrganizationMainComposer}">
+		<tabbox id="tabbox" width="99%" vflex="1">
+			<tabs>
+				<tab id="hiPsnorgTab" label="组织关系" forward="onClickTab" />
+				<tab id="wbCorpTab" label="外包公司" forward="onClickTab" />
+				<tab id="orgDeptTab" label="部门" forward="onClickTab" />
+				<tab id="orgOrgsTab" label="组织信息HR" forward="onClickTab" />
+				<tab id="telDeptCostConTab" label="部门与成本中心" forward="onClickTab" />
+				<tab id="telSyncCostcenterTab" label="成本中心基础数据" forward="onClickTab" />
+				<tab id="wbPsnMsgTab" label="外包人员基本信息" forward="onClickTab" />
+				<tab id="omPostseriesTab" label="岗位序列" forward="onClickTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="hiPsnorgTabpanel">
+					<hiPsnorgListboxComp id="hiPsnorgListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="wbCorpTabpanel">
+					<wbCorpListboxComp id="wbCorpListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="orgDeptTabpanel">
+					<orgDeptListboxComp id="orgDeptListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="orgOrgsTabpanel">
+					<orgOrgsListboxComp id="orgOrgsListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="telDeptCostConTabpanel">
+					<telDeptCostConListboxComp id="telDeptCostConListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="telSyncCostcenterTabpanel">
+					<telSyncCostcenterListboxComp id="telSyncCostcenterListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="wbPsnMsgTabpanel">
+					<wbPsnMsgListboxComp id="wbPsnMsgListboxComp" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="omPostseriesTabpanel">
+					<omPostseriesListboxComp id="omPostseriesListboxComp" vflex="1" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

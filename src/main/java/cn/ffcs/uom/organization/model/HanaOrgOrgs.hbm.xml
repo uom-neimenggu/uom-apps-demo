@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-13 12:02:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uom.organization.model.HanaOrgOrgs" table="HANA_ORG_ORGS" >
+  			<comment>组织信息HR表</comment>
+			<id name="id" type="java.lang.Long">
+				<column name="ID" precision="22" scale="0" />
+				<generator class="sequence">
+					<param name="sequence">SEQ_CT_ORGANIZATION_ID</param>
+				</generator>
+			</id>
+           <property name="monthId" type="int">
+               <column name="MONTH_ID" precision="8" scale="0" />
+           </property>
+           <property name="unitId" type="string">
+               <column name="UNIT_ID" length="12" />
+           </property>
+           <property name="address" type="string">
+               <column name="ADDRESS" length="30" />
+           </property>
+           <property name="code" type="string">
+               <column name="CODE" length="40" />
+           </property>
+           <property name="countryzone" type="string">
+               <column name="COUNTRYZONE" length="20" />
+           </property>
+           <property name="creationtime" type="string">
+               <column name="CREATIONTIME" length="19" />
+           </property>
+           <property name="creator" type="string">
+               <column name="CREATOR" length="20" />
+           </property>
+           <property name="dataoriginflag" type="big_decimal">
+               <column name="DATAORIGINFLAG" precision="38" scale="0" />
+           </property>
+           <property name="def1" type="string">
+               <column name="DEF1" length="101" />
+           </property>
+           <property name="def10" type="string">
+               <column name="DEF10" length="101" />
+           </property>
+           <property name="def11" type="string">
+               <column name="DEF11" length="101" />
+           </property>
+           <property name="def12" type="string">
+               <column name="DEF12" length="101" />
+           </property>
+           <property name="def13" type="string">
+               <column name="DEF13" length="101" />
+           </property>
+           <property name="def14" type="string">
+               <column name="DEF14" length="101" />
+           </property>
+           <property name="def15" type="string">
+               <column name="DEF15" length="101" />
+           </property>
+           <property name="def16" type="string">
+               <column name="DEF16" length="101" />
+           </property>
+           <property name="def17" type="string">
+               <column name="DEF17" length="101" />
+           </property>
+           <property name="def18" type="string">
+               <column name="DEF18" length="101" />
+           </property>
+           <property name="def19" type="string">
+               <column name="DEF19" length="101" />
+           </property>
+           <property name="def2" type="string">
+               <column name="DEF2" length="101" />
+           </property>
+           <property name="def20" type="string">
+               <column name="DEF20" length="101" />
+           </property>
+           <property name="def3" type="string">
+               <column name="DEF3" length="101" />
+           </property>
+           <property name="def4" type="string">
+               <column name="DEF4" length="101" />
+           </property>
+           <property name="def5" type="string">
+               <column name="DEF5" length="101" />
+           </property>
+           <property name="def6" type="string">
+               <column name="DEF6" length="101" />
+           </property>
+           <property name="def7" type="string">
+               <column name="DEF7" length="101" />
+           </property>
+           <property name="def8" type="string">
+               <column name="DEF8" length="101" />
+           </property>
+           <property name="def9" type="string">
+               <column name="DEF9" length="101" />
+           </property>
+           <property name="dr" type="java.lang.Long">
+               <column name="DR" precision="10" scale="0" />
+           </property>
+           <property name="enablestate" type="big_decimal">
+               <column name="ENABLESTATE" precision="22" scale="0" />
+           </property>
+           <property name="entitytype" type="string">
+               <column name="ENTITYTYPE" length="20" />
+           </property>
+           <property name="glbdef1" type="string">
+               <column name="GLBDEF1" length="256" />
+           </property>
+           <property name="glbdef10" type="string">
+               <column name="GLBDEF10" length="1024" />
+           </property>
+           <property name="glbdef11" type="string">
+               <column name="GLBDEF11" length="1024" />
+           </property>
+           <property name="glbdef12" type="string">
+               <column name="GLBDEF12" length="20" />
+           </property>
+           <property name="glbdef13" type="string">
+               <column name="GLBDEF13" length="20" />
+           </property>
+           <property name="glbdef14" type="string">
+               <column name="GLBDEF14" length="10" />
+           </property>
+           <property name="glbdef15" type="string">
+               <column name="GLBDEF15" length="10" />
+           </property>
+           <property name="glbdef16" type="long">
+               <column name="GLBDEF16" precision="10" scale="0" />
+           </property>
+           <property name="glbdef2" type="string">
+               <column name="GLBDEF2" length="20" />
+           </property>
+           <property name="glbdef3" type="string">
+               <column name="GLBDEF3" length="20" />
+           </property>
+           <property name="glbdef5" type="string">
+               <column name="GLBDEF5" length="512" />
+           </property>
+           <property name="glbdef6" type="big_decimal">
+               <column name="GLBDEF6" precision="22" scale="0" />
+           </property>
+           <property name="glbdef7" type="string">
+               <column name="GLBDEF7" length="20" />
+           </property>
+           <property name="glbdef8" type="string">
+               <column name="GLBDEF8" length="20" />
+           </property>
+           <property name="glbdef9" type="string">
+               <column name="GLBDEF9" length="20" />
+           </property>
+           <property name="innercode" type="string">
+               <column name="INNERCODE" length="200" />
+           </property>
+           <property name="isbusinessunit" type="string">
+               <column name="ISBUSINESSUNIT" length="1" />
+           </property>
+           <property name="islastversion" type="string">
+               <column name="ISLASTVERSION" length="1" />
+           </property>
+           <property name="isretail" type="string">
+               <column name="ISRETAIL" length="1" />
+           </property>
+           <property name="memo" type="string">
+               <column name="MEMO" length="300" />
+           </property>
+           <property name="mnecode" type="string">
+               <column name="MNECODE" length="75" />
+           </property>
+           <property name="modifiedtime" type="string">
+               <column name="MODIFIEDTIME" length="19" />
+           </property>
+           <property name="modifier" type="string">
+               <column name="MODIFIER" length="20" />
+           </property>
+           <property name="name" type="string">
+               <column name="NAME" length="300" />
+           </property>
+           <property name="name2" type="string">
+               <column name="NAME2" length="300" />
+           </property>
+           <property name="name3" type="string">
+               <column name="NAME3" length="300" />
+           </property>
+           <property name="name4" type="string">
+               <column name="NAME4" length="300" />
+           </property>
+           <property name="name5" type="string">
+               <column name="NAME5" length="300" />
+           </property>
+           <property name="name6" type="string">
+               <column name="NAME6" length="300" />
+           </property>
+           <property name="ncindustry" type="string">
+               <column name="NCINDUSTRY" length="20" />
+           </property>
+           <property name="organizationcode" type="string">
+               <column name="ORGANIZATIONCODE" length="50" />
+           </property>
+           <property name="orgtype1" type="string">
+               <column name="ORGTYPE1" length="1" />
+           </property>
+           <property name="orgtype10" type="string">
+               <column name="ORGTYPE10" length="1" />
+           </property>
+           <property name="orgtype11" type="string">
+               <column name="ORGTYPE11" length="1" />
+           </property>
+           <property name="orgtype12" type="string">
+               <column name="ORGTYPE12" length="1" />
+           </property>
+           <property name="orgtype13" type="string">
+               <column name="ORGTYPE13" length="1" />
+           </property>
+           <property name="orgtype14" type="string">
+               <column name="ORGTYPE14" length="1" />
+           </property>
+           <property name="orgtype15" type="string">
+               <column name="ORGTYPE15" length="1" />
+           </property>
+           <property name="orgtype16" type="string">
+               <column name="ORGTYPE16" length="1" />
+           </property>
+           <property name="orgtype17" type="string">
+               <column name="ORGTYPE17" length="1" />
+           </property>
+           <property name="orgtype18" type="string">
+               <column name="ORGTYPE18" length="1" />
+           </property>
+           <property name="orgtype19" type="string">
+               <column name="ORGTYPE19" length="1" />
+           </property>
+           <property name="orgtype2" type="string">
+               <column name="ORGTYPE2" length="1" />
+           </property>
+           <property name="orgtype20" type="string">
+               <column name="ORGTYPE20" length="1" />
+           </property>
+           <property name="orgtype21" type="string">
+               <column name="ORGTYPE21" length="1" />
+           </property>
+           <property name="orgtype22" type="string">
+               <column name="ORGTYPE22" length="1" />
+           </property>
+           <property name="orgtype23" type="string">
+               <column name="ORGTYPE23" length="1" />
+           </property>
+           <property name="orgtype24" type="string">
+               <column name="ORGTYPE24" length="1" />
+           </property>
+           <property name="orgtype25" type="string">
+               <column name="ORGTYPE25" length="1" />
+           </property>
+           <property name="orgtype26" type="string">
+               <column name="ORGTYPE26" length="1" />
+           </property>
+           <property name="orgtype27" type="string">
+               <column name="ORGTYPE27" length="1" />
+           </property>
+           <property name="orgtype28" type="string">
+               <column name="ORGTYPE28" length="1" />
+           </property>
+           <property name="orgtype29" type="string">
+               <column name="ORGTYPE29" length="1" />
+           </property>
+           <property name="orgtype3" type="string">
+               <column name="ORGTYPE3" length="1" />
+           </property>
+           <property name="orgtype30" type="string">
+               <column name="ORGTYPE30" length="1" />
+           </property>
+           <property name="orgtype31" type="string">
+               <column name="ORGTYPE31" length="1" />
+           </property>
+           <property name="orgtype32" type="string">
+               <column name="ORGTYPE32" length="1" />
+           </property>
+           <property name="orgtype33" type="string">
+               <column name="ORGTYPE33" length="1" />
+           </property>
+           <property name="orgtype34" type="string">
+               <column name="ORGTYPE34" length="1" />
+           </property>
+           <property name="orgtype35" type="string">
+               <column name="ORGTYPE35" length="1" />
+           </property>
+           <property name="orgtype36" type="string">
+               <column name="ORGTYPE36" length="1" />
+           </property>
+           <property name="orgtype37" type="string">
+               <column name="ORGTYPE37" length="1" />
+           </property>
+           <property name="orgtype38" type="string">
+               <column name="ORGTYPE38" length="1" />
+           </property>
+           <property name="orgtype39" type="string">
+               <column name="ORGTYPE39" length="1" />
+           </property>
+           <property name="orgtype4" type="string">
+               <column name="ORGTYPE4" length="1" />
+           </property>
+           <property name="orgtype40" type="string">
+               <column name="ORGTYPE40" length="1" />
+           </property>
+           <property name="orgtype5" type="string">
+               <column name="ORGTYPE5" length="1" />
+           </property>
+           <property name="orgtype6" type="string">
+               <column name="ORGTYPE6" length="1" />
+           </property>
+           <property name="orgtype7" type="string">
+               <column name="ORGTYPE7" length="1" />
+           </property>
+           <property name="orgtype8" type="string">
+               <column name="ORGTYPE8" length="1" />
+           </property>
+           <property name="orgtype9" type="string">
+               <column name="ORGTYPE9" length="1" />
+           </property>
+           <property name="pkAccperiodscheme" type="string">
+               <column name="PK_ACCPERIODSCHEME" length="20" />
+           </property>
+           <property name="pkControlarea" type="string">
+               <column name="PK_CONTROLAREA" length="20" />
+           </property>
+           <property name="pkCorp" type="string">
+               <column name="PK_CORP" length="20" />
+           </property>
+           <property name="pkCurrtype" type="string">
+               <column name="PK_CURRTYPE" length="20" />
+           </property>
+           <property name="pkExratescheme" type="string">
+               <column name="PK_EXRATESCHEME" length="20" />
+           </property>
+           <property name="pkFatherorg" type="string">
+               <column name="PK_FATHERORG" length="20" />
+           </property>
+           <property name="pkFormat" type="string">
+               <column name="PK_FORMAT" length="20" />
+           </property>
+           <property name="pkGroup" type="string">
+               <column name="PK_GROUP" length="20" />
+           </property>
+           <property name="pkOrg" type="string">
+               <column name="PK_ORG" length="20" />
+           </property>
+           <property name="pkTimezone" type="string">
+               <column name="PK_TIMEZONE" length="20" />
+           </property>
+           <property name="pkVid" type="string">
+               <column name="PK_VID" length="20" />
+           </property>
+           <property name="principal" type="string">
+               <column name="PRINCIPAL" length="20" />
+           </property>
+           <property name="reportconfirm" type="string">
+               <column name="REPORTCONFIRM" length="1" />
+           </property>
+           <property name="shortname" type="string">
+               <column name="SHORTNAME" length="300" />
+           </property>
+           <property name="shortname2" type="string">
+               <column name="SHORTNAME2" length="300" />
+           </property>
+           <property name="shortname3" type="string">
+               <column name="SHORTNAME3" length="300" />
+           </property>
+           <property name="shortname4" type="string">
+               <column name="SHORTNAME4" length="300" />
+           </property>
+           <property name="shortname5" type="string">
+               <column name="SHORTNAME5" length="300" />
+           </property>
+           <property name="shortname6" type="string">
+               <column name="SHORTNAME6" length="300" />
+           </property>
+           <property name="tel" type="string">
+               <column name="TEL" length="100" />
+           </property>
+           <property name="ts" type="string">
+               <column name="TS" length="19" />
+           </property>
+           <property name="venddate" type="string">
+               <column name="VENDDATE" length="19" />
+           </property>
+           <property name="vname" type="string">
+               <column name="VNAME" length="300" />
+           </property>
+           <property name="vname2" type="string">
+               <column name="VNAME2" length="300" />
+           </property>
+           <property name="vname3" type="string">
+               <column name="VNAME3" length="300" />
+           </property>
+           <property name="vname4" type="string">
+               <column name="VNAME4" length="300" />
+           </property>
+           <property name="vname5" type="string">
+               <column name="VNAME5" length="300" />
+           </property>
+           <property name="vname6" type="string">
+               <column name="VNAME6" length="300" />
+           </property>
+           <property name="vno" type="string">
+               <column name="VNO" length="50" />
+           </property>
+           <property name="vstartdate" type="string">
+               <column name="VSTARTDATE" length="19" />
+           </property>
+           <property name="workcalendar" type="string">
+               <column name="WORKCALENDAR" length="20" />
+           </property>
+           <property name="glbdef17" type="string">
+               <column name="GLBDEF17" length="128" />
+           </property>
+           <property name="glbdef18" type="string">
+               <column name="GLBDEF18" length="128" />
+           </property>
+           <property name="loadDate" type="date">
+               <column name="LOAD_DATE" length="7" />
+           </property>
+           <property name="etlDay" type="java.lang.Long">
+               <column name="ETL_DAY" precision="10" scale="0" />
+           </property>
+           <property name="localPartitionId" type="java.lang.Byte">
+               <column name="LOCAL_PARTITION_ID" precision="2" scale="0" />
+           </property>
+    </class>
+</hibernate-mapping>

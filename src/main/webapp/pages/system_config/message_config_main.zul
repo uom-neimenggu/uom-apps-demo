@@ -1,0 +1,22 @@
+<?page title="系统接口短信通知配置" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="messageConfigListbox" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.MessageConfigListboxComposer"?>
+<?component name="sysBusiUserListbox" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SysBusiUserListboxComposer"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./messageConfigMainWin"?>
+<zk>
+	<window id="messageConfigMainWin" height="530px"
+		apply="${messageConfigMainConposer}">
+		<borderlayout>
+			<north size="50%">
+				<div vflex="1">
+					<messageConfigListbox id="messageConfigListbox"
+						vflex="1" />
+				</div>
+			</north>
+			<south size="50%">
+				<sysBusiUserListbox id="sysBusiUserListbox"
+					vflex="1" />
+			</south>
+		</borderlayout>
+	</window>
+</zk>

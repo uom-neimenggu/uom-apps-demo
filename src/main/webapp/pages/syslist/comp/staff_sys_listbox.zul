@@ -1,0 +1,67 @@
+<?page title="员工系统列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffSysMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="staffSysMainWin" apply="${staffSysListboxComposer}" height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="width:auto;float:left;">
+				<div id="searchDiv">
+					<hbox>
+						<label value="员工编码" />
+						<textbox id="staffCode" width="95px" />
+						<label value="员工名称" />
+						<textbox id="staffName" width="95px" />
+						<button label="查询" forward="onQuery" autodisable="self" mold="trendy"/>
+						<button label="重置" forward="onReset" autodisable="self" mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton
+							id="addButton" label="新增"
+							forward="onAdd" />
+						<toolbarbutton
+							id="delButton" label="删除"
+							forward="onDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="sysListbox" forward="onSelect=onSysListSelectRequest" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="员工编码" />
+						<listheader label="员工名称" />
+						<listheader label="系统编码" />
+						<listheader label="系统名称" />
+						<listheader label="系统URL" />
+						<listheader label="系统电信管理区域" />
+					</listhead>
+					<listitem self="@{each='staffSysRela'}" value="@{staffSysRela}">
+						<listcell
+							label="@{staffSysRela.staff.staffCode}">
+						</listcell>
+						<listcell
+							label="@{staffSysRela.staff.staffName}">
+						</listcell>
+						<listcell
+							label="@{staffSysRela.sysList.clientCode}">
+						</listcell>
+						<listcell
+							label="@{staffSysRela.sysList.sysName}">
+						</listcell>
+						<listcell
+							label="@{staffSysRela.sysList.sysUrl}">
+						</listcell>
+						<listcell
+							label="@{staffSysRela.sysList.telcomRegion.regionName}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="sysListboxPaging" pageSize="10" forward="onSysListListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

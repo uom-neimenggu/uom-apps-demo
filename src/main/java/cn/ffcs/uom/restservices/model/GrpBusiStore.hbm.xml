@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.restservices.model.GrpBusiStore" table="GRP_BUSI_STORE">
+		<comment>经营场所标识</comment>
+		<id name="grpBusiStoreId" type="java.lang.Long">
+			<column name="GRP_BUSI_STORE_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_GRP_BUSI_STORE_ID</param>
+			</generator>
+		</id>
+		<property name="busiStoreNbr" type="java.lang.String">
+			<column name="BUSI_STORE_NBR" length="30">
+				<comment>经营场所编码</comment>
+			</column>
+		</property>
+		<property name="busiStoreName" type="java.lang.String">
+			<column name="BUSI_STORE_NAME" length="200">
+				<comment>经营场所名称</comment>
+			</column>
+		</property>
+		<property name="busiStoreHouseType" type="java.lang.String">
+			<column name="BUSI_STORE_HOUSE_TYPE" length="20">
+				<comment>经营场所分类</comment>
+			</column>
+		</property>
+		<property name="commonRegionId" type="java.lang.String">
+			<column name="COMMON_REGION_ID" length="30">
+				<comment>公用管理区域标识</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" length="200">
+				<comment>经营场所地址</comment>
+			</column>
+		</property>
+		<property name="action" type="java.lang.String">
+			<column name="ACTION" length="6">
+				<comment>处理动作</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

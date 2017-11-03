@@ -1,0 +1,39 @@
+<?page title="监控条件配置" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemMonitorConfigFilterListPanel"?>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+	<panel vflex="1" id="systemMonitorConfigFilterListPanel" height="100%">
+		<caption>
+			<toolbar align="end">
+				<hbox>
+					<div id="systemMonitorConfigFilterWindowDiv">
+						<hbox>
+							<toolbarbutton id="addSystemMonitorConfigFilterButton" image="/public/images/pub_button/add.png" tooltiptext="新增" forward="onAddSystemMonitorConfigFilterInfo" />
+							<toolbarbutton id="editSystemMonitorConfigFilterButton" image="/public/images/pub_button/modify.png" tooltiptext="编辑" forward="onEditSystemMonitorConfigFilterInfo" />
+							<toolbarbutton id="delSystemMonitorConfigFilterButton" image="/public/images/pub_button/delete.png" tooltiptext="删除" forward="onDelSystemMonitorConfigFilterInfo" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="systemMonitorConfigFilterListbox" vflex="1" forward="onSelect=onSystemMonitorConfigFilterListSelectRequest" fixedLayout="true" multiple="false" checkmark="false">
+				<listhead sizable="true">
+					<listheader label="条件名" />
+					<listheader label="关系运算符" />
+					<listheader label="属性值" />
+					<listheader label="状态" />
+				</listhead>
+				<listitem self="@{each='systemMonitorConfigFilter'}" value="@{systemMonitorConfigFilter}">
+					<listcell label="@{systemMonitorConfigFilter.systemMonitorConfigFilterId}"></listcell>
+					<listcell label="@{systemMonitorConfigFilter.systemMonitorConfigFilterName}"></listcell>
+					<listcell label="@{systemMonitorConfigFilter.systemMonitorConfigFilter}"></listcell>
+					<listcell label="@{systemMonitorConfigFilter.statusCdName}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="systemMonitorConfigFilterPaging" pageSize="3" forward="onQrySystemMonitorConfigFilter" />
+		</panelchildren>
+	</panel>
+	</zk>
+</zk>

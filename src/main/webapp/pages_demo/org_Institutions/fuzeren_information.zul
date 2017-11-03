@@ -1,0 +1,169 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="负责人编码" /><textbox id="" width="80px" />
+						<label value="负责人姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="负责人姓名" width="8%" align="center" />
+					<listheader label="负责人编码" width="10%" align="center" />
+					<listheader label="主要负责人" width="10%" align="center" />
+					<listheader label="性别" width="6%" align="center" />
+					<listheader label="证件类型" width="8%" align="center" />
+					<listheader label="证件号码" width="12%" align="center" />
+					<listheader label="籍贯" width="8%" align="center" />
+					<listheader label="婚姻状况" width="8%" align="center" />
+					<listheader label="手机号码" width="14%" align="center" />
+					<listheader label="家庭地址" width="30%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="张安宁" />
+					<listcell label="34081240" />
+					<listcell label="是" />
+					<listcell label="女" />
+					<listcell label="身份证" />
+					<listcell label="341224198410010429" />
+					<listcell label="安徽阜南" />
+					<listcell label="已婚" />
+					<listcell label="15305671010" />
+					<listcell label="阜南桂圆小区" />
+				</listitem>
+				<listitem>
+					<listcell label="施长庆" />
+					<listcell label="34094008" />
+					<listcell label="是" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="341226197311204437" />
+					<listcell label="安徽六安地区" />
+					<listcell label="已婚" />
+					<listcell label="15345587277" />
+					<listcell label="合肥市长江西路新加坡花园城" />
+				</listitem>
+				<listitem>
+					<listcell label="瞿寿庆" />
+					<listcell label="34630157" />
+					<listcell label="是" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="340901194408221811" />
+					<listcell label="安徽黄山市" />
+					<listcell label="已婚" />
+					<listcell label="13335696209" />
+					<listcell label="黄山区岘村村民小组" />
+				</listitem>
+				<listitem>
+					<listcell label="仇乃玉" />
+					<listcell label="34092930" />
+					<listcell label="是" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="340404198308011032" />
+					<listcell label="安徽泗县" />
+					<listcell label="已婚" />
+					<listcell label="15305671010" />
+					<listcell label="黄山区平湖西路4幢305室" />
+				</listitem>
+				<listitem>
+					<listcell label="姚尚辉" />
+					<listcell label="34020177" />
+					<listcell label="是" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="341021197912140536" />
+					<listcell label="安徽歙县" />
+					<listcell label="已婚" />
+					<listcell label="13399599509" />
+					<listcell label="安庆市德宽路马山公寓2-1-601室" />
+				</listitem>
+				<listitem>
+					<listcell label="余建勋" />
+					<listcell label="34820136" />
+					<listcell label="否" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="34272519590430601X" />
+					<listcell label="安徽黄山市" />
+					<listcell label="已婚" />
+					<listcell label="13399597036" />
+					<listcell label="芜湖市园丁二区3幢1单元301室" />
+				</listitem>
+				<listitem>
+					<listcell label="陈成" />
+					<listcell label="34071166" />
+					<listcell label="是" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="342601198204130217" />
+					<listcell label="皖巢" />
+					<listcell label="未婚" />
+					<listcell label="15305659310" />
+					<listcell label="安徽省马鞍山市湖东3村22栋503" />
+				</listitem>
+				<listitem>
+					<listcell label="郑微" />
+					<listcell label="34071166" />
+					<listcell label="是" />
+					<listcell label="女" />
+					<listcell label="身份证" />
+					<listcell label="342601198407290624" />
+					<listcell label="安徽庐江县" />
+					<listcell label="未婚" />
+					<listcell label="15305671010" />
+					<listcell label="宿州大河南街埇桥小区3栋403" />
+				</listitem>
+				<listitem>
+					<listcell label="钱传霞" />
+					<listcell label="34830308" />
+					<listcell label="是" />
+					<listcell label="女" />
+					<listcell label="身份证" />
+					<listcell label="342827196607210321" />
+					<listcell label="安徽合肥市" />
+					<listcell label="未婚" />
+					<listcell label="15305569096" />
+					<listcell label="望江县回龙路" />
+				</listitem>
+				<listitem>
+					<listcell label="方洪" />
+					<listcell label="34890397" />
+					<listcell label="否" />
+					<listcell label="男" />
+					<listcell label="身份证" />
+					<listcell label="342828196704110812" />
+					<listcell label="安徽安庆市" />
+					<listcell label="未婚" />
+					<listcell label="15305563076" />
+					<listcell label="岳西县天堂镇外贸宿舍" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

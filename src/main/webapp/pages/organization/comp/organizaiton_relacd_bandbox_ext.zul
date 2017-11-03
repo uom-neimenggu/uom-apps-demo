@@ -1,0 +1,12 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<bandpopup width="200px">
+		<listbox id="relaCd" width="98%" checkmark="true"
+			multiple="true">
+		</listbox>
+		<div align="center">
+			<button label="确定" id="okBtn" forward="onSubmit" />
+			<button label="取消" id="cancelBtn" forward="onCancel" />
+		</div>
+	</bandpopup>
+</zk>

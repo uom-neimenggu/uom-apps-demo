@@ -1,0 +1,31 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacResourceBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacResourceBandboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacResourceRelationTreeNodeEditWindow" ?>
+<zk>
+	<window id="rbacResourceRelationTreeNodeEditWindow" border="none"
+		width="260px" closable="true"
+		apply="${rbacResourceRelationTreeNodeEditComposer}">
+		<grid>
+			<columns>
+				<column width="28%" />
+				<column width="58%" />
+				<column width="14%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="资源" />
+					<rbacResourceBandboxExt id="rbacResourceBandboxExt"
+						width="97%" />
+					<toolbarbutton id="addRbacResourceBtn"
+						image="/public/images/pub_button/add.png" tooltiptext="新增"
+						forward="onAddRbacResource" />
+				</row>
+			</rows>
+		</grid>
+		<div align="center" style="padding:5px;">
+			<button id="onAdd" label="确定" forward="onAdd"
+				autodisable="self" />
+			<button id="onCancel" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

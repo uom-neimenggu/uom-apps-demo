@@ -1,0 +1,58 @@
+<?page title="OSS员工对照表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffContrastMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<window id="staffContrastMainWin" width="100%" height="98%"
+		apply="${staffContrastMainComposer}">
+		<panel id="staffContrastListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:left;">
+					<hbox>
+						<label value="原OA账号" />
+						<textbox id="oldStaffAccount" width="80px" />
+						<label value="原OSS账号" />
+						<textbox id="ossAccount" width="80px" />
+						<label value="员工名称" visible="false" />
+						<textbox id="staffName" width="80px"
+							visible="false" />
+						<toolbarbutton label="查询"
+							forward="onStaffContrastQueryRequest" autodisable="self" />
+						<toolbarbutton label="重置"
+							forward="onStaffContrastReset" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="staffContrastListbox" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="员工名称" width="15%"
+							align="center" />
+						<listheader label="OA账号" width="15%"
+							align="center" />
+						<listheader label="OSS账号" width="15%"
+							align="center" />
+						<listheader label="新账号" width="15%"
+							align="center" />
+						<listheader label="归属部门全称" width="30%"
+							align="center" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.staffName}">
+						</listcell>
+						<listcell label="@{current.staffOaAccount}">
+						</listcell>
+						<listcell label="@{current.staffOssAccount}"></listcell>
+						<listcell label="@{current.staffNewAccount}"></listcell>
+						<listcell label="@{current.orgFullName}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="staffContrastListboxPaging"
+					forward="onStaffContrastListboxPaging" pageSize="20" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

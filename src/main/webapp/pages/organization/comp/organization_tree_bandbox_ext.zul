@@ -1,0 +1,14 @@
+<?page title="组织树" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationTree" extends="tree" class="cn.ffcs.uom.organization.component.OrganizationTree"?>
+<zk>
+	<bandpopup width="300px" height="100%">
+		<panel vflex="1">
+			<panelchildren>
+				<organizationTree id="organizationTree" width="100%"
+					height="300px" checkmark="false" multiple="false"
+					zclass="z-dottree">
+				</organizationTree>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

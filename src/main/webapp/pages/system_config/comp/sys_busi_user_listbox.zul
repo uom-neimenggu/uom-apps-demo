@@ -1,0 +1,38 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./businessSystemListPanel"?>
+<zk>
+	<panel id="businessSystemListPanel" vflex="1">
+		<caption>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div>
+					<hbox>
+						<toolbarbutton id="addBusinessSystemButton"
+							forward="onBusinessSystemAdd" label="新增" />
+						<toolbarbutton id="delBusinessSystemButton"
+							forward="onBusinessSystemDel" label="删除" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="businessSystemListBox"
+				forward="onSelect=onBusinessSystemSelect" style="height:205px">
+				<listhead sizable="true">
+					<listheader label="系统标识" />
+					<listheader label="系统编码" />
+					<listheader label="系统名称" />
+					<listheader label="系统描述" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.businessSystemId}"></listcell>
+					<listcell label="@{current.systemCode}"></listcell>
+					<listcell label="@{current.systemName}"></listcell>
+					<listcell label="@{current.systemDesc}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="businessSystemListPaging" pageSize="10"
+				forward="onBusinessSystemListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

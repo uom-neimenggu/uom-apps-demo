@@ -1,0 +1,40 @@
+<?page id="systemConfigPortletPage" title="系统配置" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<zscript>
+	tabIds = new String[] { "system_config_main", "org_tree_config_main",
+			"derivation_tree_main", "interface_config_main",
+			"identity_card_config_main", "number_segment_config_main",
+			"filter_config_main" };
+	tabNames = new String[] { "属性字典管理", "专业树配置", "推导配置", "接口配置", "身份证类型配置",
+			"号码段配置", "过滤配置" };
+</zscript>
+	<window id="systemConfigPortletMainWindow" width="100%"
+		height="100%">
+		<tabbox id="tabBox">
+			<attribute name="onSelect">
+	{
+		if (self.selectedIndex > 0) {
+			Include inc = (Include) Path
+					.getComponent("//systemConfigPortletPage/systemConfigPortletMainWindow/"
+							+ tabIds[self.selectedIndex]);
+			inc.setSrc(tabIds[self.selectedIndex] + ".zul");
+		}
+	}
+</attribute>
+			<tabs>
+				<tab forEach="${tabNames}" label="${each}" />
+			</tabs>
+			<tabpanels>
+				<tabpanel height="800px" forEach="${tabIds}">
+					<include id="${each}" src="" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+	<zscript>
+	Include inc = (Include) Path
+			.getComponent("//systemConfigPortletPage/systemConfigPortletMainWindow/"
+					+ tabIds[0]);
+	inc.setSrc(tabIds[0] + ".zul");
+</zscript>
+</zk>

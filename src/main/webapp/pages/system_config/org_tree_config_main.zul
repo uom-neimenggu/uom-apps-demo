@@ -1,0 +1,50 @@
+<?page title="专业树配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeConfigMainWin" ?>
+<?component name="orgTreeExt" extends="div" class="cn.ffcs.uom.organization.component.OrgTreeExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="orgTreeConfigMainWin" apply="${orgTreeConfigMainComposer}" width="100%" height="100%" >
+		<borderlayout>
+			<west width="25%">
+				<vbox vflex="1">
+					<toolbar align="start" hflex="1">
+						<toolbarbutton id="addOrgButton" label="添加专业树" forward="onAddOrgNode" />
+						<toolbarbutton id="editOrgButton" label="修改专业树" forward="onEditOrgNode" />
+						<toolbarbutton id="delOrgButton" label="删除专业树" forward="onDelOrgNode" />
+					</toolbar>
+			<listbox id="orgTreeRootNode" vflex="1" width="100%">
+				<listhead sizable="true">
+					<listheader label="专业树名称" width="65%" />
+					<listheader label="专业树关系" width="35%" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgTreeName}"></listcell>
+					<listcell label="@{current.mdsionOrgRelTypeCd}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgTreeRootNodeListPaging" pageSize="10"
+				forward="onOrgTreeRootNodeListboxPaging" />
+				</vbox>
+			</west>
+			<center vflex="1">
+				<tabbox id="tabBox" vflex="1">
+				<tabs>
+					<tab id="orgRelaTab" label="专业树" forward="onClickTab" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1">
+						<orgTreeExt id="orgTreeExt" vflex="1" />
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

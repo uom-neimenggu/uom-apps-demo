@@ -1,0 +1,48 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./businessSystemEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="businessSystemEditWin" border="none"
+		apply="${businessSystemEditComposer}" closable="true" width="650px"
+		height="132px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="系统标识" />
+								<textbox id="businessSystemId"
+									width="96%" disabled="true">
+								</textbox>
+								<label value="* 系统编码"
+									class="z-info-required" />
+								<textbox id="systemCode" width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="* 系统名称"
+									class="z-info-required" />
+								<textbox id="systemName" width="96%">
+								</textbox>
+								<label value="系统描述" />
+								<textbox id="systemDesc" width="96%">
+								</textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

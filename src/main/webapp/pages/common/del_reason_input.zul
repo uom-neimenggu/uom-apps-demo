@@ -1,0 +1,28 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="delReasonInputWin" border="none"
+		apply="${delReasonInputComposer}" width="350px" closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="30%" align="center" />
+						<column width="70%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 删除原因"
+								class="z-info-required" />
+							<textbox id="reason" width="93%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		
+		<toolbar mold="panel" align="center" id="btnToolBar">
+			<toolbarbutton id="save" label="确定" forward="onOk" />
+			<toolbarbutton id="cancel" label="取消" forward="onCancel" />
+		</toolbar>
+	</window>
+</zk>

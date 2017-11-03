@@ -1,0 +1,49 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./hiPsnorgListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="hiPsnorgListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="账期" />
+				<datebox id="date" format="yyyyMM"
+						width="100px" readonly="true" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="hiPsnorgListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="账期" />
+					<listheader label="单位编码" />
+					<listheader label="进入日期" />
+					<listheader label="退出日期" />
+					<listheader label="人力资源组织" />
+					<listheader label="组织" />
+					<listheader label="主键" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.monthId}">
+					</listcell>
+					<listcell label="@{current.unitId}">
+					</listcell>
+					<listcell label="@{current.begindate}">
+					</listcell>
+					<listcell label="@{current.enddate}">
+					</listcell>
+					<listcell label="@{current.pkHrorg}">
+					</listcell>
+					<listcell label="@{current.pkOrg}">
+					</listcell>
+					<listcell label="@{current.pkPsnorg}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="hiPsnorgListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

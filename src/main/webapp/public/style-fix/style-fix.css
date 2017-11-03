@@ -1,0 +1,11 @@
+/**
+*覆盖主题中的部分样式，解决一些难看的样式
+*@author 曾臻
+*/
+/*
+input[type="text"],input[type="password"],input[type="file"],input[type="submit"],
+input[type="button"],input[type="reset"],textarea,.textarea{
+	font: none !important;
+	padding: 3px 1px !important;
+}
+*/

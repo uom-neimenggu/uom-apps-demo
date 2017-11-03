@@ -1,0 +1,63 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./businessSystemListPanel"?>
+<zk>
+	<panel id="businessSystemListPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<label value="系统编码" />
+				<textbox id="systemCode" width="95px" />
+				<label value="系统名称" />
+				<textbox id="systemName" width="95px" />
+				<button label="查询" forward="onQueryBusinessSystem"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onResetBusinessSystem"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div>
+					<hbox>
+						<toolbarbutton id="addBusinessSystemButton"
+							forward="onBusinessSystemAdd" label="新增" />
+						<toolbarbutton id="editBusinessSystemButton"
+							forward="onBusinessSystemEdit" label="修改" />
+						<toolbarbutton id="delBusinessSystemButton"
+							forward="onBusinessSystemDel" label="删除" />
+						<toolbarbutton id="thresholdSwitchButton"
+							forward="onBusinessSystemThreshold" label="阀值开关" />
+						<toolbarbutton id="ftpNoticeSwitchButton"
+							forward="onBusinessSystemFtpNotice" label="FTP通知开关" />
+						<toolbarbutton id="ftpReplacementButton"
+							forward="onBusinessSystemFtpReplacement" label="FTP数据补发" />
+						<toolbarbutton id="smsNoticeSwitchButton"
+							forward="onBusinessSystemSmsNotice" label="短信通知开关" />
+						<toolbarbutton id="maiilSendSwitchButton"
+							forward="onBusinessSystemMailSend" label="邮件发送开关" />
+						<toolbarbutton id="ftpTimerSwitchButton"
+							forward="onBusinessSystemFtpTimer" label="FTP定时开关" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="businessSystemListBox"
+				forward="onSelect=onBusinessSystemSelect" style="height:180px">
+				<listhead sizable="true">
+					<listheader label="系统标识" />
+					<listheader label="系统编码" />
+					<listheader label="系统名称" />
+					<listheader label="系统描述" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.businessSystemId}"></listcell>
+					<listcell label="@{current.systemCode}"></listcell>
+					<listcell label="@{current.systemName}"></listcell>
+					<listcell label="@{current.systemDesc}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="businessSystemListPaging" pageSize="10"
+				forward="onBusinessSystemListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

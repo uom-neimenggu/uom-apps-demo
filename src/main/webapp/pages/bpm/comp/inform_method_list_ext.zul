@@ -1,0 +1,48 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton id="addInformMethodButton"
+								forward="onInformMethodAdd" label="新增" />
+							<toolbarbutton id="editInformMethodButton"
+								forward="onInformMethodEdit" label="修改" />
+							<toolbarbutton id="delInformMethodButton"
+								forward="onInformMethodDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="informMethodListBox"
+					forward="onSelect=onSelectInformMethod" vflex="1">
+					<listhead sizable="true">
+						<listheader label="通知方式标识" />
+						<listheader label="通知方式名称" />
+						<listheader label="通知方式编码" />
+						<listheader label="状态" />
+						<listheader label="创建日期" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.informMethodId}">
+						</listcell>
+						<listcell label="@{current.informName}">
+						</listcell>
+						<listcell label="@{current.informType}">
+						</listcell>
+						<listcell label="@{current.statusCd}">
+						</listcell>
+						<listcell label="@{current.createDate}">
+						</listcell>
+					</listitem>
+				</listbox>
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

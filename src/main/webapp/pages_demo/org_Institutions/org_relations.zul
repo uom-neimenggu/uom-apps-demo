@@ -1,0 +1,181 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="组织编码" /><textbox id="" width="80px" />
+						<label value="组织名称" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="单位编码" width="8%" align="center" />
+					<listheader label="人员姓名" width="8%" align="center" visible="false"/>
+					<listheader label="组织编码" width="10%" align="center" />
+					<listheader label="组织" width="8%" align="center" />
+					<listheader label="是否转入人员档案" width="8%" align="center" />
+					<listheader label="岗位起始等级" width="14%" align="center" />
+					<listheader label="岗位终止等级" width="14%" align="center" />
+					<listheader label="岗位层级" width="6%" align="center" />
+					<listheader label="所属职务" width="10%" align="center" />
+					<listheader label="岗位工时制度" width="20%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001338967" />
+					<listcell label="市公司资深副总裁" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001350135" />
+					<listcell label="县公司农村营业部主任高" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNK" />
+					<listcell label="1001A11000000000KXNJ" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001351618" />
+					<listcell label="线务局局长助理" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNN" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001351645" />
+					<listcell label="省传输线路维护局" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001369109" />
+					<listcell label="业务运营支撑" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001376690" />
+					<listcell label="市公司部门高级顾问(综合支撑类)" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="Z0305" />
+					<listcell label="市场分析与预算" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001338967" />
+					<listcell label="销售与服务类" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0219" />
+					<listcell label="人力资源" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001338967" />
+					<listcell label="市公司部门高级顾问(综合支撑类)" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001386521" />
+					<listcell label="市公司城市营业部城市营业部主任" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A11000000000KXNG" />
+					<listcell label="1001A11000000000KXNB" />
+					<listcell label="" />
+					<listcell label="" />
+					<listcell label="1001A1100000000005OJ" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

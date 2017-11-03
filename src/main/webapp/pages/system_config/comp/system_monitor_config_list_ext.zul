@@ -1,0 +1,52 @@
+<?page title="系统接口短信通知配置" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemMonitorConfigListPanel"?>
+	<?component name="systemMonitorConfigFilterListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.SystemMonitorConfigFilterListExt"?>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+	<hbox vflex="1" hflex="1">
+			<div vflex="1" hflex="3">
+				<panel vflex="1" id="systemMonitorConfigListPanel" height="100%">
+					<caption>
+						<toolbar align="start" sclass="toolbar-user" style="width:auto;float:right;">
+							<div>
+								<hbox>
+									<toolbarbutton id="addSystemMonitorConfigButton" forward="onSystemMonitorConfigAdd" label="新增" />
+									<toolbarbutton id="editSystemMonitorConfigButton" forward="onSystemMonitorConfigEdit" label="修改" />
+									<toolbarbutton id="delSystemMonitorConfigButton" forward="onSystemMonitorConfigDel" label="删除" />
+								</hbox>
+							</div>
+						</toolbar>
+					</caption>
+					<panelchildren vflex="1">
+						<listbox id="systemMonitorConfigListBox" forward="onSelect=onSystemMonitorConfigSelect" vflex="1" mold="paging">
+							<listhead sizable="true">
+								<listheader label="监控标识" />
+								<listheader label="监控事件名" />
+								<listheader label="监控开关" />
+								<listheader label="生效时间" />
+							</listhead>
+							<listitem self="@{each='current'}" value="@{current}">
+								<listcell label="@{current.systemMonitorConfigId}"></listcell>
+								<listcell label="@{current.eventName}"></listcell>
+								<listcell label="@{current.systemMonitorSwitchName}"></listcell>
+								<listcell label="@{current.effDate}"></listcell>
+							</listitem>
+						</listbox>
+						<paging id="systemMonitorConfigListPaging" pageSize="10" forward="onSystemMonitorConfigListboxPaging" />
+					</panelchildren>
+				</panel>
+			</div>
+			<tabbox vflex="1" hflex="2">
+				<tabs>
+					<tab label="监控条件配置" />
+				</tabs>
+				<tabpanels>
+					<tabpanel>
+						<systemMonitorConfigFilterListExt id="systemMonitorConfigFilterListExt" vflex="1"/>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</hbox>
+	</zk>
+</zk>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.staff.model.Staff" table="STAFF">
+		<comment>员工标识</comment>
+		<id name="staffId" type="java.lang.Long">
+			<column name="STAFF_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_STAFF_ID</param>
+			</generator>
+		</id>
+		<property name="locationId" type="java.lang.Long">
+			<column name="LOCATION_ID" length="12">
+				<comment>行政区域标识</comment>
+			</column>
+		</property>
+		<property name="partyRoleId" type="java.lang.Long">
+			<column name="PARTY_ROLE_ID" length="12">
+				<comment>参与人角色标识</comment>
+			</column>
+		</property>
+		<property name="staffNbr" type="java.lang.String">
+			<column name="STAFF_NBR" length="32">
+				<comment>员工工号</comment>
+			</column>
+		</property>
+		<property name="staffCode" type="java.lang.String">
+			<column name="STAFF_CODE" length="30">
+				<comment>员工编码</comment>
+			</column>
+		</property>
+		<property name="staffName" type="java.lang.String">
+			<column name="STAFF_NAME" length="50">
+				<comment>员工姓名</comment>
+			</column>
+		</property>
+		<property name="staffDesc" type="java.lang.String">
+			<column name="STAFF_DESC" length="250">
+				<comment>员工描述</comment>
+			</column>
+		</property>
+		<property name="staffPosition" type="java.lang.String">
+			<column name="STAFF_POSITION" length="50">
+				<comment>员工职位</comment>
+			</column>
+		</property>
+		<property name="titleNote" type="java.lang.String">
+			<column name="TITLE_NOTE" length="20">
+				<comment>职务标注</comment>
+			</column>
+		</property>
+		<property name="workProp" type="java.lang.String">
+			<column name="WORK_PROP" length="6">
+				<comment>用工性质</comment>
+			</column>
+		</property>
+		<property name="mac" type="java.lang.String">
+			<column name="MAC" length="40">
+				<comment>MAC地址</comment>
+			</column>
+		</property>
+		<property name="partTime" type="java.lang.String">
+			<column name="PARTTIME" length="6">
+				<comment>兼职/全职</comment>
+			</column>
+		</property>
+		<property name="staffProperty" type="java.lang.String">
+			<column name="STAFF_PROPERTY" length="6">
+				<comment>人员属性</comment>
+			</column>
+		</property>
+		<property name="uuid" type="java.lang.String">
+			<column name="UUID" length="32">
+				<comment>全局标识码</comment>
+			</column>
+		</property>		
+		<property name="staffFixId" type="java.lang.Long">
+			<column name="STAFF_FIX_ID" length="12">
+				<comment>员工修复ID</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="reason" type="java.lang.String">
+			<column name="REASON" length="200">
+				<comment>原因</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

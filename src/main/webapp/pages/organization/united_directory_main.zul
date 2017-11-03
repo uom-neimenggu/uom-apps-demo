@@ -1,0 +1,20 @@
+<?page title="统一目录查询列表" contentType="text/html;charset=UTF-8"?>
+<?component name="unitedDirectoryListbox" extends="div" class="cn.ffcs.uom.organization.action.UnitedDirectoryListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+	<window id="unitedDirectoryMainWin" height="96%" apply="${unitedDirectoryMainComposer}">
+		<borderlayout>
+			<north size="97%">
+				<div vflex="1">
+					<unitedDirectoryListbox id="unitedDirectoryListbox"
+						vflex="1" />
+				</div>
+			</north>
+		</borderlayout>
+	</window>
+</zk>

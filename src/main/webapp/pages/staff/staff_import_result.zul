@@ -1,0 +1,44 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffImportResultWindow"?>
+<zk>
+	<window id="staffImportResultWindow" border="none"
+		apply="${staffImportResultComposer}" width="980px" closable="true">
+		<div style="height:490px;overflow:auto">
+			<panel>
+				<panelchildren>
+					<listbox id="infoListbox" rows="15" vflex="1">
+						<listhead sizable="true">
+							<listheader label="操作类型" width="10%"
+								align="left" />
+							<listheader label="员工ID" width="10%"
+								align="left" />
+							<listheader label="员工姓名" width="8%"
+								align="left" />
+							<listheader label="员工编码" width="10%"
+								align="left" />
+							<listheader label="员工工号" width="10%"
+								align="left" />
+							<listheader label="员工FIX_ID" width="12%"
+								align="left" />
+							<listheader label="员工UUID" width="10%"
+								align="left" />
+							<listheader label="归属部门" width="40%"
+								align="left" />
+						</listhead>
+						<listitem self="@{each='current'}"
+							value="@{current}">
+							<listcell label="@{current.optType}"></listcell>
+							<listcell label="@{current.staffId}"></listcell>
+							<listcell label="@{current.staffName}"></listcell>
+							<listcell label="@{current.staffCode}"></listcell>
+							<listcell label="@{current.staffNbr}"></listcell>
+							<listcell label="@{current.staffFixId}"></listcell>
+							<listcell label="@{current.uuid}"></listcell>
+							<listcell label="@{current.orgName}"></listcell>
+						</listitem>
+					</listbox>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

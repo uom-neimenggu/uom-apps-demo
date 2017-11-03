@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="crm.xsd">
+	<file name="comm.xsd" description=""
+		package="cn.ffcs.uom.webservices.bean.comm" />
+	<file name="batch_sync_notice.xsd" description=""
+		package="cn.ffcs.uom.webservices.bean.ftpinform" />
+	<file name="update_staff.xsd" description=""
+		package="cn.ffcs.uom.webservices.bean.updatestaff" />
+	<file name="query_staff.xsd" description=""
+		package="cn.ffcs.uom.webservices.bean.querystaff" />
+</design>

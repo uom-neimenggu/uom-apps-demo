@@ -1,0 +1,29 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationInfoExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationInfoExt"?>
+<?component name="partyInfoExt" extends="div" class="cn.ffcs.uom.party.component.PartyInfoExt"?>
+<zk>
+	<window id="agentOrganizationEditWindow" border="none" width="670px"
+		closable="true" apply="${agentOrganizationEditComposer}">
+		<div height="350px" style="overflow:auto">
+			<groupbox id="addTypeGorupbox" visible="false">
+				<caption>选择添加类型</caption>
+				<listbox id="addType" mold="select" rows="1"
+					width="120px">
+					<listitem label="新增营业网点" value="NW"></listitem>
+					<listitem label="新增代理商" selected="true"
+						value="AG">
+					</listitem>
+					<listitem label="新增内部营业网点" value="IBENW"></listitem>
+					<listitem label="新增内部经营实体" value="IBE"></listitem>
+				</listbox>
+			</groupbox>
+			<partyInfoExt id="partyInfoExt"></partyInfoExt>
+			<organizationInfoExt id="organizationInfoExt"></organizationInfoExt>
+			<div align="center" style="padding:5px;">
+				<button id="saveOrg" label="确定" forward="onOk"
+					autodisable="self" />
+				<button id="cancelOrg" label="取消" forward="onCancel" />
+			</div>
+		</div>
+	</window>
+</zk>

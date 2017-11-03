@@ -1,0 +1,27 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="accEditWindow" border="none" apply="${accEditComposer}" vflex="1" width="460px;"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="25%" align="right" />
+						<column width="75%" align="left" />
+					</columns>
+					<rows>
+					<row>
+						<label value="配置名称" />
+						<textbox id="accName" width="97%" >
+						</textbox>
+					</row>
+					</rows>
+				</grid>
+				<toolbar align="center" mold="panel">
+					<button id="okButton" label="确定" forward="onOk" />
+					<button id="cancelButton" label="取消" forward="onCancel" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

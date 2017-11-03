@@ -1,0 +1,53 @@
+<?page title="组织管理" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationListboxComposer" ?>
+<?component name="organizationRelationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationRelationListboxComposer" ?>
+<?component name="staffOrganizationListbox" extends="div" class="cn.ffcs.uom.organization.action.StaffOrganizationListboxComposer" ?>
+<?component name="organizationPositionExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationPositionExt" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+	<window id="organizationMainWin" height="100%"
+		apply="${organizationMainComposer}"
+		forward="onOK=onOrganizationQuery">
+		<borderlayout>
+			<north size="50%">
+				<div vflex="1">
+					<organizationListbox id="organizationListbox"
+						vflex="1" isCustmsListbox="true" />
+				</div>
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1" style="padding:1px">
+					<tabs>
+						<tab label="关联组织" id="organizationRelationTab"
+							forward="onClickTab" />
+						<tab label="组织员工" id="staffOrganizationTab"
+							forward="onClickTab" />
+						<tab label="关联职位" id="organizationPositionTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;">
+							<organizationRelationListbox
+								id="organizationRelationListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<staffOrganizationListbox
+								id="staffOrganizationListbox" vflex="1">
+							</staffOrganizationListbox>
+						</tabpanel>
+						<tabpanel style="padding:1px;">
+							<organizationPositionExt
+								id="organizationPositionExt" vflex="1">
+							</organizationPositionExt>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

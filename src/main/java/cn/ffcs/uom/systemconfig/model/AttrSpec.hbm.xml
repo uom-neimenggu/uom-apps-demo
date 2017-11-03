@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.systemconfig.model.AttrSpec" table="ATTR_SPEC">
+		<comment>属性规格</comment>
+		<id name="attrId" type="java.lang.Long">
+			<column name="ATTR_ID" precision="12" scale="0" />
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="classId" type="java.lang.Long">
+			<column name="CLASS_ID" length="12">
+				<comment>归属类ID</comment>
+			</column>
+		</property>
+		<property name="attrType" type="java.lang.String">
+			<column name="ATTR_TYPE" length="3">
+				<comment>属性类型</comment>
+			</column>
+		</property>
+		<property name="attrCd" type="java.lang.String">
+			<column name="ATTR_CD" length="60">
+				<comment>属性编码</comment>
+			</column>
+		</property>
+		<property name="attrName" type="java.lang.String">
+			<column name="ATTR_NAME" length="60">
+				<comment>属性名称</comment>
+			</column>
+		</property>
+		<property name="javaCode" type="java.lang.String">
+			<column name="JAVA_CODE" length="100">
+				<comment>JAVA编码</comment>
+			</column>
+		</property>
+		<property name="attrDesc" type="java.lang.String">
+			<column name="ATTR_DESC" length="1000">
+				<comment>属性描述</comment>
+			</column>
+		</property>
+		<property name="attrValueType" type="java.lang.String">
+			<column name="ATTR_VALUE_TYPE" length="3">
+				<comment>属性值类型</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

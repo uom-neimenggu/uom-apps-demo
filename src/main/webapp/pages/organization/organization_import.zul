@@ -1,0 +1,53 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationImportWindow"?>
+<zk>
+	<window id="organizationImportWindow" border="none" apply="${organizationImportComposer}" width="350px" closable="true">
+		<panel vflex="1" height="350px">
+			<panelchildren vflex="1" style="overflow-y:auto">
+				<grid>
+					<columns>
+						<column width="25%" align="right" />
+						<column width="50%" align="right" />
+						<column width="25%" align="right" />
+					</columns>
+					<rows>
+						<row spans="1,2">
+							<label value="* 导入类型" class="z-info-required"/>
+							<listbox id="importType" mold="select" rows="1" width="98%"></listbox>
+						</row>
+						<row>
+							<label value="* 选择文件"  class="z-info-required"/>
+							<textbox id="fileName" disabled="true" width="95%"/>
+							<fileupload id="fileupload" native="true" onUpload="selFile();" label="选择文件" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<panel>
+			<panelchildren>
+				<div style="height:25px;overflow:auto;align:center">
+					<button id="saveOrg" label="提交"  forward="onOk" />
+					<button id="cancelOrg" label="取消"  forward="onCancel" />
+				</div>
+			</panelchildren>
+		</panel>
+		<groupbox>
+			<caption>模版下载</caption>
+			<div style="height:25px;overflow:auto;align:center">
+				<button id="downLoadTemplate1" label="代理商与营业网点" forward="onDownLoadTemplate1" visible="false"/>
+				<button id="downLoadTemplate2" label="代理商" forward="onDownLoadTemplate2" visible="false"/>
+				<button id="downLoadTemplate3" label="营业网点" forward="onDownLoadTemplate3" visible="false"/>
+				<button id="downLoadTemplate4" label="划小单元" forward="onDownLoadTemplate4"/>
+			</div>
+		</groupbox>
+		<zscript>
+			<![CDATA[
+				void selFile(){
+					org.zkoss.util.media.Media media = event.getMedia();
+					fileName.setValue(media.getName());
+				}
+			]]>
+		</zscript>
+	</window> 
+</zk>

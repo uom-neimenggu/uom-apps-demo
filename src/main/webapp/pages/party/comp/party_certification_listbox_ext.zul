@@ -1,0 +1,60 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyCertificationListboxExtPanel" ?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="partyCertificationListboxExtPanel" vflex="1">
+		<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+			style="width:auto;float:left;">
+			<div id="partyCertificationSearchDiv">
+				<hbox>
+					<label value="证件号码" />
+					<textbox id="certNumber" width="95px" />
+					<label value="发证机关" />
+					<textbox id="certOrg" width="95px" />
+					<button label="查询" forward="onQueryPartyCert"
+						autodisable="self"  mold="trendy"/>
+					<button label="重置" forward="onResetPartyCertification"
+						autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar height="5px" align="end">
+				<hbox>
+					<div id="partyCertificationBandboxDiv" >
+						<hbox>
+							<toolbarbutton forward="onPartyCertificationImport" id="importPartyCertificationButton"  label="导入" />
+							<toolbarbutton forward="onPartyCertificationAdd" id="addPartyCertificationButton" label="新增" />
+							<toolbarbutton forward="onPartyCertificationEdit" id="editPartyCertificationButton" label="修改" />
+							<toolbarbutton forward="onPartyCertificationDel" id="delPartyCertificationButton" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="partyCertificationListbox" sizedByContent="false" sclass="zl-listbox" forward="onSelect=onPartyCertificationSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="参与人证件种类" width="10%"/>
+					<listheader label="参与人证件名" width="15%"/>
+					<listheader label="参与人证件号码" width="20%"/>
+					<listheader label="参与人证件类型" width="10%"/>
+					<listheader label="是否实名" width="5%"/>
+					<listheader label="参与人发证机关" width="20%"/>
+					<listheader label="参与人证件地址" width="20%"/>
+				</listhead>
+				<listitem self="@{each='partyCertification'}" value="@{partyCertification}" tooltiptext="@{partyCertification.certNumber}">
+					<listcell label="@{partyCertification.certSortName}"/>
+					<listcell label="@{partyCertification.certName}"/>
+					<listcell label="@{partyCertification.certNumber}"/>
+					<listcell label="@{partyCertification.certTypeName}"/>
+					<listcell label="@{partyCertification.isRealNameName}"/>
+					<listcell label="@{partyCertification.certOrg}"/>
+					<listcell label="@{partyCertification.certAddress}"/>
+				</listitem>
+			</listbox>
+			<paging id="partyCertificationListboxPaging" forward="onPartyCertificationListboxPaging" pageSize="10"/>
+		</panelchildren>
+	</panel>
+</zk>

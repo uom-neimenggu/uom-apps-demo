@@ -1,0 +1,36 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacRoleRelationTreeBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacRoleRelationTreeBandboxExt" ?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<zk>
+	<window id="rbacRoleTelcomRegionEditWindow" border="none"
+		width="500px" closable="true"
+		apply="${rbacRoleTelcomRegionEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="角色" />
+							<rbacRoleRelationTreeBandboxExt
+								id="rbacRoleRelationTreeBandboxExt" width="95%" />
+							<label value="电信管理区域" />
+							<telcomRegionTreeBandbox
+								id="telcomRegionTreeBandbox" width="95%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

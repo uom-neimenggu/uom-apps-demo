@@ -1,0 +1,12 @@
+<?page title="配置人员信息" contentType="text/html;charset=UTF-8"?>
+<?component name="messageConfigListbox" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.MessageConfigListboxComposer" ?>
+<zk>
+	<bandpopup width="830px" height="50%">
+		<panel>
+			<panelchildren>
+				<messageConfigListbox id="messageConfigListboxExt" vflex="1" >
+				</messageConfigListbox>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

@@ -1,0 +1,51 @@
+
+.ui-tabs-horizontal {
+	margin: 4px;
+	padding: 0;
+}
+
+.ui-tabs-horizontal .ui-tabs-nav {
+	width: 100%;
+	background: url(images/horizontal-tabs-line.gif);
+	height: 28px;
+	line-height: 28px;
+}
+
+.ui-tabs-horizontal .ui-tabs-nav ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.ui-tabs-horizontal .ui-tabs-nav li {
+	float: left;
+	display: block;
+	cursor: pointer;
+	width: 116px;
+	text-align: center;
+	color: #999;
+	font-weight: bold;
+	background: url(images/horizontal-tabs-selected.gif);
+}
+
+.ui-tabs-horizontal .ui-tabs-nav li.hover {
+	padding: 0px;
+	background: #fff;
+	width: 116px;
+	border-left: 1px solid #dddddd;
+	border-top: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	background: url(images/horizontal-tabs-default.gif);
+	color: black;
+	font-weight: bold;
+	height: 27px;
+	line-height: 27px;
+}
+
+.ui-tabs-horizontal .ui-tabs-panel {
+	clear: both;
+	margin-top: 0px;
+	border: 1px solid #dddddd;
+	border-top: none;
+	padding-top: 8px;
+	height: 430px;
+}

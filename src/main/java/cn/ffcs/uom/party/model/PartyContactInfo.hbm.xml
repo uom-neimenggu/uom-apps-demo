@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.party.model.PartyContactInfo" table="PARTY_CONTACT_INFO">
+		<comment>参与人联系证件标识</comment>
+		<id name="contactId" type="java.lang.Long">
+			<column name="CONTACT_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_PARTY_CONTACT_INFO_ID</param>
+			</generator>
+		</id>
+		<property name="partyId" type="java.lang.Long">
+			<column name="PARTY_ID" length="12">
+				<comment>参与人标识</comment>
+			</column>
+		</property>
+		<property name="headFlag" type="java.lang.String">
+			<column name="HEAD_FLAG" length="1">
+				<comment>是否首选联系人</comment>
+			</column>
+		</property>
+		<property name="contactType" type="java.lang.String">
+			<column name="CONTACT_TYPE" length="3">
+				<comment>联系人类型</comment>
+			</column>
+		</property>
+		<property name="contactName" type="java.lang.String">
+			<column name="CONTACT_NAME" length="32">
+				<comment>联系人名称</comment>
+			</column>
+		</property>
+		<property name="contactGender" type="java.lang.String">
+			<column name="CONTACT_GENDER" length="1">
+				<comment>联系人性别</comment>
+			</column>
+		</property>
+		<property name="contactAddress" type="java.lang.String">
+			<column name="CONTACT_ADDRESS" length="250">
+				<comment>联系地址</comment>
+			</column>
+		</property>
+		<property name="contactEmployer" type="java.lang.String">
+			<column name="CONTACT_EMPLOYER" length="250">
+				<comment>联系单位</comment>
+			</column>
+		</property>
+		<property name="homePhone" type="java.lang.String">
+			<column name="HOME_PHONE" length="30">
+				<comment>民族</comment>
+			</column>
+		</property>
+		<property name="officePhone" type="java.lang.String">
+			<column name="OFFICE_PHONE" length="32">
+				<comment>办公电话</comment>
+			</column>
+		</property>
+		<property name="mobilePhone" type="java.lang.String">
+			<column name="MOBILE_PHONE" length="32">
+				<comment>移动电话</comment>
+			</column>
+		</property>
+		<property name="innerEmail" type="java.lang.String">
+			<column name="INNER_EMAIL" length="300">
+				<comment>电信内部邮箱</comment>
+			</column>
+		</property>
+		<property name="grpUnEmail" type="java.lang.String">
+			<column name="GRP_UN_EMAIL" length="60">
+				<comment>集团统一邮箱</comment>
+			</column>
+		</property>
+		<property name="mobilePhoneSpare" type="java.lang.String">
+			<column name="MOBILE_PHONE_SPARE" length="32">
+				<comment>移动电话(备用)</comment>
+			</column>
+		</property>
+		<property name="contactDesc" type="java.lang.String">
+			<column name="CONTACT_DESC" length="250">
+				<comment>宗教</comment>
+			</column>
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="E_MAIL" length="40">
+				<comment>邮箱</comment>
+			</column>
+		</property>
+
+		<property name="postCode" type="java.lang.String">
+			<column name="POSTCODE" length="6">
+				<comment>邮政编码</comment>
+			</column>
+		</property>
+		<property name="postAddress" type="java.lang.String">
+			<column name="POST_ADDRESS" length="250">
+				<comment>邮件地址</comment>
+			</column>
+		</property>
+		<property name="fax" type="java.lang.String">
+			<column name="FAX" length="30">
+				<comment>传真</comment>
+			</column>
+		</property>
+		<property name="qqNumber" type="java.lang.String">
+			<column name="QQ_NUMBER" length="250">
+				<comment>QQ号码</comment>
+			</column>
+		</property>
+		<property name="msn" type="java.lang.String">
+			<column name="MSN" length="30">
+				<comment>MSN号</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="reason" type="java.lang.String">
+			<column name="REASON" length="200">
+				<comment>原因</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

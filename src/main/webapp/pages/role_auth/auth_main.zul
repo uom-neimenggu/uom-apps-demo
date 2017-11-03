@@ -1,0 +1,60 @@
+<?page title="权限管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="authEditDiv" extends="div" class="cn.ffcs.uom.roleauth.action.AuthorityEditDiv" ?>
+<?component name="authorityTreeExt" extends="div" class="cn.ffcs.uom.roleauth.component.AuthorityTreeExt"?>
+<?component name="roleAuthListbox" macroURI="comp/role_auth_listbox.zul" ?>
+<?component name="sysAuthListbox" macroURI="comp/sys_auth_listbox.zul" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./authMainWin"?>
+<zk>
+	<window id="authMainWin" width="100%" height="100%" apply="${authMainComposer}">
+		<borderlayout>
+			<west width="22%">
+				<tabbox id="leftTabbox" vflex="1">
+					<tabs>
+						<tab label="权限管理界面" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<authorityTreeExt id="authorityTreeExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</west>
+			<center vflex="1">
+				<borderlayout>
+					<north size="26%">
+						<tabbox id="authTabBox" vflex="1">
+							<tabs>
+								<tab label="权限属性" />
+							</tabs>
+							<tabpanels>
+								<tabpanel>
+									<authEditDiv id="authEditDiv" vflex="1" />
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</north>
+					<south size="74%">
+						<tabbox id="roleAuthTabBox"
+							height="100%">
+							<tabs>
+								<tab label="角色权限关系" />
+								<tab label="系统权限关系" />
+							</tabs>
+							<tabpanels>
+								<tabpanel style="overflow: auto">
+									<roleAuthListbox id="roleAuthListbox">
+									</roleAuthListbox>
+								</tabpanel>
+								<tabpanel style="overflow: auto">
+									<sysAuthListbox id="sysAuthListbox">
+									</sysAuthListbox>
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</south>
+				</borderlayout>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

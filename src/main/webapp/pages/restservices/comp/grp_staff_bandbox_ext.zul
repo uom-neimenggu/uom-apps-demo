@@ -1,0 +1,13 @@
+<?page title="集团员工信息" contentType="text/html;charset=UTF-8"?>
+<?component name="grpStaffListboxExt" extends="div" class="cn.ffcs.uom.restservices.component.GrpStaffListboxExt" ?>
+<zk>
+	<bandpopup width="830px" height="50%">
+		<panel>
+			<panelchildren>
+				<grpStaffListboxExt id="grpStaffListboxExt" vflex="1"
+					isBandbox="true">
+				</grpStaffListboxExt>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

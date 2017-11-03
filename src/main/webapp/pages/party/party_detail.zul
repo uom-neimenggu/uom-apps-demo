@@ -1,0 +1,127 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="partyContactInfoBandboxExt" extends="bandbox" class="cn.ffcs.uom.party.component.PartyContactInfoBandboxExt"?>
+<?component name="partyCertificationBandboxExt" extends="bandbox" class="cn.ffcs.uom.party.component.PartyCertificationBandboxExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<zk>
+	<window id="partyDetailWindow" border="none" apply="${partyDetailComposer}" width="650px" closable="true">
+			<toolbar align="end">
+				<hbox>
+					<toolbarbutton id="editButton"
+						image="/public/images/pub_button/modify.png" tooltiptext="编辑"
+						forward="onEdit" visible="false" />
+					<toolbarbutton id="saveButton"
+						image="/public/images/pub_button/page_save.png" tooltiptext="保存"
+						forward="onSave" visible="false" />
+					<toolbarbutton id="recoverButton"
+						image="/public/images/pub_button/arrow_undo.png" tooltiptext="恢复"
+						forward="onRecover" visible="false" />
+				</hbox>
+			</toolbar>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="35%" />
+							<column width="15%" align="center" />
+							<column width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="*参与人名称" />
+								<textbox id="partyName" width="93%" disabled="true"/>
+								<label value="曾用名" />
+								<textbox id="partyNameFirst" width="93%" disabled="true"/>
+							</row>
+							<row>
+								<label value="参与人名称简拼" />
+								<textbox id="partyAbbrname" width="93%" disabled="true"/>
+								<label value="参与人英文名称" />
+								<textbox id="englishName" width="93%" disabled="true"/>
+							</row>
+							<row>
+								<label value="参与人类型" />
+								<listbox id="partyType" mold="select" width="95%" disabled="true" />
+								<label value="参与人角色类型"/>
+								<treeChooserBandbox id="roleType" range="any" mode="single" className="PartyRole" attrName="roleType" pattern="2,2" width="94%" disabled="true"/>
+							</row>
+						</rows>			
+					</grid>
+				</panelchildren>
+			</panel>
+			<panel visible="false" id="pel" title="个人信息">
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="35%" />
+							<column width="15%" align="center" />
+							<column width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="出生日期"/>
+								<datebox id="birthday" format="yyyy-MM-dd" width="95%" readonly="true" disabled="true"/>
+								<label value="婚姻状况" />
+								<treeChooserBandbox id="marriageStatus" range="any"	mode="single" className="Individual" attrName="maritalStatus" pattern="1,1" width="94%"  disabled="true"/>
+							</row>
+							<row>
+								<label value="政治面貌" />
+								<listbox id="politicsStatus" mold="select" width="95%" disabled="true" />
+								<label value="教育水平" />
+								<listbox id="educationLevel" mold="select" width="95%" disabled="true" />
+							</row>
+							<row>
+								<label value="性别" />
+								<listbox id="gender" mold="select" width="95%" disabled="true" />
+								<label value="国籍" />
+								<treeChooserBandbox id="nationality" range="any" mode="single" className="Individual" attrName="nationality" pattern="2,2" width="94%" disabled="true"/>
+							</row>
+							<row>
+								<label value="民族" />
+								<listbox id="nation" mold="select" width="95%" disabled="true" />
+								<label value="祖籍" />
+								<textbox id="nativePlace" width="93%" disabled="true"/>
+							</row>
+							<row>
+								<label value="单位" />
+								<textbox id="employer" width="93%" disabled="true"/>
+								<label value="宗教" />
+								<listbox id="religion" mold="select" width="95%"  disabled="true"/>
+							</row>
+							<row>
+								<label value="同名编码" />
+								<textbox id="sameNameCode" width="93%" disabled="true"/>
+							</row>		
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<panel visible="false" id="orgs" title="组织或法人信息">
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="35%" />
+							<column width="15%" align="center" />
+							<column width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="组织类型"/>
+								<listbox id="orgType" mold="select" width="95%"/>
+								<label value="组织简介" />	
+								<textbox id="orgContent"  width="94%"/>	
+							</row>
+							<row>
+								<label value="组织规模" />
+								<listbox id="orgScale" mold="select" width="95%"/>
+								<label value="负责人信息" />	
+								<textbox id="principal"  width="94%"/>	
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+	</window>
+</zk>

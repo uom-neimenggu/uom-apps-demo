@@ -1,0 +1,50 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacPermissionExtAttrExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionExtAttrExt"?>
+<zk>
+	<window id="rbacPermissionEditWindow" border="none"
+		apply="${rbacPermissionEditComposer}" vflex="1" width="800px;"
+		closable="true">
+		<panel>
+			<panelchildren vflex="1" style="overflow-y:auto">
+				<groupbox>
+					<caption>权限基本属性</caption>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="30%" />
+							<column width="15%" align="center" />
+							<column width="40%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="权限名称" />
+								<textbox id="rbacPermissionName"
+									width="97%" />
+								<label value="权限编码" />
+								<textbox id="rbacPermissionCode"
+									width="97%" />
+							</row>
+							<row>
+								<label value="权限类型" />
+								<listbox id="rbacPermissionType"
+									mold="select" rows="1" width="98%">
+								</listbox>
+								<label value="权限描述" />
+								<textbox id="rbacPermissionDesc"
+									multiline="true" width="97%" />
+							</row>
+						</rows>
+					</grid>
+				</groupbox>
+				<rbacPermissionExtAttrExt
+					id="rbacPermissionExtAttrExt">
+				</rbacPermissionExtAttrExt>
+				<toolbar align="center" mold="panel">
+					<button id="okButton" label="确定" forward="onOk" />
+					<button id="cancelButton" label="取消"
+						forward="onCancel" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

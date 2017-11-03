@@ -1,0 +1,13 @@
+<?page title="网格单元信息" contentType="text/html;charset=UTF-8"?>
+<?component name="gridUnitListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.GridUnitListboxExt" ?>
+<zk>
+	<bandpopup width="830px" height="50%">
+		<panel>
+			<panelchildren>
+				<gridUnitListboxExt id="gridUnitListboxExt" vflex="1"
+					isBandbox="true">
+				</gridUnitListboxExt>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

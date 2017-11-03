@@ -1,0 +1,78 @@
+<?page title="角色列表" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRolePanel"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRolePanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRoleSearchDiv">
+					<hbox>
+						<label value="角色编码：" />
+						<textbox id="rbacRoleCode" width="100px" />
+						<label value="角色名称：" />
+						<textbox id="rbacRoleName" width="100px" />
+						<button id="queryRbacRole" label="查询"
+							forward="onQueryRbacRole" mold="trendy" />
+						<button id="resetRbacRole" label="重置"
+							forward="onResetRbacRole" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="rbacRoleOptDiv" style="float:left;">
+					<hbox>
+						<toolbarbutton forward="onRbacRoleAdd"
+							id="addRbacRoleButton" label="新增" />
+						<toolbarbutton forward="onRbacRoleView"
+							id="viewRbacRoleButton" label="查看" />
+						<toolbarbutton forward="onRbacRoleEdit"
+							id="editRbacRoleButton" label="修改" />
+						<toolbarbutton forward="onRbacRoleDel"
+							id="delRbacRoleButton" label="删除" />
+					</hbox>
+				</div>
+				<div id="rbacRoleBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeRbacRoleButton"
+							label="关闭" forward="onCloseRbacRole" />
+						<toolbarbutton id="cleanRbacRoleButton"
+							label="清空" forward="onCleanRbacRole" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRoleListbox" style="height:200px"
+				forward="onSelect=onRbacRoleSelectRequest">
+				<listhead sizable="true">
+					<listheader label="角色标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="角色类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRole'}"
+					value="@{rbacRole}">
+					<listcell label="@{rbacRole.rbacRoleId}"></listcell>
+					<listcell label="@{rbacRole.rbacRoleCode}">
+					</listcell>
+					<listcell label="@{rbacRole.rbacRoleName}">
+					</listcell>
+					<listcell label="@{rbacRole.rbacRoleTypeName}">
+					</listcell>
+					<listcell label="@{rbacRole.statusCdName}">
+					</listcell>
+					<listcell label="@{rbacRole.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="rbacRoleListboxPaging"
+				forward="onRbacRoleListboxPaging" pageSize="16">
+			</paging>
+		</panelchildren>
+	</panel>
+</zk>

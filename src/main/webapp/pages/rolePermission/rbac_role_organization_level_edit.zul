@@ -1,0 +1,52 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt" ?>
+<?component name="rbacRoleRelationTreeBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacRoleRelationTreeBandboxExt" ?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<zk>
+	<window id="rbacRoleOrganizationLevelEditWindow" border="none"
+		width="500px" closable="true"
+		apply="${rbacRoleOrganizationLevelEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="标识" />
+							<longbox id="rbacRoleOrgLevelId"
+								disabled="true" width="95%" />
+							<label value="关系类型" />
+							<treeChooserBandbox id="relaCd" range="end"
+								mode="single" className="OrganizationRelation" attrName="relaCd"
+								pattern="2,2" width="95%" />
+						</row>
+						<row>
+							<label value="角色" />
+							<rbacRoleRelationTreeBandboxExt
+								id="rbacRoleRelationTreeBandboxExt" width="95%" />
+							<label value="组织" />
+							<organizationBandboxExt
+								id="organizationBandboxExt" width="95%" />
+						</row>
+						<row>
+							<label value="最低层级" />
+							<longbox id="rbacLowerLevel" width="95%" />
+							<label value="最高层级" />
+							<longbox id="rbacHigherLevel" width="95%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

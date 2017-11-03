@@ -1,0 +1,38 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./businessSystemSwitchEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="businessSystemSwitchEditWin" border="none"
+		apply="${businessSystemSwitchEditComposer}" closable="true"
+		width="280px" height="110px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="30%" />
+							<column label="" width="70%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 控制开关"
+									class="z-info-required" />
+								<listbox id="systemControlSwitch"
+									width="96%" mold="select">
+									<listitem label="开" value="1"
+										selected="true">
+									</listitem>
+									<listitem label="关" value="0"></listitem>
+								</listbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

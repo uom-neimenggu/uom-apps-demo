@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-31 9:31:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uac.staff.model.UacAttachedInfo" table="UAC_ATTACHED_INFO">
+        <comment>人员附加信息</comment>
+        <id name="attachedInfoId" type="java.lang.Long">
+            <column name="ATTACHED_INFO_ID" precision="12" scale="0" />
+ 			<generator class="sequence">
+				<param name="sequence">SEQ_ATTACHED_INFO_ID</param>
+			</generator>
+        </id>
+        <property name="staffId" type="java.lang.Long">
+            <column name="STAFF_ID" precision="12" scale="0">
+                <comment>人员标识</comment>
+            </column>
+        </property>
+        <property name="maritalStatus" type="java.lang.String">
+            <column name="MARITAL_STATUS" length="30">
+                <comment>婚姻状况</comment>
+            </column>
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" length="1">
+                <comment>性别</comment>
+            </column>
+        </property>
+        <property name="nation" type="java.lang.String">
+            <column name="NATION" length="3">
+                <comment>民族</comment>
+            </column>
+        </property>
+        <property name="religion" type="java.lang.String">
+            <column name="RELIGION" length="30">
+                <comment>宗教</comment>
+            </column>
+        </property>
+        <property name="occupation" type="java.lang.String">
+            <column name="OCCUPATION" length="8">
+                <comment>职业</comment>
+            </column>
+        </property>
+        <property name="educationLevel" type="java.lang.String">
+            <column name="EDUCATION_LEVEL" length="3">
+                <comment>教育水平</comment>
+            </column>
+        </property>
+        <property name="effDate" type="java.util.Date">
+            <column name="EFF_DATE" length="7">
+                <comment>生效时间</comment>
+            </column>
+        </property>
+        <property name="expDate" type="java.util.Date">
+            <column name="EXP_DATE" length="7">
+                <comment>失效时间</comment>
+            </column>
+        </property>
+        <property name="statusCd" type="java.lang.String">
+            <column name="STATUS_CD" length="6">
+                <comment>状态</comment>
+            </column>
+        </property>
+        <property name="statusDate" type="java.util.Date">
+            <column name="STATUS_DATE" length="7">
+                <comment>状态时间</comment>
+            </column>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATE_DATE" length="7">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="createStaff" type="java.lang.Long">
+            <column name="CREATE_STAFF" precision="12" scale="0">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="updateDate" type="java.util.Date">
+            <column name="UPDATE_DATE" length="7">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="updateStaff" type="java.lang.Long">
+            <column name="UPDATE_STAFF" precision="12" scale="0">
+                <comment>修改人</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

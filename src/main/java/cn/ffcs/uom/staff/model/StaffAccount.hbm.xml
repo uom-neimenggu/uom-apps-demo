@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.staff.model.StaffAccount" table="STAFF_ACCOUNT">
+		<comment>员工账号标识</comment>
+		<id name="staffAccountId" type="java.lang.Long">
+			<column name="STAFF_ACCOUNT_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_STAFF_ACCOUNT_ID</param>
+			</generator>
+		</id>
+		<property name="staffId" type="java.lang.Long">
+			<column name="STAFF_ID" length="12">
+				<comment>员工Id</comment>
+			</column>
+		</property>
+		<property name="staffAccount" type="java.lang.String">
+			<column name="STAFF_ACCOUNT" length="30">
+				<comment>员工账号</comment>
+			</column>
+		</property>
+		<!-- -->
+		<property name="staffPassword" type="java.lang.String">
+			<column name="STAFF_PASSWORD" length="128">
+				<comment>员工账号密码</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="guid" type="java.lang.String">
+			<column name="GUID" length="16">
+				<comment>集团UID</comment>
+			</column>
+		</property>
+		<property name="rePassword" type="java.lang.String">
+			<column name="RE_PASSWORD" length="128">
+				<comment>员工账号单向加密密码</comment>
+			</column>
+		</property>
+		<property name="uomDef01" type="java.lang.String">
+			<column name="UOM_DEF01" length="16">
+				<comment>UOM自定义字段01</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

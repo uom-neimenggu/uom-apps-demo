@@ -1,0 +1,71 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./grpChannelListboxExtPanel" ?>
+<zk>
+	<panel id="grpChannelListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="渠道单元编码" />
+					<textbox id="channelNbr" width="80px" />
+					<label value="渠道单元名称" />
+					<textbox id="channelName" width="80px" />
+					<toolbarbutton label="查询"
+						forward="onGrpChannelQuery" autodisable="self" />
+					<toolbarbutton label="重置"
+						forward="onGrpChannelReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="grpChannelWindowDiv">
+						<hbox>
+							<toolbarbutton forward="onGrpChannelUpdate"
+								id="updateGrpChannelButton" label="更新" />
+						</hbox>
+					</div>
+					<div id="grpChannelBandboxDiv" visible="false">
+						<hbox>
+							<toolbarbutton id="selectGrpChannelButton"
+								label="选择" forward="onSelectGrpChannelInfo" visible="false" />
+							<toolbarbutton id="closeGrpChannelButton"
+								label="关闭" forward="onCloseGrpChannelInfo" />
+							<toolbarbutton id="cleanGrpChannelButton"
+								label="清空" forward="onCleanGrpChannelInfo" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="grpChannelListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onGrpChannelSelectRequest"
+				style="height:200px">
+				<listhead sizable="true">
+					<listheader label="渠道单元标识" align="center" />
+					<listheader label="渠道单元编码" align="center" />
+					<listheader label="渠道单元名称" align="center" />
+					<listheader label="电信管理区域" align="center" />
+					<listheader label="渠道单元类型" align="center" />
+					<listheader label="渠道单元分类" align="center" />
+					<listheader label="状态" align="center" />
+					<listheader label="生效时间" align="center" />
+				</listhead>
+				<listitem self="@{each='grpChannel'}"
+					value="@{grpChannel}" tooltiptext="@{grpChannel.grpChannelName}">
+					<listcell label="@{grpChannel.grpChannelId}" />
+					<listcell label="@{grpChannel.channelNbr}" />
+					<listcell label="@{grpChannel.channelName}" />
+					<listcell label="@{grpChannel.commonRegionIdName}" />
+					<listcell label="@{grpChannel.channelClassName}" />
+					<listcell label="@{grpChannel.channelTypeCdName}" />
+					<listcell label="@{grpChannel.statusCdName}" />
+					<listcell label="@{grpChannel.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="grpChannelListboxPaging"
+				forward="onGrpChannelListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

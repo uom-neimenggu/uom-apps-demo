@@ -1,0 +1,142 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="单位编码" /><textbox id="" width="80px" />
+						<label value="岗位编码" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="批量导入" />
+							<toolbarbutton id="" label="模板下载" />
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="单位编码" width="10%" align="center" />
+					<listheader label="岗位编码" width="12%" align="center" />
+					<listheader label="岗位名称" width="16%" align="center" />
+					<listheader label="是否是基准岗位" width="8%" align="center" />
+					<listheader label="内部码" width="12%" align="center" />
+					<listheader label="成立日期" width="14%" align="center" />
+					<listheader label="所属组织" width="" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0001351606" />
+					<listcell label="线务局局长助理" />
+					<listcell label="N" />
+					<listcell label="GYYN" />
+					<listcell label="2015-01-16" />
+					<listcell label="中国电信股份有限公司安徽传输线路维护局(机动应急通信局)" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000440531" />
+					<listcell label="县公司销售服务部社会渠道经理" />
+					<listcell label="N" />
+					<listcell label="5TZW" />
+					<listcell label="2014-08-21" />
+					<listcell label="中国电信股份有限公司铜陵分公司" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000443868" />
+					<listcell label="市公司城市营业部主任" />
+					<listcell label="N" />
+					<listcell label="VEZ2" />
+					<listcell label="2014-08-21" />
+					<listcell label="中国电信股份有限公司淮南分公司" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000521927" />
+					<listcell label="县公司网络部光电缆线路维护" />
+					<listcell label="N" />
+					<listcell label="P7K6" />
+					<listcell label="2014-08-21" />
+					<listcell label="中国电信股份有限公司宿州分公司" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000552007" />
+					<listcell label="市公司城市营业部网格经理" />
+					<listcell label="N" />
+					<listcell label="RTGW" />
+					<listcell label="2014-08-21" />
+					<listcell label="中国电信股份有限公司合肥分公司" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000552007" />
+					<listcell label="市公司区域政企分部销售经理" />
+					<listcell label="N" />
+					<listcell label="HSGG" />
+					<listcell label="2014-08-21" />
+					<listcell label="中国电信股份有限公司合肥分公司" />
+				</listitem>
+				<listitem>
+					<listcell label="834" />
+					<listcell label="0000552007" />
+					<listcell label="营业中心综合营业" />
+					<listcell label="N" />
+					<listcell label="0Q0A" />
+					<listcell label="2014-01-01" />
+					<listcell label="中国电信股份有限公司蚌埠分公司" />
+				</listitem>
+								<listitem>
+					<listcell label="834" />
+					<listcell label="0000584563" />
+					<listcell label="市公司校园客户部经理助理" />
+					<listcell label="N" />
+					<listcell label="1JRO" />
+					<listcell label="2014-01-01" />
+					<listcell label="中国电信股份有限公司安庆分公司" />
+				</listitem>
+								<listitem>
+					<listcell label="834" />
+					<listcell label="0000587678" />
+					<listcell label="市公司采购中心物资采购" />
+					<listcell label="N" />
+					<listcell label="JOOE" />
+					<listcell label="2014-01-01" />
+					<listcell label="中国电信股份有限公司安庆分公司" />
+				</listitem>
+								<listitem>
+					<listcell label="834" />
+					<listcell label="0000592388" />
+					<listcell label="市公司农村营业部农村营业部渠道经理" />
+					<listcell label="N" />
+					<listcell label="XYEJ" />
+					<listcell label="2014-01-01" />
+					<listcell label="中国电信股份有限公司安庆分公司" />
+				</listitem>
+	
+			
+
+			
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

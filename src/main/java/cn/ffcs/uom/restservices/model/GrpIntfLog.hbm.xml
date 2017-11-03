@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.restservices.model.GrpIntfLog" table="GRP_INTF_LOG">
+		<comment>集团接口日志标识</comment>
+		<id name="grpIntfLogId" type="java.lang.Long">
+			<column name="GRP_INTF_LOG_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_GRP_INTF_LOG_ID</param>
+			</generator>
+		</id>
+		<property name="msgId" type="java.lang.String">
+			<column name="MSG_ID" length="40">
+				<comment>消息ID</comment>
+			</column>
+		</property>
+		<property name="transId" type="java.lang.String">
+			<column name="TRANS_ID" length="40">
+				<comment>业务流水号</comment>
+			</column>
+		</property>
+		<property name="grpRequestContent" type="java.lang.String">
+			<column name="GRP_REQUEST_CONTENT" length="1600">
+				<comment>集团请求报文</comment>
+			</column>
+		</property>
+		<property name="uomRequestContent" type="java.lang.String">
+			<column name="UOM_REQUEST_CONTENT" length="1600">
+				<comment>主数据请求报文</comment>
+			</column>
+		</property>
+		<property name="uomResponseContent" type="java.lang.String">
+			<column name="UOM_RESPONSE_CONTENT" length="1600">
+				<comment>主数据响应报文</comment>
+			</column>
+		</property>
+		<property name="channelResponseContent" type="java.lang.String">
+			<column name="CHANNEL_RESPONSE_CONTENT" length="1600">
+				<comment>渠道响应报文</comment>
+			</column>
+		</property>
+		<property name="uomResult" type="java.lang.Long">
+			<column name="UOM_RESULT" length="1">
+				<comment>主数据结果</comment>
+			</column>
+		</property>
+		<property name="channelResult" type="java.lang.Long">
+			<column name="CHANNEL_RESULT" length="1">
+				<comment>渠道结果</comment>
+			</column>
+		</property>
+		<property name="errCode" type="java.lang.String">
+			<column name="ERR_CODE" length="30">
+				<comment>错误编码</comment>
+			</column>
+		</property>
+		<property name="errMsg" type="java.lang.String">
+			<column name="ERR_MSG" length="500">
+				<comment>错误信息</comment>
+			</column>
+		</property>
+		<property name="operatorNbr" type="java.lang.String">
+			<column name="OPERATOR_NBR" length="100">
+				<comment>操作人编码</comment>
+			</column>
+		</property>
+		<property name="interfaceType" type="java.lang.String">
+			<column name="INTERFACE_TYPE" length="10">
+				<comment>接口类型</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

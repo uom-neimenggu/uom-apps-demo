@@ -1,0 +1,47 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./principalConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="principalConfigEditWin" border="none"
+		apply="${principalConfigEditComposer}" closable="true" width="650px"
+		height="140px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="干系人名称" />
+								<textbox id="principalName" rows="1"
+									width="96%">
+								</textbox>
+								<label value="手机号码" />
+								<textbox id="cellNum" rows="1"
+									width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="邮箱" />
+								<textbox id="email" rows="1"
+									width="96%">
+								</textbox>
+								<label value="排序号" />
+								<textbox id="sort" rows="1"
+									width="96%">
+								</textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

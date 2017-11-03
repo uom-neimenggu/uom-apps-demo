@@ -1,0 +1,48 @@
+<?component name="organizationTreeBandboxExt" extends="bandbox" class="com.ffcs.crm2.common.ui.sysmgr.OrganizationTreeBandboxExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="positionDetailWindow" border="none"
+		apply="${positionDetailComposer}" vflex="1" width="500px;"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="职位名称" />
+							<textbox id="positionName" width="95%"
+								/>
+						    <label value="职位类型" />
+							<listbox id="positionType" mold="select"
+								rows="1" width="95%">
+							</listbox>	
+						</row>
+						
+						<row>
+							<label value="职位编码" id="positionCodeLab"/>
+							<textbox id="positionCode" width="95%"/>
+							<label value="生效时间" />
+							<datebox id="effDate"
+									format="yyyy-MM-dd" width="95%" readonly="true">
+							</datebox>
+						</row>
+						<row spans="1,3">
+							<label value="职位描述" />
+							<textbox id="positionDesc" multiline="true"
+								height="30px" width="97%" />
+						</row>
+					</rows>
+				</grid>
+				<toolbar align="center" mold="panel">
+					<button label="确定" forward="onOk" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

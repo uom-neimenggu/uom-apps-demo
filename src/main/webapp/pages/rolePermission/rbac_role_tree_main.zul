@@ -1,0 +1,103 @@
+<?page title="角色树管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleTreeMainWindow"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacRoleEditExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleEditExt" ?>
+<?component name="rbacRoleRelationTreeExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleRelationTreeExt"?>
+<?component name="rbacUserRoleListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacUserRoleListboxExt"?>
+<?component name="rbacUserRoleBusinessSystemListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacUserRoleBusinessSystemListboxExt"?>
+<?component name="rbacRoleBusinessSystemListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleBusinessSystemListboxExt"?>
+<?component name="rbacPermissionRoleListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionRoleListboxExt"?>
+<?component name="rbacRoleOrganizationListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleOrganizationListboxExt"?>
+<?component name="rbacRoleOrganizationLevelListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleOrganizationLevelListboxExt"?>
+<?component name="rbacRoleTelcomRegionListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleTelcomRegionListboxExt"?>
+<?component name="rbacRolePolitLocationListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRolePolitLocationListboxExt"?>
+<zk>
+	<window id="rbacRoleTreeMainWindow" width="100%" height="100%"
+		apply="${rbacRoleTreeMainComposer}">
+		<borderlayout>
+			<west width="22%">
+				<tabbox id="leftTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacRoleRelationTab" label="角色理界面" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacRoleRelationTreeExt
+								id="rbacRoleRelationTreeExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</west>
+			<center vflex="1">
+				<tabbox id="rightTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacRoleTab" label="角色属性"
+							forward="onClickTab" />
+						<tab id="rbacUserRoleTab" label="角色员工关系"
+							forward="onClickTab" />
+						<tab id="rbacRoleBusinessSystemTab"
+							label="角色系统关系" forward="onClickTab" />
+						<tab id="rbacPermissionRoleTab" label="角色权限关系"
+							forward="onClickTab" />
+						<tab id="rbacRoleOrganizationTab" label="角色组织关系"
+							forward="onClickTab" />
+						<tab id="rbacRoleOrganizationLevelTab"
+							label="角色组织层级关系" forward="onClickTab" />
+						<tab id="rbacRoleTelcomRegionTab"
+							label="角色电信管理区域关系" forward="onClickTab" />
+						<tab id="rbacRolePolitLocationTab"
+							label="角色行政管理区域关系" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacRoleEditExt id="rbacRoleEditExt"
+								vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacUserRoleListboxExt
+								id="rbacUserRoleListboxExt" vflex="1" />
+							<tabbox id="rbacUserRoleTabBox" vflex="1">
+								<tabs>
+									<tab
+										id="rbacUserRoleBusinessSystemTab" label="员工角色系统关系"
+										forward="onClickRbacUserRoleTab" />
+								</tabs>
+								<tabpanels>
+									<tabpanel style="padding:1px;"
+										vflex="1">
+										<rbacUserRoleBusinessSystemListboxExt
+											id="rbacUserRoleBusinessSystemListboxExt" vflex="1" />
+									</tabpanel>
+								</tabpanels>
+							</tabbox>
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacRoleBusinessSystemListboxExt
+								id="rbacRoleBusinessSystemListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacPermissionRoleListboxExt
+								id="rbacPermissionRoleListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacRoleOrganizationListboxExt
+								id="rbacRoleOrganizationListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacRoleOrganizationLevelListboxExt
+								id="rbacRoleOrganizationLevelListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacRoleTelcomRegionListboxExt
+								id="rbacRoleTelcomRegionListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacRolePolitLocationListboxExt
+								id="rbacRolePolitLocationListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

@@ -1,0 +1,139 @@
+<?page title="骨干人才队伍" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="人员编码" />
+						<textbox id="" width="80px" />
+						<label value="人员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员编码" width="8%" align="center" />
+					<listheader label="人员姓名" width="8%" align="center" />
+					<listheader label="骨干人才名称" width="8%" align="center" />
+					<listheader label="等级" width="16%" align="center" />
+					<listheader label="骨干专业领域" width="12%" align="center" />
+					<listheader label="享受待遇" width="12%" align="center" />
+					<listheader label="骨干考核成绩" width="" align="center" />
+				</listhead>
+
+				<listitem>
+					<listcell label="34050080" />
+					<listcell label="琚红涛" />
+					<listcell label="" />
+					<listcell label="4" />
+					<listcell label="" />
+					<listcell label="600" />
+					<listcell label="优秀" />
+				</listitem>
+				<listitem>
+					<listcell label="34890043" />
+					<listcell label="秦虎" />
+					<listcell label="" />
+					<listcell label="3" />
+					<listcell label="" />
+					<listcell label="500" />
+					<listcell label="良好" />
+				</listitem>
+				<listitem>
+					<listcell label="34870082" />
+					<listcell label="曹海洋" />
+					<listcell label="" />
+					<listcell label="3" />
+					<listcell label="" />
+					<listcell label="500" />
+					<listcell label="良好" />
+				</listitem>
+				<listitem>
+					<listcell label="34010304" />
+					<listcell label="王勇强" />
+					<listcell label="" />
+					<listcell label="3" />
+					<listcell label="" />
+					<listcell label="450" />
+					<listcell label="良好" />
+				</listitem>
+				<listitem>
+					<listcell label="34840345" />
+					<listcell label="时君" />
+					<listcell label="" />
+					<listcell label="4" />
+					<listcell label="" />
+					<listcell label="650" />
+					<listcell label="优秀" />
+				</listitem>
+				<listitem>
+					<listcell label="34900277" />
+					<listcell label="白福云" />
+					<listcell label="" />
+					<listcell label="5" />
+					<listcell label="" />
+					<listcell label="600" />
+					<listcell label="优秀" />
+				</listitem>
+				<listitem>
+					<listcell label="34970365" />
+					<listcell label="王琳" />
+					<listcell label="" />
+					<listcell label="5" />
+					<listcell label="" />
+					<listcell label="600" />
+					<listcell label="优秀" />
+				</listitem>
+				<listitem>
+					<listcell label="34050094" />
+					<listcell label="陈瑞勋" />
+					<listcell label="" />
+					<listcell label="5" />
+					<listcell label="" />
+					<listcell label="700" />
+					<listcell label="优秀" />
+				</listitem>
+				<listitem>
+					<listcell label="34940215" />
+					<listcell label="崔松" />
+					<listcell label="" />
+					<listcell label="2" />
+					<listcell label="" />
+					<listcell label="300" />
+					<listcell label="及格" />
+				</listitem>
+				<listitem>
+					<listcell label="34010006" />
+					<listcell label="郑辉" />
+					<listcell label="" />
+					<listcell label="2" />
+					<listcell label="" />
+					<listcell label="300" />
+					<listcell label="及格" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

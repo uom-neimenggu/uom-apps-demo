@@ -1,0 +1,13 @@
+<?page title="资源信息" contentType="text/html;charset=UTF-8"?>
+<?component name="rbacResourceListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacResourceListboxExt" ?>
+<zk>
+	<bandpopup width="800px" height="50%">
+		<panel>
+			<panelchildren>
+				<rbacResourceListboxExt id="rbacResourceListboxExt"
+					vflex="1">
+				</rbacResourceListboxExt>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

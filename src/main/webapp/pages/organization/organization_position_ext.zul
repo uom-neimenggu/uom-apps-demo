@@ -1,0 +1,58 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationPositionPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="organizationPositionPanel" vflex="1">
+	<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+			style="display:inline;float:left">
+			<div id="positionOrganizationSearchDiv">
+				<hbox>
+					<label value="职位编码" />
+					<textbox id="positionCode" width="95px" />
+					<label value="职位名称" />
+					<textbox id="positionName" width="95px" />
+					<button label="查询" forward="onQueryPositionOrganization"
+						autodisable="self"  mold="trendy"/>
+					<button label="重置" forward="onResetPositionOrganization"
+						autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar align="end" style="display:inline">
+			<div>
+				<hbox>
+					<toolbarbutton id="addButton"
+						forward="onAddOrganizationPosition" label="新增" />
+					<toolbarbutton id="delButton"
+						forward="onDelOrganizationPosition" label="删除" />
+					<toolbarbutton id="cleanButton"
+						forward="onCleanOrganizationPosition" label="清空"  visible="false"/>
+					<toolbarbutton id="closeButton"
+						forward="onCloseOrganizationPosition" label="关闭" visible="false"/>
+				</hbox>
+			</div>
+		</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="OrganizationPositionListbox" vflex="1"
+				forward="onSelect=onSelectOrganizationPositionList">
+				<listhead sizable="true">
+					<listheader label="组织" />
+					<listheader label="关联职位" />
+					<listheader label="生效时间" class="listheader-time-width"/>
+					<listheader label="失效时间" class="listheader-time-width"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgFullName}"></listcell>
+					<listcell label="@{current.positionName}">
+					</listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="organizationPositionPaging" pageSize="10"
+				forward="onQueryPositionList" />
+		</panelchildren>
+	</panel>
+</zk>

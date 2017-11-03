@@ -1,0 +1,13 @@
+<?page title="集团组织信息" contentType="text/html;charset=UTF-8"?>
+<?component name="groupOrganizationListboxExt" extends="div" class="cn.ffcs.uom.organization.action.GroupOrganizationListboxExt" ?>
+<zk>
+	<bandpopup width="830px" height="50%">
+		<panel>
+			<panelchildren>
+				<groupOrganizationListboxExt
+					id="groupOrganizationListboxExt" vflex="1" isBandbox="true">
+				</groupOrganizationListboxExt>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

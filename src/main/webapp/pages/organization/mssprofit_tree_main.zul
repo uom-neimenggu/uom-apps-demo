@@ -1,0 +1,69 @@
+<?page title="集团MSS利润中心" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationMssProfitTreeMainWindow" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="mssProfitTreeExt" extends="div" class="cn.ffcs.uom.organization.component.MssProfitTreeExt"?>
+
+<window id="organizationMssProfitTreeMainWindow"
+	apply="${organizationTreeMssProfitMainComposer}" vflex="1" width="100%"
+	height="100%">
+	<borderlayout>
+		<west width="22%">
+			<tabbox id="leftTabbox" vflex="1">
+				<tabs>
+					<tab id="mssProfitTab" label="集团MSS利润中心查询界面"
+						forward="onClickLeftTab" />
+					<tab id="tempTab" visible="false" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1" id="mssProfitTabpanel">
+						<mssProfitTreeExt id="mssProfitTreeExt" vflex="1" />
+					</tabpanel>
+					<tabpanel id="tempTabpanel" />
+				</tabpanels>
+			</tabbox>
+		</west>
+		<center vflex="1">
+			<tabbox id="tabBox" vflex="1">
+				<tabs>
+					<tab id="orgAttrTab" label="组织属性"
+						forward="onClickTab" visible="false" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1">
+						<panel vflex="1" id="orgInfoPanel">
+							<panelchildren vflex="1"
+								style="overflow-y:auto">
+								<groupbox>
+									<caption>利润中心基本属性</caption>
+									<grid>
+										<columns>
+											<column width="15%"
+												align="center" />
+											<column width="30%" />
+											<column width="15%"
+												align="center" />
+											<column width="40%" />
+										</columns>
+										<rows>
+											<row>
+												<label value="* 利润中心编码"
+													class="z-info-required" />
+												<textbox id="subSetName"
+													width="97%">
+												</textbox>
+												<label value="利润中心描述" />
+												<textbox id="subName"
+													width="97%" disabled="true">
+												</textbox>
+											</row>
+										</rows>
+									</grid>
+								</groupbox>
+							</panelchildren>
+						</panel>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+</window>

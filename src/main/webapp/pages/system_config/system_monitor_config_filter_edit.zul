@@ -1,0 +1,51 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemMonitorConfigFilterEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="systemMonitorConfigFilterEditWin" border="none" apply="${systemMonitorConfigFilterEditComposer}" closable="true" width="350px" height="230px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="30%" />
+							<column label="" width="70%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 监控标识" class="z-info-required" />
+								<textbox id="systemMonitorConfigId" width="96%" disabled="true"></textbox>
+							</row>
+							<row>
+								<label value="* 条件开关" class="z-info-required" />
+								<listbox id="systemMonitorFilterSwitch" width="96%" mold="select">
+									<listitem label="开" value="1" selected="true"> </listitem>
+									<listitem label="关" value="0"></listitem>
+								</listbox>
+							</row>
+							<row>
+								<label value="* 条件名" class="z-info-required" />
+								<listbox id="filterName" mold="select" width="95%"/>
+							</row>
+							<row>
+								<label value="* 关系运算符" class="z-info-required" />
+								<listbox id="relationOperator" width="96%" mold="select" disabled="true" >
+									<listitem label="等于" value="=" selected="true"> </listitem>
+									<listitem label="不等于" value="!="> </listitem>
+								</listbox>
+							</row>
+							<row>
+								<label value="* 条件值" class="z-info-required" />
+								<textbox id="filterValue" width="96%"></textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

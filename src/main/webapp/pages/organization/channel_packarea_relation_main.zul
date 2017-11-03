@@ -1,0 +1,9 @@
+<?page title="包区网点审批" contentType="text/html;charset=UTF-8"?>
+<?component name="channelPackareaRelationListbox" extends="div" class="cn.ffcs.uom.organization.action.ChannelPackareaRelationListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="channelPackareaRelationMainWin" height="96%"
+		apply="${channelPackareaRelationMainComposer}" >
+		<channelPackareaRelationListbox id="channelPackareaRelationListbox" vflex="1" />
+	</window>
+</zk>

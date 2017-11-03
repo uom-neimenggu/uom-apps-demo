@@ -1,0 +1,20 @@
+<?page title="组织关系稽核" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgRelationMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="orgRelationExt" extends="div" class="cn.ffcs.uom.audit.component.OrgRelationExt"?>
+<zk>
+	<window id="orgRelationMainWin" width="100%" height="98%"
+		apply="${orgRelationMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="orgRelationTab" label="组织关系稽核"
+					forward="onClickTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="orgRelationExtTabpanel">
+					<orgRelationExt id="orgRelationExt" vflex="1" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

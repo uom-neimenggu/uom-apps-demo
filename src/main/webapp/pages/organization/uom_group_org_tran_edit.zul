@@ -1,0 +1,43 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt"?>
+<?component name="groupOrganizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.GroupOrganizationBandboxExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<zk>
+	<window id="uomGroupOrgTranEditComposer" border="none"
+		apply="${uomGroupOrgTranEditComposer}" width="850px"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="组织" />
+							<organizationBandboxExt id="org"
+								width="94%" />
+							<label value="业务组织" />
+							<groupOrganizationBandboxExt id="tranOrg"
+								width="94%" />
+						</row>
+						<row>
+							<label value="组织业务关系类型" />
+							<treeChooserBandbox id="tranRelaType"
+								range="end" mode="single" className="OrganizationTran"
+								attrName="tranRelaType" pattern="2,2,2" width="94%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<toolbar id="btnToolBar" align="center" mold="panel">
+			<button id="saveUomGroupOrgTran" label="确定" forward="onOk" />
+			<button id="cancelUomGroupOrgTran" label="取消"
+				forward="onCancel" />
+		</toolbar>
+	</window>
+</zk>

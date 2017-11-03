@@ -1,0 +1,23 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationExtendAttrExt" extends="div" class="cn.ffcs.uom.organization.component.OrganizationExtendAttrExt"?>
+<?component name="organizationInfoExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationInfoExt"?>
+
+<zk>
+	<window id="organizationEditWindow" border="none" width="700px"
+		closable="true" apply="${organizationEditComposer}">
+		<div height="380px" style="overflow:auto">
+			<organizationInfoExt id="organizationInfoExt"
+				marketingUnit="${arg.marketingUnit}"
+				marketingListbox="${arg.marketingListbox}"
+				newMarketingListbox="${arg.newMarketingListbox}"
+				newSeventeenMarketingListbox="${arg.newSeventeenMarketingListbox}"
+				costUnit="${arg.costUnit}">
+			</organizationInfoExt>
+			<div align="center" style="padding:5px;">
+				<button id="saveOrg" label="确定" forward="onOk"
+					autodisable="self" />
+				<button id="cancelOrg" label="取消" forward="onCancel" />
+			</div>
+		</div>
+	</window>
+</zk>

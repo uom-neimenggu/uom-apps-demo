@@ -1,0 +1,87 @@
+<?page title="角色组织列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleOrganizationLevelListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRoleOrganizationLevelListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRoleOrganizationLevelSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="90px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="90px" />
+						<label value="组织编码" />
+						<textbox id="orgCode" width="90px" />
+						<label value="组织名称" />
+						<textbox id="orgName" width="90px" />
+						<button label="查询"
+							forward="onQueryRbacRoleOrganizationLevel" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacRoleOrganizationLevel" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton
+						id="addRbacRoleOrganizationLevelButton" label="新增"
+						forward="onRbacRoleOrganizationLevelAdd" />
+					<toolbarbutton
+						id="editRbacRoleOrganizationLevelButton" label="修改"
+						forward="onRbacRoleOrganizationLevelEdit" />
+					<toolbarbutton
+						id="delRbacRoleOrganizationLevelButton" label="删除"
+						forward="onRbacRoleOrganizationLevelDel" />
+					<toolbarbutton id="viewOrganizationPathButton"
+						forward="onOrganizationPathView" label="查看树路径" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRoleOrganizationLevelListbox"
+				forward="onSelect=onRbacRoleOrganizationLevelSelectRequest"
+				vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="角色组织层级标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="组织编码" />
+					<listheader label="组织名称" />
+					<listheader label="最小层级" />
+					<listheader label="最高层级" />
+					<listheader label="关系类型" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRoleOrganizationLevel'}"
+					value="@{rbacRoleOrganizationLevel}">
+					<listcell
+						label="@{rbacRoleOrganizationLevel.rbacRoleOrgLevelId}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.rbacRoleCode}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.rbacRoleName}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.orgCode}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.orgName}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.rbacLowerLevel}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.rbacHigherLevel}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.relaCdName}" />
+					<listcell
+						label="@{rbacRoleOrganizationLevel.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacRoleOrganizationLevelListPaging"
+				pageSize="16" forward="onRbacRoleOrganizationLevelListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

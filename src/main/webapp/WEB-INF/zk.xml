@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<system-config>
+		<!-- needed for running a zk application in Portal or CLUSTER -->
+		<!-- It specifies which class is used to create desktops and pages, and to convert URL to a page definition. -->
+        <ui-factory-class>cn.ffcs.raptornuke.plugin.common.zk.http.PortalSerializableUiFactory</ui-factory-class><!-- start SESSION REPLICATION function -->
+        <cache-provider-class>org.zkoss.zk.ui.impl.GlobalDesktopCacheProvider</cache-provider-class>
+        <!--
+        <disable-event-thread />
+        <disable-zscript>true</disable-zscript>
+        -->
+    </system-config>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri><!-- An empty URL can cause the browser to reload the same URL -->
+		<embed><![CDATA[
+				<script type="text/javascript">
+					zk.afterLoad("zk", function () {
+			var oldProgressbox = zUtl.progressbox;
+			zUtl.progressbox = function () {
+				oldProgressbox.apply(this, arguments);
+				var $mask = jq('.z-loading');
+				if ($mask) {
+					var $img = jq('.z-loading-indicator'),
+						$body = jq(document.body),
+						body = $body[0],
+						bw = $body.width() + body.scrollLeft ,
+						bh = $body.height() + body.scrollTop - 10;
+
+					// update mask and image's style
+					$mask.css('opacity', .4); 
+					$mask.width(bw);
+					$mask.height(bh);
+
+					$img.width('150px');
+					$img.css('opacity', 1);
+					$img.css('margin-left', (bw - $img.width()) / 2 + 'px');
+					$img.css('margin-top', (bh - $img.height()) / 2 + 'px');
+
+					// update mask size when window scroll
+					if (!window.eventBinded) {
+						var $win = jq(window);
+						$win.scroll(function () {
+							var $maskInst = jq('.z-loading');
+							if ($maskInst[0]) {
+								$maskInst.width(bw + $win.scrollLeft());
+								$maskInst.height(bh + $win.scrollTop());
+							}
+						});
+						window.eventBinded = true;
+					}
+				}
+			}
+		});
+	</script>
+				</script>
+		]]></embed>
+	</device-config>
+	<!-- Uncomment if you turn off the caching of resources loaded from
+		the class path (aka., class Web resources).
+		By default, class Web resources are cached by the browser until
+		you upgraded ZK to a newer version.
+		However, it is better to turn the cache off when you are developing
+		a theme or a component.
+	-->	
+	<library-property>
+		<name>org.zkoss.web.classWebResource.cache</name>
+		<value>false</value>
+	</library-property>
+	<!-- portlet begin -->
+    <library-property>
+        <name>org.zkoss.zk.portlet.PageRenderPatch.class</name>
+        <value>cn.ffcs.raptornuke.plugin.common.zk.plus.raptornuke.NonRootContextJQueryRenderPatch</value>
+    </library-property>
+    <library-property>
+        <name>cn.ffcs.raptornuke.plugin.common.zk.plus.raptornuke.jQueryPatch</name>
+        <value>500</value>
+    </library-property>
+    <!-- portlet end -->
+	<desktop-config>
+		<theme-uri>/public/css/style.css</theme-uri>
+	  <!--theme-provider-class>cn.ffcs.raptornuke.plugin.common.zk.theme.CacheableThemeProvider</theme-provider-class-->
+	  <desktop-timeout>-1</desktop-timeout>
+	</desktop-config>
+	<session-config>
+		<!-- zk session timeout.less than 0 never timeout.-->
+		<session-timeout>0</session-timeout><!-- 0 use web.xml session timeout. -->
+        <timer-keep-alive>true</timer-keep-alive>
+    </session-config>
+    <!-- Turn on ClusterSessionPath for WebLogic and GAE[No need for other servers]-->
+    <!--
+    <listener>
+        <listener-class>org.zkoss.zkplus.cluster.ClusterSessionPatch</listener-class>
+    </listener>
+    -->
+	<!-- Use Myfaces and zkfaces -->
+	<listener>
+		<description>ThreadLocal Variables Synchronizer</description>
+		<listener-class>org.zkoss.zkplus.util.ThreadLocalListener</listener-class>
+	</listener>
+	<preference>
+		<name>ThreadLocal</name>
+		<value>javax.faces.context.FacesContext=_currentInstance;</value>
+	</preference>
+</zk>

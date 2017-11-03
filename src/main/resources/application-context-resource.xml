@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="cn.ffcs.u*" />
+
+	<!-- 事务相关 -->
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager"/>
+	<!--aop:config>
+		<aop:advisor id="managerTx" advice-ref="txAdvice"
+			pointcut="execution(* *..action.*Action.*(..))" order="1"></aop:advisor>
+		<aop:advisor id="managerTx2" advice-ref="txAdvice"
+			pointcut="execution(* *..dao.impl.*DaoImpl.*(..))" order="2"></aop:advisor>
+	</aop:config-->
+	
+	<aop:config>
+		<aop:advisor id="managerTx" advice-ref="txAdvice"
+			pointcut="execution(* *..dao.impl.*DaoImpl.*(..))" order="2"></aop:advisor>
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="load*" read-only="false" />
+			<tx:method name="get*" read-only="false" />
+			<tx:method name="find*" read-only="false" />
+			<tx:method name="query*" read-only="false" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="create*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="mod*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="remove*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="del*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="save*" propagation="REQUIRED"
+				rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- hibernate 事务控制 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+		
+	<aop:config>
+		<aop:advisor id="serviceTx" advice-ref="serviceAdvice"
+			pointcut="execution(* cn.ffcs.uom..manager..*.*(..))" order="1"></aop:advisor>
+	</aop:config>
+	<tx:advice id="serviceAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="save*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="create*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="update*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="mod*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="del*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="remove*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="import*" read-only="false" propagation="REQUIRED" />
+			<tx:method name="*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="saveIntfLog" read-only="false"
+				propagation="REQUIRES_NEW" />
+		</tx:attributes>
+	</tx:advice>
+</beans>

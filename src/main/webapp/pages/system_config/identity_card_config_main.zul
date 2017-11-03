@@ -1,0 +1,84 @@
+<?page title="身份证类型配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./identityCardConfigMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="identityCardConfigMainWin"
+		apply="${identityCardConfigMainComposer}" width="100%"
+		height="100%">
+		<borderlayout>
+			<north size="100%">
+				<panel vflex="1">
+					<caption>
+						<toolbar align="start" id="toolbarId"
+							sclass="toolbar-user" style="display:inline-table;float:left">
+							<hbox>
+								<label value="身份证类型名称：" />
+								<textbox id="identityCardName"
+									width="100px" />
+								<label value="身份证类型前缀：" />
+								<textbox id="identityCardPrefix"
+									width="100px" />
+								<button label="查询"
+									forward="onIdentityCardConfigQuery" autodisable="self" />
+								<button label="重置"
+									forward="onIdentityCardConfigReset" autodisable="self" />
+							</hbox>
+						</toolbar>
+						<toolbar align="end" sclass="toolbar-user"
+							style="display:inline-table">
+							<hbox>
+								<toolbarbutton
+									id="addIdentityCardConfigButton"
+									forward="onIdentityCardConfigAdd" label="新增" />
+								<toolbarbutton
+									id="editIdentityCardConfigButton"
+									forward="onIdentityCardConfigEdit" label="修改" />
+								<toolbarbutton
+									id="delIdentityCardConfigButton"
+									forward="onIdentityCardConfigDel" label="删除" />
+							</hbox>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="identityCardConfigListBox"
+							forward="onSelect=onSelectIdentityCardConfigListBox" vflex="1">
+							<listhead sizable="true">
+								<listheader label="身份证类型标识" />
+								<listheader label="身份证类型名称" />
+								<listheader label="身份证类型前缀" />
+								<listheader label="身份证类型开关" />
+								<listheader label="生效时间" />
+							</listhead>
+							<listitem self="@{each='current'}"
+								value="@{current}">
+								<listcell
+									label="@{current.identityCardId}">
+								</listcell>
+								<listcell
+									label="@{current.identityCardName}">
+								</listcell>
+								<listcell
+									label="@{current.identityCardPrefix}">
+								</listcell>
+								<listcell
+									label="@{current.identityCardSwitchName}">
+								</listcell>
+								<listcell label="@{current.effDate}">
+								</listcell>
+							</listitem>
+						</listbox>
+						<paging id="identityCardConfigListboxPaging"
+							pageSize="16" forward="onIdentityCardConfigListboxPaging" />
+					</panelchildren>
+				</panel>
+			</north>
+		</borderlayout>
+	</window>
+</zk>

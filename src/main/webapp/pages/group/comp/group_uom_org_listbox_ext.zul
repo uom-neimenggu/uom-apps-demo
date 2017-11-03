@@ -1,0 +1,64 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./groupUomOrgListboxExtPanel"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="groupUomOrgListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline-table;float:left">
+				<hbox>
+					<label value="集团组织名称" />
+					<textbox id="ktext" width="85px" />
+					<button label="查询" forward="onQueryGroupUomOrg"
+						autodisable="self" mold="trendy" />
+					<button label="重置" forward="onGroupUomOrgReset"
+						autodisable="self" mold="trendy" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="display:inline-table">
+				<div id="groupUomOrgWindowDiv">
+					<hbox>
+						<toolbarbutton id="addGroupUomOrgButton"
+							forward="onGroupUomOrgAdd" label="新增" />
+						<toolbarbutton id="editGroupUomOrgButton"
+							forward="onGroupUomOrgEdit" label="修改" visible="false" />
+						<toolbarbutton id="delGroupUomOrgButton"
+							forward="onGroupUomOrgDel" label="删除" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="groupUomOrgListBox"
+				forward="onSelect=onGroupUomOrgSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="集团组织标识" width="12%" />
+					<listheader label="集团组织名称" width="12%" />
+					<listheader label="主数据组织名称" width="12%" />
+					<listheader label="主数据组织编码" width="12%" />
+					<listheader label="关系类型" width="12%" />
+					<listheader label="数据类型" width="12%" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+					<listheader label="失效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='groupUomOrg'}"
+					value="@{groupUomOrg}">
+					<listcell label="@{groupUomOrg.id}"></listcell>
+					<listcell label="@{groupUomOrg.ktext}"></listcell>
+					<listcell label="@{groupUomOrg.orgName}"></listcell>
+					<listcell label="@{groupUomOrg.orgCode}"></listcell>
+					<listcell label="@{groupUomOrg.resTypeName}"></listcell>
+					<listcell label="@{groupUomOrg.dataTypeName}"></listcell>
+					<listcell label="@{groupUomOrg.effDate}"></listcell>
+					<listcell label="@{groupUomOrg.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="groupUomOrgListPaging" pageSize="16"
+				forward="onGroupUomOrgListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

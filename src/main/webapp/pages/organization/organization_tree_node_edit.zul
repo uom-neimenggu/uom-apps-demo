@@ -1,0 +1,51 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationTreeNodeEditWindow" ?>
+<zk>
+	<window id="organizationTreeNodeEditWindow" border="none"
+		width="280px" closable="true"
+		apply="${organizationTreeNodeEditComposer}">
+		<grid>
+			<columns>
+				<column width="28%" />
+				<column width="58%" />
+				<column width="14%" />
+			</columns>
+			<rows>
+				<row id="orgRelaCdRow">
+					<label value="关系类型" />
+					<treeChooserBandbox id="orgRelaCd" range="end" mode="single" className="OrganizationRelation" attrName="relaCd" pattern="2,2" width="97%">
+					</treeChooserBandbox>
+					<label></label>
+				</row>
+				<row id="orgRelaCdMultipleRow" visible="false">
+					<label value="关系类型" />
+					<treeChooserBandbox id="orgRelaCds" range="end" mode="multiple" className="OrganizationRelation" attrName="relaCd" pattern="2,2" width="97%">
+					</treeChooserBandbox>
+					<label></label>
+				</row>
+				<row id="orgTypeCdMultipleRow" visible="false">
+					<label value="组织类型" />
+					<treeChooserBandbox id="orgTypeCd" range="end" mode="multiple" className="OrgType" attrName="orgTypeCd" pattern="3,2,2,2,2" width="97%">
+					</treeChooserBandbox>
+					<label></label>
+				</row>
+				<row>
+					<label value="组织" />
+					<organizationBandboxExt id="organizationBandboxExt" width="97%" />
+					<toolbarbutton id="addOrgBtn" image="/public/images/pub_button/add.png" tooltiptext="新增" forward="onAddOrg" />
+				</row>
+				<row>
+					<label value="变更原因" />
+					<textbox id="reason" width="97%" />
+					<label></label>
+				</row>
+			</rows>
+		</grid>
+		<div align="center" style="padding:5px;">
+			<button id="onAdd" label="确定" forward="onAdd" autodisable="self" />
+			<button id="onCancel" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

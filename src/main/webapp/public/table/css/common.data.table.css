@@ -1,0 +1,49 @@
+/* 1. 表格样式*/
+.ui-common-data-table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border: solid 0px #eee;
+	font-size: 13px;
+	color: #333;
+	background-color: white;
+	margin: 10px 0px 0px 0px;
+	width: 100%;
+	text-align: center;
+}
+
+.ui-common-data-table td {
+	border: solid 1px #eee;
+	height: 30px;
+}
+
+.ui-common-data-table th {
+	background-color: #f7f7f7;
+	font-weight: normal;
+	height: 35px;
+	text-align: center;
+	font-size: 14px;
+	border: solid 1px #eee;
+}
+
+.ui-common-data-table tr:hover {
+	background-color: #fef;
+}
+
+/* 2. 表单样式*/
+fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 25px;
+}
+
+fieldset.form > div > label:first-child {
+	float: left;
+	width: 80px;
+	line-height:25px;
+	padding-right: 5px;
+}
+
+fieldset.form > div {
+	clear: left;
+	margin-bottom: 3px;
+}

@@ -1,0 +1,6 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgExtendAttrGroupBox"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<groupbox id="orgExtendAttrGroupBox">
+	<radiogroup id="radiogroupBody">
+	</radiogroup>
+</groupbox>

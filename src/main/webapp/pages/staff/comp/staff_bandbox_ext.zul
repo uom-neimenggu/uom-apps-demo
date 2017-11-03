@@ -1,0 +1,17 @@
+<?page title="员工列表" contentType="text/html;charset=UTF-8"?>
+<?component name="staffboxListbExt" extends="div" class="cn.ffcs.uom.staff.component.StaffListboxExt" ?>
+<zk>
+	<bandpopup width="1020px" height="270px">
+		<borderlayout>
+			<center autoscroll="true" vflex="1">
+				<div vflex="1">
+					<staffboxListbExt id="staffBandList" isBandbox="true" />
+					<toolbar mold="panel" align="center" id="staffBandboxToolbar">
+						<button label="确定" width="65px" id="okButton"></button>
+						<button label="取消" width="65px" id="cancelButton"></button>
+					</toolbar>
+				</div>
+			</center>
+		</borderlayout>
+	</bandpopup>
+</zk>

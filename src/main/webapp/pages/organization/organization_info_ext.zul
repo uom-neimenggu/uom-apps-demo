@@ -1,0 +1,230 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationExtendAttrExt" extends="div" class="cn.ffcs.uom.organization.component.OrganizationExtendAttrExt"?>
+<?component name="politicalLocationTreeBandbox" extends="bandbox" class="cn.ffcs.uom.politicallocation.component.PoliticalLocationTreeBandbox"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<?component name="partyBandboxExt" extends="bandbox" class="cn.ffcs.uom.party.component.PartyBandboxExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<zk>
+	<style>
+		.z-textbox-readonly, .z-textbox-text-disd, .z-intbox-readonly,
+		.z-intbox-text-disd, .z-longbox-readonly, .z-longbox-text-disd,
+		.z-doublebox-readonly, .z-doublebox-text-disd,
+		.z-decimalbox-readonly, .z-decimalbox-text-disd{color:
+		#363636!important;opacity :0.8;};
+	</style>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel vflex="1" id="orgInfoPanel">
+		<panelchildren vflex="1" style="overflow-y:auto">
+			<groupbox>
+				<caption>组织基本属性</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="30%" />
+						<column width="15%" align="center" />
+						<column width="40%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 组织名称"
+								class="z-info-required" />
+							<textbox id="orgName" width="97%"></textbox>
+							<label value="组织编码" />
+							<textbox id="orgCode" width="97%"
+								disabled="true">
+							</textbox>
+						</row>
+						<row>
+							<label value="* 电信管理区域"
+								class="z-info-required" />
+							<telcomRegionTreeBandbox
+								id="telcomRegionTreeBandbox" width="99%" />
+							<label value="* 行政管理区域"
+								class="z-info-required" />
+							<politicalLocationTreeBandbox
+								id="politicalLocationTreeBandbox" width="99%" />
+						</row>
+						<row spans='1,3'>
+							<label value="* 组织类型"
+								class="z-info-required" />
+							<treeChooserBandbox id="orgTypeCd"
+								range="end" mode="multiple" className="OrgType"
+								attrName="orgTypeCd" pattern="3,2,2,2,2" width="99%">
+							</treeChooserBandbox>
+						</row>
+						<row>
+							<label value="* 组织性质"
+								class="z-info-required" />
+							<listbox id="orgType" mold="select" rows="1"
+								width="98%">
+							</listbox>
+							<label value="* 存在类型"
+								class="z-info-required" />
+							<listbox id="existType" mold="select"
+								rows="1" width="98%">
+							</listbox>
+						</row>
+						<row>
+							<label value="* 组织排序"
+								class="z-info-required" />
+							<longbox id="orgPriority" width="97%">
+							</longbox>
+							<label value="* 区域编码"
+								class="z-info-required" />
+							<longbox id="areaCodeId" width="97%"
+								disabled="true">
+							</longbox>
+						</row>
+						<row>
+							<label value="城镇标识" />
+							<listbox id="cityTown" width="98%"
+								mold="select">
+							</listbox>
+							<label value="集团编码" />
+							<textbox id="orgGroupCode" width="97%"
+								disabled="true">
+							</textbox>
+						</row>
+						<row>
+							<label value="EDA组织排序" />
+							<longbox id="edaSort" width="97%"></longbox>
+							<label value="EDA编码" />
+							<textbox id="edaCode" width="97%"
+								disabled="true">
+							</textbox>
+						</row>
+						<row>
+							<label value="组织简称" />
+							<textbox id="orgShortName" width="97%">
+							</textbox>
+							<label value="组织简介" />
+							<textbox id="orgContent" multiline="false"
+								width="97%">
+							</textbox>
+						</row>
+						<row>
+							<label value="组织级别" />
+							<listbox id="orgLeave" width="98%"
+								mold="select">
+							</listbox>
+							<label value="组织参与人" />
+							<partyBandboxExt id="orgParty"
+								width="98%">
+							</partyBandboxExt>
+						</row>
+						<row>
+							<label value="组织规模" />
+							<listbox id="orgScale" width="98%"
+								mold="select">
+							</listbox>
+							<label value="负责人信息" />
+							<textbox id="principal" width="97%">
+							</textbox>
+						</row>
+						<row>
+							<label value="业务编码" />
+							<textbox id="orgBusinessCode" width="97%">
+							</textbox>
+							<label value="组织英文名" />
+							<textbox id="orgNameEn" width="97%">
+							</textbox>
+						</row>
+						<row spans='1,3'>
+							<label value="组织全称" />
+							<textbox id="orgFullName" width="97%"
+								disabled="true">
+							</textbox>
+						</row>
+						<row spans="1,3">
+							<label value="* 变更原因"
+								class="z-info-required" />
+							<textbox id="reason" width="97%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox>
+				<caption>组织联系信息</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="30%" />
+						<column width="15%" align="center" />
+						<column width="40%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="联系号码1" />
+							<textbox id="phone1" width="97%"></textbox>
+							<label value="联系号码2" />
+							<textbox id="phone2" width="97%"></textbox>
+						</row>
+						<row>
+							<label value="联系号码3" />
+							<textbox id="phone3" width="97%"></textbox>
+							<label value="联系号码4" />
+							<textbox id="phone4" width="97%"></textbox>
+						</row>
+						<row>
+							<label value="联系邮箱1" />
+							<textbox id="email1" width="97%"></textbox>
+							<label value="联系邮箱2" />
+							<textbox id="email2" width="97%"></textbox>
+						</row>
+						<row>
+							<label value="联系邮箱3" />
+							<textbox id="email3" width="97%"></textbox>
+							<label value="邮编" />
+							<textbox id="postCode" width="97%"></textbox>
+						</row>
+						<row spans="1,3">
+							<label id="addressLab" value="地址" />
+							<textbox id="address" multiline="true"
+								height="20px" width="99%">
+							</textbox>
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+
+			<organizationExtendAttrExt id="organizationExtendAttrExt"></organizationExtendAttrExt>
+
+			<!-- <groupbox id="financeIndividualizationGroupbox">
+				<caption>财务组织个性化属性</caption>
+				<grid>
+				<columns>
+				<column width="15%" align="center" />
+				<column width="30%" />
+				<column width="15%" align="center" />
+				<column width="40%" />
+				</columns>
+				<rows>
+				<row>
+				<label value="组织编码" />
+				<textbox id="financeOrgCode" width="97%"></textbox>
+				<textbox id="financeOrgGroupCode"
+				width="97%" visible="false">
+				</textbox>
+				</row>
+				<row>
+				<label value="组织长名称" />
+				<textbox id="financeOrgExtentName"
+				width="97%">
+				</textbox>
+				<label value="组织短名称" />
+				<textbox id="financeOrgShortName"
+				width="97%">
+				</textbox>
+				</row>
+				<row>
+				<label value="预留字段1" />
+				<textbox id="reserveOne" width="97%"></textbox>
+				<label value="预留字段2" />
+				<textbox id="reserveTwo" width="97%"></textbox>
+				</row>
+				</rows>
+				</grid>
+				</groupbox> -->
+		</panelchildren>
+	</panel>
+</zk>

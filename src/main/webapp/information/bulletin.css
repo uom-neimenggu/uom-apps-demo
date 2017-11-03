@@ -1,0 +1,157 @@
+div.ib-bulletin{
+	/*margin:12px 10px 10px;*//*MOD FOR UOM*/
+	font-size:1em;
+	line-height:1.65em;
+	width:auto;
+}
+div.ib-bulletin div.ib-list{
+	margin:0.1em 0 0 0.3em;
+	height:8em;
+}
+div.ib-bulletin div.ib-list table tr td{
+	_height:1.65em;
+}
+.ib-title{
+	background-image:url("/uom-apps/information/images/dot.png");
+	background-repeat:no-repeat;
+	background-position:0 0.5em;
+	color:#333;
+	cursor:pointer;
+	text-decoration:none;
+	padding-left:0.6em;
+}
+a.ib-title:hover{
+	color:#369;
+	text-decoration:underline;
+}
+div.ib-title{
+	color:#333;
+}
+.ib-time{
+	color:#999;
+	font-size:0.9em;
+	-webkit-text-size-adjust:none;
+}
+.ib-more{
+	font-size:1em;
+	text-align:right;
+	height:1.5em;	
+}
+.ib-more a{
+	color:#333;
+	cursor:pointer;
+	text-decoration:none;
+}
+.ib-more a:hover{
+	color:#369;
+	text-decoration: underline;
+}
+.ib-nodata{
+	display:none;
+	height:9.5em;
+}
+.ib-nodata-content{
+	border: 1px solid #BFBFBF;
+    height: 80%;
+    left: 10%;
+    position: relative;
+    text-align: center;
+    top: 6%;
+    width: 80%
+}
+.ib-nodata-content span{
+	position: relative;
+    top: 36%;
+}
+.ib-top.ib-bultype-image{
+	height: 90px;
+    padding-top: 5px;
+}
+.ib-top.ib-bultype-rolling{
+	/*width:900px;涓存椂IE6*/
+	height:37px;
+	padding-left: 0.5em;
+	padding-top: 0.2em;
+}
+.ib-list{
+	clear:left;
+}
+div.ib-list.ib-bultype-image_{
+	/*height:8.3em !important;*/
+	/*height:4.5em !important;*/
+	height:auto !important;
+}
+
+div.ib-list.ib-bultype-rolling_{
+	height:4.6em !important;
+}
+/*ie6*/
+.ib-bultype-rolling_{
+	_height:11.6em !important;
+}
+/*ie6*/
+.ib-bultype-image_{
+	_height:8.3em !important;
+}
+.ib-img-div{
+ 	float: left;
+    padding-left: 10px;
+    padding-right: 1em;
+}
+.ib-img-brief{
+	color:#666666;
+	font-size:1em;	
+	line-height: 1.7em;
+    margin-top: 0.6em;
+}
+a.ib-detail{
+	color:#026bb2;
+	cursor:pointer;
+	text-decoration: none;
+}
+a:hover.ib-detail{
+	text-decoration: underline;
+}
+div.ib-img-title{
+	color:#026bb2;
+	font-weight: bold;
+	cursor:pointer;
+	text-decoration: none;
+}
+div:hover.ib-img-title{
+	text-decoration:underline;
+}
+.ib-rolling-icon{
+	float:left;
+}
+.ib-rolling-container{
+	height:2em;
+	padding-left:2.5em;
+	float:left;
+	background-image: url("/uom-apps/information/images/speacker.png");
+	background-repeat: no-repeat;
+}
+div.ib-rolling-title{
+	float:left;
+	position:absolute;
+	color:#026bb2;
+	font-weight: bold;
+	cursor:pointer;
+	text-decoration: none;
+}
+div:hover.ib-rolling-title{
+	text-decoration:underline;
+}
+.ib-rolling-content{
+	float:left;
+	position:absolute;
+	color:#333;
+}
+.ib-rolling-left, .ib-rolling-right{
+	float:left;
+	padding-top: 4px;
+	cursor:pointer;
+}
+.ib-rolling-left{
+	padding-left:1em;
+}

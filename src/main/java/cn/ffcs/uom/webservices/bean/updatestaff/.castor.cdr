@@ -1,0 +1,10 @@
+#Mon Nov 25 17:29:01 CST 2013
+cn.ffcs.uom.webservices.bean.updatestaff.MsgHead=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.MsgHeadDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.ContactInfo=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.ContactInfoDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.InParam=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.InParamDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.Root=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.RootDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.Error=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.ErrorDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.UpdateStaffInfo=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.UpdateStaffInfoDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.Certification=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.CertificationDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.MsgBody=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.MsgBodyDescriptor
+cn.ffcs.uom.webservices.bean.updatestaff.OutParam=cn.ffcs.uom.webservices.bean.updatestaff.descriptors.OutParamDescriptor

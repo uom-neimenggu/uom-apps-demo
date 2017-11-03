@@ -1,0 +1,83 @@
+<?page title="审核发布" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeOperLogMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+	<window id="orgTreeOperLogMainWin" height="580px"
+		apply="${orgTreeOperLogComposer}"
+		forward="onOK=onQueryOperateLogRequest">
+		<panel id="orgTreeOperLogListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" id="toolbarId"
+					sclass="toolbar-user" style="width:auto;float:left;">
+					<div>
+						<hbox>
+							<label value="组织树名称" />
+							<listbox id="orgTreeNameListbox"
+								mold="select" rows="1" width="160px">
+							</listbox>
+							<button label="查询"
+								forward="onQueryOperateLogRequest" autodisable="self" />
+						</hbox>
+					</div>
+				</toolbar>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div id="orgTreeOperLogWindowDiv">
+						<hbox>
+							<toolbarbutton id="viewOrgTreeOperLogButton"
+								forward="onViewOperateLogRequest" label="查看" />
+							<toolbarbutton
+								id="publishOrgTreeOperLogButton"
+								forward="onPublishOperateLogRequest" label="发布" />
+							<toolbarbutton id="publishOperLogButton"
+								forward="onPublishLogRequest" label="发布日志" />
+						</hbox>
+					</div>
+					<div id="orgTreeOperLogBandboxDiv"
+						visible="false">
+						<hbox>
+							<toolbarbutton
+								id="closeOrgTreeOperLogButton" label="关闭"
+								forward="onCloseOrgTreeOperLog" />
+							<toolbarbutton
+								id="cleanOrgTreeOperLogButton" label="清空"
+								forward="onCleanOrgTreeOperLog" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="orgTreeOperLogListbox"
+					forward="onSelect=onSelectOperateLogRequest" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="操作日志批次号" />
+						<listheader label="操作日志标识" />
+						<listheader label="物理表名" />
+						<listheader label="操作对象" />
+						<listheader label="操作类型" />
+						<listheader label="创建时间" />
+						<listheader label="备注" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.batchNumber}"></listcell>
+						<listcell label="@{current.operateLogId}"></listcell>
+						<listcell label="@{current.tableName}"></listcell>
+						<listcell label="@{current.opeObject}"></listcell>
+						<listcell label="@{current.opeTypeName}"></listcell>
+						<listcell label="@{current.createDate}"></listcell>
+						<listcell label="@{current.note}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="organizationListPaging" pageSize="16"
+					forward="onQueryOperateLogPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

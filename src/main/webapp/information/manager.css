@@ -1,0 +1,60 @@
+#im-tabs .ui-tabs-framework {
+	height: 39em;
+}
+
+#im-tabs .ui-tabs-panel {
+}
+/*mgr-article-list.xhtml*/
+#im-tab-list td>div {
+	margin: 0.3em;
+}
+/*end*/
+/*mgr-article-detail.xhtml*/
+#im-tab-release td>div {
+	margin: 0.3em;
+}
+.imad-field-row{
+	padding-top:4px;
+	padding-bottom:4px;	
+	padding-left:75px;
+	clear:left;
+}
+.imad-head{
+	display: block;
+    float: left;
+    text-align: right;
+    width: 75px;
+    margin-left:-75px;
+    _margin-left:-35px;
+    margin-top:4px;
+}
+.imad-long-field{
+	width:100%;
+	_width:75%	
+}
+.imad-field{
+	width:200px;
+}
+.imad-mid-field{
+	width:400px;
+}
+.imad-textarea{
+	width:400px;
+	height:8em;
+}
+/*end*/
+
+/*TODO fix move to ROOT*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+	border:1px #aaaaaa !important;
+}
+
+/*common styles*/
+a.link-button,a:hover.link-button{
+	text-decoration: underline;
+	color:#369;
+	cursor:pointer;
+}
+input[type='checkbox']{
+	vertical-align:middle;
+}

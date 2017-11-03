@@ -1,0 +1,33 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./informConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="informConfigEditWin" border="none"
+		apply="${informConfigEditComposer}" closable="true"
+		width="650px" height="100px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="通知方式名称" />
+								<textbox id="informMethodName" rows="1" width="96%"></textbox>
+								<label value="通知方式编码" />
+								<textbox id="informMethodCode" rows="1" width="96%"></textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

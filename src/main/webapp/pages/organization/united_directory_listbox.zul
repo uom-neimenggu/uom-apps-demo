@@ -1,0 +1,51 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./unitedDirectoryListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="unitedDirectoryListboxComp" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="名称" />
+				<textbox id="deptname" width="95px" />
+				<label value="编码" />
+				<textbox id="ctou" width="95px" />
+				<button label="查询" forward="onQueryUnitedDirectory"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onResetUnitedDirectory"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="unitedDirectoryListBox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="名称" />
+					<listheader label="编码" />
+					<listheader label="组织路径" />
+					<listheader label="上级组织名" />
+					<listheader label="上级组织编码" />
+					<listheader label="状态"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell
+						label="@{current.deptname}">
+					</listcell>
+					<listcell
+						label="@{current.ctou}">
+					</listcell>
+					<listcell
+						label="@{current.uniDirPath}">
+					</listcell>
+					<listcell
+						label="@{current.parentDeptname}">
+					</listcell>
+					<listcell label="@{current.parentcode}"></listcell>
+					<listcell label="@{current.delStatusName}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="unitedDirectoryListPaging" pageSize="20"
+				forward="onQueryUnitedDirectoryPaging" />
+		</panelchildren>
+	</panel>
+</zk>

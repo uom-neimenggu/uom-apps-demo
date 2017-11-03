@@ -1,0 +1,10 @@
+<?page title="查看页面" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./diverseAttributeMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="diverseAttributeMainWin" width="800px" closable="true"
+		apply="${diverseAttributeComposer}">
+		<div id="systemInfoDiv" visible="false">您好，数据库中不存在该记录！</div>
+		<div id="diverseAttributeListboxDiv"></div>
+	</window>
+</zk>

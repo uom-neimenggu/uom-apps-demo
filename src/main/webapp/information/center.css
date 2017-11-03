@@ -1,0 +1,129 @@
+#ic-tabs .ui-tabs-framework{
+	height:42em;
+	/*
+	TODO 
+	1.总高度要设在这里而不是div，否则table将冲破div
+	2.table高度固定会被撑开，而div高度固定则会被冲破
+	*/
+}
+#ic-tabs .ui-tabs-nav{
+	width:11em;
+}
+#ic-tabs .ui-tabs-panel{
+	padding-left: 2em;
+    padding-top: 1em;
+}
+
+#ic-tabs .ui-tabs-nav li a {
+	font-size:13px;
+	line-height:44px;
+	
+}
+
+/*文章列表div*/
+#ic-type-list{
+	display:none;
+	font-size:1em;
+}
+
+/*文章列表table包裹div*/
+#ic-title-list-wrapper{
+	/*height:490px;/*文章列表高度*/
+	/*overflow-y:auto;*/
+	padding-bottom:1em;
+}
+/*文章列表table*/
+#ic-title-list{
+	line-height:1.9em;
+}
+
+/*文章列表表头*/
+.ic-title-head{
+	font-weight:bold;
+	text-align:center;
+}
+
+/*分类标题div*/
+#ic-category-title{
+	font-weight:bold;
+	font-size:1.5em;
+	font-family:simhei;
+	text-align:center;
+}
+a.ic-title {
+	color:#333;
+	cursor:pointer;
+	text-decoration:none;
+}
+a:hover.ic-title{
+	color:#369;
+	text-decoration: underline;
+}
+a.ic-attachment {
+	color:#369;
+	cursor:pointer;
+	text-decoration:none;
+	font-size:0.9em;
+}
+a:hover.ic-attachment{
+	text-decoration:underline;
+}
+	
+
+/*文章内容div*/
+#ic-type-article{
+	overflow-y:auto;
+	display:none;
+	font-size:1.1em;
+	line-height:1.5em;
+}
+
+/*分类标题div*/
+#ic-article-title{
+	font-family: "微软雅黑","黑体";
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+}
+/*附件标题div*/
+#ic-article-attachment-title{
+	margin-top:1em;
+	font-weight:bold;
+	font-size:1.2em;
+	font-family:simhei;
+	text-align:left;
+}
+/*文章信息*/
+#ic-article-info{
+	margin-top:1em;
+	margin-bottom:1em;
+	color:#999;
+	font-size:0.9em;
+}
+#ic-article-panel{
+	margin-top:1.2em;
+}
+/*导航栏*/
+#ic-nav{
+	font-family: sans-serif;
+	font-size:0.9em;
+	margin-bottom: 0.5em;
+}
+/*XXX mod for uom*/
+/*
+#ic-nav a{
+	text-decoration:none;
+	cursor:pointer;
+}
+#ic-nav a:hover{
+	text-decoration:underline;
+}*/
+div a{
+	text-decoration:none;
+	cursor:pointer;
+	color:#222222;
+}
+div a:hover{
+	text-decoration:underline;
+}
+/*end*/

@@ -1,0 +1,83 @@
+<?page title="权限列表" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacPermissionPanel"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacPermissionPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacPermissionSearchDiv">
+					<hbox>
+						<label value="权限编码：" />
+						<textbox id="rbacPermissionCode" width="100px" />
+						<label value="权限名称：" />
+						<textbox id="rbacPermissionName" width="100px" />
+						<button id="queryRbacPermission" label="查询"
+							forward="onQueryRbacPermission" mold="trendy" />
+						<button id="resetRbacPermission" label="重置"
+							forward="onResetRbacPermission" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="rbacPermissionOptDiv" style="float:left;">
+					<hbox>
+						<toolbarbutton forward="onRbacPermissionAdd"
+							id="addRbacPermissionButton" label="新增" />
+						<toolbarbutton forward="onRbacPermissionView"
+							id="viewRbacPermissionButton" label="查看" />
+						<toolbarbutton forward="onRbacPermissionEdit"
+							id="editRbacPermissionButton" label="修改" />
+						<toolbarbutton forward="onRbacPermissionDel"
+							id="delRbacPermissionButton" label="删除" />
+					</hbox>
+				</div>
+				<div id="rbacPermissionBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeRbacPermissionButton"
+							label="关闭" forward="onCloseRbacPermission" />
+						<toolbarbutton id="cleanRbacPermissionButton"
+							label="清空" forward="onCleanRbacPermission" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacPermissionListbox" style="height:200px"
+				forward="onSelect=onRbacPermissionSelectRequest">
+				<listhead sizable="true">
+					<listheader label="权限标识" />
+					<listheader label="权限编码" />
+					<listheader label="权限名称" />
+					<listheader label="权限类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacPermission'}"
+					value="@{rbacPermission}">
+					<listcell
+						label="@{rbacPermission.rbacPermissionId}">
+					</listcell>
+					<listcell
+						label="@{rbacPermission.rbacPermissionCode}">
+					</listcell>
+					<listcell
+						label="@{rbacPermission.rbacPermissionName}">
+					</listcell>
+					<listcell
+						label="@{rbacPermission.rbacPermissionTypeName}">
+					</listcell>
+					<listcell label="@{rbacPermission.statusCdName}">
+					</listcell>
+					<listcell label="@{rbacPermission.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="rbacPermissionListboxPaging"
+				forward="onRbacPermissionListboxPaging" pageSize="16">
+			</paging>
+		</panelchildren>
+	</panel>
+</zk>

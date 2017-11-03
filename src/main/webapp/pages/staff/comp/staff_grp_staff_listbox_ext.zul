@@ -1,0 +1,65 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffGrpStaffListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="staffGrpStaffListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline;float:left">
+				<div id="staffGrpStaffSearchDiv">
+					<hbox>
+						<label value="集团渠道视图销售员姓名" />
+						<textbox id="staffName" width="95px" />
+						<label value="集团渠道视图销售员编码" />
+						<textbox id="salesCode" width="95px" />
+						<label value="集团MSS姓名" />
+						<textbox id="userName" width="95px" />
+						<label value="集团MSS账号" />
+						<textbox id="loginName" width="95px" />
+						<button label="查询"
+							forward="onQueryStaffGrpStaff" autodisable="self" mold="trendy" />
+						<button label="重置"
+							forward="onResetStaffGrpStaff" autodisable="self" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="display:inline">
+				<hbox>
+					<toolbarbutton forward="onAddStaffGrpStaff"
+						id="addButton" label="新增" />
+					<toolbarbutton forward="onDelStaffGrpStaff"
+						id="delButton" label="删除" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="staffGrpStaffListbox" vflex="1"
+				forward="onSelect=onSelectStaffGrpStaffList">
+				<listhead sizable="true">
+					<listheader label="省主数据人员姓名" />
+					<listheader label="省内账号" />
+					<listheader label="集团MSS姓名" />
+					<listheader label="集团MSS账号" />
+					<listheader label="集团渠道视图销售员姓名" />
+					<listheader label="集团销售员编码" />
+					<listheader label="状态" />
+					<listheader label="生效时间" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.uomStaffName}">
+					<listcell label="@{current.uomStaffName}" />
+					<listcell label="@{current.uomStaffAccount}" />
+					<listcell label="@{current.userName}" />
+					<listcell label="@{current.loginName}" />
+					<listcell label="@{current.staffName}" />
+					<listcell label="@{current.salesCode}" />
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="staffGrpStaffListboxPaging"
+				forward="onStaffGrpStaffListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

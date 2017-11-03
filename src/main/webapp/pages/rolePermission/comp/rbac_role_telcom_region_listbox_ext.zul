@@ -1,0 +1,72 @@
+<?page title="角色电信管理区域列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleTelcomRegionListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRoleTelcomRegionListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRoleTelcomRegionSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="90px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="90px" />
+						<label value="电信区域编码" />
+						<textbox id="regionCode" width="90px" />
+						<label value="电信区域名称" />
+						<textbox id="regionName" width="90px" />
+						<button label="查询"
+							forward="onQueryRbacRoleTelcomRegion" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacRoleTelcomRegion" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacRoleTelcomRegionButton"
+						label="新增" forward="onRbacRoleTelcomRegionAdd" />
+					<!-- <toolbarbutton id="editRbacRoleTelcomRegionButton"
+						label="修改" forward="onRbacRoleTelcomRegionEdit" visible="false" /> -->
+					<toolbarbutton id="delRbacRoleTelcomRegionButton"
+						label="删除" forward="onRbacRoleTelcomRegionDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRoleTelcomRegionListbox"
+				forward="onSelect=onRbacRoleTelcomRegionSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="电信区域编码" />
+					<listheader label="电信区域名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRoleTelcomRegion'}"
+					value="@{rbacRoleTelcomRegion}">
+					<listcell
+						label="@{rbacRoleTelcomRegion.rbacRoleTelcomRegionId}" />
+					<listcell
+						label="@{rbacRoleTelcomRegion.rbacRoleCode}" />
+					<listcell
+						label="@{rbacRoleTelcomRegion.rbacRoleName}" />
+					<listcell
+						label="@{rbacRoleTelcomRegion.regionCode}" />
+					<listcell
+						label="@{rbacRoleTelcomRegion.regionName}" />
+					<listcell label="@{rbacRoleTelcomRegion.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacRoleTelcomRegionListPaging" pageSize="16"
+				forward="onRbacRoleTelcomRegionListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

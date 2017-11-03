@@ -1,0 +1,12 @@
+<?page title="组织信息" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationListboxComposer" ?>
+<zk>
+	<bandpopup width="830px" height="50%">
+		<panel>
+			<panelchildren>
+				<organizationListbox id="organizationListboxExt" vflex="1" isBandbox="true">
+				</organizationListbox>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

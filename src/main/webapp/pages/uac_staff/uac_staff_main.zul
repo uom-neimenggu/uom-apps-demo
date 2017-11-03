@@ -1,0 +1,10 @@
+<?page title="员工综合管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="uacStaffListboxExt" extends="div" class="cn.ffcs.uac.staff.component.UacStaffListboxExt" ?>
+
+<zk>
+	<window id="uacStaffMainWin" height="96%"
+		apply="${uacStaffMainComposer}">
+		<uacStaffListboxExt id="uacStaffListboxExt" vflex="1" />
+	</window>
+</zk>

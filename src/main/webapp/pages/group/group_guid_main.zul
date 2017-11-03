@@ -1,0 +1,29 @@
+<?page title="集团GUID关联" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffListboxExt" ?>
+<?component name="groupListboxExt" extends="div" class="cn.ffcs.uom.group.component.GroupListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./groupGuidMainWin"?>
+<zk>
+	<window id="groupGuidMainWin" width="100%" height="100%"
+		apply="${groupGuidMainComposer}">
+		<borderlayout>
+			<north size="50%">
+				<staffListboxExt id="staffListboxExt" vflex="1" />
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab label="集团数据管理" id="groupTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" vflex="1">
+							<groupListboxExt id="groupListboxExt"
+								vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

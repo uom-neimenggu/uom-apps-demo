@@ -1,0 +1,54 @@
+<?page title="权限树管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacPermissionTreeMainWindow"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacPermissionEditExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionEditExt" ?>
+<?component name="rbacPermissionRelationTreeExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionRelationTreeExt"?>
+<?component name="rbacPermissionRoleListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionRoleListboxExt"?>
+<?component name="rbacPermissionResourceListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionResourceListboxExt"?>
+<zk>
+	<window id="rbacPermissionTreeMainWindow" width="100%" height="100%"
+		apply="${rbacPermissionTreeMainComposer}">
+		<borderlayout>
+			<west width="22%">
+				<tabbox id="leftTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacPermissionRelationTab"
+							label="权限理界面" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacPermissionRelationTreeExt
+								id="rbacPermissionRelationTreeExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</west>
+			<center vflex="1">
+				<tabbox id="rightTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacPermissionTab" label="权限属性"
+							forward="onClickTab" />
+						<tab id="rbacPermissionRoleTab" label="权限角色关系"
+							forward="onClickTab" />
+						<tab id="rbacPermissionResourceTab"
+							label="权限资源关系" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacPermissionEditExt
+								id="rbacPermissionEditExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacPermissionRoleListboxExt
+								id="rbacPermissionRoleListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacPermissionResourceListboxExt
+								id="rbacPermissionResourceListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

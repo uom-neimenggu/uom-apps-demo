@@ -1,0 +1,45 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffRoleImportResultWindow"?>
+<zk>
+	<window id="staffRoleImportResultWindow" border="none"
+		apply="${staffRoleImportResultComposer}" width="750px"
+		closable="true">
+		<div style="height:490px;overflow:auto">
+			<panel>
+				<panelchildren>
+					<listbox id="infoListbox" rows="15" vflex="1">
+						<listhead sizable="true">
+							<listheader label="操作类型" width="10%"
+								align="left" />
+							<listheader label="员工姓名" width="16%"
+								align="left" />
+							<listheader label="员工账号" width="16%"
+								align="left" />
+							<listheader label="员工编码" width="16%"
+								align="left" />
+							<listheader label="角色名" width="42%"
+								align="left" />
+							<listheader label="会话数" align="left" />
+						</listhead>
+						<listitem self="@{each='current'}"
+							value="@{current}">
+							<listcell label="@{current.optType}">
+							</listcell>
+							<listcell label="@{current.staffName}">
+							</listcell>
+							<listcell label="@{current.staffAccount}">
+							</listcell>
+							<listcell label="@{current.staffCode}"></listcell>
+							<listcell
+								label="@{current.staffRoleName}">
+							</listcell>
+							<listcell
+								label="@{current.staffAttrValue}">
+							</listcell>
+						</listitem>
+					</listbox>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

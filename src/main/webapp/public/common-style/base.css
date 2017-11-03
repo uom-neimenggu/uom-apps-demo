@@ -1,0 +1,13 @@
+/*解决容器内存在浮动块时没有被撑开的问题*/
+.clearfix {
+    display: block;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}

@@ -1,0 +1,35 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./treeOrgOrEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationRelationRelacdBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationRelationRelacdBandboxExt"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="treeOrgOrEditWin" border="none"
+		apply="${treeOrgOrEditComposer}" closable="true" width="450px"
+		height="95px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="85%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 组织关系"
+									class="z-info-required" />
+								<organizationRelationRelacdBandboxExt
+									id="relaCdBandBox" width="98%">
+								</organizationRelationRelacdBandboxExt>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

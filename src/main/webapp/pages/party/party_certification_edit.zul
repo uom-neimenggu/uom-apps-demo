@@ -1,0 +1,67 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="partyCertificationEditWin" border="none"
+		apply="${partyCertificationEditComposer}" width="650px"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 证件名"
+								class="z-info-required" />
+							<textbox id="certName" width="93%" />
+							<label value="* 证件种类"
+								class="z-info-required" />
+							<listbox id="certSort" width="95%"
+								mold="select" />
+						</row>
+						<row>
+							<label value="* 证件类型"
+								class="z-info-required" />
+							<listbox id="certType"
+								forward="onSelect=onCertTypeSelect" mold="select" width="95%" />
+							<label value="* 类型"
+								class="z-info-required" />
+							<listbox id="identityCardId"
+								forward="onSelect=onIdentityCardIdSelect" mold="select"
+								width="95%" />
+						</row>
+						<row>
+							<label value="* 证件号码"
+								class="z-info-required" />
+							<textbox id="certNumber" width="93%" />
+							<label value="证件地址" />
+							<textbox id="certAddress" width="93%" />
+						</row>
+						<row>
+							<label value="发证机关" />
+							<textbox id="certOrg" width="93%" />
+							<label value="* 变更原因" 
+								class="z-info-required" />
+							<textbox id="reason" width="93%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<toolbar id="btnToolBar" align="center" mold="panel">
+			<toolbarbutton id="savePartyContactInfo" label="确定"
+				forward="onOk" />
+			<toolbarbutton id="cancelPartyContactInfo" label="取消"
+				forward="onCancel" />
+		</toolbar>
+		<!-- 
+			<toolbar id="viewBtnTB" align="center" mold="panel" visible="false">
+			<button id="oKView" label="确定" forward="oKView" />
+			</toolbar>
+		-->
+	</window>
+</zk>

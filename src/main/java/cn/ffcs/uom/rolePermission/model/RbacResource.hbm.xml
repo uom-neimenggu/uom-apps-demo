@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.rolePermission.model.RbacResource"
+		table="RBAC_RESOURCE">
+		<comment>资源标识</comment>
+		<id name="rbacResourceId" type="java.lang.Long">
+			<column name="RBAC_RESOURCE_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_RBAC_RESOURCE_ID</param>
+			</generator>
+		</id>
+		<property name="rbacResourceCode" type="java.lang.String">
+			<column name="RBAC_RESOURCE_CODE" length="100">
+				<comment>资源编码</comment>
+			</column>
+		</property>
+		<property name="rbacResourceName" type="java.lang.String">
+			<column name="RBAC_RESOURCE_NAME" length="100">
+				<comment>资源名称</comment>
+			</column>
+		</property>
+		<property name="rbacResourceUrl" type="java.lang.String">
+			<column name="RBAC_RESOURCE_URL" length="500">
+				<comment>资源地址</comment>
+			</column>
+		</property>
+		<property name="rbacResourceLeaf" type="java.lang.String">
+			<column name="RBAC_RESOURCE_LEAF" length="6">
+				<comment>资源叶子节点</comment>
+			</column>
+		</property>
+		<property name="rbacResourceDesc" type="java.lang.String">
+			<column name="RBAC_RESOURCE_DESC" length="500">
+				<comment>资源描述</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

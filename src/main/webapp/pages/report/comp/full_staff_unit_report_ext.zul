@@ -1,0 +1,116 @@
+<?page title="分单位详表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./fullStaffUnitReportExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+
+<zk>
+	<panel id="fullStaffUnitReportExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="日期" />
+					<datebox id="date" format="yyyy-MM"
+						width="100px" readonly="true" />
+					<toolbarbutton label="查询" forward="onQuery"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<hbox>
+						<toolbarbutton id="exportButton"
+							forward="onExport" label="导出" />
+					</hbox>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="reportListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="日期" width="15%" align="center" />
+					<listheader label="单位" width="10%" align="center" />
+					<listheader label="本期人数合计" width="10%" align="center" />
+					<listheader label="上期人数合计" width="10%" align="center" />
+					<listheader label="总增减人数" width="10%" align="center" />
+					<listheader label="总增减比例" width="10%" align="center" />
+					<listheader label="本期合同制" width="10%" align="center" />
+					<listheader label="上期合同制" width="10%" align="center" />
+					<listheader label="合同制增减人数" width="10%" align="center" />
+					<listheader label="合同制增减比例" width="10%" align="center" />
+					<listheader label="本期派遣制" width="10%" align="center" />
+					<listheader label="上期派遣制" width="10%" align="center" />
+					<listheader label="派遣制增减人数" width="10%" align="center" />
+					<listheader label="派遣制增减比例" width="10%" align="center" />
+					<listheader label="本期业务外包" width="10%" align="center" />
+					<listheader label="上期业务外包" width="10%" align="center" />
+					<listheader label="业务外包增减人数" width="10%" align="center" />
+					<listheader label="业务外包增减比例" width="10%" align="center" />
+					<listheader label="本期个体代办" width="10%" align="center" />
+					<listheader label="上期个体代办" width="10%" align="center" />
+					<listheader label="个体代办增减人数" width="10%" align="center" />
+					<listheader label="个体代办增减比例" width="10%" align="center" />
+					<listheader label="本期代理商人员" width="10%" align="center" />
+					<listheader label="上期代理商人员" width="10%" align="center" />
+					<listheader label="代理商人员增减人数" width="10%" align="center" />
+					<listheader label="代理商人员增减比例" width="10%" align="center" />
+					<listheader label="本期供应商人员" width="10%" align="center" />
+					<listheader label="上期供应商人员" width="10%" align="center" />
+					<listheader label="供应商人员增减人数" width="10%" align="center" />
+					<listheader label="供应商人员增减比例" width="10%" align="center" />
+					<listheader label="本期包区自聘" width="10%" align="center" />
+					<listheader label="上期包区自聘" width="10%" align="center" />
+					<listheader label="包区自聘增减人数" width="10%" align="center" />
+					<listheader label="包区自聘增减比例" width="10%" align="center" />
+					<listheader label="本期其他" width="10%" align="center" />
+					<listheader label="上期其他" width="10%" align="center" />
+					<listheader label="其他增减人数" width="10%" align="center" />
+					<listheader label="其他增减比例" width="10%" align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.reportDate}"></listcell>
+					<listcell label="@{current.c1}"></listcell>
+					<listcell label="@{current.c2}"></listcell>
+					<listcell label="@{current.c3}"></listcell>
+					<listcell label="@{current.c4}"></listcell>
+					<listcell label="@{current.c5}"></listcell>
+					<listcell label="@{current.c6}"></listcell>
+					<listcell label="@{current.c7}"></listcell>
+					<listcell label="@{current.c8}"></listcell>
+					<listcell label="@{current.c9}"></listcell>
+					<listcell label="@{current.c10}"></listcell>
+					<listcell label="@{current.c11}"></listcell>
+					<listcell label="@{current.c12}"></listcell>
+					<listcell label="@{current.c13}"></listcell>
+					<listcell label="@{current.c14}"></listcell>
+					<listcell label="@{current.c15}"></listcell>
+					<listcell label="@{current.c16}"></listcell>
+					<listcell label="@{current.c17}"></listcell>
+					<listcell label="@{current.c18}"></listcell>
+					<listcell label="@{current.c19}"></listcell>
+					<listcell label="@{current.c20}"></listcell>
+					<listcell label="@{current.c21}"></listcell>
+					<listcell label="@{current.c22}"></listcell>
+					<listcell label="@{current.c23}"></listcell>
+					<listcell label="@{current.c24}"></listcell>
+					<listcell label="@{current.c25}"></listcell>
+					<listcell label="@{current.c26}"></listcell>
+					<listcell label="@{current.c27}"></listcell>
+					<listcell label="@{current.c28}"></listcell>
+					<listcell label="@{current.c29}"></listcell>
+					<listcell label="@{current.c30}"></listcell>
+					<listcell label="@{current.c31}"></listcell>
+					<listcell label="@{current.c32}"></listcell>
+					<listcell label="@{current.c33}"></listcell>
+					<listcell label="@{current.c34}"></listcell>
+					<listcell label="@{current.c35}"></listcell>
+					<listcell label="@{current.c36}"></listcell>
+					<listcell label="@{current.c37}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="reportListboxPaging"
+				forward="onListboxPaging" pageSize="20" />
+		</panelchildren>
+	</panel>
+</zk>

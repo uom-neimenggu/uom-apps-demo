@@ -1,0 +1,41 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyCertificationImportWindow"?>
+<zk>
+	<window id="partyCertificationImportWindow" border="none" apply="${partyCertificationImportComposer}" width="350px" closable="true">
+		<panel vflex="1" height="350px">
+			<panelchildren vflex="1" style="overflow-y:auto">
+				<grid>
+					<columns>
+						<column width="25%" align="right" />
+						<column width="50%" align="right" />
+						<column width="25%" align="right" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 选择文件"  class="z-info-required"/>
+							<textbox id="fileName" disabled="true" width="95%"/>
+							<fileupload id="fileupload" native="true" onUpload="selFile();" label="选择文件" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<panel>
+			<panelchildren>
+				<div id="importDiv" align="center" style="height:25px;overflow:auto;">
+					<button id="savePartyCertification" label="提交"  forward="onOk" />
+					<button id="cancelPartyCertification" label="取消"  forward="onCancel" />
+					<button id="downloadTemplate" label="模板下载" forward="onDownloadPartyCertificationTemplate"/>
+				</div>
+			</panelchildren>
+		</panel>
+		<zscript>
+			<![CDATA[
+				void selFile(){
+					org.zkoss.util.media.Media media = event.getMedia();
+					fileName.setValue(media.getName());
+				}
+			]]>
+		</zscript>
+	</window> 
+</zk>

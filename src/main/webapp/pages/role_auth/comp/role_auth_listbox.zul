@@ -1,0 +1,55 @@
+<?page title="角色权限列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleAuthMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="roleAuthMainWin" apply="${roleAuthListboxComposer}" height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="width:auto;float:left;">
+				<div id="searchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="roleCode" width="95px" />
+						<label value="角色名称" />
+						<textbox id="roleName" width="95px" />
+						<button label="查询" forward="onQuery" autodisable="self" mold="trendy"/>
+						<button label="重置" forward="onReset" autodisable="self" mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton
+							id="addButton" label="新增"
+							forward="onAdd" />
+						<toolbarbutton
+							id="delButton" label="删除"
+							forward="onDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="authListbox" forward="onSelect=onAuthoritySelectRequest" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="权限名称" />
+						<listheader label="角色名称" />
+						<listheader label="角色编码" />
+					</listhead>
+					<listitem self="@{each='roleAuthRela'}" value="@{roleAuthRela}">
+						<listcell
+							label="@{roleAuthRela.authority.authorityName}">
+						</listcell>
+						<listcell
+							label="@{roleAuthRela.staffRole.roleName}">
+						</listcell>
+						<listcell
+							label="@{roleAuthRela.staffRole.roleCode}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="authListboxPaging" pageSize="10" forward="onAuthListListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

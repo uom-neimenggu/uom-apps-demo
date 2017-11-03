@@ -1,0 +1,28 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemIssuedListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<style>
+		.z-caption-r{ width:100%; } 
+	</style>
+	<panel id="systemIssuedListboxComp" vflex="1">
+		<caption><toolbar><label value="下发系统"/></toolbar></caption>
+		<panelchildren>
+			<listbox id="systemIssuedListBox" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织树标识"/>
+					<listheader label="组织树名称"/>
+					<listheader label="下发系统"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgTreeId}"></listcell>
+					<listcell label="@{current.orgTreeName}"></listcell>
+					<listcell label="@{current.systemName}" />
+				</listitem>
+			</listbox>
+			<paging id="systemIssuedListPaging" pageSize="5"
+				forward="onQuerySystemIssuedPaging" />
+		</panelchildren>
+	</panel>
+</zk>

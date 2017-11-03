@@ -1,0 +1,170 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="岗位序列名称" /><textbox id="" width="80px" />
+						<label value="岗位序列编码" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="批量导入" />
+							<toolbarbutton id="" label="模板下载" />
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="岗位序列名称" width="14%" align="center" />
+					<listheader label="岗位序列编码" width="14%" align="center" />
+					<listheader label="岗位序列" width="16%" align="center" />
+					<listheader label="内部码" width="16%" align="center" />
+					<listheader label="父岗位序列" width="14%" align="center" />
+					<listheader label="所属组织/公司" width="14%" align="center" visible="false"/>
+					<listheader label="最后修改人" width="6%" align="center" visible="false" />
+					<listheader label="最后修改时间" width="" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="0001A110111234005F36" />
+					<listcell label="VOWM" />
+					<listcell label="1001A110000000000008" />
+					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/7/2" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="0001A11000000000GAT7" />
+					<listcell label="2EZT" />
+					<listcell label="1001A110000000000008" />					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/5/12" />
+				</listitem>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="0001A110000000GDHY5T" />
+					<listcell label="VOWM" />
+					<listcell label="" />					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/5/12" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="0001A110000000GQYS87" />
+					<listcell label="2EZT" />
+					<listcell label="" />				
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/5/12" />
+				</listitem>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="10021A110000000005GY" />
+					<listcell label="VOWM" />
+					<listcell label="" />				
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/8/15" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="2221A110001111000562" />
+					<listcell label="2EZT" />
+					<listcell label="" />				
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/12/3" />
+				</listitem>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="VOWM" />
+					<listcell label="" />				
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/5/12" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="0001A110000005TSGYS89" />
+					<listcell label="2EZT" />
+					<listcell label="1201A1100000057YYU89" />				
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/8/15" />
+				</listitem>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="1201A1100000057YYU89" />
+					<listcell label="VOWM" />
+					<listcell label="0001A1100000000005F3" />					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/2/23" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="0001A11000000006YH8I" />
+					<listcell label="2EZT" />
+					<listcell label="0001A11000000005T37G" />					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/8/15" />
+				</listitem>
+				<listitem>
+					<listcell label="管理序列" />
+					<listcell label="1" />
+					<listcell label="0001A11000000006YH8I" />
+					<listcell label="VOWM" />
+					<listcell label="" />					
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/4/8" />
+				</listitem>
+				<listitem>
+					<listcell label="专业序列" />
+					<listcell label="2" />
+					<listcell label="0001A1100000000HY7E9" />
+					<listcell label="2EZT" />
+					<listcell label="" />	
+					<listcell label="0001A1100000000005F3" />
+					<listcell label="" />
+					<listcell label="2014/8/15" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

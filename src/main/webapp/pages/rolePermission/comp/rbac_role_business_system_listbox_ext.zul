@@ -1,0 +1,72 @@
+<?page title="角色系统列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleBusinessSystemListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRoleBusinessSystemListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRoleBusinessSystemSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="95px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="95px" />
+						<label value="系统编码" />
+						<textbox id="rbacBusinessSystemCode"
+							width="95px" />
+						<label value="系统名称" />
+						<textbox id="rbacBusinessSystemName"
+							width="95px" />
+						<button label="查询"
+							forward="onQueryRbacRoleBusinessSystem" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacRoleBusinessSystem" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacRoleBusinessSystemButton"
+						label="新增" forward="onRbacRoleBusinessSystemAdd" />
+					<toolbarbutton id="delRbacRoleBusinessSystemButton"
+						label="删除" forward="onRbacRoleBusinessSystemDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRoleBusinessSystemListbox"
+				forward="onSelect=onRbacRoleBusinessSystemSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="角色系统标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="系统编码" />
+					<listheader label="系统名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRoleBusinessSystem'}"
+					value="@{rbacRoleBusinessSystem}">
+					<listcell
+						label="@{rbacRoleBusinessSystem.rbacRoleBusinessSystemId}" />
+					<listcell
+						label="@{rbacRoleBusinessSystem.rbacRoleCode}" />
+					<listcell
+						label="@{rbacRoleBusinessSystem.rbacRoleName}" />
+					<listcell
+						label="@{rbacRoleBusinessSystem.rbacBusinessSystemCode}" />
+					<listcell
+						label="@{rbacRoleBusinessSystem.rbacBusinessSystemName}" />
+					<listcell label="@{rbacRoleBusinessSystem.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacRoleBusinessSystemListPaging" pageSize="16"
+				forward="onRbacRoleBusinessSystemListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

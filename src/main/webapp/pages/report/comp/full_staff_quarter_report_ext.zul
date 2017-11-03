@@ -1,0 +1,84 @@
+<?page title="按季人数统计" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./fullStaffQuarterReportExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+
+<zk>
+	<panel id="fullStaffQuarterReportExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="日期" />
+					<datebox id="date" format="yyyy-MM"
+						width="100px" readonly="true" />
+					<toolbarbutton label="查询" forward="onQuery"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<hbox>
+						<toolbarbutton id="exportButton"
+							forward="onExport" label="导出" />
+					</hbox>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="reportListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="日期" width="15%" align="center" />
+					<listheader label="区域分布" width="10%" align="center" />
+					<listheader label="本期人数合计" width="10%" align="center" />
+					<listheader label="本期合同制" width="10%" align="center" />
+					<listheader label="本期派遣制" width="10%" align="center" />
+					<listheader label="本期业务外包" width="10%" align="center" />
+					<listheader label="本期个体代办" width="10%" align="center" />
+					<listheader label="本期代理商人员" width="10%" align="center" />
+					<listheader label="本期供应商人员" width="10%" align="center" />
+					<listheader label="本期包区自聘" width="10%" align="center" />
+					<listheader label="本期其他" width="10%" align="center" />
+					<listheader label="上期人数合计" width="10%" align="center" />
+					<listheader label="上期合同制" width="10%" align="center" />
+					<listheader label="上期派遣制" width="10%" align="center" />
+					<listheader label="上期业务外包" width="10%" align="center" />
+					<listheader label="上期个体代办" width="10%" align="center" />
+					<listheader label="上期代理商人员" width="10%" align="center" />
+					<listheader label="上期供应商人员" width="10%" align="center" />
+					<listheader label="上期包区自聘" width="10%" align="center" />
+					<listheader label="上期其他" width="10%" align="center" />
+					<listheader label="增减人数" width="10%" align="center" />
+					<listheader label="增减比例" width="10%" align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.reportDate}"></listcell>
+					<listcell label="@{current.c1}"></listcell>
+					<listcell label="@{current.c2}"></listcell>
+					<listcell label="@{current.c3}"></listcell>
+					<listcell label="@{current.c4}"></listcell>
+					<listcell label="@{current.c5}"></listcell>
+					<listcell label="@{current.c6}"></listcell>
+					<listcell label="@{current.c7}"></listcell>
+					<listcell label="@{current.c8}"></listcell>
+					<listcell label="@{current.c9}"></listcell>
+					<listcell label="@{current.c10}"></listcell>
+					<listcell label="@{current.c11}"></listcell>
+					<listcell label="@{current.c12}"></listcell>
+					<listcell label="@{current.c13}"></listcell>
+					<listcell label="@{current.c14}"></listcell>
+					<listcell label="@{current.c15}"></listcell>
+					<listcell label="@{current.c16}"></listcell>
+					<listcell label="@{current.c17}"></listcell>
+					<listcell label="@{current.c18}"></listcell>
+					<listcell label="@{current.c19}"></listcell>
+					<listcell label="@{current.c20}"></listcell>
+					<listcell label="@{current.c21}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="reportListboxPaging"
+				forward="onListboxPaging" pageSize="20" />
+		</panelchildren>
+	</panel>
+</zk>

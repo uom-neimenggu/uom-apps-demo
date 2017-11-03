@@ -1,0 +1,152 @@
+<?page title="数据操作人查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./dataOperatorQueryMainWin"?>
+<?component name="staffOrganizationOperatorListboxExt" extends="div" class="cn.ffcs.uom.dataOperatorQuery.action.StaffOrganizationOperatorListboxExt"?>
+<?component name="partyCertificationListboxExt" extends="div" class="cn.ffcs.uom.dataOperatorQuery.action.PartyCertificationListboxExt"?>
+<?component name="partyContactInfoListboxExt" extends="div" class="cn.ffcs.uom.dataOperatorQuery.action.PartyContactInfoListboxExt"?>
+<?component name="organizationRelationOperatorListboxExt" extends="div" class="cn.ffcs.uom.dataOperatorQuery.action.OrganizationRelationOperatorListboxExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="dataOperatorQueryMainWin" width="100%" height="550px;" apply="${dataOperatorQueryComposer}">
+		<borderlayout>
+			<north size="50%">
+				<tabbox>
+					<tabs>
+						<tab id="staffTab" onSelect='changeTab("1")'>员工</tab>
+						<tab id="organizationTab" onSelect='changeTab("2")'>组织</tab>
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<panel>
+								<caption>
+									<toolbar>
+										<label value="员工编码" />
+										<textbox id="staffCode" width="95px" />
+										<label value="员工账号" />
+										<textbox id="staffAccount" width="95px" />
+										<label value="员工姓名" />
+										<textbox id="staffName" width="95px" />
+										<button label="查询" autodisable="self"  mold="trendy" forward="onQueryStaffOperator"/>
+										<button label="重置" autodisable="self"  mold="trendy" forward="onResetStaffOperator"/>							
+									</toolbar>
+								</caption>
+								<panelchildren>
+									<listbox id="staffOperatorListBox" mold="paging" height="180px" forward="onSelect=onStaffSelectRequest">
+										<listhead sizable="true">
+											<listheader label="员工名称" width="12%" />
+											<listheader label="员工账号" width="10%"/>
+											<listheader label="OA工号" width="10%"/>
+											<listheader label="状态" width="8%"/>
+											<listheader label="创建人" width="10%"/>
+											<listheader label="创建时间" width="10%"/>
+											<listheader label="最后修改人" width="10%"/>
+											<listheader label="最后修改时间" width="10%"/>
+											<listheader label="操作原因" width="20%"/>
+										</listhead>
+										<listitem self="@{each='staff'}" value="@{staff}">
+											<listcell label="@{staff.staffName}" />
+											<listcell label="@{staff.staffAccount}" />
+											<listcell label="@{staff.staffNbr}" />
+											<listcell label="@{staff.statusCdName}" />
+											<listcell label="@{staff.CreateStaffName}" />
+											<listcell label="@{staff.createDate}" />
+											<listcell label="@{staff.updateStaffName2}" />
+											<listcell label="@{staff.updateDate}" />
+											<listcell label="@{staff.reason}" />
+										</listitem>
+									</listbox>
+									<paging id="staffOperatorListBoxPaging" forward="onStaffOperatorListBoxPaging" pageSize="9"/>
+								</panelchildren>
+							</panel>
+						</tabpanel>
+						<tabpanel>
+							<panel>
+								<caption>
+									<toolbar>
+										<label value="组织编码" />
+										<textbox id="orgCode" width="95px" />
+										<label value="组织名称" />
+										<textbox id="orgName" width="95px" />
+										<textbox id="telcomRegionId" style="display: none;" value="465"/>
+										<button label="查询" autodisable="self"  mold="trendy" forward="onQueryOrganizationOperator"/>
+										<button label="重置" autodisable="self"  mold="trendy" forward="onResetOrganizationOperator"/>
+									</toolbar>
+								</caption>
+								<panelchildren>
+									<listbox id="orgOperatorListBox" mold="paging" height="180px" forward="onSelect=onOrganizationSelectRequest">
+										<listhead sizable="true">
+											<listheader label="组织名称" width="15%"/>
+											<listheader label="组织编码" width="15%"/>
+											<listheader label="状态" width="7%"/>
+											<listheader label="创建人" width="8%"/>
+											<listheader label="创建时间" width="11%"/>
+											<listheader label="最后修改人" width="8%"/>
+											<listheader label="最后修改时间" width="11%"/>
+											<listheader label="操作原因" width="25%"/>
+										</listhead>
+										<listitem self="@{each='organization'}" value="@{organization}">
+											<listcell label="@{organization.orgName}" />
+											<listcell label="@{organization.orgCode}" />
+											<listcell label="@{organization.statusCdName}" />
+											<listcell label="@{organization.createStaffName}" />
+											<listcell label="@{organization.createDate}" />
+											<listcell label="@{organization.updateStaffName2}" />
+											<listcell label="@{organization.updateDate}" />
+											<listcell label="@{organization.reason}" />
+										</listitem>
+									</listbox>
+									<paging id="orgOperatorListBoxPaging" forward="onOrgOperatorListBoxPaging" pageSize="9"/>
+								</panelchildren>
+							</panel>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</north>
+			<south size="50%">
+				<tabbox vflex="1" id="tabBox">
+					<tabs>
+						<tab id="staffOrganizationTab" forward="onClickTab">员工组织关系</tab>
+						<tab id="partyCertificationTab" forward="onClickTab">证件信息</tab>
+						<tab id="partyContactInfoTab" forward="onClickTab">联系人信息</tab>
+						<tab id="organizationRelationTab" visible="false">组织关系</tab>
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<staffOrganizationOperatorListboxExt id="staffOrganizationOperatorListboxExt" vflex="1"/>
+						</tabpanel>
+						<tabpanel>
+							<partyCertificationListboxExt id="partyCertificationListboxExt" vflex="1"/>
+						</tabpanel>
+						<tabpanel>
+							<partyContactInfoListboxExt id="partyContactInfoListboxExt" vflex="1"/>
+						</tabpanel>
+						<tabpanel>
+							<organizationRelationOperatorListboxExt id="organizationRelationOperatorListboxExt" vflex="1"/>
+						</tabpanel>
+					</tabpanels>					
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+	<zscript><![CDATA[
+    	void changeTab(String index) {
+			Tabbox tabBox = Path.getComponent("/dataOperatorQueryMainWin/tabBox");
+			Tab staffOrganizationTab = Path.getComponent("/dataOperatorQueryMainWin/staffOrganizationTab");
+			Tab partyCertificationTab = Path.getComponent("/dataOperatorQueryMainWin/partyCertificationTab");
+			Tab partyContactInfoTab = Path.getComponent("/dataOperatorQueryMainWin/partyContactInfoTab");
+			Tab organizationRelationTab = Path.getComponent("/dataOperatorQueryMainWin/organizationRelationTab");
+        	if(index == "1"){
+				staffOrganizationTab.setVisible(true);
+				partyCertificationTab.setVisible(true);
+				partyContactInfoTab.setVisible(true);
+				organizationRelationTab.setVisible(false);
+				tabBox.setSelectedTab(staffOrganizationTab);
+        	}else if(index == "2"){
+				staffOrganizationTab.setVisible(false);
+				partyCertificationTab.setVisible(false);
+				partyContactInfoTab.setVisible(false);
+				organizationRelationTab.setVisible(true);
+				tabBox.setSelectedTab(organizationRelationTab);
+        	}
+        }
+    ]]></zscript>
+</zk>

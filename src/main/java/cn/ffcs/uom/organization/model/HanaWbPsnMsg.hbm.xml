@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-13 12:02:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uom.organization.model.HanaWbPsnMsg" table="HANA_WB_PSN_MSG" >
+    		<comment>人力组织外包人员基本信息</comment>
+			<id name="msgId" type="java.lang.Long">
+				<column name="MSG_ID" precision="22" scale="0" />
+				<generator class="sequence">
+					<param name="sequence">SEQ_CT_ORGANIZATION_ID</param>
+				</generator>
+			</id>
+            <property name="monthId" type="int">
+                <column name="MONTH_ID" precision="8" scale="0" />
+            </property>
+            <property name="unitId" type="string">
+                <column name="UNIT_ID" length="12" />
+            </property>
+            <property name="pkPsnMsg" type="string">
+                <column name="PK_PSN_MSG" length="20" />
+            </property>
+            <property name="pkOrg" type="string">
+                <column name="PK_ORG" length="20" />
+            </property>
+            <property name="pkGroup" type="string">
+                <column name="PK_GROUP" length="20" />
+            </property>
+            <property name="psncode" type="string">
+                <column name="PSNCODE" length="40" />
+            </property>
+            <property name="psnname" type="string">
+                <column name="PSNNAME" length="200" />
+            </property>
+            <property name="id" type="string">
+                <column name="ID" length="18" />
+            </property>
+            <property name="sex" type="string">
+                <column name="SEX" length="20" />
+            </property>
+            <property name="birthdate" type="string">
+                <column name="BIRTHDATE" length="10" />
+            </property>
+            <property name="highestEducation" type="string">
+                <column name="HIGHEST_EDUCATION" length="20" />
+            </property>
+            <property name="fulltimeEducation" type="string">
+                <column name="FULLTIME_EDUCATION" length="20" />
+            </property>
+            <property name="degree" type="string">
+                <column name="DEGREE" length="100" />
+            </property>
+            <property name="busilife" type="string">
+                <column name="BUSILIFE" length="20" />
+            </property>
+            <property name="defStr1" type="string">
+                <column name="DEF_STR1" length="200" />
+            </property>
+            <property name="defStr2" type="string">
+                <column name="DEF_STR2" length="200" />
+            </property>
+            <property name="defStr3" type="string">
+                <column name="DEF_STR3" length="200" />
+            </property>
+            <property name="defStr4" type="string">
+                <column name="DEF_STR4" length="200" />
+            </property>
+            <property name="defStr5" type="string">
+                <column name="DEF_STR5" length="200" />
+            </property>
+            <property name="defNum1" type="big_decimal">
+                <column name="DEF_NUM1" precision="20" scale="8" />
+            </property>
+            <property name="defNum2" type="big_decimal">
+                <column name="DEF_NUM2" precision="20" scale="8" />
+            </property>
+            <property name="defNum3" type="big_decimal">
+                <column name="DEF_NUM3" precision="20" scale="8" />
+            </property>
+            <property name="defNum4" type="big_decimal">
+                <column name="DEF_NUM4" precision="20" scale="8" />
+            </property>
+            <property name="defNum5" type="big_decimal">
+                <column name="DEF_NUM5" precision="20" scale="8" />
+            </property>
+            <property name="isSend" type="big_decimal">
+                <column name="IS_SEND" precision="22" scale="0" />
+            </property>
+            <property name="dr" type="java.lang.Long">
+                <column name="DR" precision="10" scale="0" />
+            </property>
+            <property name="mobtelephone" type="string">
+                <column name="MOBTELEPHONE" length="20" />
+            </property>
+            <property name="officephone" type="string">
+                <column name="OFFICEPHONE" length="20" />
+            </property>
+            <property name="ts" type="string">
+                <column name="TS" length="19" />
+            </property>
+            <property name="loadDate" type="date">
+                <column name="LOAD_DATE" length="7" />
+            </property>
+            <property name="etlDay" type="java.lang.Long">
+                <column name="ETL_DAY" precision="10" scale="0" />
+            </property>
+            <property name="localPartitionId" type="java.lang.Byte">
+                <column name="LOCAL_PARTITION_ID" precision="2" scale="0" />
+            </property>
+    </class>
+</hibernate-mapping>

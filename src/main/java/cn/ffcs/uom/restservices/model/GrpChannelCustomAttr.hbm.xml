@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.restservices.model.GrpChannelCustomAttr"
+		table="GRP_CHANNEL_CUSTOM_ATTR">
+		<comment>渠道自定义扩展信息标识</comment>
+		<id name="grpChannelCustomAttrId" type="java.lang.Long">
+			<column name="GRP_CHANNEL_CUSTOM_ATTR_ID" precision="12"
+				scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_GRP_CHANNEL_CUSTOM_ATTR_ID</param>
+			</generator>
+		</id>
+		<property name="channelNbr" type="java.lang.String">
+			<column name="CHANNEL_NBR" length="30">
+				<comment>渠道编码</comment>
+			</column>
+		</property>
+		<property name="attrId" type="java.lang.Long">
+			<column name="ATTR_ID" length="9">
+				<comment>属性ID</comment>
+			</column>
+		</property>
+		<property name="attrValue" type="java.lang.String">
+			<column name="ATTR_VALUE" length="4000">
+				<comment>属性值</comment>
+			</column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="2000">
+				<comment>属性描述</comment>
+			</column>
+		</property>
+		<property name="action" type="java.lang.String">
+			<column name="ACTION" length="6">
+				<comment>处理动作</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

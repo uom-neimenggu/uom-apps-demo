@@ -1,0 +1,49 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffPublishDetectionListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="staffPublishDetectionListboxComp" vflex="1">
+	<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="display:inline-table;float:left">
+			<div>
+				<hbox>
+					<label value="员工编码" />
+					<textbox id="staffCode" width="80px" />
+					<label value="员工账号" />
+					<textbox id="staffAccount" width="80px" />
+					<label value="员工名称" />
+					<textbox id="staffName" width="80px" />
+					<button label="查询" forward="onQueryStaffPublishDetection" autodisable="self"  mold="trendy"/>
+					<button label="重置" forward="onResetStaffPublishDetection" autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar align="end" sclass="toolbar-user" style="width:auto;float:right;">
+			<hbox>
+				<toolbarbutton forward="onView" id="viewButton" label="查看" />
+			</hbox>
+		</toolbar>
+	</caption>
+	<panelchildren>
+			<listbox id="StaffPublishDetectionListBox" forward="onSelect=onStaffPublishDetectionSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="员工标识" width="10%"/>
+					<listheader label="员工姓名" width="30%"/>
+					<listheader label="员工账号" width="11%"/>
+					<listheader label="生效时间" sclass="listheader-time-width"/>
+					<listheader label="失效时间" sclass="listheader-time-width"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.staffId}" ></listcell>
+					<listcell label="@{current.staffName}"></listcell>
+					<listcell label="@{current.staffAccount}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="StaffPublishDetectionListPaging" pageSize="10"
+				forward="onQueryStaffPublishDetection" />
+		</panelchildren>
+	</panel>
+</zk>

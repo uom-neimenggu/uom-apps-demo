@@ -1,0 +1,95 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationTranListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="organizationTranListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="organizationTranSearchDiv">
+					<hbox>
+						<div id="tranRelaTypeDiv">
+							<label value="组织业务关系类型" />
+							<treeChooserBandbox id="tranRelaType"
+								range="end" mode="single" className="OrganizationTran"
+								attrName="tranRelaType" pattern="2,2,2" width="90px" />
+						</div>
+						<div id="telcomRegionDiv">
+							<label value="电信管理区域" />
+							<telcomRegionTreeBandbox id="telcomRegion"
+								width="80px" />
+						</div>
+						<label value="组织编码" />
+						<textbox id="orgCode" width="80px" />
+						<label value="组织名称" />
+						<textbox id="orgName" width="82px" />
+						<label value="业务组织编码" />
+						<textbox id="tranOrgCode" width="80px" />
+						<label value="业务组织名称" />
+						<textbox id="tranOrgName" width="82px" />
+						<button label="查询"
+							forward="onQueryOrganizationTran" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetOrganizationTran" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="organizationTranButtonDiv">
+						<hbox>
+							<toolbarbutton
+								id="addOrganizationTranButton" forward="onAddOrganizationTran"
+								label="新增" />
+							<toolbarbutton
+								id="editOrganizationTranButton" forward="onEditOrganizationTran"
+								label="修改" />
+							<toolbarbutton
+								id="delOrganizationTranButton" forward="onDelOrganizationTran"
+								label="删除" />
+							<toolbarbutton
+								id="showOrganizationPathButton" forward="onOrganizationPathShow"
+								label="查看树路径" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="organizationTranListbox" sizedByContent="false"
+				sclass="zl-listbox" checkmark="true" multiple="false"
+				forward="onSelect=onSelectOrganizationTranRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="组织名称" />
+					<listheader label="组织编码" />
+					<listheader label="业务组织名称" />
+					<listheader label="业务组织编码" />
+					<listheader label="业务关系类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+					<listheader label="失效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.orgTranId}">
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.tranOrgName}"></listcell>
+					<listcell label="@{current.tranOrgCode}"></listcell>
+					<listcell label="@{current.tranRelaTypeName}"></listcell>
+					<listcell label="@{current.statusCdName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="organizationTranListboxPaging"
+				forward="onOrganizationTranListboxPaging" pageSize="14" />
+		</panelchildren>
+	</panel>
+</zk>

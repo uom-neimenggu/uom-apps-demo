@@ -1,0 +1,76 @@
+<?page title="员工管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffListboxExt" ?>
+<?component name="staffOrganizationListbox" extends="div" class="cn.ffcs.uom.organization.action.StaffOrganizationListboxComposer"?>
+<?component name="staffPositionListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffPositionListboxExt"?>
+<?component name="staffRoleListbox" macroURI="/pages/staff_role/comp/staff_role_listbox.zul" ?>
+<?component name="staffSysListbox" macroURI="/pages/syslist/comp/staff_sys_listbox.zul" ?>
+<?component name="staffOrgTranListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffOrgTranListboxExt"?>
+<?component name="partyCertificationListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyCertificationListboxExt" ?>
+<?component name="partyContactInfoListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyContactInfoListboxExt" ?>
+<?component name="partyRoleListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyRoleListboxExt" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./marketingStaffMainWin"?>
+<zk>
+	<window id="marketingStaffMainWin" width="100%" height="100%"
+		apply="${marketingStaffMainComposer}">
+		<borderlayout>
+			<north size="50%">
+				<staffListboxExt id="staffListboxExt" isMarketingListbox="true" vflex="1" />
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab label="员工组织关系" id="staffOrgTab"
+							forward="onClickTab" />
+						<tab label="员工职位列表" id="staffPositionTab"
+							forward="onClickTab" />
+						<tab label="员工组织业务关系" id="staffOrgTranTab"
+							forward="onClickTab" />
+						<tab label="员工角色关系" id="staffRoleTab"
+							forward="onClickTab" />
+						<tab label="员工系统关系" id="staffSysTab"
+							forward="onClickTab" />
+						<tab label="参与人联系人" id="partyContactInfoTab"
+							forward="onClickTab" />
+						<tab label="参与人证件" id="partyCertificationTab"
+							forward="onClickTab" />
+						<tab label="参与人角色" id="partyRoleTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffOrganizationListbox
+								id="staffOrganizationListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffPositionListboxExt
+								id="staffPositionListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffOrgTranListboxExt
+								id="staffOrgTranListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffRoleListbox id="staffRoleListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffSysListbox id="staffSysListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyContactInfoListboxExt
+								id="partyContactInfoListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyCertificationListboxExt
+								id="partyCertificationListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyRoleListboxExt
+								id="partyRoleListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

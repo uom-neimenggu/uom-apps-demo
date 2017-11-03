@@ -1,0 +1,29 @@
+<?page title="跨域内外业务关系管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="uomGroupOrgTranListboxExt" extends="div" class="cn.ffcs.uom.organization.component.UomGroupOrgTranListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./uomGroupTranMainWin"?>
+<zk>
+	<window id="uomGroupTranMainWin" height="100%"
+		apply="${uomGroupTranMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="uomGroupOrgTranTab" label="组织" />
+				<tab id="uomGroupStaffTranTab" label="员工"
+					visible="false" />
+				<tab id="tempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel id="uomGroupOrgTranTabpanel"
+					style="padding:1px;" vflex="1">
+					<uomGroupOrgTranListboxExt
+						id="uomGroupOrgTranListboxExt" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="uomGroupStaffTranTabpanel"
+					visible="false">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel id="tempTabpanel" visible="false"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

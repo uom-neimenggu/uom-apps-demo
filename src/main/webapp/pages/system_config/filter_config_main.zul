@@ -1,0 +1,48 @@
+<?page title="过滤配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./filterConfigMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="filterConfigMainWin" apply="${filterConfigMainComposer}"
+		width="100%" height="100%" >
+		<borderlayout>
+			<north size="100%">
+				<panel vflex="1">
+					<caption>
+						<toolbar align="end" sclass="toolbar-user" style="display:inline-table">
+							<hbox>
+								<toolbarbutton id="addFilterConfigButton" forward="onFilterConfigAdd" label="新增" />
+								<toolbarbutton id="editFilterConfigButton" forward="onFilterConfigEdit" label="修改" />
+								<toolbarbutton id="delFilterConfigButton" forward="onFilterConfigDel" label="删除" />
+							</hbox>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="filterConfigListBox"
+							forward="onSelect=onSelectFilterConfigListBox" vflex="1">
+							<listhead sizable="true">
+								<listheader label="过滤字符" />
+								<listheader label="状态" />
+							</listhead>
+							<listitem self="@{each='current'}"
+								value="@{current}">
+								<listcell label="@{current.filterChar}">
+								</listcell>
+								<listcell label="@{current.statusCdName}">
+								</listcell>
+							</listitem>
+						</listbox>
+						<paging id="filterConfigPaging" pageSize="10"
+							forward="onQueryFilterConfig" />
+					</panelchildren>
+				</panel>
+			</north>
+		</borderlayout>
+	</window>
+</zk>

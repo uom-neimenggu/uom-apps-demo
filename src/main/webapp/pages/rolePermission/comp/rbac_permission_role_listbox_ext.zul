@@ -1,0 +1,70 @@
+<?page title="权限角色列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacPermissionRoleListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacPermissionRoleListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacPermissionRoleSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="95px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="95px" />
+						<label value="权限编码" />
+						<textbox id="rbacPermissionCode" width="95px" />
+						<label value="权限名称" />
+						<textbox id="rbacPermissionName" width="95px" />
+						<button label="查询"
+							forward="onQueryRbacPermissionRole" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacPermissionRole" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacPermissionRoleButton"
+						label="新增" forward="onRbacPermissionRoleAdd" />
+					<toolbarbutton id="delRbacPermissionRoleButton"
+						label="删除" forward="onRbacPermissionRoleDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacPermissionRoleListbox"
+				forward="onSelect=onRbacPermissionRoleSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="权限角色标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="权限编码" />
+					<listheader label="权限名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacPermissionRole'}"
+					value="@{rbacPermissionRole}">
+					<listcell
+						label="@{rbacPermissionRole.rbacPermissionRoleId}" />
+					<listcell
+						label="@{rbacPermissionRole.rbacRoleCode}" />
+					<listcell
+						label="@{rbacPermissionRole.rbacRoleName}" />
+					<listcell
+						label="@{rbacPermissionRole.rbacPermissionCode}" />
+					<listcell
+						label="@{rbacPermissionRole.rbacPermissionName}" />
+					<listcell label="@{rbacPermissionRole.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacPermissionRoleListPaging" pageSize="16"
+				forward="onRbacPermissionRoleListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

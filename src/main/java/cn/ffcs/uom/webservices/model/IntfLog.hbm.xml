@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.webservices.model.IntfLog" table="INTF_LOG">
+		<comment>接口日志表</comment>
+		<id name="logId" type="java.lang.Long">
+			<column name="LOG_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_INTF_LOG_ID</param>
+			</generator>
+		</id>
+		<property name="transId" type="java.lang.String">
+			<column name="TRANS_ID" length="200">
+				<comment>流水号</comment>
+			</column>
+		</property>
+		<property name="msgType" type="java.lang.String">
+			<column name="MSG_TYPE" length="200">
+				<comment>消息类型</comment>
+			</column>
+		</property>
+		<property name="system" type="java.lang.String">
+			<column name="SYSTEM" length="300">
+				<comment>请求系统</comment>
+			</column>
+		</property>
+		<property name="result" type="java.lang.Long">
+			<column name="RESULT" length="1">
+				<comment>结果</comment>
+			</column>
+		</property>
+		<property name="requestContent" type="java.lang.String">
+			<column name="REQUEST_CONTENT" length="7">
+				<comment>请求报文</comment>
+			</column>
+		</property>
+		<property name="responseContent" type="java.lang.String">
+			<column name="RESPONSE_CONTENT" length="7">
+				<comment>返回报文</comment>
+			</column>
+		</property>
+		<property name="beginDate" type="java.util.Date">
+			<column name="BEGIN_DATE" length="7">
+				<comment>开始时间</comment>
+			</column>
+		</property>
+		<property name="endDate" type="java.util.Date">
+			<column name="END_DATE" length="7">
+				<comment>结束时间</comment>
+			</column>
+		</property>
+		<property name="consumeTime" type="java.lang.Long">
+			<column name="CONSUME_TIME" length="12">
+				<comment>消耗时间</comment>
+			</column>
+		</property>
+		<property name="errCode" type="java.lang.String">
+			<column name="ERR_CODE" length="30">
+				<comment>错误编码</comment>
+			</column>
+		</property>
+		<property name="errMsg" type="java.lang.String">
+			<column name="ERR_MSG" length="500">
+				<comment>错误描述</comment>
+			</column>
+		</property>
+		<property name="ftpTaskInstanceId" type="java.lang.Long">
+			<column name="FTP_TASK_INSTANCE_ID" length="12">
+				<comment>FTP任务实例标识</comment>
+			</column>
+		</property>
+		<property name="msgId" type="java.lang.String">
+			<column name="MSG_ID" length="26">
+				<comment>消息ID</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

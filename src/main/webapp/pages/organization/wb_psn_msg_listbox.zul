@@ -1,0 +1,47 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./wbPsnMsgListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="wbPsnMsgListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="账期" />
+				<datebox id="date" format="yyyyMM"
+						width="100px" readonly="true" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="wbPsnMsgListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="账期" />
+					<listheader label="单位编码" />
+					<listheader label="外包人员编码" />
+					<listheader label="姓名" />
+					<listheader label="身份证号码" />
+					<listheader label="出生日期" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.monthId}">
+					</listcell>
+					<listcell label="@{current.unitId}">
+					</listcell>
+					<listcell label="@{current.psncode}">
+					</listcell>
+					<listcell label="@{current.psnname}">
+					</listcell>
+					<listcell label="@{current.id}">
+					</listcell>
+					<listcell label="@{current.birthdate}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="wbPsnMsgListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

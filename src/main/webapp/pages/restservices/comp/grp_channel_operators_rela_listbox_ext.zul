@@ -1,0 +1,55 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./grpChannelOperatorsRelaListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="grpChannelOperatorsRelaListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="display:inline;float:left">
+				<div id="grpChannelOperatorsRelaSearchDiv">
+					<hbox>
+						<label value="渠道编码" />
+						<textbox id="channelNbr" width="95px" />
+						<label value="渠道名称" />
+						<textbox id="channelName" width="95px" />
+						<button label="查询"
+							forward="onQueryGrpChannelOperatorsRela" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetGrpChannelOperatorsRela" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="grpChannelOperatorsRelaListbox" vflex="1"
+				forward="onSelect=onSelectGrpChannelOperatorsRelaList">
+				<listhead sizable="true">
+					<listheader label="渠道编码" />
+					<listheader label="渠道名称" />
+					<listheader label="经营主体编码" />
+					<listheader label="经营主体名称" />
+					<listheader label="关系类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						class="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.channelName}">
+					<listcell label="@{current.channelNbr}" />
+					<listcell label="@{current.channelName}" />
+					<listcell label="@{current.operatorsNbr}" />
+					<listcell label="@{current.operatorsName}" />
+					<listcell label="@{current.relaTypeName}" />
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.effDate}" />
+
+				</listitem>
+			</listbox>
+			<paging id="grpChannelOperatorsRelaListboxPaging"
+				forward="onGrpChannelOperatorsRelaListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

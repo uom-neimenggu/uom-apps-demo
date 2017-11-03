@@ -1,0 +1,150 @@
+<?page title="数据质量流程管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./bpmMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="qaUnOppExecScriptTreeBandbox" extends="bandbox" class="cn.ffcs.uom.bpm.comp.QaUnOppExecScriptTreeBandbox"?>
+<zk>
+	
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+	 
+	<window id="bpmMainWin" width="100%" height="100%"
+		apply="${bpmMainComposer}">
+		<tabbox vflex="1">
+			<tabs>
+				<tab>当前稽核</tab>
+				<tab>历史稽核</tab>
+			</tabs>
+			<!-- 当前查询 -->
+			<tabpanels>
+				<tabpanel>
+					<panel id="bpmPanel" vflex="1" height="100%">
+						<caption>
+							<toolbar align="start" id="toolbarId"
+								sclass="toolbar-user" style="width:auto;float:left;">
+								<div>
+									<hbox>
+										<label value="稽核指标项" />
+										<qaUnOppExecScriptTreeBandbox
+											id="qaUnOppExecScriptTreeBandbox" width="160px" flag="51" />
+										<toolbarbutton label="查询" forward="onQueryBpmItems" autodisable="self" />
+									</hbox>
+								</div>
+							</toolbar>
+							<toolbar align="start" sclass="toolbar-user"
+								style="width:auto;float:right;">
+								<div id="orgTreeOperLogWindowDiv">
+									<hbox>
+										<toolbarbutton
+											id="downLoadButton" forward="onDownLoadDetailsRequest"
+											label="导出清单" />
+									</hbox>
+								</div>
+							</toolbar>
+						</caption>
+						<panelchildren>
+							<listbox id="bpmInfoListbox"
+								forward="onSelect=onSelectBpmInfoRequest" vflex="1"
+								mold="paging">
+								<listhead sizable="true">
+									<listheader label="系统编码" />
+									<listheader label="单位" />
+									<listheader label="总数" />
+									<listheader label="不规范数量" />
+									<listheader label="一致率" />
+									<listheader label="得分" visible="false"/>
+								</listhead>
+								<listitem self="@{each='current'}" value="@{current}">									
+									<listcell
+										label="@{current.systemCode}">
+									</listcell>
+									<listcell label="@{current.unit}"></listcell>
+									<listcell
+										label="@{current.total}">
+									</listcell>
+									<listcell
+										label="@{current.unqualifiledTotal}">
+									</listcell>
+									<listcell
+										label="@{current.perOfPass}">
+									</listcell>
+									<listcell
+										label="@{current.score}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="bpmInfoListPaging" pageSize="16"
+								forward="onQuerybpmInfoListPaging" />
+						</panelchildren>
+					</panel>
+				</tabpanel>
+				<!-- 历史查询 -->
+				<tabpanel>
+					<panel id="hisBpmPanel" vflex="1">
+						<caption>
+							<toolbar align="start" sclass="toolbar-user"
+								style="width:auto;float:left;">
+								<div>
+									<hbox>
+										<label value="稽核指标项" />
+										<qaUnOppExecScriptTreeBandbox
+											id="hisQaUnOppExecScriptTreeBandbox" width="160px" flag="51"/>
+										<label value="开始日期" />
+										<datebox hflex="true" id="beginDate"
+											timeZone="GMT+8" format="yyyy-MM-dd" readonly="true" onCreate="beginDate.setValue(new Date());" />
+										<label value="截止日期" />
+										<datebox hflex="true" id="endDate"
+											timeZone="GMT+8" format="yyyy-MM-dd" readonly="true" onCreate="endDate.setValue(new Date());"/>
+										<toolbarbutton label="查询"
+											forward="onQueryHisBpmItems" autodisable="self" />
+									</hbox>
+								</div>
+							</toolbar>
+						</caption>
+						<panelchildren>
+							<listbox id="hisBpmInfoListbox" vflex="1"
+								mold="paging">
+								<listhead sizable="true">
+									<listheader label="系统编码" />
+									<listheader label="单位" />
+									<listheader label="总数" />
+									<listheader label="不规范数量" />
+									<listheader label="一致率" />
+									<listheader label="得分" visible="false" />
+									<listheader label="稽核时间" />
+								</listhead>
+								<listitem self="@{each='current'}"
+									value="@{current}">
+									<listcell
+										label="@{current.systemCode}">
+									</listcell>
+									<listcell label="@{current.unit}"></listcell>
+									<listcell
+										label="@{current.total}">
+									</listcell>
+									<listcell
+										label="@{current.unqualifiledTotal}">
+									</listcell>
+									<listcell
+										label="@{current.perOfPass}">
+									</listcell>
+									<listcell
+										label="@{current.score}">
+									</listcell>
+									<listcell
+										label="@{current.createDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+							<paging id="hisBpmInfoListPaging"
+								pageSize="16" forward="onQueryHisbpmInfoListPaging" />
+						</panelchildren>
+					</panel>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+
+	</window>
+</zk>

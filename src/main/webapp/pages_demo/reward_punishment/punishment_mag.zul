@@ -1,0 +1,177 @@
+<?page title="处罚管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="日志ID" />
+						<textbox id="" width="80px" />
+						
+						<label value="业务编码" />
+						<textbox id="" width="80px" />
+						 
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="日志ID" width="28%" align="center" />
+					<listheader label="业务编码" width="14%" align="center" />
+					<listheader label="消息类型" width="10%" align="center" />
+					<listheader label="UOM_RESULT" width="12%" align="center" />
+					<listheader label="CHANNEL_RESULT" width="16%" align="center" />
+					<listheader label="消息内容" width="20%" align="center" />
+					<listheader label="操作类型" width="10%" align="center" />
+					<listheader label="报文接收时间" width="16%" align="center" />
+					<listheader label="报文返回给集团最终时间" width="16%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="1000000045201704108801626179" />
+					<listcell label="J34010412490" />
+					<listcell label="经营主体" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />				
+					<listcell label="MOD" />
+					<listcell label="2017/4/10 22:28:57" />
+					<listcell label="2017/4/10 22:28:58" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704118801626410" />
+					<listcell label="3400001012126" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					<listcell label="MOD" />
+					<listcell label="2017/4/11 17:43:37" />
+					<listcell label="2017/4/11 17:43:46" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704108801626182" />
+					<listcell label="C341801010787" />
+					<listcell label="经营场所" />
+					<listcell label="1" />
+					<listcell label="0" />
+					<listcell label="系统内部错误" />
+					<listcell label="MOD" />
+					<listcell label="2017/4/10 22:32:24" />
+					<listcell label="2017/4/10 22:32:27" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704108801626185" />
+					<listcell label="3403001110063" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					
+					<listcell label="MOD" />
+					<listcell label="2017/4/10 22:35:42" />
+					<listcell label="2017/4/10 22:35:54" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704108801626214" />
+					<listcell label="3401001114060" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					
+					<listcell label="DEL" />
+					<listcell label="2017/4/10 22:43:57" />
+					<listcell label="2017/4/10 22:43:58" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704118801626418" />
+					<listcell label="3400001012126" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					
+					<listcell label="MOD" />
+					<listcell label="2017/4/11 17:46:20" />
+					<listcell label="2017/4/11 17:46:21" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201704108801626219" />
+					<listcell label="J34010412490" />
+					<listcell label="经营主体" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					
+					<listcell label="DEL" />
+					<listcell label="2017/4/10 22:46:45" />
+					<listcell label="2017/4/10 22:46:46" />
+				</listitem>
+								<listitem>
+					<listcell label="1000000045201704138801627526" />
+					<listcell label="1000002114117" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="0" />
+					<listcell label="服务响应超时" />
+					<listcell label="ADD" />
+					<listcell label="2017/4/13 17:34:55" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201706268801701106" />
+					<listcell label="Y34010131561" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />				
+					<listcell label="MOD" />
+					<listcell label="2017/6/26 17:47:38" />
+					<listcell label="2017/6/26 17:53:38" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201709218801745213" />
+					<listcell label="Y34010131561" />
+					<listcell label="销售员" />
+					<listcell label="1" />
+					<listcell label="0" />
+					<listcell label="无权限，请与管理员联系" />
+					<listcell label="MOD" />
+					<listcell label="2017/9/21 15:01:26" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="1000000045201709218801745370" />
+					<listcell label="3400001012126" />
+					<listcell label="渠道单元" />
+					<listcell label="1" />
+					<listcell label="1" />
+					<listcell label="操作成功" />
+					<listcell label="MOD" />
+					<listcell label="2017/9/21 17:23:09" />
+					<listcell label="2017/9/21 17:23:16" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

@@ -1,0 +1,11 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="mdsionOrgRelationTree" extends="tree" class="cn.ffcs.uom.organization.component.MdsionOrgRelationTree"?>
+<vbox vflex="1" width="100%" height="100%">
+	<toolbar align="start" hflex="1">
+		<toolbarbutton id="copyChildButton" label="从内部树复制节点" forward="onCopyChildNode" />
+		<toolbarbutton id="addChildButton" label="添加子节点" forward="onAddChildNode" />
+		<toolbarbutton id="delChildButton" label="删除节点" forward="onDelNode" />
+	</toolbar>
+	<mdsionOrgRelationTree id="mdsionOrgRelationTree" vflex="1">
+	</mdsionOrgRelationTree>
+</vbox>

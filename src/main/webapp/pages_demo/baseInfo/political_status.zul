@@ -1,0 +1,181 @@
+<?page title="政治信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="编码" /><textbox id="" width="80px" />
+						<label value="帐号" /><textbox id="" width="80px" />
+						<label value="姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton forward="onView" id="" label="查看" />
+							<toolbarbutton forward="onAdd" id="" label="新增" />
+							<toolbarbutton forward="onEdit" id="" label="修改" />
+							<toolbarbutton forward="onDel" id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员姓名" width="10%" align="center" />
+					<listheader label="人员编号" width="12%" align="center" />
+					<listheader label="政治面貌" width="8%" align="center" />
+					<listheader label="入团时间" width="12%" align="center" />
+					<listheader label="介绍人" width="14%" align="center" visible="false" />
+					<listheader label="终止时间" width="14%" align="center" />
+					<listheader label="修改人" width="14%" align="center" visible="false" />
+					<listheader label="转正日期" width="14%" align="center" />
+					<listheader label="异常原因" width="30%" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="樊鹏" />
+					<listcell label="8500390735" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="钱雨婷" />
+					<listcell label="8500390843" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="颜煜翔" />
+					<listcell label="8701390845" />
+				    <listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="方向宏" />
+					<listcell label="8500391003" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="程海英" />
+					<listcell label="8500390843" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="王家胜" />
+					<listcell label="8500390861" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="陈晶晶" />
+					<listcell label="8500391006" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="汪锦芬" />
+					<listcell label="8500391034" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="徐世菁" />
+					<listcell label="8500391177" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="曹子雯" />
+					<listcell label="8500390861" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="江颍" />
+					<listcell label="8500391006" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+				<listitem>
+					<listcell label="周亚文" />
+					<listcell label="8577391056" />
+					<listcell label="党员" />
+					<listcell label="2014-11-13" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2099/9/9" />
+					<listcell label="1001A11000000005RN3M" />
+					<listcell label="2014-11-13 10:32:01" />
+					<listcell label="" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

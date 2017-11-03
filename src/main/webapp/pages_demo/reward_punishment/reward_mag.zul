@@ -1,0 +1,139 @@
+<?page title="奖励管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="人员编码" />
+						<textbox id="" width="80px" />
+						<label value="人员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员编码" width="8%" align="center" />
+					<listheader label="人员姓名" width="8%" align="center" />
+					<listheader label="奖励事由" width="30%" align="center" />
+					<listheader label="奖励类型" width="14%" align="center" />
+					<listheader label="奖励名称" width="16%" align="center" />
+					<listheader label="奖励机构" width="16%" align="center" />
+					<listheader label="奖励日期" width="10%" align="center" />
+				</listhead>
+
+				<listitem>
+					<listcell label="34050080" />
+					<listcell label="琚红涛" />
+					<listcell label="秀创意奖《业务激活中的网元监控》" />
+					<listcell label="专项类荣誉" />
+					<listcell label="优秀创意奖" />
+					<listcell label="中国电信安徽公司" />
+					<listcell label="2012-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34890043" />
+					<listcell label="秦虎" />
+					<listcell label="管理创新优秀奖《打造互联网知识运营体系》" />
+					<listcell label="专项类荣誉" />
+					<listcell label="管理创新优秀奖" />
+					<listcell label="中国电信安徽公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34870082" />
+					<listcell label="曹海洋" />
+					<listcell label="集团科技进步一等奖 《构建智慧监控平台支撑网络集中上收》" />
+					<listcell label="专项类荣誉" />
+					<listcell label="集团科技进步一等奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34010304" />
+					<listcell label="王勇强" />
+					<listcell label="《基于移动互联网客户行为分析的大数据流量经营技术验证与应用》获得中国电信科技进步一等奖" />
+					<listcell label="专项类荣誉" />
+					<listcell label="中国电信科技进步一等奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34840345" />
+					<listcell label="时君" />
+					<listcell label="集团公司4G集约系统上线联调" />
+					<listcell label="专项任务类荣誉" />
+					<listcell label="4G集约系统上线联调测试优秀奖、关键期运营优秀奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34900277" />
+					<listcell label="白福云" />
+					<listcell label="“基于流程规则引擎与SOA化架构，构建新一代CRM系统，支撑销售和服务的小前台大后台” 中国电信集团公司科技进步奖三等奖" />
+					<listcell label="专项任务类荣誉" />
+					<listcell label="中国电信科技进步一等奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34970365" />
+					<listcell label="王琳" />
+					<listcell label="管理创新二等奖实施“小前台、大后台”销售流程再造，促进销售效率及企业效益双提升" />
+					<listcell label="专项类荣誉" />
+					<listcell label="科技进步奖三等奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34050094" />
+					<listcell label="陈瑞勋" />
+					<listcell label="渠道酬金体系优化" />
+					<listcell label="专项类荣誉" />
+					<listcell label="管理创新优秀奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34940215" />
+					<listcell label="崔松" />
+					<listcell label="获集团公司4G业务关键期运营优秀奖（集体奖项，牵头负责）" />
+					<listcell label="专项类荣誉" />
+					<listcell label="4G业务关键期运营优秀奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+				<listitem>
+					<listcell label="34010006" />
+					<listcell label="郑辉" />
+					<listcell label="数字化批量维护及场景化验收-支撑资源高效就绪》获省公司创新优秀奖（主创）" />
+					<listcell label="专项类荣誉" />
+					<listcell label="技术创新优秀奖" />
+					<listcell label="中国电信集团公司" />
+					<listcell label="2014-12-31" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

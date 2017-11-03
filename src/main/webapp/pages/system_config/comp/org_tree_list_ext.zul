@@ -1,0 +1,50 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeListPanel"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<panel vflex="1" title="业务树信息" id="orgTreeListPanel"
+		height="100%">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div>
+					<hbox>
+						<toolbarbutton id="addOrgTreeButton"
+							forward="onOrgTreeAdd" label="新增" />
+						<toolbarbutton id="editOrgTreeButton"
+							forward="onOrgTreeEdit" label="修改" />
+						<toolbarbutton id="delOrgTreeButton"
+							forward="onOrgTreeDel" label="删除" />
+						<toolbarbutton id="ftpIncreaseTimerSwitchButton"
+							forward="onOrgTreeFtpIncreaseTimer" label="FTP增量定时开关" />
+						<toolbarbutton id="ftpAllTimerSwitchButton"
+							forward="onOrgTreeFtpAllTimer" label="FTP全量定时开关" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren vflex="1">
+			<listbox id="orgTreeListBox"
+				forward="onSelect=onOrgTreeSelect" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织树标识" />
+					<listheader label="组织树名称" />
+					<listheader label="上次生成时间" />
+					<listheader label="最后生成时间" />
+					<listheader label="更新员工" />
+					<listheader label="发布状态" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgTreeId}"></listcell>
+					<listcell label="@{current.orgTreeName}"></listcell>
+					<listcell label="@{current.preTime}"></listcell>
+					<listcell label="@{current.lastTime}"></listcell>
+					<listcell label="@{current.updateStaffName}"></listcell>
+					<listcell label="@{current.publishingName}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgTreeListPaging" pageSize="10"
+				forward="onOrgTreeListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,36 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyCertificationListboxExtPanel" ?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="partyCertificationListboxExtPanel" vflex="1">
+		<panelchildren>
+			<textbox id="certNumber" width="95px" visible="false"/>
+			<textbox id="certOrg" width="95px" visible="false"/>
+			<listbox id="partyCertificationListbox" sizedByContent="false" sclass="zl-listbox" forward="onSelect=onPartyCertificationSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="参与人证件类型" width="5%"/>
+					<listheader label="参与人证件号码" width="13%"/>
+					<listheader label="参与人证件种类" width="5%"/>
+					<listheader label="状态" width="7%"/>
+					<listheader label="创建人" width="9%"/>
+					<listheader label="创建时间" width="13%"/>
+					<listheader label="最后修改人" width="10%"/>
+					<listheader label="最后修改时间" width="13%"/>
+					<listheader label="操作原因" width="25%"/>
+				</listhead>
+				<listitem self="@{each='partyCertification'}" value="@{partyCertification}" tooltiptext="@{partyCertification.certNumber}">
+					<listcell label="@{partyCertification.certTypeName}"/>
+					<listcell label="@{partyCertification.certNumber}"/>
+					<listcell label="@{partyCertification.certSortName}"/>
+					<listcell label="@{partyCertification.statusCdName}" />
+					<listcell label="@{partyCertification.createStaffName}" />
+					<listcell label="@{partyCertification.createDate}" />					
+					<listcell label="@{partyCertification.updateStaffName2}" />
+					<listcell label="@{partyCertification.updateDate}" />
+					<listcell label="@{partyCertification.reason}" />
+				</listitem>
+			</listbox>
+			<paging id="partyCertificationListboxPaging" forward="onPartyCertificationListboxPaging" pageSize="10"/>
+		</panelchildren>
+	</panel>
+</zk>

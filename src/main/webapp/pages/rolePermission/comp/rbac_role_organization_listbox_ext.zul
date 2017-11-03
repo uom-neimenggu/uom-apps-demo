@@ -1,0 +1,70 @@
+<?page title="角色组织列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleOrganizationListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacRoleOrganizationListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacRoleOrganizationSearchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="rbacRoleCode" width="95px" />
+						<label value="角色名称" />
+						<textbox id="rbacRoleName" width="95px" />
+						<label value="组织编码" />
+						<textbox id="orgCode" width="95px" />
+						<label value="组织名称" />
+						<textbox id="orgName" width="95px" />
+						<button label="查询"
+							forward="onQueryRbacRoleOrganization" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacRoleOrganization" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacRoleOrganizationButton"
+						label="新增" forward="onRbacRoleOrganizationAdd" />
+					<toolbarbutton id="delRbacRoleOrganizationButton"
+						label="删除" forward="onRbacRoleOrganizationDel" />
+					<toolbarbutton id="viewOrganizationPathButton"
+						forward="onOrganizationPathView" label="查看树路径" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacRoleOrganizationListbox"
+				forward="onSelect=onRbacRoleOrganizationSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="角色组织标识" />
+					<listheader label="角色编码" />
+					<listheader label="角色名称" />
+					<listheader label="组织编码" />
+					<listheader label="组织名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacRoleOrganization'}"
+					value="@{rbacRoleOrganization}">
+					<listcell
+						label="@{rbacRoleOrganization.rbacRoleOrgId}" />
+					<listcell
+						label="@{rbacRoleOrganization.rbacRoleCode}" />
+					<listcell
+						label="@{rbacRoleOrganization.rbacRoleName}" />
+					<listcell label="@{rbacRoleOrganization.orgCode}" />
+					<listcell label="@{rbacRoleOrganization.orgName}" />
+					<listcell label="@{rbacRoleOrganization.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacRoleOrganizationListPaging" pageSize="16"
+				forward="onRbacRoleOrganizationListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

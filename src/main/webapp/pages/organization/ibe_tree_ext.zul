@@ -1,0 +1,29 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationRelationTree" extends="tree" class="cn.ffcs.uom.organization.component.OrganizationRelationTree"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt"?>
+<vbox vflex="1">
+	<toolbar align="start" hflex="1">
+		<toolbarbutton id="addRootButton" label="添加根节点"
+			forward="onAddRootNode" />
+		<toolbarbutton id="addChildButton" label="添加子节点"
+			forward="onAddChildNode" />
+		<toolbarbutton id="delChildButton" label="删除节点"
+			forward="onDelNode" />
+	</toolbar>
+	<grid>
+		<columns>
+			<column width="35%"></column>
+			<column width="65%"></column>
+		</columns>
+		<rows>
+			<row>
+				<label value="选择根内部经营实体" />
+				<organizationBandboxExt id="organizationRoot"
+					width="100%" isChooseIbeRoot="true" />
+			</row>
+		</rows>
+	</grid>
+	<organizationRelationTree id="ibeOrganizationRelationTree"
+		orgTreeId="0" vflex="1" visible="true">
+	</organizationRelationTree>
+</vbox>

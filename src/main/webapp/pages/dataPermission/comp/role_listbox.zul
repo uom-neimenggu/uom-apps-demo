@@ -1,0 +1,21 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<panel id="roleListboxComp" vflex="1" title="角色列表">
+		<panelchildren>
+			<listbox id="roleListBox" style="height:170px"
+				forward="onSelect=onRoleSelect" vflex="1">
+				<listhead sizable="true">
+					<listheader label="名称" />
+					<listheader label="描述" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.title}"></listcell>
+					<listcell label="@{current.description}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="roleListPaging" pageSize="10"
+				forward="onRoleListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

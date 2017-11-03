@@ -1,0 +1,12 @@
+<?page title="角色信息" contentType="text/html;charset=UTF-8"?>
+<?component name="rbacRoleListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacRoleListboxExt" ?>
+<zk>
+	<bandpopup width="800px" height="50%">
+		<panel>
+			<panelchildren>
+				<rbacRoleListboxExt id="rbacRoleListboxExt" vflex="1">
+				</rbacRoleListboxExt>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

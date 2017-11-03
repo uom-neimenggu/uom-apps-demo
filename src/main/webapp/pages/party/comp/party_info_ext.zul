@@ -1,0 +1,324 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?component name="politicalLocationTreeBandbox" extends="bandbox" class="cn.ffcs.uom.politicallocation.component.PoliticalLocationTreeBandbox"?>
+<?component name="staffExtendAttrExt" extends="div" class="cn.ffcs.uom.staff.component.StaffExtendAttrExt"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<zscript>
+		<![CDATA[
+	void setInnerEmail(Event event) {
+		innerEmail.setValue(event.value + "@anhuitelecom.com");
+	}
+]]>
+	</zscript>
+	<panel>
+		<panelchildren>
+			<groupbox id="partyAttrGroupbox">
+				<caption>参与人属性</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 参与人名称"
+								class="z-info-required" />
+							<textbox id="partyName" width="93%" />
+							<label value="曾用名" />
+							<textbox id="partyNameFirst" width="93%" />
+						</row>
+						<row>
+							<label value="参与人名称简拼" />
+							<textbox id="partyAbbrname" width="93%" />
+							<label value="参与人英文名称" />
+							<textbox id="englishName" width="93%" />
+						</row>
+						<row>
+							<label value="* 参与人类型"
+								class="z-info-required" />
+							<listbox id="partyType" mold="select"
+								width="95%" />
+							<label id="roleTypeLab" value="* 参与人角色类型"
+								class="z-info-required" />
+							<treeChooserBandbox id="roleType"
+								range="any" mode="single" className="PartyRole"
+								attrName="roleType" pattern="2,2" width="94%" />
+						</row>
+						<row spans="1,3" id="isAddStaffRow">
+							<label id="addStaffInfoLab" value="是否添加员工" />
+							<listbox id="addStaffInfo" width="95%"
+								mold="select">
+								<listitem label="" value=""></listitem>
+								<listitem label="是" value="1"></listitem>
+								<listitem label="否" value="0"></listitem>
+							</listbox>
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox id="individualGroupbox" visible="false">
+				<caption>个人信息</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 出生日期"
+								class="z-info-required" />
+							<datebox id="birthday" format="yyyy-MM-dd"
+								width="95%" readonly="true" />
+							<label value="婚姻状况" />
+							<treeChooserBandbox id="marriageStatus"
+								range="any" mode="single" className="Individual"
+								attrName="maritalStatus" pattern="1,1" width="94%" />
+						</row>
+						<row>
+							<label value="政治面貌" />
+							<listbox id="politicsStatus" mold="select"
+								width="95%" />
+							<label value="教育水平" />
+							<listbox id="educationLevel" mold="select"
+								width="95%" />
+						</row>
+						<row>
+							<label value="* 性别" class="z-info-required" />
+							<listbox id="gender" mold="select"
+								width="95%" />
+							<label value="国籍" />
+							<treeChooserBandbox id="nationality"
+								range="any" mode="single" className="Individual"
+								attrName="nationality" pattern="2,2" width="94%" />
+						</row>
+						<row>
+							<label value="民族" />
+							<listbox id="nation" mold="select"
+								width="95%" />
+							<label value="祖籍" />
+							<textbox id="nativePlace" width="93%" />
+						</row>
+						<row>
+							<label value="单位" />
+							<textbox id="employer" width="93%" />
+							<label value="宗教" />
+							<listbox id="religion" mold="select"
+								width="95%" />
+						</row>
+						<row spans="1,3">
+							<label value="同名编码" />
+							<textbox id="sameNameCode" width="93%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox id="partyOrgGroupbox" visible="false">
+				<caption>组织或法人信息</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 组织类型"
+								class="z-info-required" />
+							<listbox id="orgType" mold="select"
+								width="95%" />
+							<label value="组织简介" />
+							<textbox id="orgContent" width="94%" />
+						</row>
+						<row>
+							<label value="组织规模" />
+							<listbox id="orgScale" mold="select"
+								width="95%" />
+							<label value="负责人信息" />
+							<textbox id="principal" width="94%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox id="staffAttrGroupbox" visible="false">
+				<caption>员工属性</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 行政区域标识"
+								class="z-info-required" />
+							<politicalLocationTreeBandbox
+								id="locationId" width="94%" />
+							<label value="* 员工名称"
+								class="z-info-required" />
+							<textbox id="staffName" width="93%" />
+						</row>
+						<row>
+							<label value="员工编码" />
+							<textbox id="staffCode" width="93%"
+								disabled="true" />
+							<label value="员工描述" />
+							<textbox id="staffDesc" width="93%" />
+						</row>
+						<row>
+							<label value="* 用工性质"
+								class="z-info-required" />
+							<treeChooserBandbox id="workProp"
+								range="any" mode="single" className="Staff" attrName="workProp"
+								pattern="4,1" width="94%" />
+							<label value="兼职/全职" />
+							<listbox id="partTime" mold="select"
+								width="95%" disabled="true" />
+						</row>
+						<row>
+							<label value="* 员工职位"
+								class="z-info-required" />
+							<listbox id="staffPosition" mold="select"
+								width="95%" />
+							<label value="职务标注" />
+							<textbox id="titleNote" width="93%" />
+						</row>
+						<row>
+							<label value="员工账号" />
+							<textbox id="staffAcct" disabled="true"
+								width="94%" />
+							<label value="员工密码" />
+							<textbox id="staffPassword" width="94%"
+								type="password" disabled="true" />
+						</row>
+						<row spans="1,3" visible="false">
+							<label value="员工扩展属性" />
+							<staffExtendAttrExt id="staffExtendAttrExt"
+								width="94%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox id="partyCertGroupbox">
+				<caption>参与人证件</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 证件类型"
+								class="z-info-required" />
+							<listbox id="certType"
+								forward="onSelect=onCertTypeSelect" mold="select" width="95%" />
+							<label value="* 类型"
+								class="z-info-required" />
+							<listbox id="identityCardId"
+								forward="onSelect=onIdentityCardIdSelect" mold="select"
+								width="95%" />
+						</row>
+						<row>
+							<label value="* 证件号码"
+								class="z-info-required" />
+							<textbox id="certNumber" width="93%" />
+							<label value="* 证件种类"
+								class="z-info-required" />
+							<listbox id="certSort" width="95%"
+								mold="select" />
+						</row>
+						<row>
+							<label value="发证机关" />
+							<textbox id="certOrg" width="93%" />
+							<label value="证件地址" />
+							<textbox id="certAddress" width="93%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox id="partyContactGroupbox">
+				<caption>参与人联系人</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 首选联系人"
+								class="z-info-required" />
+							<listbox id="headFlag" mold="select"
+								width="95%" />
+							<label value="* 联系人类型"
+								class="z-info-required" />
+							<treeChooserBandbox id="contactType"
+								range="any" mode="single" className="PartyContactInfo"
+								attrName="contactType" pattern="2,2" width="94%" />
+						</row>
+						<row>
+							<label value="* 联系人名称"
+								class="z-info-required" />
+							<textbox id="contactName" width="93%" />
+							<label value="* 联系人性别"
+								class="z-info-required" />
+							<listbox id="contactGender" mold="select"
+								width="95%" />
+						</row>
+						<row>
+							<label value="联系地址" />
+							<textbox id="contactAddress" width="93%" />
+							<label value="联系单位" />
+							<textbox id="contactEmployer" width="93%" />
+						</row>
+						<row>
+							<label value="家庭电话" />
+							<textbox id="homePhone" width="93%" />
+							<label value="办公电话" />
+							<textbox id="officePhone" width="93%" />
+						</row>
+						<row>
+							<label value="* 移动电话"
+								class="z-info-required" />
+							<textbox id="mobilePhone" width="93%"
+								onChanging="setInnerEmail(event)" />
+							<label value="电信内部邮箱" />
+							<textbox id="innerEmail" width="93%" />
+						</row>
+						<row>
+							<label value="移动电话(备用)" />
+							<textbox id="mobilePhoneSpare" width="93%" />
+							<label value="邮箱" />
+							<textbox id="email" width="93%" />
+						</row>
+						<row>
+							<label value="邮政编码" />
+							<textbox id="postCode" width="93%" />
+							<label value="邮件地址" />
+							<textbox id="postAddress" width="93%" />
+						</row>
+						<row>
+							<label value="传真" />
+							<textbox id="fax" width="93%" />
+							<label value="QQ" />
+							<textbox id="qqNumber" width="93%" />
+						</row>
+						<row spans="1,3">
+							<label value="详细信息" />
+							<textbox id="contactDesc" width="97%" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+		</panelchildren>
+	</panel>
+</zk>

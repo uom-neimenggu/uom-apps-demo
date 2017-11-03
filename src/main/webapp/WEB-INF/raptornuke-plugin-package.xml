@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin-package PUBLIC "-//Raptornuke//DTD Plugin Package 2.0.0//EN" "http://www.raptornuke.ffcs.cn/dtd/raptornuke-plugin-package_2_0_0.dtd">
+<plugin-package>
+	<name>uom-apps</name>
+	<module-id>ffcs/uom-apps/2.1.0/war</module-id>
+	<types>
+		<type>portlet</type>
+	</types>
+	<short-description></short-description>
+	<change-log></change-log>
+	<page-url>http://www.ffcs.cn/</page-url>
+	<author>FFCS, Inc.</author>
+	<licenses>
+		<license osi-approved="false">FFCS Licenses</license>
+	</licenses>
+	<raptornuke-versions>
+		<raptornuke-version>2.1.0</raptornuke-version>
+	</raptornuke-versions>
+</plugin-package>

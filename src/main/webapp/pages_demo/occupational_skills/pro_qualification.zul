@@ -1,0 +1,161 @@
+<?page title="职业资格管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="人员编码" />
+						<textbox id="" width="80px" />
+						<label value="人员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员编码" width="8%" align="center" />
+					<listheader label="人员姓名" width="8%" align="center" />
+					<listheader label="证书编码" width="8%" align="center" />
+					<listheader label="评定机构" width="16%" align="center" />
+					<listheader label="岗位职业资格匹配度" width="12%" align="center" />
+					<listheader label="获得日期" width="12%" align="center" />
+					<listheader label="证书有效期" width="12%" align="center" />
+					<listheader label="创建时间" width="12%" align="center" />
+					<listheader label="备注" width="" align="center" />
+				</listhead>
+
+				<listitem>
+					<listcell label="34050080" />
+					<listcell label="琚红涛" />
+					<listcell label="0761003363400204" />
+					<listcell label="中华人民共和国劳动和社会保障部" />
+					<listcell label="1" />
+					<listcell label="2007-07-17" />
+					<listcell label="无" />
+					<listcell label="2016/7/7" />
+					<listcell label="电信机务员" />
+				</listitem>
+								<listitem>
+					<listcell label="34890043" />
+					<listcell label="秦虎" />
+					<listcell label="0211100133" />
+					<listcell label="安徽省计算机应用能力培训考核办公室" />
+					<listcell label="1" />
+					<listcell label="2002-01-17" />
+					<listcell label="无" />
+					<listcell label="2016-06-22" />
+					<listcell label="计算机系统操作工" />
+				</listitem>
+				<listitem>
+					<listcell label="34870082" />
+					<listcell label="曹海洋" />
+					<listcell label="0211100137" />
+					<listcell label="安徽省计算机应用能力考核办公室" />
+					<listcell label="1" />
+					<listcell label="2002-01-17" />
+					<listcell label="无" />
+					<listcell label="2016-06-22" />
+					<listcell label="小CEO初级认证" />
+				</listitem>
+				<listitem>
+					<listcell label="34010304" />
+					<listcell label="王勇强" />
+					<listcell label="JXDX-014" />
+					<listcell label="安徽省电信人力资源部" />
+					<listcell label="1" />
+					<listcell label="2002-11-22" />
+					<listcell label="无" />
+					<listcell label="2014-08-28" />
+					<listcell label="电信营业员" />
+				</listitem>
+				<listitem>
+					<listcell label="34840345" />
+					<listcell label="时君" />
+					<listcell label="0261307310112" />
+					<listcell label="信息产业部技能鉴定中心" />
+					<listcell label="1" />
+					<listcell label="2002-06-29" />
+					<listcell label="无" />
+					<listcell label="2014-08-29" />
+					<listcell label="市话测量员" />
+				</listitem>
+				<listitem>
+					<listcell label="34900277" />
+					<listcell label="白福云" />
+					<listcell label="111" />
+					<listcell label="安徽电信" />
+					<listcell label="1" />
+					<listcell label="2007-10-31" />
+					<listcell label="无" />
+					<listcell label="2014-08-29" />
+					<listcell label="工商管理持证" />
+				</listitem>
+				<listitem>
+					<listcell label="34970365" />
+					<listcell label="王琳" />
+					<listcell label="Z1035732009001289" />
+					<listcell label="安徽大学" />
+					<listcell label="1" />
+					<listcell label="2009-06-24" />
+					<listcell label="无" />
+					<listcell label="2016/7/7" />
+					<listcell label="政企客户经理" />
+				</listitem>
+				<listitem>
+					<listcell label="34050094" />
+					<listcell label="陈瑞勋" />
+					<listcell label="zqkh050094" />
+					<listcell label="安徽省电信公司" />
+					<listcell label="1" />
+					<listcell label="2007-10-17" />
+					<listcell label="无" />
+					<listcell label="2014-08-29" />
+					<listcell label="工商管理持证" />
+				</listitem>
+				<listitem>
+					<listcell label="34940215" />
+					<listcell label="崔松" />
+					<listcell label="20010701" />
+					<listcell label="信息产业部通信行业职业技能鉴定中心" />
+					<listcell label="1" />
+					<listcell label="2007-07-17" />
+					<listcell label="无" />
+					<listcell label="2016/7/7" />
+					<listcell label="线务员" />
+				</listitem>
+				<listitem>
+					<listcell label="34010006" />
+					<listcell label="郑辉" />
+					<listcell label="1173020225" />
+					<listcell label="省公司" />
+					<listcell label="1" />
+					<listcell label="2007-07-17" />
+					<listcell label="无" />
+					<listcell label="2016/7/7" />
+					<listcell label="政企客户经理" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

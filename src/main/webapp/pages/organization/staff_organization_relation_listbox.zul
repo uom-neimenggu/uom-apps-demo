@@ -1,0 +1,46 @@
+<?page title="员工归属关系" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffOrganizationRelationMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="staffOrganizationRelationMainWin" apply="${staffOrganizationRelationListboxComposer}" width="860px" height="380px">
+		<panel id="staffOrganizationRelationListboxPanel" vflex="1"  title="选择员工组织关系作为归属（主部门）">
+			<caption>
+				<toolbar align="end" sclass="toolbar-user" style="width:auto;float:right;">
+					<hbox>
+						<div id="soDiv" >
+							<hbox>
+								<toolbarbutton forward="onOk" id="okButton" label="确定" />
+							</hbox>
+						</div>						
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="staffOrganizationRelationListbox" sizedByContent="true" forward="onSelect=onStaffOrganizationRelationSelectRequest" vflex="1">
+					<listhead sizable="true">
+						<listheader label="员工标识" width="10%" align="center"/>
+						<listheader label="员工名称" width="10%" align="center"/>
+						<listheader label="OA账号" width="10%" align="center"/>
+						<listheader label="关联类型" width="14%" align="center"/>
+						<listheader label="组织全称" width="14%" align="center"/>
+						<listheader label="备注" width="14%" align="center"/>
+						<listheader label="生效时间" width="14%" align="center"/>
+						<listheader label="失效时间" width="14%" align="center"/>
+					</listhead>
+					<listitem self="@{each='current'}" value="@{current}">
+						<listcell label="@{current.staffId}" ></listcell>
+						<listcell label="@{current.staffName}"></listcell>
+						<listcell label="@{current.userCode}"> </listcell>
+						<listcell label="@{current.ralaCdName}"></listcell>
+						<listcell label="@{current.organizationName}"></listcell>
+						<listcell label="@{current.note}"></listcell>
+						<listcell label="@{current.effDate}"></listcell>
+						<listcell label="@{current.expDate}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="staffOrganizationRelationListPaging" pageSize="10"
+					forward="onQueryStaffOrganizationRelationPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

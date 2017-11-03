@@ -1,0 +1,38 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./roleProfessionalTreeListboxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<panel id="roleProfessionalTreeListboxComp" vflex="1">
+		<toolbar align="end" sclass="toolbar-user">
+			<div id="roleProfessionalTreeWindowDiv">
+				<hbox>
+					<toolbarbutton id="addRoleProfessionalTreeButton"
+						forward="onRoleProfessionalTreeAdd" label="新增" />
+					<toolbarbutton id="delRoleProfessionalTreeButton"
+						forward="onRoleProfessionalTreeDel" label="删除" />
+				</hbox>
+			</div>
+		</toolbar>
+		<panelchildren>
+			<listbox id="roleProfessionalTreeListBox"
+				forward="onSelect=onSelectRoleProfessionalTree" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="业务树名称" />
+					<listheader label="专业树名称" />
+					<listheader label="权限节点" />
+					<listheader label="生效时间" />
+					<listheader label="失效时间" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgTree.orgTreeName}"></listcell>
+					<listcell label="@{current.professionalTreeName}"></listcell>
+					<listcell label="@{current.organization.orgName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="roleProfessionalTreeListPaging" pageSize="10"
+				forward="onRoleProfessionalTreeListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

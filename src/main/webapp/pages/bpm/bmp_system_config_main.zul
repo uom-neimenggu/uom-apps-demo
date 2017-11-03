@@ -1,0 +1,100 @@
+<?page title="稽核系统配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./bmpSystemConfigMainWin" ?>
+<?component name="businessSystemListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.BusinessSystemListExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="bmpSystemConfigMainWin"
+		apply="${bmpSystemConfigMainComposer}" width="100%" height="100%">
+		<borderlayout>
+			<north size="50%">
+				<businessSystemListExt id="businessSystemListExt"
+					vflex="1">
+				</businessSystemListExt>
+			</north>
+			<center>
+				<tabbox height="100%">
+					<tabs>
+						<tab label="系统干系人" id="pricipalTab" />
+						<tab label="系统通知方式" id="systemInformTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="overflow: auto">
+							<div style="float :right">
+								<hbox>
+									<toolbarbutton
+										id="addPricipalButton" forward="onPricipalAdd"
+										label="新增" />
+									<toolbarbutton
+										id="delPricipalButton" forward="onPricipalDel"
+										label="删除" />
+								</hbox>
+							</div>
+							<div style="clear: both;"></div>
+							<listbox id="pricipalListBox"
+								forward="onSelect=onSelectPricipalListBox" vflex="1">
+								<listhead sizable="true">
+									<listheader label="干系人标识" />
+									<listheader label="干系人名称" />
+									<listheader label="联系号码" />
+									<listheader label="邮箱" />
+									<listheader label="排序号" />
+									<listheader label="是否在用标记" />
+								</listhead>
+								<listitem self="@{each='current'}"
+									value="@{current}">
+									<listcell
+										label="@{current.execSctIdenti}">
+									</listcell>
+									<listcell
+										label="@{current.perOfPass}">
+									</listcell>
+									<listcell label="@{current.salt}">
+									</listcell>
+									<listcell
+										label="@{current.updateDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+						</tabpanel>
+						<tabpanel style="overflow: auto">
+							<div style="float :right">
+								<hbox>
+									<toolbarbutton
+										id="addSystemInformButton" forward="onSystemInformAdd"
+										label="新增" />
+									<toolbarbutton
+										id="delSystemInformButton" forward="onSystemInformDel"
+										label="删除" />
+								</hbox>
+							</div>
+							<div style="clear: both;"></div>
+							<listbox id="systemInformListBox"
+								forward="onSelect=onSelectSystemInformListBox" vflex="1">
+								<listhead sizable="true">
+									<listheader label="系统标识" />
+									<listheader label="通知方式" />
+								</listhead>
+								<listitem self="@{each='current'}"
+									value="@{current}">
+									<listcell
+										label="@{current.execSctIdenti}">
+									</listcell>
+									<listcell
+										label="@{current.perOfPass}">
+									</listcell>
+								</listitem>
+							</listbox>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

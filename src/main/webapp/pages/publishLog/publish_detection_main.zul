@@ -1,0 +1,23 @@
+<?page title="接口日志" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./publishDetectionMainWin"?>
+<?component name="staffPublishDetectionListbox" extends="div" class="cn.ffcs.uom.publishLog.action.StaffPublishDetectionListboxComposer"?>
+<?component name="orgPublishDetectionListbox" extends="div" class="cn.ffcs.uom.publishLog.action.OrgPublishDetectionListboxComposer"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="publishDetectionMainWin" width="800px"  closable="true" apply="${publishDetectionComposer}">
+	    <tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab label="员工类" id="staffTypeTab" forward="onClickTab" />
+						<tab label="组织类" id="orgTypeTab" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" height='400px'>
+							<staffPublishDetectionListbox id="staffPublishDetectionListbox" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" height='400px'>
+							<orgPublishDetectionListbox id="orgPublishDetectionListbox" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+	</window>
+</zk>

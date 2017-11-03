@@ -1,0 +1,61 @@
+<?page title="系统接口信息配置" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemIntfInfoConfigListPanel"?>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" id="systemIntfInfoConfigListPanel"
+			height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton
+								id="addSystemIntfInfoConfigButton"
+								forward="onSystemIntfInfoConfigAdd" label="新增" />
+							<toolbarbutton
+								id="editSystemIntfInfoConfigButton"
+								forward="onSystemIntfInfoConfigEdit" label="修改" />
+							<toolbarbutton
+								id="delSystemIntfInfoConfigButton"
+								forward="onSystemIntfInfoConfigDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="systemIntfInfoConfigListBox"
+					forward="onSelect=onSystemIntfInfoConfigSelect" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="系统编码" />
+						<listheader label="消息类型" />
+						<listheader label="全量开关" />
+						<listheader label="增量开关" />
+						<listheader label="OIP编码" />
+						<listheader label="OIP地址" />
+						<listheader label="方法名称" />
+						<listheader label="参数名称" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.systemCode}"></listcell>
+						<listcell label="@{current.msgType}"></listcell>
+						<listcell
+							label="@{current.intfSwitchAllName}">
+						</listcell>
+						<listcell
+							label="@{current.intfSwitchIncreaseName}">
+						</listcell>
+						<listcell label="@{current.serviceCode}"></listcell>
+						<listcell label="@{current.oipUrl}"></listcell>
+						<listcell label="@{current.operationName}"></listcell>
+						<listcell label="@{current.paramName}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="systemIntfInfoConfigListPaging"
+					pageSize="10" forward="onSystemIntfInfoConfigListboxPaging" />
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

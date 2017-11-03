@@ -1,0 +1,66 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./gridUnitListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="gridUnitListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="gridUnitSearchDiv">
+					<hbox>
+						<label value="全息网格标识" />
+						<longbox id="mmeFid" width="85px" />
+						<label value="网格单元名称" />
+						<textbox id="gridName" width="85px" />
+						<button label="查询" forward="onQueryGridUnit"
+							autodisable="self" mold="trendy" />
+						<button label="重置" forward="onResetGridUnit"
+							autodisable="self" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="gridUnitBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeGridUnitButton"
+							label="关闭" forward="onCloseGridUnit" />
+						<toolbarbutton id="cleanGridUnitButton"
+							label="清空" forward="onCleanGridUnit" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="gridUnitListbox" style="height:200px"
+				forward="onSelect=onSelectGridUnitRequest">
+				<listhead sizable="true">
+					<listheader label="网格单元标识" />
+					<listheader label="全息网格标识" />
+					<listheader label="网格单元名称" />
+					<listheader label="区域名称" />
+					<listheader label="子区域名称" />
+					<listheader label="网格单元大类" />
+					<listheader label="网格单元小类" />
+					<listheader label="状态" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.gridUnitId}">
+					<listcell label="@{current.gridUnitId}"></listcell>
+					<listcell label="@{current.mmeFid}"></listcell>
+					<listcell label="@{current.gridName}"></listcell>
+					<listcell label="@{current.areaName}"></listcell>
+					<listcell label="@{current.subareaName}"></listcell>
+					<listcell label="@{current.gridType}"></listcell>
+					<listcell label="@{current.gridSubtype}"></listcell>
+					<listcell label="@{current.statusCdName}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="gridUnitListboxPaging"
+				forward="onGridUnitListboxPaging" pageSize="14" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,39 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeConfigEditWin" ?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="orgTreeConfigEditWin" border="none" apply="${orgTreeConfigEditComposer}" closable="true" width="280px" height="125px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="28%" />
+							<column width="58%" />
+							<column width="14%" />
+						</columns>
+						<rows>
+							<row id="orgRelaCdRow">
+								<label value="关系类型" />
+								<treeChooserBandbox id="orgRelaCd" range="end" mode="single" className="OrganizationRelation" attrName="relaCd" pattern="2,2" width="97%">
+								</treeChooserBandbox>
+								<label></label>
+							</row>
+							<row id="orgTypeCdMultipleRow">
+								<label value="组织类型" />
+								<treeChooserBandbox id="orgTypeCd" range="end" mode="multiple" className="OrgType" attrName="orgTypeCd" pattern="3,2,2,2,2" width="97%">
+								</treeChooserBandbox>
+								<label></label>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

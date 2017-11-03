@@ -1,0 +1,63 @@
+<?page title="全息网格单元树" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./gridSeventeenUnitTreeMainWindow" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="marketingTreeExt" extends="div" class="cn.ffcs.uom.organization.component.NewSeventeenMarketingTreeExt"?>
+<?component name="organizationInfoEditExt" extends="div" class="cn.ffcs.uom.organization.action.OrganizationInfoEditExt"?>
+<?component name="gridUnitRefListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.GridUnitRefListboxExt"?>
+<?component name="staffOrgTranListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffOrgTranListboxExt"?>
+
+<window id="gridSeventeenUnitTreeMainWindow" apply="${gridSeventeenUnitTreeMainComposer}"
+	vflex="1" width="100%" height="100%">
+	<borderlayout>
+		<west width="22%">
+			<tabbox id="leftTabbox" vflex="1">
+				<tabs>
+					<tab id="gridUnitTab" label="全息网格单元管理界面"
+						forward="onClickLeftTab" />
+					<tab id="tempTab" visible="false" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1" id="gridUnitTabpanel">
+						<marketingTreeExt id="marketingTreeExt"
+							vflex="1" />
+					</tabpanel>
+					<tabpanel id="tempTabpanel" />
+				</tabpanels>
+			</tabbox>
+		</west>
+		<center vflex="1">
+			<tabbox id="tabBox" vflex="1">
+				<tabs>
+					<tab id="orgAttrTab" label="组织属性"
+						forward="onClickTab" />
+					<tab id="gridUnitRefTab" label="组织关系"
+						forward="onClickTab" />
+				</tabs>
+				<tabpanels>
+					<tabpanel vflex="1">
+						<organizationInfoEditExt
+							id="organizationInfoEditExt" vflex="1" isAgentTab="false"
+							isMarketingTab="true" />
+					</tabpanel>
+					<tabpanel vflex="1">
+						<gridUnitRefListboxExt
+							id="gridUnitRefListboxExt" vflex="1" />
+						<tabbox id="tabBoxGridUnit" vflex="1">
+							<tabs>
+								<tab id="staffOrgTranTab"
+									label="员工组织业务关系" forward="onClickGridUnitTab" />
+							</tabs>
+							<tabpanels>
+								<tabpanel style="padding:1px;"
+									vflex="1">
+									<staffOrgTranListboxExt
+										id="staffOrgTranListboxExt" vflex="1" />
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</center>
+	</borderlayout>
+</window>

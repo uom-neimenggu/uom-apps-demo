@@ -1,0 +1,84 @@
+<?page title="职位列表" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./positionPanel"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="positionPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="positionSearchWindowDiv">
+					<hbox>
+						<label value="职位编码：" />
+						<textbox id="positionCode" width="100px" />
+						<label value="职位名称：" />
+						<textbox id="positionName" width="100px" />
+						<label value="职位类型" />
+						<listbox id="positionType" mold="select"
+							width="100px">
+						</listbox>
+						<button id="queryPosition" label="查询"
+							forward="onQueryPosition"  mold="trendy"/>
+						<button id="resetPosition" label="重置"
+							forward="onResetPosition"  mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="positionWindowDiv" style="float:left;">
+					<hbox>
+						<toolbarbutton forward="onPositionAdd"
+							id="addPositionButton" label="新增" />
+						<toolbarbutton forward="onPositionView"
+							id="viewPositionButton" label="查看" />
+						<toolbarbutton forward="onPositionEdit"
+							id="editPositionButton" label="修改" />
+						<toolbarbutton forward="onPositionDel"
+							id="delPositionButton" label="删除" />
+					</hbox>
+				</div>
+				<div id="positionBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closePosiitonButton"
+							label="关闭" forward="onClosePosition" />
+						<toolbarbutton id="cleanPositionButton"
+							label="清空" forward="onCleanPosition" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren >
+			<listbox id="positionListbox" vflex="1"
+				forward="onSelect=onPositionSelectRequest" >
+				<listhead sizable="true">
+					<listheader label="职位编码" />
+					<listheader label="职位名称" />
+					<listheader label="职位类型" />
+					<listheader label="职位描述" />
+					<listheader label="状态" />
+					<listheader label="生效时间" sclass="listheader-time-width"/>
+					<listheader label="失效时间" sclass="listheader-time-width"/>
+				</listhead>
+				<listitem self="@{each='position'}"
+					value="@{position}">
+					<listcell label="@{position.positionCode}">
+					</listcell>
+					<listcell label="@{position.positionName}">
+					</listcell>
+					<listcell label="@{position.positionTypeName}">
+					</listcell>
+					<listcell label="@{position.positionDesc}">
+					</listcell>
+					<listcell label="@{position.statusCdName}">
+					</listcell>
+					<listcell label="@{position.effDateStr}"></listcell>
+					<listcell label="@{position.expDateStr}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="positionListboxPaging"
+				forward="onPositionListboxPaging" pageSize="16">
+			</paging>
+		</panelchildren>
+	</panel>
+</zk>

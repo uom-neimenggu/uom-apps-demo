@@ -1,0 +1,18 @@
+<?page title="内部组织选择" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./politicalRelationTreeMainWin" ?>
+<zk>
+<window id="politicalRelationTreeMainWin"  apply="${politicalRelationTreeMainComposer}"  height="450px" width="400px">
+	<panel vflex="1">
+			<panelchildren>
+				<tree width="100%" vflex="1" id = "politicalRelationTree" multiple="false" checkmark="false">
+				 <treechildren/>
+				</tree>
+				<toolbar id="politicalRelationTreeToolbar" mold="panel" align="center">
+					<button label="确定" width="65px" id="okButton" forward="onOk"></button>
+					<button label="取消" width="65px" id="cancelButton" forward="onCancel"></button>
+				</toolbar>
+			</panelchildren>
+		</panel>
+</window>
+</zk>

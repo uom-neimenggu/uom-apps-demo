@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.rolePermission.model.LocalNetwork"
+		table="LOCAL_NETWORK">
+		<comment>本地网ID</comment>
+		<id name="localNetworkId" type="java.lang.Long">
+			<column name="LOCAL_NETWORK_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_LOCAL_NETWORK_ID</param>
+			</generator>
+		</id>
+		<property name="localNetworkCode" type="java.lang.String">
+			<column name="LOCAL_NETWORK_CODE" length="30">
+				<comment>本地网编码</comment>
+			</column>
+		</property>
+		<property name="localNetworkName" type="java.lang.String">
+			<column name="LOCAL_NETWORK_NAME" length="250">
+				<comment>本地网名称</comment>
+			</column>
+		</property>
+		<property name="localNetworkDesc" type="java.lang.String">
+			<column name="LOCAL_NETWORK_DESC" length="250">
+				<comment>本地网描述</comment>
+			</column>
+		</property>
+		<property name="localNetworkType" type="java.lang.String">
+			<column name="LOCAL_NETWORK_TYPE" length="6">
+				<comment>本地网类型</comment>
+			</column>
+		</property>
+		<property name="localNetworkAbbr" type="java.lang.String">
+			<column name="LOCAL_NETWORK_ABBR" length="30">
+				<comment>本地网简拼</comment>
+			</column>
+		</property>
+		<property name="upLocalNetworkId" type="java.lang.Long">
+			<column name="UP_LOCAL_NETWORK_ID" length="12">
+				<comment>上级本地网标识</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

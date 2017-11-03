@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.rolePermission.model.RbacRoleOrganization"
+		table="RBAC_ROLE_ORGANIZATION">
+		<comment>角色组织标识</comment>
+		<id name="rbacRoleOrgId" type="java.lang.Long">
+			<column name="RBAC_ROLE_ORG_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_RBAC_ROLE_ORG_ID</param>
+			</generator>
+		</id>
+		<property name="rbacRoleId" type="java.lang.Long">
+			<column name="RBAC_ROLE_ID" length="12">
+				<comment>角色ID</comment>
+			</column>
+		</property>
+		<property name="rbacOrgId" type="java.lang.Long">
+			<column name="RBAC_ORG_ID" length="12">
+				<comment>组织ID</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

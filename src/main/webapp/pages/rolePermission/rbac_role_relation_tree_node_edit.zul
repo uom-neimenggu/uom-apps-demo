@@ -1,0 +1,31 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacRoleBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacRoleBandboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacRoleRelationTreeNodeEditWindow" ?>
+<zk>
+	<window id="rbacRoleRelationTreeNodeEditWindow" border="none"
+		width="260px" closable="true"
+		apply="${rbacRoleRelationTreeNodeEditComposer}">
+		<grid>
+			<columns>
+				<column width="28%" />
+				<column width="58%" />
+				<column width="14%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="角色" />
+					<rbacRoleBandboxExt id="rbacRoleBandboxExt"
+						width="97%" />
+					<toolbarbutton id="addRbacRoleBtn"
+						image="/public/images/pub_button/add.png" tooltiptext="新增"
+						forward="onAddRbacRole" />
+				</row>
+			</rows>
+		</grid>
+		<div align="center" style="padding:5px;">
+			<button id="onAdd" label="确定" forward="onAdd"
+				autodisable="self" />
+			<button id="onCancel" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

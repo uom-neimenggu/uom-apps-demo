@@ -1,0 +1,72 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffOrgTranListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="staffOrgTranListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="staffOrgTranSearchDiv">
+					<hbox>
+						<label value="员工姓名" />
+						<textbox id="staffName" width="85px" />
+						<label value="员工账号" />
+						<textbox id="staffAccount" width="85px" />
+						<button label="查询" forward="onQueryStaffOrgTran"
+							autodisable="self" mold="trendy" />
+						<button label="重置" forward="onResetStaffOrgTran"
+							autodisable="self" mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar height="5px" align="end">
+				<hbox>
+					<div id="staffOrgTranBandboxDiv">
+						<hbox>
+							<toolbarbutton forward="onStaffOrgTranAdd"
+								id="addStaffOrgTranButton" label="新增" />
+							<toolbarbutton upload="true,maxsize=300"
+								id="uploadButton" label="导入" />
+							<toolbarbutton id="downloadButton"
+								forward="onDownloadTemplate" label="模板下载" />
+							<toolbarbutton forward="onStaffOrgTranDel"
+								id="delStaffOrgTranButton" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="staffOrgTranListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onStaffOrgTranSelectRequest"
+				vflex="1">
+				<listhead sizable="true">
+					<listheader label="员工标识" />
+					<listheader label="员工姓名" />
+					<listheader label="员工账号" />
+					<listheader label="组织" />
+					<listheader label="关联类型" />
+					<listheader label="员工排序" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+					<listheader label="失效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.staffId}">
+					<listcell label="@{current.staffId}"></listcell>
+					<listcell label="@{current.staffName}"></listcell>
+					<listcell label="@{current.staffAccount}"></listcell>
+					<listcell label="@{current.organizationName}"></listcell>
+					<listcell label="@{current.ralaCdName}"></listcell>
+					<listcell label="@{current.staffSort}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+					<listcell label="@{current.expDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="staffOrgTranListboxPaging"
+				forward="onStaffOrgTranListboxPaging" pageSize="5" />
+		</panelchildren>
+	</panel>
+</zk>

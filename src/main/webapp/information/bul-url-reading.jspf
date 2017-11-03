@@ -1,0 +1,1 @@
+<input type="hidden" id="<cj:pn/>info-center-url" value="<%= ((String[])portletPreferencesValues.get("infoCenterUrl"))[0] %>"></input>

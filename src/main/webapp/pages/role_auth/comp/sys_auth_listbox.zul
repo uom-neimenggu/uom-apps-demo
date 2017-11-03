@@ -1,0 +1,55 @@
+<?page title="系统权限列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysAuthMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="sysAuthMainWin" apply="${sysAuthListboxComposer}" height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="width:auto;float:left;">
+				<div id="searchDiv">
+					<hbox>
+						<label value="系统编码" />
+						<textbox id="clientCode" width="95px" />
+						<label value="系统名称" />
+						<textbox id="sysName" width="95px" />
+						<button label="查询" forward="onQuery" autodisable="self" mold="trendy"/>
+						<button label="重置" forward="onReset" autodisable="self" mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton
+							id="addButton" label="新增"
+							forward="onAdd" />
+						<toolbarbutton
+							id="delButton" label="删除"
+							forward="onDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="sysAuthListbox" forward="onSelect=onSysAuthoritySelectRequest" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="权限名称" />
+						<listheader label="系统名称" />
+						<listheader label="系统编码" />
+					</listhead>
+					<listitem self="@{each='sysAuthRela'}" value="@{sysAuthRela}">
+						<listcell
+							label="@{sysAuthRela.authority.authorityName}">
+						</listcell>
+						<listcell
+							label="@{sysAuthRela.sysList.sysName}">
+						</listcell>
+						<listcell
+							label="@{sysAuthRela.sysList.clientCode}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="sysAuthListboxPaging" pageSize="10" forward="onSysAuthListListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

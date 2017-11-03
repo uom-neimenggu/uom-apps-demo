@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	<!-- 配置控制运行时间 -->
+	<bean id="ftpInfoInformScheduledTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<!-- wait 10 seconds before starting repeated execution -->
+		<property name="delay" value="20000" />
+		<!-- run every 60 seconds -->
+		<property name="period" value="60000" />
+		<property name="timerTask" ref="ftpInfoInformTimerTask" />
+	</bean>
+	<bean id="ftpUploadScheduledTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<!-- wait 10 seconds before starting repeated execution -->
+		<property name="delay" value="10000" />
+		<!-- run every 60 seconds -->
+		<property name="period" value="60000" />
+		<property name="timerTask" ref="ftpFileUpLoadTimerTask" />
+	</bean>
+	<!-- 系统数据监控管理 -->
+	<bean id="systemMonitorScheduledTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<!-- wait 10 seconds before starting repeated execution -->
+		<property name="delay" value="10000" />
+		<!-- run every 5 seconds -->
+		<property name="period" value="5000" />
+		<property name="timerTask" ref="systemMonitorTimerTask" />
+	</bean>
+	<!-- 上传文件,生成接口实例 -->
+	<bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="ftpInfoInformScheduledTimerTask" />
+				<ref bean="ftpUploadScheduledTimerTask" />
+				<ref bean="systemMonitorScheduledTimerTask" />
+			</list>
+		</property>
+	</bean>
+
+	<task:scheduled-tasks>
+		<!-- 每天1点发布全量 -->
+		<task:scheduled ref="ftpFileFullSyncManager" method="createFullSyncData"
+			cron="0 0 1 * * ?" />
+		<!-- 30秒后每隔30分钟对所有树进行一次增量发布 <task:scheduled ref="publishTaskScheduled" 
+			method="publishAndCreateSyncData" cron="30 0/30 * * * ?" /> -->
+		<!-- 每天8点30分发送邮件 -->
+		<task:scheduled ref="sendMailManager" method="sendMail"
+			cron="0 30 8 * * ?" />
+	</task:scheduled-tasks>
+
+</beans>

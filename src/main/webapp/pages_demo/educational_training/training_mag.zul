@@ -1,0 +1,128 @@
+<?page title="培训管理" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="人员编码" />
+						<textbox id="" width="80px" />
+						<label value="人员姓名" />
+						<textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton label="查看" />
+							<toolbarbutton label="新增" />
+							<toolbarbutton label="修改" />
+							<toolbarbutton label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员编码" width="10%" align="center" />
+					<listheader label="人员姓名" width="10%" align="center" />
+					<listheader label="培训地点" width="12%" align="center" />
+					<listheader label="培训目标" width="22%" align="center" />
+					<listheader label="培训欢动名称" width="26%" align="center" />
+					<listheader label="培训费用" width="16%" align="center" />
+				</listhead>
+
+				<listitem>
+					<listcell label="34050080" />
+					<listcell label="琚红涛" />
+					<listcell label="上海" />
+					<listcell label="" />
+					<listcell label="中兴FDDLTE网优B级" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34890043" />
+					<listcell label="秦虎" />
+					<listcell label="杭州" />
+					<listcell label="" />
+					<listcell label="华为LTE无线网络规划与优化培训" />
+					<listcell label="50377" />
+				</listitem>
+				<listitem>
+					<listcell label="34870082" />
+					<listcell label="曹海洋" />
+					<listcell label="福建" />
+					<listcell label="" />
+					<listcell label="华为LTE操作维护中级" />
+					<listcell label="28774" />
+				</listitem>
+				<listitem>
+					<listcell label="34010304" />
+					<listcell label="王勇强" />
+					<listcell label="上海" />
+					<listcell label="" />
+					<listcell label="华为LTE无线网络规划与优化培训" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34840345" />
+					<listcell label="时君" />
+					<listcell label="江苏" />
+					<listcell label="掌握实体渠道3G升4G及近期重点政策" />
+					<listcell label="实体渠道3G升4G及近期重点政策培训班" />
+					<listcell label="28744" />
+				</listitem>
+				<listitem>
+					<listcell label="34900277" />
+					<listcell label="白福云" />
+					<listcell label="江苏" />
+					<listcell label="" />
+					<listcell label="华为LTE操作维护中级" />
+					<listcell label="28744" />
+				</listitem>
+				<listitem>
+					<listcell label="34970365" />
+					<listcell label="王琳" />
+					<listcell label="杭州" />
+					<listcell label="" />
+					<listcell label="华为LTE无线网络规划与优化高级培训班" />
+					<listcell label="78774" />
+				</listitem>
+				<listitem>
+					<listcell label="34050094" />
+					<listcell label="陈瑞勋" />
+					<listcell label="杭州" />
+					<listcell label="" />
+					<listcell label="华为LTE无线网络规划与优化培训" />
+					<listcell label="50377" />
+				</listitem>
+				<listitem>
+					<listcell label="34940215" />
+					<listcell label="崔松" />
+					<listcell label="上海" />
+					<listcell label="掌握实体渠道3G升4G及近期重点政策" />
+					<listcell label="实体渠道3G升4G及近期重点政策培训班" />
+					<listcell label="0" />
+				</listitem>
+				<listitem>
+					<listcell label="34010006" />
+					<listcell label="郑辉" />
+					<listcell label="厦门" />
+					<listcell label="" />
+					<listcell label="华为LTE操作维护中级" />
+					<listcell label="28774" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

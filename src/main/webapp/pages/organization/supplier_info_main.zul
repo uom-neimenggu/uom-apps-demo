@@ -1,0 +1,11 @@
+<?page title="供应商借款方银行信息" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./supplierInfoMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="groupOrganizationListboxExt" extends="div" class="cn.ffcs.uom.organization.action.GroupOrganizationListboxExt"?>
+<zk>
+	<window id="supplierInfoMainWin" apply="${supplierInfoMainComposer}"
+		width="1060px" title="供应商借款方银行信息" closable="true">
+		<groupOrganizationListboxExt id="groupOrganizationListboxExt"
+			vflex="1" />
+	</window>
+</zk>

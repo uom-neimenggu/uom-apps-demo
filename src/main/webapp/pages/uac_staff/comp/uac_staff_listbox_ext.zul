@@ -1,0 +1,74 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./uacStaffListboxExtPanel" ?>
+<zk>
+	<panel id="uacStaffListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="人员编码" />
+					<textbox id="ecode" width="80px" />
+					<!-- 
+					<label value="认证账号" />
+					<textbox id="account" width="80px" />
+					 -->
+					<label value="人员姓名" />
+					<textbox id="staffName" width="80px" />
+					<toolbarbutton label="查询" forward="onQuery"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton forward="onView"
+								id="viewUacStaffButton" label="查看" />
+							<toolbarbutton forward="onAdd"
+								id="addUacStaffButton" label="新增" />
+							<toolbarbutton forward="onEdit"
+								id="editUacStaffButton" label="修改" />
+							<toolbarbutton forward="onDel"
+								id="delUacStaffButton" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:700px" >
+				<listhead sizable="true">
+					<listheader label="人员名" width="8%" align="center" />
+					<listheader label="认证账号" width="8%" align="center" />
+					<listheader label="人员编码" width="9%" align="center" />
+					<listheader label="人员性质" width="10%" align="center" />
+					<listheader label="人力工号" width="15%" align="center" />
+					<listheader label="GUID" width="9%" align="center" />
+					<listheader label="UUID" width="9%" align="center" />
+					<listheader label="OSS定制标识" width="10%" align="center" />
+					<listheader label="单据标识" width="10%" align="center" />
+					<listheader label="生效时间" width="10%" align="center" />
+				</listhead>
+				<listitem self="@{each='staff'}" value="@{staff}"
+					tooltiptext="@{staff.staffName}">
+					<listcell label="@{staff.staffName}" />
+					<listcell label="@{staff.account}" />
+					<listcell label="@{staff.ecode}" />
+					<listcell label="@{staff.propertyName}" />
+					<listcell label="@{staff.hrCode}" />
+					<listcell label="@{staff.guid}" />
+					<listcell label="@{staff.uuid}" />
+					<listcell label="@{staff.ossId}" />
+					<listcell label="@{staff.transactionRecord}" />
+					<listcell label="@{staff.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="uacStaffListboxPaging"
+				forward="onListboxPaging" pageSize="15" />
+		</panelchildren>
+	</panel>
+</zk>

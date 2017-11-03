@@ -1,0 +1,9 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationImportResultWindow"?>
+<zk>
+	<window id="organizationImportResultWindow" border="none" apply="${organizationImportResultComposer}" width="750px" closable="true">
+		<div style="height:490px;overflow:auto">
+			<textbox width="98%" height="98%" multiline="true"  id="organizationImportInfo"/> 
+		</div>
+	</window>
+</zk>

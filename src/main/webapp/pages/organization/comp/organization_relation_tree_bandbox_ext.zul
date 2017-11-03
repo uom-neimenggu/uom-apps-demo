@@ -1,0 +1,21 @@
+<?page title="组织关系树" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationRelationTree" extends="tree" class="cn.ffcs.uom.organization.component.OrganizationRelationTree"?>
+<zk>
+	<bandpopup width="300px" height="100%">
+		<panel vflex="1">
+			<panelchildren>
+				<organizationRelationTree id="organizationRelationTree"
+					width="100%" height="300px" checkmark="false" multiple="false"
+					zclass="z-dottree" perPageDataPermissionRootOrgId="9999999999"
+					isAgent="${arg.isAgent}" isIbe="${arg.isIbe}">
+				</organizationRelationTree>
+				<toolbar visible="false"
+					id="organizationRelationTreeBandboxToolbar" mold="panel"
+					align="center">
+					<button label="确定" width="65px" id="okButton"></button>
+					<button label="取消" width="65px" id="cancelButton"></button>
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

@@ -1,0 +1,116 @@
+<?component name="partyBandboxExt" extends="bandbox" class="cn.ffcs.uom.party.component.PartyBandboxExt"?>
+<?component name="positionBandboxExt" extends="bandbox" class="cn.ffcs.uom.position.component.PositionBandboxExt"?>
+<?component name="staffExtendAttrExt" extends="div" class="cn.ffcs.uom.staff.component.StaffExtendAttrExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?component name="staffRoleBandboxExt" extends="bandbox" class="cn.ffcs.uom.staffrole.component.StaffRoleTreeBandboxExt" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="staffEditComposer" border="none"
+		apply="${staffEditComposer}" width="650px" closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 员工名称"
+								class="z-info-required" />
+							<textbox id="staffName"
+								onChanging="partyBandboxExt.setValue(event.value)" width="92%" />
+							<label value="* 参与人"
+								class="z-info-required" />
+							<partyBandboxExt id="partyBandboxExt"
+								onChanging="staffName.value = event.value" width="94%" />
+						</row>
+						<row>
+							<label value="* 人员属性"
+								class="z-info-required" />
+							<treeChooserBandbox id="staffProperty"
+								range="any" mode="single" className="Staff" attrName="staffProperty"
+								pattern="4,1" width="94%" />
+							<label value="* 用工性质"
+								class="z-info-required" />
+							<treeChooserBandbox id="workProp"
+								range="any" mode="single" className="Staff" attrName="workProp"
+								pattern="4,1" width="94%" />
+						</row>
+						<row>
+							<label value="* 员工职位"
+								class="z-info-required" />
+							<listbox id="staffPosition" mold="select"
+								width="95%" />
+							<label value="职务标注" />
+							<textbox id="titleNote" width="93%" />
+						</row>
+						<row>
+							<label value="员工编码" />
+							<textbox id="staffCode" width="93%"
+								disabled="true" />
+							<label value="兼职/全职" />
+							<listbox id="partTime" mold="select"
+								width="95%" disabled="true" />
+						</row>
+
+						<row>
+							<label value="* 手机号码" class="z-info-required"/>
+							<textbox id="" width="93%" />
+							<label value="* 邮　　箱" class="z-info-required"/>
+							<textbox id="" width="92%" />
+						</row>
+											
+						<row>
+							<label value="角　　色" />
+							<staffRoleBandboxExt mode="multiple" id="staffRoleBandboxExt" width="94%" />
+							<label value="员工描述" />
+							<textbox id="staffDesc" width="92%" />
+						</row>
+						<row spans="1,3">
+							<label value="* 变更原因"
+								class="z-info-required" />
+							<textbox id="reason" width="97%" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<panel title="员工账号">
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="员工账号" />
+							<textbox id="staffAccount" disabled="true"
+								width="94%" />
+							<label value="员工密码" />
+							<textbox id="staffPassword" width="94%"
+								type="password" disabled="true" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<panel title="员工扩展属性" visible="true">
+			<panelchildren>
+				<staffExtendAttrExt id="staffExtendAttrExt" width="94%" />
+			</panelchildren>
+		</panel>
+
+		<toolbar id="btnToolBar" align="center" mold="panel">
+			<toolbarbutton id="saveStaff" label="确定" forward="onOk" />
+			<toolbarbutton id="cancelStaff" label="取消"
+				forward="onCancel" />
+		</toolbar>
+	</window>
+</zk>

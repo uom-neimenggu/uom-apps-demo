@@ -1,0 +1,98 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationListboxComp"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="organizationListboxComp" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="组织性质" visible="false" />
+				<listbox id="orgType" mold="select" visible="false" />
+				<label value="存在类型" visible="false" />
+				<listbox id="existType" mold="select" visible="false" />
+				<label value="电信管理区域" />
+				<telcomRegionTreeBandbox id="telcomRegion" width="85px" />
+				<label value="组织编码" />
+				<textbox id="orgCode" width="85px" />
+				<label value="组织名称" />
+				<textbox id="orgName" width="210px" />
+				<button label="查询" forward="onQueryOrganization"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onResetOrganization"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="organizationWindowDiv">
+					<hbox>
+						<toolbarbutton id="importOrganizationButton"
+							forward="onOrganizationImport" label="导入" />
+						<toolbarbutton id="addOrganizationButton"
+							forward="onOrganizationAdd" label="新增" />
+						<toolbarbutton forward="onOrganizationUpdate"
+							id="updateOrganizationButton" label="更新" />
+						<toolbarbutton
+							forward="onOrganizationRelaUpdate"
+							id="updateOrganizationRelaButton" label="渠道关系更新" />
+						<toolbarbutton id="showOrganizationButton"
+							forward="onOrganizationShow" label="查看" />
+						<toolbarbutton id="editOrganizationButton"
+							forward="onOrganizationEdit" label="修改" />
+						<toolbarbutton id="delOrganizationButton"
+							forward="onOrganizationDel" label="删除" />
+						<toolbarbutton id="addPartyButton"
+							forward="onAddParty" label="新增参与人" />
+					</hbox>
+				</div>
+				<div id="organizationBandboxDiv" visible="false">
+					<hbox>
+						<toolbarbutton id="closeOrganizationButton"
+							label="关闭" forward="onCloseOrganization" />
+						<toolbarbutton id="cleanOrganizationButton"
+							label="清空" forward="onCleanOrganization" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="organizationListBox" style="height:400px"
+				forward="onSelect=onOrganizationSelect" mold="paging">
+				<listhead sizable="true">
+					<listheader label="组织ID" width="80px" />
+					<listheader label="组织FIXID" width="80px" />
+					<listheader label="组织编码" width="115px" />
+					<listheader label="组织UUID" />
+					<listheader label="组织名称" />
+					<listheader label="组织全称" />
+					<listheader label="组织类型" width="90px" />
+					<!--<listheader label="组织级别" width="62px" />  -->
+					
+					<!--<listheader label="组织规模" width="65px" /> -->
+					<listheader label="行政区域" width="80px" visible="false"/>
+					<listheader label="组织状态" width="62px" />
+					<listheader label="生效时间" width="120px" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgId}"></listcell>
+					<listcell label="@{current.orgFixId}"></listcell>
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.uuid}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.orgFullName}"></listcell>
+					<listcell label="@{current.organizationTypeName}"></listcell>
+					<!--<listcell label="@{current.orgLeaveName}"></listcell>-->
+					<!--<listcell label="@{current.orgScaleName}"></listcell>-->
+					<listcell
+						label="@{current.politicalLocation.locationName}">
+					</listcell>
+					<listcell label="@{current.statusCdName}">
+					</listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="organizationListPaging" pageSize="10"
+				forward="onOrganizationListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

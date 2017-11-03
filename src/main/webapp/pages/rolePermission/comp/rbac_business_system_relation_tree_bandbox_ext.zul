@@ -1,0 +1,19 @@
+<?page title="业务系统树" contentType="text/html;charset=UTF-8"?>
+<?component name="rbacBusinessSystemRelationTree" extends="tree" class="cn.ffcs.uom.rolePermission.component.RbacBusinessSystemRelationTree"?>
+<zk>
+	<bandpopup width="300px" height="300px">
+		<panel vflex="1">
+			<panelchildren vflex="1">
+				<rbacBusinessSystemRelationTree
+					id="rbacBusinessSystemRelationTree" vflex="1" checkmark="true"
+					multiple="true" zclass="z-dottree">
+				</rbacBusinessSystemRelationTree>
+				<toolbar mold="panel" align="center">
+					<button label="确定" width="65px" id="okButton"></button>
+					<button label="取消" width="65px" id="cancelButton">
+					</button>
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</bandpopup>
+</zk>

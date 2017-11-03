@@ -1,0 +1,49 @@
+<?page title="全量增量发布" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./allOrSyncPublishMainWin"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="allOrSyncPublishMainWin" border="none"
+		apply="${allOrSyncPublishComposer}" width="650px" closable="true">
+		<div style="height:450px;overflow:auto;">
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="15%" align="center" />
+							<column width="35%" />
+							<column width="15%" align="center" />
+							<column width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="组织树Id" />
+								<longbox id="orgTreeId" width="93%">
+								</longbox>
+								<label value="发布方式" />
+								<textbox id="allOrSync" width="93%" />
+							</row>
+							<row>
+								<label value="上次发布时间" />
+								<textbox id="lastDate" width="93%" />
+								<label value="本次发布时间" />
+								<textbox id="thisDate" width="93%" />
+							</row>
+							<row>
+								<label value="用户名" />
+								<textbox id="userName" width="93%" />
+								<label value="密码" />
+								<textbox id="passWord" width="93%" />
+							</row>
+							<row spans="4">
+								<button id="allOrSyncPublishButton"
+									forward="onAllOrSyncPublishRequest" label="发布">
+								</button>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

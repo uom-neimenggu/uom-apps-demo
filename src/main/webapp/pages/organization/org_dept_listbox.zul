@@ -1,0 +1,44 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgDeptListboxPnl"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="orgDeptListboxPnl" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="账期" />
+				<datebox id="date" format="yyyyMM"
+						width="100px" readonly="true" />
+				<button label="查询" forward="onQuery"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onReset"
+					autodisable="self" mold="trendy" />
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="orgDeptListbox" vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="账期" />
+					<listheader label="部门id" />
+					<listheader label="部门编码" />
+					<listheader label="部门名称" />
+					<listheader label="部门职责" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.monthId}">
+					</listcell>
+					<listcell label="@{current.pkDept}">
+					</listcell>
+					<listcell label="@{current.code}">
+					</listcell>
+					<listcell label="@{current.name}">
+					</listcell>
+					<listcell label="@{current.deptduty}">
+					</listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgDeptListPaging" pageSize="20"
+				forward="onListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 被2011 rel. 2 sp1 (TeaM DJiNN) 使用XMLSpy vTeaM DJiNN编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.chinatelecom.com/uom/comm/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.chinatelecom.com/uom/comm/" schemaLocation="comm.xsd"/>
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="msgHead" type="ns1:msgHead"/>
+				<xs:element name="msgBody">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="inParam">
+								<xs:annotation>
+									<xs:documentation>请求参数</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="fileList">
+											<xs:annotation>
+												<xs:documentation>批量文件列表</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="fileInfo" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="fileName" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>文件名称</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="dataCount" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>数据数</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="syncType" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>同步类型：1：全量，0：增量</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="filePath" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>文件路径：/系统/日期/批次号</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="dataDate" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>数据时间：YYYYMMDDHH24MISS</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:all>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="outParam">
+								<xs:annotation>
+									<xs:documentation>返回参数</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="result" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>处理结果
+1：成功 
+0：失败</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="error" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>错误信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="id" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>错误标识</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="message" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>错误信息</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

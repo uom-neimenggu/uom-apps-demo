@@ -1,0 +1,42 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<zk>
+	<window id="sysEditWindow" border="none" apply="${sysEditComposer}" vflex="1" width="460px;"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="25%" align="right" />
+						<column width="75%" align="left" />
+					</columns>
+					<rows>
+					<row>
+						<label value="系统编码" />
+						<textbox id="clientCode" width="97%" >
+						</textbox>
+					</row>
+					<row>
+						<label value="系统名称" />
+						<textbox id="sysName" width="97%" >
+						</textbox>
+					</row>
+					<row>
+						<label value="系统URL" />
+						<textbox id="sysUrl" width="97%" >
+						</textbox>
+					</row>
+					<row>
+						<label value="电信管理区域" />
+						<telcomRegionTreeBandbox id="telcomRegionTreeBandbox" width="99%" />
+					</row>
+				</rows>
+				</grid>
+				<toolbar align="center" mold="panel">
+					<button id="okButton" label="确定" forward="onOk" />
+					<button id="cancelButton" label="取消" forward="onCancel" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

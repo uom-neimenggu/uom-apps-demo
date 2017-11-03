@@ -1,0 +1,60 @@
+<?page title="组织稽核" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgAuditExtPanel"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<panel id="orgAuditExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="系统名" />
+					<listbox id="systemDomainListbox" mold="select"
+						rows="1" width="260px">
+					</listbox>
+					<label value="更新日期" />
+					<datebox id="updateDate" format="yyyy-MM-dd"
+						width="100px" readonly="true" />
+					<toolbarbutton label="查询" forward="onQueryOrgAudit"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onOrgAuditReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<hbox>
+						<toolbarbutton id="exportStatisticsButton"
+							forward="onExportStatisticsBill" label="导出统计清单" />
+						<toolbarbutton id="exportDetailsButton"
+							forward="onExportDetailsBill" label="导出详细清单" />
+					</hbox>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="orgAuditListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="系统名" width="25%" align="center" />
+					<listheader label="组织名或区域名" width="25%"
+						align="center" />
+					<listheader label="组织总数" width="10%" align="center" />
+					<listheader label="异常数" width="10%" align="center" />
+					<listheader label="组织合格率" width="15%"
+						align="center" />
+					<listheader label="更新日期" width="15%" align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.systemName}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.orgTotal}"></listcell>
+					<listcell label="@{current.exceNumber}"></listcell>
+					<listcell label="@{current.orgPercentStr}"></listcell>
+					<listcell label="@{current.updateDateStr}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgAuditListboxPaging"
+				forward="onOrgAuditListboxPaging" pageSize="100" />
+		</panelchildren>
+	</panel>
+</zk>

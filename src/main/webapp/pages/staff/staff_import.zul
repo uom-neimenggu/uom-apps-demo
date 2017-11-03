@@ -1,0 +1,24 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffImportWindow"?>
+<zk>
+	<window id="staffImportWindow" border="none"
+		apply="${staffImportComposer}" width="750px" closable="true">
+		<div style="height:490px;overflow:auto">
+			<panel>
+				<panelchildren>
+					<listbox id="infoListbox" rows="15" vflex="1">
+						<listhead sizable="true">
+							<listheader label="编号" width="10%" align="center" />
+							<listheader label="内容" width="90%" align="left" />
+						</listhead>
+						<listitem self="@{each='current'}"
+							value="@{current}">
+							<listcell label="@{current.infoId}"></listcell>
+							<listcell label="@{current.infoContent}"></listcell>
+						</listitem>
+					</listbox>
+				</panelchildren>
+			</panel>
+		</div>
+	</window>
+</zk>

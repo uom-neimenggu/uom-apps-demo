@@ -1,0 +1,70 @@
+<?page title="权限资源列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacPermissionResourceListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacPermissionResourceListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacPermissionResourceSearchDiv">
+					<hbox>
+						<label value="资源编码" />
+						<textbox id="rbacResourceCode" width="95px" />
+						<label value="资源名称" />
+						<textbox id="rbacResourceName" width="95px" />
+						<label value="权限编码" />
+						<textbox id="rbacPermissionCode" width="95px" />
+						<label value="权限名称" />
+						<textbox id="rbacPermissionName" width="95px" />
+						<button label="查询"
+							forward="onQueryRbacPermissionResource" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacPermissionResource" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton id="addRbacPermissionResourceButton"
+						label="新增" forward="onRbacPermissionResourceAdd" />
+					<toolbarbutton id="delRbacPermissionResourceButton"
+						label="删除" forward="onRbacPermissionResourceDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacPermissionResourceListbox"
+				forward="onSelect=onRbacPermissionResourceSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="权限资源标识" />
+					<listheader label="资源编码" />
+					<listheader label="资源名称" />
+					<listheader label="权限编码" />
+					<listheader label="权限名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacPermissionResource'}"
+					value="@{rbacPermissionResource}">
+					<listcell
+						label="@{rbacPermissionResource.rbacPermissionResourceId}" />
+					<listcell
+						label="@{rbacPermissionResource.rbacResourceCode}" />
+					<listcell
+						label="@{rbacPermissionResource.rbacResourceName}" />
+					<listcell
+						label="@{rbacPermissionResource.rbacPermissionCode}" />
+					<listcell
+						label="@{rbacPermissionResource.rbacPermissionName}" />
+					<listcell label="@{rbacPermissionResource.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacPermissionResourceListPaging" pageSize="16"
+				forward="onRbacPermissionResourceListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

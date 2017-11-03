@@ -1,0 +1,75 @@
+<?page title="员工角色列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffRoleMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="staffRoleMainWin" apply="${staffRoleListboxComposer}"
+		height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+				<toolbar align="start" id="toolbarId"
+					sclass="toolbar-user" style="width:auto;float:left;">
+					<div id="searchDiv">
+						<hbox>
+							<label value="员工编码" />
+							<textbox id="staffCode" width="95px" />
+							<label value="员工名称" />
+							<textbox id="staffName" width="95px" />
+							<label value="员工帐号" />
+							<textbox id="staffAccount" width="95px" />
+							<button label="查询" forward="onQuery"
+								autodisable="self" mold="trendy" />
+							<button label="重置" forward="onReset"
+								autodisable="self" mold="trendy" />
+						</hbox>
+					</div>
+				</toolbar>
+				<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton id="addStaffRoleButton"
+							label="新增" forward="onStaffRoleAdd" />
+						<toolbarbutton upload="true,maxsize=300"
+							id="uploadButton" label="导入" />
+						<toolbarbutton id="downloadButton"
+							forward="onDownloadTemplate" label="模板下载" />
+						<toolbarbutton id="delStaffRoleButton"
+							label="删除" forward="onStaffRoleDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="staffRoleListbox"
+					forward="onSelect=onStaffRoleSelectRequest" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="员工编码" />
+						<listheader label="员工名称" />
+						<listheader label="员工帐号" />
+						<listheader label="角色全称" />
+						<listheader label="角色编码" />
+					</listhead>
+					<listitem self="@{each='staffRoleRela'}"
+						value="@{staffRoleRela}">
+						<listcell
+							label="@{staffRoleRela.staff.staffCode}">
+						</listcell>
+						<listcell
+							label="@{staffRoleRela.staff.staffName}">
+						</listcell>
+						<listcell
+							label="@{staffRoleRela.staffAccount}">
+						</listcell>
+						<listcell
+							label="@{staffRoleRela.staffRole.roleName}">
+						</listcell>
+						<listcell
+							label="@{staffRoleRela.staffRole.roleCode}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="staffRoleListboxPaging" pageSize="10"
+					forward="onStaffRoleListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

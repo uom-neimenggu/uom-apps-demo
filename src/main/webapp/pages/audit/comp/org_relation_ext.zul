@@ -1,0 +1,50 @@
+<?page title="组织关系稽核" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgRelationExtPanel"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<panel id="orgRelationExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<hbox>
+					<label value="电信管理区域" />
+					<telcomRegionTreeBandbox id="telcomRegion"
+						width="80px" />
+					<checkbox id="includeChildren" checked="true"
+						tooltiptext="勾选包含区域下级">
+					</checkbox>
+					<label value="组织编码" />
+					<textbox id="orgCode" width="80px" />
+					<label value="组织名称" />
+					<textbox id="orgName" width="80px" />
+					<button label="查询" forward="onQueryOrgRelation"
+						autodisable="self" />
+					<button label="重置" forward="onOrgRelationReset" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="orgRelationListbox" vflex="1">
+				<listhead sizable="true">
+					<listheader label="组织编码" width="20%" align="center" />
+					<listheader label="组织名称" width="25%" align="center" />
+					<listheader label="电信管理区域" width="15%"
+						align="center" />
+					<listheader label="稽核结果" width="30%" align="center" />
+					<listheader label="稽核时间" width="10%" align="center" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.orgCode}"></listcell>
+					<listcell label="@{current.orgName}"></listcell>
+					<listcell label="@{current.regionName}"></listcell>
+					<listcell label="@{current.checkResult}"></listcell>
+					<listcell label="@{current.createDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="orgRelationListboxPaging"
+				forward="onOrgRelationListboxPaging" pageSize="16" />
+		</panelchildren>
+	</panel>
+</zk>

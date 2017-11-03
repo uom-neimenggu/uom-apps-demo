@@ -1,0 +1,35 @@
+<?page title="参与人管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="partyListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyListboxExt" ?>
+<?component name="partyCertificationListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyCertificationListboxExt" ?>
+<?component name="partyContactInfoListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyContactInfoListboxExt" ?>
+<?component name="partyRoleListboxExt" extends="div" class="cn.ffcs.uom.party.component.PartyRoleListboxExt" ?>
+
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyMainWin"?>
+<zk>
+	<window id="partyMainWin" width="100%" height="100%" apply="${partyMainComposer}" border="none" closable="true">
+		<panel vflex="1">
+			<panelchildren>
+				<partyListboxExt id="partyListboxExt" vflex="1" isIdNoQueryPage="true" />
+				<tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab label="参与人联系人" id="partyContactInfoTab" forward="onClickTab" />
+						<tab label="参与人证件" id="partyCertificationTab" forward="onClickTab" />
+						<tab label="参与人角色" id="partyRoleTab" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyContactInfoListboxExt id="partyContactInfoListboxExt" vflex="1" isIdNoQueryPage="true"/>
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyCertificationListboxExt id="partyCertificationListboxExt" vflex="1" isIdNoQueryPage="true"/>
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<partyRoleListboxExt id="partyRoleListboxExt" vflex="1" isIdNoQueryPage="true"/>
+						</tabpanel>
+					</tabpanels>
+				</tabbox> 
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

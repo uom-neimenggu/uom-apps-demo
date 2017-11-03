@@ -1,0 +1,33 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationRelationOperatorListBoxComp"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel id="organizationRelationOperatorListBoxComp" vflex="1">
+		<panelchildren>
+			<listbox id="organizationRelationOperatorListBox"
+				forward="onSelect=onOrganizationRelationOperatorListBoxSelectRequest" vflex="1"
+				mold="paging">
+				<listhead sizable="true">
+					<listheader label="上级组织编码" width="10%"/>
+					<listheader label="上级组织名称" width="13%"/>
+					<listheader label="关系类型" width="10%"/>
+					<listheader label="状态" width="7%"/>
+					<listheader label="最后修改人" width="10%"/>
+					<listheader label="最后修改时间" width="15%"/>
+					<listheader label="操作原因" width="30%"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.relaOrgCode}" />
+					<listcell label="@{current.relaOrgName}" />
+					<listcell label="@{current.relaCdName}" />
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.updateStaffName2}" />
+					<listcell label="@{current.updateDate}" />
+					<listcell label="@{current.reason}" />
+				</listitem>
+			</listbox>
+			<paging id="organizationRelationOperatorListBoxPaging" pageSize="5"
+				forward="onQueryOrganizationRelationListBoxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

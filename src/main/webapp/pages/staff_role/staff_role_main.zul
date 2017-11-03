@@ -1,0 +1,55 @@
+<?page title="角色管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="roleEditDiv" extends="div" class="cn.ffcs.uom.staffrole.action.RoleEditDiv" ?>
+<?component name="staffRoleTreeExt" extends="div" class="cn.ffcs.uom.staffrole.component.StaffRoleTreeExt"?>
+<?component name="staffRoleListbox" macroURI="comp/staff_role_listbox.zul" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffRoleMainWin"?>
+<zk>
+	<window id="staffRoleMainWin" width="100%" height="100%" apply="${staffRoleMainComposer}">
+		<borderlayout>
+			<west width="22%">
+				<tabbox id="leftTabbox" vflex="1">
+					<tabs>
+						<tab id="roleTab" label="角色管理界面" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<staffRoleTreeExt id="staffRoleTreeExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</west>
+			<center vflex="1">
+				<borderlayout>
+					<north size="32%">
+						<tabbox id="roleTabBox" vflex="1">
+							<tabs>
+								<tab label="角色属性" />
+							</tabs>
+							<tabpanels>
+								<tabpanel>
+									<roleEditDiv id="roleEditDiv" vflex="1" />
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</north>
+					<south size="68%">
+						<tabbox id="staffRoleTabBox"
+							height="100%">
+							<tabs>
+								<tab label="员工角色关系"
+									id="staffRoleTab" />
+							</tabs>
+							<tabpanels>
+								<tabpanel style="overflow: auto">
+									<staffRoleListbox id="staffRoleListbox">
+									</staffRoleListbox>
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+					</south>
+				</borderlayout>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

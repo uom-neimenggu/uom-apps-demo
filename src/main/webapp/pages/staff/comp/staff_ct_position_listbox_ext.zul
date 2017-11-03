@@ -1,0 +1,54 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffCtPositionListboxExtPanel" ?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="staffCtPositionListboxExtPanel" vflex="1">
+		<caption>
+		<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+			style="display:inline;float:left">
+			<div id="staffCtPositionSearchDiv">
+				<hbox>
+					<label value="岗位名称" />
+					<textbox id="positionName" width="95px" />
+					<button label="查询"
+						forward="onQueryStaffCtPosition" autodisable="self"  mold="trendy"/>
+					<button label="重置"
+						forward="onResetStaffCtPosition" autodisable="self"  mold="trendy"/>
+				</hbox>
+			</div>
+		</toolbar>
+		<toolbar align="end" style="display:inline">
+				<hbox>
+					<toolbarbutton forward="onAddStaffCtPosition"
+						id="addButton" label="新增" />
+					<toolbarbutton forward="onDelStaffCtPosition"
+						id="delButton" label="删除" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="staffCtPositionListbox" vflex="1" forward="onSelect=onSelectStaffCtPositionList">
+				<listhead sizable="true">
+					<listheader label="岗位组织全称" />
+					<listheader label="岗位名称" />
+					<listheader label="岗位类型" />
+					<listheader label="状态" />
+					<listheader label="生效时间" class="listheader-time-width"/>
+					<listheader label="失效时间" class="listheader-time-width"/>
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.ctPosition.positionCode}">
+					<listcell label="@{current.organization.orgFullName}" />
+					<listcell label="@{current.ctPosition.positionName}" />
+					<listcell label="@{current.ralaCdName}" />
+					<listcell label="@{current.statusCdName}" />
+					<listcell label="@{current.effDate}" />
+					<listcell label="@{current.expDate}" />
+				</listitem>
+			</listbox>
+			<paging id="staffCtPositionListboxPaging"
+				forward="onStaffCtPositionListboxPaging" pageSize="10" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,27 @@
+<?page title="稽核管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./auditNoLoginMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffAuditExt" extends="div" class="cn.ffcs.uom.audit.component.StaffAuditExt"?>
+<?component name="orgAuditExt" extends="div" class="cn.ffcs.uom.audit.component.OrgAuditExt"?>
+<zk>
+	<window id="auditNoLoginMainWin" width="100%" height="98%"
+		apply="${auditNoLoginMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="staffAuditTab" label="员工稽核"
+					forward="onClickTab" />
+				<tab id="orgAuditTab" label="组织稽核" forward="onClickTab" />
+				<tab id="tempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="politicalTabpanel">
+					<staffAuditExt id="staffAuditExt" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="agentTabpanel">
+					<orgAuditExt id="orgAuditExt" vflex="1" />
+				</tabpanel>
+				<tabpanel id="tempTabpanel"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

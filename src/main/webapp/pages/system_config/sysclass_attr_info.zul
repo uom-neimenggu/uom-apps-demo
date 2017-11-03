@@ -1,0 +1,129 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysClassAttrInfoWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="sysClassAttrInfoWin" apply="${sysClassAttrInfoComposer}"
+		height="100%" width="100%">
+		<hbox vflex="1" hflex="1">
+			<div vflex="1" hflex="3">
+				<panel vflex="1">
+					<caption>
+						<toolbar align="end">
+							<hbox>
+								<div id="attrSpecWindowDiv">
+									<hbox>
+										<toolbarbutton
+											id="addAttrSpecButton"
+											image="/public/images/pub_button/add.png" tooltiptext="新增"
+											forward="onAddAttrSpecInfo" />
+										<toolbarbutton
+											id="editAttrSpecButton"
+											image="/public/images/pub_button/modify.png" tooltiptext="编辑"
+											forward="onEditAttrSpecInfo" />
+										<toolbarbutton
+											id="deleteAttrSpecButton"
+											image="/public/images/pub_button/delete.png" tooltiptext="删除"
+											forward="onDeleteAttrSpecInfo" />
+									</hbox>
+								</div>
+							</hbox>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="attrSpecListbox" vflex="1"
+							forward="onSelect=onAttrSpecSelectRequest">
+							<listhead sizable="true">
+								<listheader label="属性类型" />
+								<listheader label="属性编码"
+									sort="auto(attrCd)" />
+								<listheader label="属性名称" />
+								<listheader label="程序编码"
+									sort="auto(javaCode)" />
+								<listheader label="状态" />
+							</listhead>
+							<listitem self="@{each='attrSpec'}"
+								value="@{attrSpec}">
+								<listcell
+									label="@{attrSpec.attrTypeName}">
+								</listcell>
+								<listcell label="@{attrSpec.attrCd}"></listcell>
+								<listcell
+									label="@{attrSpec.attrName}">
+								</listcell>
+								<listcell
+									label="@{attrSpec.javaCode}">
+								</listcell>
+								<listcell
+									label="@{attrSpec.statusCdName}">
+								</listcell>
+							</listitem>
+						</listbox>
+						<paging id="attrSpecPaging" pageSize="5"
+							forward="onQryAttrSpec" />
+					</panelchildren>
+				</panel>
+			</div>
+			<tabbox vflex="1" hflex="2">
+				<tabs>
+					<tab label="实体属性取值信息" />
+				</tabs>
+				<tabpanels>
+					<tabpanel>
+						<panel vflex="1">
+							<caption>
+								<toolbar align="end">
+									<hbox>
+										<div id="attrValueWindowDiv">
+											<hbox>
+												<toolbarbutton
+													id="addAttrValueButton"
+													image="/public/images/pub_button/add.png" tooltiptext="新增"
+													forward="onAddAttrValueInfo" />
+												<toolbarbutton
+													id="editAttrValueButton"
+													image="/public/images/pub_button/modify.png"
+													tooltiptext="编辑" forward="onEditAttrValueInfo" />
+												<toolbarbutton
+													id="deleteAttrValueButton"
+													image="/public/images/pub_button/delete.png"
+													tooltiptext="删除" forward="onDeleteAttrValueInfo" />
+											</hbox>
+										</div>
+									</hbox>
+								</toolbar>
+							</caption>
+							<panelchildren>
+								<listbox id="attrValueListbox" vflex="1"
+									forward="onSelect=onAttrValueListSelectRequest"
+									fixedLayout="true" multiple="false" checkmark="false">
+									<listhead sizable="true">
+										<listheader label="取值编码" />
+										<listheader label="取值名称" />
+										<listheader label="属性值" />
+										<listheader label="状态" />
+									</listhead>
+									<listitem self="@{each='attrValue'}"
+										value="@{attrValue}">
+										<listcell
+											label="@{attrValue.attrValueId}">
+										</listcell>
+										<listcell
+											label="@{attrValue.attrValueName}">
+										</listcell>
+										<listcell
+											label="@{attrValue.attrValue}">
+										</listcell>
+										<listcell
+											label="@{attrValue.statusCdName}">
+										</listcell>
+									</listitem>
+								</listbox>
+								<paging id="attrValuePaging"
+									pageSize="3" forward="onQryAttrValue" />
+							</panelchildren>
+						</panel>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</hbox>
+	</window>
+</zk>

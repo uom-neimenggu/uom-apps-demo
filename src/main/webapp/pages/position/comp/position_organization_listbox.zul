@@ -1,0 +1,78 @@
+<?page title="组织列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./positionOrganizationListboxComp" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="positionOrganizationListboxComp"
+		apply="${positionOrganizationListboxComposer}" height="100%"
+		width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="organizationPositionSearchDiv">
+					<hbox>
+						<label value="组织编码" />
+						<textbox id="orgCode" width="95px" />
+						<label value="组织名称" />
+						<textbox id="orgName" width="95px" />
+						<button label="查询"
+							forward="onQueryOrganizationPosition" autodisable="self"  mold="trendy"/>
+						<button label="重置"
+							forward="onResetOrganizationPosition" autodisable="self"  mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end">
+					<hbox>
+						<toolbarbutton
+							id="addPositionOrganizationButton" label="新增"
+							forward="onOrgPositionAdd" />
+						<toolbarbutton
+							id="delPositionOrganizationButton" label="删除"
+							forward="onOrgPositionDel" />
+						<toolbarbutton id="viewOrganizationPathButton"
+							forward="onOrganizationPathView" label="查看树路径" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="positionOrganizationListBox"
+					forward="onSelect=onPositionOrganizationSelectRequest" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="组织编码" />
+						<listheader label="组织名称" />
+						<listheader label="组织全称" />
+						<listheader label="组织性质" />
+						<listheader label="区域编码" />
+						<listheader label="行政区域" />
+					</listhead>
+					<listitem self="@{each='positionOrganization'}"
+						value="@{positionOrganization}">
+						<listcell
+							label="@{positionOrganization.orgCode}">
+						</listcell>
+						<listcell
+							label="@{positionOrganization.orgName}">
+						</listcell>
+						<listcell
+							label="@{positionOrganization.orgFullName}">
+						</listcell>
+						<listcell
+							label="@{positionOrganization.orgTypeName}">
+						</listcell>
+						<listcell
+							label="@{positionOrganization.areaCodeId}">
+						</listcell>
+						<listcell
+							label="@{positionOrganization.politicalLocation.locationName}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="positionOrganizationListPaging"
+					pageSize="10" forward="onPositionOrganizationListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

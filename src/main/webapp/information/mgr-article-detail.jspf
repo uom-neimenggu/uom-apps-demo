@@ -1,0 +1,78 @@
+<div id="imad-all" style="display:none">
+	<div class="imad-field-row">
+		<div style="color:gray">
+			<span>当前模式：</span>
+			<span id="imad-mode-text"></span>
+		</div>
+	</div>
+	<div class="imad-field-row">
+		<label class="imad-head">标题：</label>
+		<input type="text" id="imad-title" class="imad-long-field"></input>
+		<input type="hidden" id="imad-articleId"></input>
+	</div>
+	<div class="imad-field-row">
+		<label class="imad-head">分类：</label>
+		<select id="imad-category" class="imad-field"></select>
+	</div>
+	<div class="imad-field-row" id="imad-field-content">
+		<label class="imad-head">内容编辑：</label>
+		<textarea id="imad-content">
+		</textarea>
+	</div>
+	<div class="imad-field-row">
+		<label class="imad-head">发布范围：</label>
+		<input type="text" readonly="true" id="imad-target-orgs" class="imad-mid-field"></input>
+		<a class="link-button" id="imad-target-orgs-select">选择组织</a>
+		<span class="w1em"></span>
+		<input type="checkbox" id="imad-target-orgs-public"/>
+		<label for="imad-target-orgs-public">公开</label>
+		<input type="hidden" id="imad-target-orgs-id"/>
+		<input type="hidden" id="imad-target-orgs-type"/>
+	</div>
+	<div class="imad-field-row">
+		<label class="imad-head">生效日期：</label>
+		<input type="text"  readonly="readonly" value="" id="imad-effectiveDate" class="imad-field"></input>
+	</div>
+	<div class="imad-field-row">
+		<label class="imad-head">失效日期：</label>
+		<input type="text"  readonly="readonly" value="" id="imad-expiredDate" class="imad-field"></input>
+	</div>
+	<div class="imad-field-row" id="imad-field-attachment">
+		<label class="imad-head">附件：</label>
+		<input type="text" readonly="true" id="imad-attachments-text" class="imad-mid-field"></input>
+		<a class="link-button" id="imad-attachments-select">选择文件</a>
+		<input type="hidden" id="imad-attachments-ops"/>
+	</div>
+	<div class="imad-field-row" id="imad-field-display-type">
+		<label class="imad-head">展现方式：</label>
+		<select id="imad-display-type" class="imad-field">
+			<option value="normal">列表</option>
+			<option value="image">图片</option>
+			<option value="rolling">滚动</option>
+		</select>
+	</div>
+	<div class="imad-field-row" name="imad-display-type-image" style="display:none">
+		<label class="imad-head">缩略图：</label>
+		<div style="width:128px;height:87px;float:left;border:1px dashed #999;">
+			<img id="imad-thumbnail-img" width="128" height="87"/>
+		</div>
+		<span class="w1em"></span>
+		<span id="imad-thumbnail-su" >
+		    <input type="button" id="imad-thumbnail-su-btn"/>
+		</span>
+		<input type="hidden" id="imad-thumbnail-id"/>
+	</div>
+	<div class="imad-field-row" name="imad-display-type-image" style="display:none">
+		<label class="imad-head">简介：</label>
+		<textarea id="imad-brief" class="imad-textarea"></textarea>
+	</div>
+	<div style="clear:left;text-align:right">
+		<button id="imad-add">新建</button>
+		<button id="imad-reset">重置</button>
+		<button id="imad-saveAsDraft">保存为草稿</button>
+		<button id="imad-release">发布</button>
+	</div>
+	<div id="imad-org-selector-container"/>
+	<div id="imad-attachments-container"/>
+	<input id="imad-session-id" type="hidden" value="<%=session.getId()%>"/>
+</div>

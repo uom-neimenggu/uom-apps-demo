@@ -1,0 +1,34 @@
+<?page title="下发系统查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemIssuedQueryMainWin"?>
+<?component name="staffListboxExt" extends="div" class="cn.ffcs.uom.staff.component.StaffListboxExt" ?>
+<?component name="systemIssuedListboxExt" extends="div" class="cn.ffcs.uom.systemIssuedQuery.action.SystemIssuedListboxExt" ?>
+<?component name="organizationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="systemIssuedQueryMainWin" width="100%" height="100%" apply="${systemIssuedQueryComposer}">
+		<borderlayout>
+			<north size="58%">
+				<tabbox>
+					<tabs>
+						<tab>员工</tab>
+						<tab>组织</tab>
+					</tabs>
+					<tabpanels>
+						<tabpanel><staffListboxExt id="staffListboxExt" vflex="1" /></tabpanel>
+						<tabpanel><organizationListbox id="organizationListbox" vflex="1" /></tabpanel>
+					</tabpanels>		
+				</tabbox>
+			</north>
+			<south size="42%">
+				<systemIssuedListboxExt id="systemIssuedListboxExt" vflex="1" />
+			</south>
+		</borderlayout>
+	</window>
+	<zscript><![CDATA[
+	   	Div staffBar = Path.getComponent("/systemIssuedQueryMainWin/staffListboxExt/staffWindowDiv");
+	   	Div orgBar = Path.getComponent("/systemIssuedQueryMainWin/organizationListbox/organizationWindowDiv");
+		staffBar.setVisible(false);
+		orgBar.setVisible(false);
+
+    ]]></zscript>
+</zk>

@@ -1,0 +1,78 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt"?>
+<?component name="workFlowListbox" extends="div" class="cn.ffcs.uom.organization.action.WorkFlowListboxComp" ?>
+<!-- <?component name="processStatusListboxExt" macroURI="/pages/organization/comp/process_status_listbox_ext.zul" ?> -->
+<zk>
+	<window id="channelPackareaTranEditComposer" border="none"
+		apply="${channelPackareaTranEditComposer}" width="400px"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="30%" align="center" />
+						<column width="70%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="网点组织" />
+							<organizationBandboxExt id="agentChannelOrg" 
+							width="100%" isAgentChannel="true" />
+						</row>
+						<row>
+							<label value="包区组织" />
+							<organizationBandboxExt id="packAreaOrg"
+								width="100%" isPackArea="true" />
+						</row>
+						<row>
+							<label value="以店包区" />
+							<listbox id="storeAreaFlag" mold="select" rows="1" />
+						</row>
+					</rows>
+				</grid>
+				<div id="storeAreaUploadDiv" visible="false">
+					<grid>
+						<columns>
+							<column width="25%" align="center" />
+							<column width="15%" />
+							<column width="15%" />
+							<column width="45%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="承包人身份证" />
+								<button upload="true,maxsize=10240" id="uploadCertButton" label="上传" visible="false" />
+								<button id="downloadCertButton" forward="onDownloadCert" label="下载" visible="false" />
+								<image id="certPic" />
+							</row>
+							<row>
+								<label value="五级承包协议" />
+								<button upload="true,maxsize=10240" id="uploadFiveButton" label="上传" visible="false" />
+								<button id="downloadFiveButton" forward="onDownloadFive" label="下载" visible="false" />
+								<image id="fivePic" />
+							</row>
+							<row>
+								<label value="门店合作协议" />
+								<button upload="true,maxsize=10240" id="uploadStoreButton" label="上传" visible="false" />
+								<button id="downloadStoreButton" forward="onDownloadStore" label="下载" visible="false" />
+								<image id="storePic" />
+							</row>
+						</rows>
+					</grid>
+				</div>
+			</panelchildren>
+		</panel>
+		<toolbar id="inputToolBar" align="center" mold="panel">
+			<toolbarbutton id="submit" label="提交"
+				forward="onOk" />
+			<toolbarbutton id="cancel" label="取消"
+				forward="onCancel" />
+		</toolbar>
+		<toolbar id="approveToolBar" align="center" mold="panel">
+			<toolbarbutton id="approve" label="同意"
+				forward="onApprove" />
+			<toolbarbutton id="refuse" label="拒绝"
+				forward="onRefuse" />
+		</toolbar>
+	</window>
+</zk>

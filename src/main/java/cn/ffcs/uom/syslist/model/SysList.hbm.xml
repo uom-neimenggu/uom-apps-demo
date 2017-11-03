@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.syslist.model.SysList" table="RBAC_SYSTEM_LIST">
+		<comment>系统标识</comment>
+		<id name="sysListId" type="java.lang.Long">
+			<column name="SYS_LIST_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_RBAC_SYS_LIST_ID</param>
+			</generator>
+		</id>
+		<property name="sysName" type="java.lang.String">
+			<column name="SYS_NAME" length="100">
+				<comment>系统名称</comment>
+			</column>
+		</property>
+		<property name="sysUrl" type="java.lang.String">
+			<column name="SYS_URL" length="200">
+				<comment>系统地址</comment>
+			</column>
+		</property>
+		<property name="domainId" type="java.lang.Long">
+			<column name="DOMAIN_ID" length="12">
+				<comment>生产域标识</comment>
+			</column>
+		</property>
+		<property name="relaDomainId" type="java.lang.Long">
+			<column name="RELA_DOMAIN_ID" length="12">
+				<comment>关系生产域标识</comment>
+			</column>
+		</property>
+		<property name="clientCode" type="java.lang.String">
+			<column name="CLIENT_CODE" length="200">
+				<comment>客户端编码</comment>
+			</column>
+		</property>
+		<property name="telecomArea" type="java.lang.Long">
+			<column name="TELECOM_AREA" length="12">
+				<comment>电信管理区域标识</comment>
+			</column>
+		</property>
+		<property name="isParent" type="java.lang.String">
+			<column name="IS_PARENT" length="1">
+				<comment>是否是父节点</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

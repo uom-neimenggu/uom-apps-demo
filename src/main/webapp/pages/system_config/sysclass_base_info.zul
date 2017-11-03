@@ -1,0 +1,73 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysClassBaseInfoWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="sysClassBaseInfoWin" apply="${sysClassBaseInfoComposer}"
+		height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+				<toolbar align="end">
+					<hbox>
+						<toolbarbutton id="addSysClassButton"
+							image="/public/images/pub_button/add.png" tooltiptext="新增"
+							forward="onAddSysClassInfo" />
+						<toolbarbutton id="editSysClassButton"
+							image="/public/images/pub_button/modify.png" tooltiptext="编辑"
+							forward="onEditSysClassInfo" />
+						<toolbarbutton id="saveSysClassButton"
+							image="/public/images/pub_button/page_save.png" tooltiptext="保存"
+							forward="onSaveSysClassInfo" />
+						<toolbarbutton id="recoverSysClassButton"
+							image="/public/images/pub_button/arrow_undo.png" tooltiptext="恢复"
+							forward="onRecoverSysClassInfo" />
+						<toolbarbutton id="deleteSysClassButton"
+							image="/public/images/pub_button/delete.png" tooltiptext="删除"
+							forward="onDeleteSysClassInfo" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<grid vflex="1">
+					<columns>
+						<column label="" width="8%"></column>
+						<column label="" width="17%"></column>
+						<column label="" width="8%"></column>
+						<column label="" width="17%"></column>
+						<column label="" width="8%"></column>
+						<column label="" width="17%"></column>
+						<column label="" width="8%"></column>
+						<column label="" width="17%"></column>
+					</columns>
+					<rows>
+						<row>
+							<label value="实体名称" />
+							<textbox id="className" width="99%" />
+							<label value="JAVA类名" width="99%" />
+							<textbox id="javaCode" width="99%" />
+							<label value="物理表名" width="99%" />
+							<textbox id="tableName" width="99%" />
+							<label value="物理表类型" width="99%" />
+							<combobox id="tableType" readonly="true"
+								width="99%">
+							</combobox>
+						</row>
+						<row>
+							<label value="序列号名" />
+							<textbox id="seqName" width="99%" />
+							<label value="历史表名" />
+							<textbox id="hisTableName" width="99%" />
+							<label value="历史序列名" />
+							<textbox id="hisSeqName" width="99%" />
+							<label value="是否实体类" />
+							<checkbox id="isEntity" />
+						</row>
+						<row spans="1,7">
+							<label value="描述信息" />
+							<textbox id="classDesc" width="99%"
+								height="100px" multiline="true" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

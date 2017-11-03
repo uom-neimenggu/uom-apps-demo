@@ -1,0 +1,13 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="authorityTree" extends="tree" class="cn.ffcs.uom.roleauth.component.AuthorityTree"?>
+<vbox vflex="1" width="100%">
+	<toolbar align="end" hflex="1">
+		<toolbarbutton id="addRootButton" label="添加根节点"
+			forward="onAddRootNode" />
+		<toolbarbutton id="addChildButton" label="添加子节点"
+			forward="onAddChildNode" />
+		<toolbarbutton id="delChildButton" label="删除节点"
+			forward="onDelNode" />
+	</toolbar>
+	<authorityTree id="authorityTree" vflex="1"></authorityTree>
+</vbox>

@@ -1,0 +1,45 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="positionEditWindow" border="none"
+		apply="${positionEditComposer}" vflex="1" width="460px;"
+		closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="30%" align="center" />
+						<column width="70%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="职位编码" id="positionCodeLab" />
+							<textbox id="positionCode" width="95%"
+								disabled="true" />
+						</row>
+						<row>
+							<label value="职位名称" />
+							<textbox id="positionName" width="95%" />
+						</row>
+						<row>
+							<label value="职位类型" />
+							<listbox id="positionType" mold="select"
+								rows="1" width="95%">
+							</listbox>
+						</row>
+						<row>
+							<label value="职位描述" />
+							<textbox id="positionDesc" multiline="true"
+								height="30px" width="97%" />
+						</row>
+
+					</rows>
+				</grid>
+				<toolbar align="center" mold="panel">
+					<button id="okButton" label="确定" forward="onOk" />
+					<button id="cancelButton" label="取消"
+						forward="onCancel" />
+				</toolbar>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

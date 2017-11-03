@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-31 9:31:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uac.staff.model.UacContact" table="UAC_CONTACT">
+        <comment>联系方式</comment>
+        <id name="contactId" type="java.lang.Long">
+            <column name="CONTACT_ID" precision="12" scale="0" />
+ 			<generator class="sequence">
+				<param name="sequence">SEQ_CONTACT_ID</param>
+			</generator>
+        </id>
+        <property name="mobilePhone" type="java.lang.String">
+            <column name="MOBILE_PHONE" length="18">
+                <comment>移动手机号</comment>
+            </column>
+        </property>
+        <property name="sparePhone" type="java.lang.String">
+            <column name="SPARE_PHONE" length="18">
+                <comment>备用手机号</comment>
+            </column>
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" length="21">
+                <comment>座机</comment>
+            </column>
+        </property>
+        <property name="innerEmail" type="java.lang.String">
+            <column name="INNER_EMAIL" length="40">
+                <comment>企业内部邮箱地址</comment>
+            </column>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" length="40">
+                <comment>社会邮箱</comment>
+            </column>
+        </property>
+        <property name="unifiedEmail" type="java.lang.String">
+            <column name="UNIFIED_EMAIL" length="40">
+                <comment>统一邮箱</comment>
+            </column>
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" length="200">
+                <comment>联系详细地址</comment>
+            </column>
+        </property>
+        <property name="fax" type="java.lang.String">
+            <column name="FAX" length="30">
+                <comment>传真</comment>
+            </column>
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="QQ" length="20">
+                <comment>QQ</comment>
+            </column>
+        </property>
+        <property name="wechat" type="java.lang.String">
+            <column name="WECHAT" length="40">
+                <comment>微信号</comment>
+            </column>
+        </property>
+        <property name="effDate" type="java.util.Date">
+            <column name="EFF_DATE" length="7">
+                <comment>生效时间</comment>
+            </column>
+        </property>
+        <property name="expDate" type="java.util.Date">
+            <column name="EXP_DATE" length="7">
+                <comment>失效时间</comment>
+            </column>
+        </property>
+        <property name="statusCd" type="java.lang.String">
+            <column name="STATUS_CD" length="6">
+                <comment>状态</comment>
+            </column>
+        </property>
+        <property name="statusDate" type="java.util.Date">
+            <column name="STATUS_DATE" length="7">
+                <comment>状态时间</comment>
+            </column>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATE_DATE" length="7">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="createStaff" type="java.lang.Long">
+            <column name="CREATE_STAFF" precision="12" scale="0">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="updateDate" type="java.util.Date">
+            <column name="UPDATE_DATE" length="7">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="updateStaff" type="java.lang.Long">
+            <column name="UPDATE_STAFF" precision="12" scale="0">
+                <comment>修改人</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

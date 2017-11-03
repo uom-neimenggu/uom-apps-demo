@@ -1,0 +1,46 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./treeOrgOtRuleListPanel"?>
+	<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+	<zk>
+		<panel vflex="1" id="treeOrgOtRuleListPanel" height="100%">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:right;">
+					<div>
+						<hbox>
+							<toolbarbutton id="addTreeOrgOtRuleButton"
+								forward="onTreeOrgOtRuleAdd" label="新增" />
+							<toolbarbutton id="delTreeOrgOtRuleButton"
+								forward="onTreeOrgOtRuleDel" label="删除" />
+						</hbox>
+					</div>
+				</toolbar>
+			</caption>
+			<panelchildren vflex="1">
+				<listbox id="treeOrgOtRuleListBox"
+					forward="onSelect=onTreeOrgOtRuleSelect" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="组织树标识" />
+						<listheader label="组织类型" />
+						<listheader label="组织类型名称" />
+						<listheader label="创建时间" />
+						<listheader label="生效时间" />
+						<listheader label="失效时间" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.orgTreeId}"></listcell>
+						<listcell label="@{current.refTypeValue}"></listcell>
+						<listcell label="@{current.orgTypeName}"></listcell>
+						<listcell label="@{current.createDate}"></listcell>
+						<listcell label="@{current.effDate}"></listcell>
+						<listcell label="@{current.expDate}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="treeOrgOtRuleListPaging" pageSize="10"
+					forward="onTreeOrgOtRuleListboxPaging" />
+			</panelchildren>
+		</panel>
+	</zk>
+</zk>

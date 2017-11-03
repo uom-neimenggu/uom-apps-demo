@@ -1,0 +1,46 @@
+<?page title="CRM员工对照表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffContrastCrmMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<window id="staffContrastCrmMainWin" width="100%" height="98%" apply="${staffContrastCrmMainComposer}">
+		<panel id="staffContrastCrmListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="员工编码" />
+						<textbox id="empeeAcct" width="80px"/>
+						<label value="员工姓名" /><!-- 隐藏 -->
+						<textbox id="certName" width="80px" /><!-- 隐藏 -->
+						<toolbarbutton label="查询" forward="onStaffContrastCrmQueryRequest" autodisable="self" />
+						<toolbarbutton label="重置" forward="onStaffContrastCrmReset" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="staffContrastCrmListbox" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="员工编码" width="20%" align="center" />
+						<listheader label="员工姓名" width="20%" align="center" />
+						<listheader label="手机号码" width="50%" align="center" />
+						<listheader label="证件号码" width="50%" align="center" />
+						<listheader label="工作邮箱" width="50%" align="center" />
+						<listheader label="状态" width="50%" align="center" />
+						<listheader label="类型" width="50%" align="center" />
+					</listhead>
+					<listitem self="@{each='current'}" value="@{current}">
+						<listcell label="@{current.empeeId}"/>
+						<listcell label="@{current.certName}"/>
+						<listcell label="@{current.staffId}"/>
+						<listcell label="@{current.staffAccount}"/>
+						<listcell label="@{current.orgFullName}"/>
+						<listcell label="@{current.empeeAcct}"/>
+						<listcell label="@{current.staffName}"/>
+						
+					</listitem>
+				</listbox>
+				<paging id="staffContrastCrmListboxPaging" forward="onStaffContrastCrmListboxPaging" pageSize="20" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

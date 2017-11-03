@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-31 9:31:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.ffcs.uac.staff.model.UacCert" table="UAC_CERT" >
+        <comment>证件信息</comment>
+        <id name="certId" type="java.lang.Long">
+            <column name="CERT_ID" precision="12" scale="0" />
+ 			<generator class="sequence">
+				<param name="sequence">SEQ_CERT_ID</param>
+			</generator>
+        </id>
+        <property name="certNumber" type="java.lang.String">
+            <column name="CERT_NUMBER" length="30">
+                <comment>证件号码</comment>
+            </column>
+        </property>
+        <property name="isReal" type="java.lang.String">
+            <column name="IS_REAL" length="1">
+                <comment>是否实名</comment>
+            </column>
+        </property>
+        <property name="certType" type="java.lang.String">
+            <column name="CERT_TYPE" length="2">
+                <comment>证件类型</comment>
+            </column>
+        </property>
+        <property name="certName" type="java.lang.String">
+            <column name="CERT_NAME" length="30">
+                <comment>证件上名称</comment>
+            </column>
+        </property>
+        <property name="certOrg" type="java.lang.String">
+            <column name="CERT_ORG" length="30">
+                <comment>发证机关</comment>
+            </column>
+        </property>
+        <property name="certAddr" type="java.lang.String">
+            <column name="CERT_ADDR" length="80">
+                <comment>证件地址</comment>
+            </column>
+        </property>
+        <property name="certValidPeriod" type="java.util.Date">
+            <column name="CERT_VALID_PERIOD" length="7">
+                <comment>证件有效期</comment>
+            </column>
+        </property>
+        <property name="effDate" type="java.util.Date">
+            <column name="EFF_DATE" length="7">
+                <comment>生效时间</comment>
+            </column>
+        </property>
+        <property name="expDate" type="java.util.Date">
+            <column name="EXP_DATE" length="7">
+                <comment>失效时间</comment>
+            </column>
+        </property>
+        <property name="statusCd" type="java.lang.String">
+            <column name="STATUS_CD" length="6">
+                <comment>状态</comment>
+            </column>
+        </property>
+        <property name="statusDate" type="java.util.Date">
+            <column name="STATUS_DATE" length="7">
+                <comment>状态时间</comment>
+            </column>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATE_DATE" length="7">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="createStaff" type="java.lang.Long">
+            <column name="CREATE_STAFF" precision="12" scale="0">
+                <comment>创建人</comment>
+            </column>
+        </property>
+        <property name="updateDate" type="java.util.Date">
+            <column name="UPDATE_DATE" length="7">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="updateStaff" type="java.lang.Long">
+            <column name="UPDATE_STAFF" precision="12" scale="0">
+                <comment>修改人</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

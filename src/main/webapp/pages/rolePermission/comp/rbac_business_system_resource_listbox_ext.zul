@@ -1,0 +1,75 @@
+<?page title="系统资源列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacBusinessSystemResourceListboxExtPanel" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="rbacBusinessSystemResourceListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="rbacBusinessSystemResourceSearchDiv">
+					<hbox>
+						<label value="系统编码" />
+						<textbox id="rbacBusinessSystemCode"
+							width="95px" />
+						<label value="系统名称" />
+						<textbox id="rbacBusinessSystemName"
+							width="95px" />
+						<label value="资源编码" />
+						<textbox id="rbacResourceCode" width="95px" />
+						<label value="资源名称" />
+						<textbox id="rbacResourceName" width="95px" />
+						<button label="查询"
+							forward="onQueryRbacBusinessSystemResource" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetRbacBusinessSystemResource" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+				<hbox>
+					<toolbarbutton
+						id="addRbacBusinessSystemResourceButton" label="新增"
+						forward="onRbacBusinessSystemResourceAdd" />
+					<toolbarbutton
+						id="delRbacBusinessSystemResourceButton" label="删除"
+						forward="onRbacBusinessSystemResourceDel" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="rbacBusinessSystemResourceListbox"
+				forward="onSelect=onRbacBusinessSystemResourceSelectRequest"
+				vflex="1" mold="paging">
+				<listhead sizable="true">
+					<listheader label="系统资源标识" />
+					<listheader label="系统编码" />
+					<listheader label="系统名称" />
+					<listheader label="资源编码" />
+					<listheader label="资源名称" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='rbacBusinessSystemResource'}"
+					value="@{rbacBusinessSystemResource}">
+					<listcell
+						label="@{rbacBusinessSystemResource.rbacBusinessSysResourceId}" />
+					<listcell
+						label="@{rbacBusinessSystemResource.rbacBusinessSystemCode}" />
+					<listcell
+						label="@{rbacBusinessSystemResource.rbacBusinessSystemName}" />
+					<listcell
+						label="@{rbacBusinessSystemResource.rbacResourceCode}" />
+					<listcell
+						label="@{rbacBusinessSystemResource.rbacResourceName}" />
+					<listcell
+						label="@{rbacBusinessSystemResource.effDate}" />
+				</listitem>
+			</listbox>
+			<paging id="rbacBusinessSystemResourceListPaging"
+				pageSize="16" forward="onRbacBusinessSystemResourceListPaging" />
+		</panelchildren>
+	</panel>
+</zk>

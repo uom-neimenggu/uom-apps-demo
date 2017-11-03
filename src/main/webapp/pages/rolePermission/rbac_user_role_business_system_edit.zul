@@ -1,0 +1,36 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacBusinessSystemRelationTreeBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacBusinessSystemRelationTreeBandboxExt" ?>
+<?component name="rbacUserRoleBandboxExt" extends="bandbox" class="cn.ffcs.uom.rolePermission.component.RbacUserRoleBandboxExt"?>
+<zk>
+	<window id="rbacUserRoleBusinessSystemEditWindow" border="none"
+		width="500px" closable="true"
+		apply="${rbacUserRoleBusinessSystemEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="14%" align="center" />
+						<column width="36%" />
+						<column width="14%" align="center" />
+						<column width="36%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="系统" />
+							<rbacBusinessSystemRelationTreeBandboxExt
+								id="rbacBusinessSystemRelationTreeBandboxExt" />
+							<label value="员工角色" />
+							<rbacUserRoleBandboxExt
+								id="rbacUserRoleBandboxExt" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

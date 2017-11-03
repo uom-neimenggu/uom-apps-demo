@@ -1,0 +1,67 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgTreeMainWin"?>
+<?component name="orgTreeListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.OrgTreeListExt"?>
+<?component name="treeBindingListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeBindingListExt"?>
+<?component name="treeOrgOrgRelaListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeOrgOrgRelaListExt"?>
+<?component name="treeOrgOrgTypeListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeOrgOrgTypeListExt"?>
+<?component name="treeStaffOrgRelaListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeStaffOrgRelaListExt"?>
+<?component name="treeStaffOrgTypeListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeStaffOrgTypeListExt"?>
+<?component name="treeStaffStaffTypeListExt" extends="div" class="cn.ffcs.uom.systemconfig.action.comp.TreeStaffStaffTypeListExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="orgTreeMainWin" width="100%" height="100%" apply="${derivationTreeMainConposer}">
+		<borderlayout>
+			<north height="45%" vflex="1">
+				<orgTreeListExt id="orgTreeListExt" vflex="1"></orgTreeListExt>
+			</north>
+			<center vflex="1">
+				<tabbox height="100%" id="tabbox" vflex="1">
+					<tabs>
+						<tab label="专业树绑定" forward="onClickTab" id="treeBindingTab"/>
+						<tab label="组织推导-组织关系类型" forward="onClickTab" id="treeOrgOrgRelaTab" />
+						<tab label="组织推导-组织类型" forward="onClickTab" id="treeOrgOrgTypeTab"/>
+						<tab label="员工汇总-组织类型" forward="onClickTab" id="treeStaffOrgTypeTab"/>
+						<tab label="员工汇总-员工类型" forward="onClickTab" id="treeStaffStaffTypeTab"/>
+						<tab label="员工汇总-组织关系类型" forward="onClickTab" id="treeStaffOrgRelaTab"/>
+					</tabs>
+					<tabpanels>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeBindingListExt id="treeBindingListExt" vflex="1"></treeBindingListExt>
+						</tabpanel>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeOrgOrgRelaListExt
+								id="treeOrgOrgRelaListExt" vflex="1">
+							</treeOrgOrgRelaListExt>
+						</tabpanel>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeOrgOrgTypeListExt
+								id="treeOrgOrgTypeListExt" vflex="1">
+							</treeOrgOrgTypeListExt>
+						</tabpanel>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeStaffOrgTypeListExt
+								id="treeStaffOrgTypeListExt" vflex="1">
+							</treeStaffOrgTypeListExt>
+						</tabpanel>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeStaffStaffTypeListExt
+								id="treeStaffStaffTypeListExt" vflex="1">
+							</treeStaffStaffTypeListExt>
+						</tabpanel>
+						<tabpanel style="overflow: auto" vflex="1">
+							<treeStaffOrgRelaListExt
+								id="treeStaffOrgRelaListExt" vflex="1">
+							</treeStaffOrgRelaListExt>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

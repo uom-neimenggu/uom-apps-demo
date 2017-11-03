@@ -1,0 +1,15 @@
+<?page title="员工网格单元关系管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffGridUnitTranListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.StaffGridUnitTranListboxExt" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffGridUnitTranMainWin"?>
+<zk>
+	<window id="staffGridUnitTranMainWin" width="100%" height="100%"
+		apply="${staffGridUnitTranMainComposer}">
+		<borderlayout>
+			<north size="100%">
+				<staffGridUnitTranListboxExt
+					id="staffGridUnitTranListboxExt" vflex="1" />
+			</north>
+		</borderlayout>
+	</window>
+</zk>

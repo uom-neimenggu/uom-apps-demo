@@ -1,0 +1,192 @@
+<?page title="基本信息维护" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" width="100%" height="98%" apply="">
+		<panel id="" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user" style="width:auto;float:left;">
+					<hbox>
+						<label value="编码" /><textbox id="" width="80px" />
+						<label value="帐号" /><textbox id="" width="80px" />
+						<label value="姓名" /><textbox id="" width="80px" />
+						<toolbarbutton label="查询" />
+						<toolbarbutton label="重置" />
+					</hbox>
+				</toolbar>
+				<toolbar align="end" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<hbox>
+					<div id="uacStaffDiv">
+						<hbox>
+							<toolbarbutton id="" label="查看" />
+							<toolbarbutton id="" label="新增" />
+							<toolbarbutton id="" label="修改" />
+							<toolbarbutton id="" label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+			</caption>
+					<panelchildren>
+			<listbox id="uacStaffListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onSelectRequest"
+				style="height:475px" >
+				<listhead sizable="true">
+					<listheader label="人员姓名" width="10%" align="center" />
+					<listheader label="人员编号" width="12%" align="center" />
+					<listheader label="退役人员性质" width="10%" align="center" visible="false"/>
+					<listheader label="原单位" width="14%" align="center" visible="false"/>
+					<listheader label="转业前所在部队" width="20%" align="center" />
+					<listheader label="转业证编号" width="18%" align="center" />
+					<listheader label="职务名称" width="14%" align="center" />
+					<listheader label="开始日期" width="12%" align="center" />
+					<listheader label="创建时间" width="" align="center" />
+				</listhead>
+				<listitem>
+					<listcell label="樊鹏" />
+					<listcell label="8500390735" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CX" />
+					<listcell label="江西省军区通信站一连" />
+					<listcell label="2003南退字D910227号" />
+					<listcell label="上等兵" />
+					<listcell label="2001-12-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="钱雨婷" />
+					<listcell label="8500390843" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CY" />
+					<listcell label="80302部队" />
+					<listcell label="002" />
+					<listcell label="正营参谋" />
+					<listcell label="2001-12-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="颜煜翔" />
+					<listcell label="8701390845" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CR" />
+					<listcell label="独立电子对抗团" />
+					<listcell label="001" />
+					<listcell label="副连级站长" />
+					<listcell label="2001-12-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="方向宏" />
+					<listcell label="8500391003" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CQ" />
+					<listcell label="江西省军区通信站一连" />
+					<listcell label="2003南退字D910227号" />
+					<listcell label="上等兵" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="程海英" />
+					<listcell label="8500390843" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CN" />
+					<listcell label="独立电子对抗团" />
+					<listcell label="002" />
+					<listcell label="副连级站长" />
+					<listcell label="1981-10-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="王家胜" />
+					<listcell label="8500390861" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CN" />
+					<listcell label="江西省军区通信站一连" />
+					<listcell label="2003南退字D910227号" />
+					<listcell label="上等兵" />
+					<listcell label="2001-12-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="陈晶晶" />
+					<listcell label="8500391006" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CN" />
+					<listcell label="武警合肥市消防支队勤中队" />
+					<listcell label="001" />
+					<listcell label="正营参谋" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="汪锦芬" />
+					<listcell label="8500391034" />
+					<listcell label="1001A11000000000069N" />
+					<listcell label="1001A1100000000006CY" />
+					<listcell label="江西省军区通信站一连" />
+					<listcell label="123456" />
+					<listcell label="副连级站长" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="徐世菁" />
+					<listcell label="8500391177" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CY" />
+					<listcell label="海航土城子场站通信连" />
+					<listcell label="123456" />
+					<listcell label="副连级站长" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="曹子雯" />
+					<listcell label="8500390861" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CN" />
+					<listcell label="江西省军区通信站一连" />
+					<listcell label="2003南退字D910227号" />
+					<listcell label="上等兵" />
+					<listcell label="2001-12-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="江颍" />
+					<listcell label="8500391006" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CL" />
+					<listcell label="坦克乘员训练基地" />
+					<listcell label="1" />
+					<listcell label="政治部干事" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="周亚文" />
+					<listcell label="8577391056" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CL" />
+					<listcell label="原六二师通信连无线电连" />
+					<listcell label="0" />
+					<listcell label="副连级站长" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+				<listitem>
+					<listcell label="吴瑶" />
+					<listcell label="9500391177" />
+					<listcell label="1001A11000000000069O" />
+					<listcell label="1001A1100000000006CL" />
+					<listcell label="武警2师5团后勤处" />
+					<listcell label="003" />
+					<listcell label="少校股长" />
+					<listcell label="1976-02-01" />
+					<listcell label="2014-08-28" />
+				</listitem>
+			</listbox>
+			<paging id=""  pageSize="15" />
+		</panelchildren>
+		</panel>
+	</window>
+</zk>

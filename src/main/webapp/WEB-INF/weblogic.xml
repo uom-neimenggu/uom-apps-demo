@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-web-app xmlns:wls="http://www.bea.com/ns/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd">
+	<wls:jsp-descriptor>
+		<wls:keepgenerated>false</wls:keepgenerated>
+		<wls:page-check-seconds>0</wls:page-check-seconds>
+		<wls:precompile>true</wls:precompile>
+		<wls:precompile-continue>true</wls:precompile-continue>
+		<wls:backward-compatible>true</wls:backward-compatible>
+	</wls:jsp-descriptor>
+	<wls:container-descriptor>
+		<wls:servlet-reload-check-secs>0</wls:servlet-reload-check-secs>
+		<wls:resource-reload-check-secs>0</wls:resource-reload-check-secs>
+		<wls:prefer-web-inf-classes>false</wls:prefer-web-inf-classes>
+		<wls:optimistic-serialization>true</wls:optimistic-serialization>
+		<wls:show-archived-real-path-enabled>true</wls:show-archived-real-path-enabled>
+	</wls:container-descriptor>
+	<wls:context-root>/uom-apps</wls:context-root>
+</wls:weblogic-web-app>

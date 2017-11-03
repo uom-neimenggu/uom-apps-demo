@@ -1,0 +1,10 @@
+<?page title="下发检测" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./publishDetectionInfoMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<window title="下发检测" id="publishDetectionInfoMainWin" width="800px" 
+	    closable="true" apply="${publishDetectionComposer}">
+	    <div id="systemInfoDiv" visible="false"></div>
+	    <div id="publishDetectionInfoDiv"></div>
+</window>
+</zk>

@@ -1,0 +1,12 @@
+<?page title="员工组织业务关系导入结果页面" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffOrgTranResultMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="staffOrgTranResultMainWin" width="900px" closable="true"
+		apply="${staffOrgTranResultMainComposer}">
+		<div id="staffOrgTranResultDiv" visible="false">
+			您好，数据库中不存在该记录！
+		</div>
+		<div id="staffOrgTranResultListboxDiv"></div>
+	</window>
+</zk>

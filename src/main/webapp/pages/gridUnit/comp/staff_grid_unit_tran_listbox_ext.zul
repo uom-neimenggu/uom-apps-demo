@@ -1,0 +1,87 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffGridUnitTranListboxExtPanel" ?>
+<zk>
+	<panel id="staffGridUnitTranListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;">
+				<div id="staffGridUnitTranSearchDiv">
+					<hbox>
+						<label value="全息网格标识" />
+						<longbox id="mmeFid" width="85px" />
+						<label value="网格单元名称" />
+						<textbox id="gridName" width="85px" />
+						<label value="员工姓名" />
+						<textbox id="staffName" width="85px" />
+						<label value="员工账号" />
+						<textbox id="staffAccount" width="85px" />
+						<button label="查询"
+							forward="onQueryStaffGridUnitTran" autodisable="self"
+							mold="trendy" />
+						<button label="重置"
+							forward="onResetStaffGridUnitTran" autodisable="self"
+							mold="trendy" />
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar height="5px" align="end">
+				<hbox>
+					<div id="staffGridUnitTranBandboxDiv">
+						<hbox>
+							<toolbarbutton
+								forward="onStaffGridUnitTranAdd" id="addStaffGridUnitTranButton"
+								label="新增" />
+							<toolbarbutton upload="true,maxsize=300"
+								id="uploadButton" label="导入" />
+							<toolbarbutton id="downloadButton"
+								forward="onDownloadTemplate" label="模板下载" />
+							<toolbarbutton
+								forward="onStaffGridUnitTranExport" id="exportStaffGridUnitTranButton"
+								label="导出" />
+							<toolbarbutton
+								forward="onGridUnitNoStaffTranExport" id="exportGridUnitNoStaffTranButton"
+								label="无员工单元导出" />
+							<toolbarbutton
+								forward="onStaffGridUnitTranDel" id="delStaffGridUnitTranButton"
+								label="删除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="staffGridUnitTranListbox"
+				sizedByContent="false" sclass="zl-listbox"
+				forward="onSelect=onStaffGridUnitTranSelectRequest" vflex="1">
+				<listhead sizable="true">
+					<listheader label="员工标识" />
+					<listheader label="员工姓名" />
+					<listheader label="员工账号" />
+					<listheader label="全息网格标识" />
+					<listheader label="网格单元名称" />
+					<listheader label="区域名称" />
+					<listheader label="子区域名称" />
+					<listheader label="关联类型" />
+					<listheader label="员工排序" />
+					<listheader label="生效时间"
+						sclass="listheader-time-width" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}"
+					tooltiptext="@{current.staffId}">
+					<listcell label="@{current.staffId}"></listcell>
+					<listcell label="@{current.staffName}"></listcell>
+					<listcell label="@{current.staffAccount}"></listcell>
+					<listcell label="@{current.mmeFid}"></listcell>
+					<listcell label="@{current.gridName}"></listcell>
+					<listcell label="@{current.areaName}"></listcell>
+					<listcell label="@{current.subareaName}"></listcell>
+					<listcell label="@{current.ralaCdName}"></listcell>
+					<listcell label="@{current.staffSort}"></listcell>
+					<listcell label="@{current.effDate}"></listcell>
+				</listitem>
+			</listbox>
+			<paging id="staffGridUnitTranListboxPaging"
+				forward="onStaffGridUnitTranListboxPaging" pageSize="16" />
+		</panelchildren>
+	</panel>
+</zk>

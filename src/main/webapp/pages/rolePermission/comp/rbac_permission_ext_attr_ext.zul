@@ -1,0 +1,8 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacPermissionExtAttrGroupBox"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<groupbox id="rbacPermissionExtAttrGroupBox">
+	<caption label="权限扩展属性"></caption>
+	<radiogroup id="radiogroupBody">
+
+	</radiogroup>
+</groupbox>

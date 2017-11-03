@@ -1,0 +1,120 @@
+<?page title="指标配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./indicatorConfigMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="indicatorConfigMainWin"
+		apply="${indicatorConfigMainComposer}" width="100%" height="100%">
+		<borderlayout>
+			<north size="50%">
+				<panel vflex="1">
+					<caption>
+						<toolbar style="width:auto;float:left;">
+							<hbox>
+								<label value="指标名称：" />
+								<textbox id="indicatorName"
+									width="100px" />
+								<button id="findIndicatorButton"
+									label="查询" forward="onQueryIndicator" />
+							</hbox>
+						</toolbar>
+						<toolbar align="start" sclass="toolbar-user"
+							style="width:auto;float:right;">
+							<div>
+								<hbox>
+									<toolbarbutton
+										id="addIndicatorButton" forward="onIndicatorAdd" label="新增" />
+									<toolbarbutton
+										id="editIndicatorButton" forward="onIndicatorEdit" label="修改" />
+									<toolbarbutton
+										id="delIndicatorButton" forward="onIndicatorDel" label="删除" />
+								</hbox>
+							</div>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="indicatorListBox"
+							forward="onSelect=onSelectIndicatorListBox" vflex="1">
+							<listhead sizable="true">
+								<listheader label="指标项标识" />
+								<listheader label="指标名称" />
+								<listheader label="指标编码" />
+								<listheader label="指标类型" />
+								<listheader label="归属系统" />
+							</listhead>
+							<listitem self="@{each='current'}"
+								value="@{current}">
+								<listcell
+									label="@{current.execSctIdenti}">
+								</listcell>
+								<listcell label="@{current.execName}">
+								</listcell>
+								<listcell label="@{current.execCode}">
+								</listcell>
+								<listcell
+									label="@{current.checkType}">
+								</listcell>
+								<listcell
+									label="@{current.systemCode}">
+								</listcell>
+							</listitem>
+						</listbox>
+						<paging id="indicatorPaging" pageSize="10"
+							forward="onQueryIndicatorPaging" />
+					</panelchildren>
+				</panel>
+			</north>
+			<center>
+				<tabbox height="100%">
+					<tabs>
+						<tab label="考核基准" id="qaUnAssmCrtTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="overflow: auto">
+							<div style="float :right">
+								<hbox>
+									<toolbarbutton
+										id="addQaUnAssmCrtButton" forward="onIndicatorBaseInfoAdd" label="新增" />
+									<toolbarbutton
+										id="editQaUnAssmCrtButton" forward="onIndicatorBaseInfoEdit" label="修改" />
+									<toolbarbutton
+										id="delQaUnAssmCrtButton" forward="onIndicatorBaseInfoDel" label="删除" />
+								</hbox>
+							</div>
+							<div style="clear: both;"></div>
+							<listbox id="unAssmCrtListBox"
+								forward="onSelect=onSelectUnAssmCrtListBox" vflex="1">
+								<listhead sizable="true">
+									<listheader label="指标项标识" />
+									<listheader label="标准合格率" />
+									<listheader label="分值位" />
+									<listheader label="更新时间" />
+								</listhead>
+								<listitem self="@{each='current'}"
+									value="@{current}">
+									<listcell
+										label="@{current.execSctIdenti}">
+									</listcell>
+									<listcell
+										label="@{current.perOfPass}">
+									</listcell>
+									<listcell label="@{current.salt}">
+									</listcell>
+									<listcell
+										label="@{current.updateDate}">
+									</listcell>
+								</listitem>
+							</listbox>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

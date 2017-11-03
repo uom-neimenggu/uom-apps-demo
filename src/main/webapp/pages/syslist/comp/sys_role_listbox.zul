@@ -1,0 +1,67 @@
+<?page title="角色系统列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysRoleMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="sysRoleMainWin" apply="${sysRoleListboxComposer}" height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="width:auto;float:left;">
+				<div id="searchDiv">
+					<hbox>
+						<label value="角色编码" />
+						<textbox id="roleCode" width="95px" />
+						<label value="角色名称" />
+						<textbox id="roleName" width="95px" />
+						<button label="查询" forward="onQuery" autodisable="self" mold="trendy"/>
+						<button label="重置" forward="onReset" autodisable="self" mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton
+							id="addButton" label="新增"
+							forward="onAdd" />
+						<toolbarbutton
+							id="delButton" label="删除"
+							forward="onDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="sysRoleListbox" forward="onSelect=onSysRoleSelectRequest" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="角色编码" />
+						<listheader label="角色名称" />
+						<listheader label="系统编码" />
+						<listheader label="系统名称" />
+						<listheader label="系统URL" />
+						<listheader label="系统电信管理区域" />
+					</listhead>
+					<listitem self="@{each='sysRoleRela'}" value="@{sysRoleRela}">
+						<listcell
+							label="@{sysRoleRela.staffRole.roleCode}">
+						</listcell>
+						<listcell
+							label="@{sysRoleRela.staffRole.roleName}">
+						</listcell>
+						<listcell
+							label="@{sysRoleRela.sysList.clientCode}">
+						</listcell>
+						<listcell
+							label="@{sysRoleRela.sysList.sysName}">
+						</listcell>
+						<listcell
+							label="@{sysRoleRela.sysList.sysUrl}">
+						</listcell>
+						<listcell
+							label="@{sysRoleRela.sysList.telcomRegion.regionName}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="sysRoleListboxPaging" pageSize="10" forward="onSysRoleListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

@@ -1,0 +1,84 @@
+<?page title="系统配置" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemConfigMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="sysClassBaseInfo" macroURI="sysclass_base_info.zul" ?>
+<?component name="sysClassAttrBaseInfo" macroURI="sysclass_attr_info.zul" ?>
+<zk>
+<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<window id="systemConfigMainWin" apply="${systemConfigMainComposer}"
+		width="100%" height="100%" >
+		<borderlayout>
+			<north size="50%">
+				<panel vflex="1">
+					<caption>
+						<toolbar>
+							<hbox>
+								<label value="实体名：" />
+								<textbox id="className" width="100px" />
+								<label value="类名：" />
+								<textbox id="javaCode" width="100px" />
+								<label value="表名：" />
+								<textbox id="tableName" width="100px" />
+								<button id="findSysClassButton"
+									label="查询" forward="onFindSysClassInfo" />
+							</hbox>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox id="sysClassListBox"
+							forward="onSelect=onSelectSysClassListBox" vflex="1">
+							<listhead sizable="true">
+								<listheader label="类标识" />
+								<listheader label="类名" />
+								<listheader label="JAVA类名" />
+								<listheader label="物理表名" />
+								<listheader label="序列名称" />
+							</listhead>
+							<listitem self="@{each='current'}"
+								value="@{current}">
+								<listcell label="@{current.classId}">
+								</listcell>
+								<listcell
+									label="@{current.className}">
+								</listcell>
+								<listcell label="@{current.javaCode}">
+								</listcell>
+								<listcell
+									label="@{current.tableName}">
+								</listcell>
+								<listcell label="@{current.seqName}">
+								</listcell>
+							</listitem>
+						</listbox>
+						<paging id="sysClassPaging" pageSize="10"
+							forward="onQuerySysClass" />
+					</panelchildren>
+				</panel>
+			</north>
+			<center>
+				<tabbox height="100%">
+					<tabs>
+						<tab label="实体基本信息" id="baseInfoTab" />
+						<tab label="实体属性信息" id="attrInfoTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="overflow: auto">
+							<sysClassBaseInfo id="sysClassBaseInfo"></sysClassBaseInfo>
+						</tabpanel>
+						<tabpanel style="overflow: auto">
+							<sysClassAttrBaseInfo
+								id="sysClassAttrBaseInfo">
+							</sysClassAttrBaseInfo>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

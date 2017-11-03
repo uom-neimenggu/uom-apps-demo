@@ -1,0 +1,34 @@
+<?page title="组织机构查询" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./orgStructureMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="politicalStructureExt" extends="div" class="cn.ffcs.uom.structure.component.PoliticalStructureExt"?>
+<zk>
+	<window id="orgStructureMainWin" width="100%" height="98%"
+		apply="${orgStructureMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="politicalTab" label="内部组织"
+					forward="onClickTab" />
+				<tab id="agentTab" label="代理商组织" forward="onClickTab" />
+				<tab id="supplierTab" label="供应商组织"
+					forward="onClickTab" />
+				<tab id="ossTab" label="中通服组织" forward="onClickTab" />
+				<tab id="tempTab" visible="false" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="politicalTabpanel">
+					<politicalStructureExt id="politicalStructureExt"
+						vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="agentTabpanel">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel vflex="1" id="supplierTabpanel">
+					暂时无数据...
+				</tabpanel>
+				<tabpanel vflex="1" id="ossTabpanel">暂时无数据...</tabpanel>
+				<tabpanel id="tempTabpanel"></tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

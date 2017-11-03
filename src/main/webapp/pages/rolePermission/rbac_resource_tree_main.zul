@@ -1,0 +1,53 @@
+<?page title="资源树管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./rbacResourceTreeMainWindow"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="rbacResourceEditExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacResourceEditExt" ?>
+<?component name="rbacResourceRelationTreeExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacResourceRelationTreeExt"?>
+<?component name="rbacPermissionResourceListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacPermissionResourceListboxExt"?>
+<?component name="rbacBusinessSystemResourceListboxExt" extends="div" class="cn.ffcs.uom.rolePermission.component.RbacBusinessSystemResourceListboxExt"?>
+<zk>
+	<window id="rbacResourceTreeMainWindow" width="100%" height="100%"
+		apply="${rbacResourceTreeMainComposer}">
+		<borderlayout>
+			<west width="22%">
+				<tabbox id="leftTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacResourceRelationTab" label="资源理界面" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacResourceRelationTreeExt
+								id="rbacResourceRelationTreeExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</west>
+			<center vflex="1">
+				<tabbox id="rightTabbox" vflex="1">
+					<tabs>
+						<tab id="rbacResourceTab" label="资源属性"
+							forward="onClickTab" />
+						<tab id="rbacPermissionResourceTab"
+							label="权限资源关系" forward="onClickTab" />
+						<tab id="rbacBusinessSystemResourceTab"
+							label="系统资源关系" forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel vflex="1">
+							<rbacResourceEditExt
+								id="rbacResourceEditExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacPermissionResourceListboxExt
+								id="rbacPermissionResourceListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel vflex="1">
+							<rbacBusinessSystemResourceListboxExt
+								id="rbacBusinessSystemResourceListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

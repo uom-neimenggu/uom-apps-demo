@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.staff.model.StaffOrgTranTemp" table="STAFF_ORG_TRAN_TEMP">
+		<comment>员工组织业务关系标识</comment>
+		<id name="staffOrgTranTempId" type="java.lang.Long">
+			<column name="STAFF_ORG_TRAN_TEMP_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_STAFF_ORG_TRAN_TEMP_ID</param>
+			</generator>
+		</id>
+		<property name="transId" type="java.lang.String">
+			<column name="TRANS_ID" length="100">
+				<comment>流水号标识</comment>
+			</column>
+		</property>
+		<property name="dataSource" type="java.lang.String">
+			<column name="DATA_SOURCE" length="12">
+				<comment>数据来源</comment>
+			</column>
+		</property>
+		<property name="operationType" type="java.lang.String">
+			<column name="OPERATION_TYPE" length="12">
+				<comment>操作类型</comment>
+			</column>
+		</property>
+		<property name="staffName" type="java.lang.String">
+			<column name="STAFF_NAME" length="100">
+				<comment>员工名称</comment>
+			</column>
+		</property>
+		<property name="staffAccount" type="java.lang.String">
+			<column name="STAFF_ACCOUNT" length="30">
+				<comment>员工账号</comment>
+			</column>
+		</property>
+		<property name="staffCode" type="java.lang.String">
+			<column name="STAFF_CODE" length="32">
+				<comment>员工编码</comment>
+			</column>
+		</property>
+		<property name="orgCode" type="java.lang.String">
+			<column name="ORG_CODE" length="60">
+				<comment>组织编码</comment>
+			</column>
+		</property>
+		<property name="orgFullName" type="java.lang.String">
+			<column name="ORG_FULL_NAME" length="600">
+				<comment>组织全称</comment>
+			</column>
+		</property>
+		<property name="ralaCd" type="java.lang.String">
+			<column name="RALA_CD" length="6">
+				<comment>关联类型</comment>
+			</column>
+		</property>
+		<property name="staffSort" type="java.lang.Long">
+			<column name="STAFF_SORT" length="12">
+				<comment>员工排序</comment>
+			</column>
+		</property>
+		<property name="result" type="java.lang.Long">
+			<column name="RESULT" length="1">
+				<comment>处理结果</comment>
+			</column>
+		</property>
+		<property name="errCode" type="java.lang.String">
+			<column name="ERR_CODE" length="30">
+				<comment>错误编码</comment>
+			</column>
+		</property>
+		<property name="errMsg" type="java.lang.String">
+			<column name="ERR_MSG" length="500">
+				<comment>错误信息</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

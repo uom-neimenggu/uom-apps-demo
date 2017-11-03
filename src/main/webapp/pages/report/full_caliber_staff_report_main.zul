@@ -1,0 +1,24 @@
+<?page title="全口径人员统计报表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./fullCaliberStaffReportMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="fullStaffQuarterReportExt" extends="div" class="cn.ffcs.uom.report.component.FullStaffQuarterReportExt"?>
+<?component name="fullStaffUnitReportExt" extends="div" class="cn.ffcs.uom.report.component.FullStaffUnitReportExt"?>
+<zk>
+	<window id="fullCaliberStaffReportMainWin" width="100%" height="98%"
+		apply="${fullCaliberStaffReportMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab id="quarterTab" label="按季人数统计" forward="onClickTab" />
+				<tab id="unitTab" label="分单位详表" forward="onClickTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel vflex="1" id="quarterTabpanel">
+					<fullStaffQuarterReportExt id="fullStaffQuarterReportExt" vflex="1" />
+				</tabpanel>
+				<tabpanel vflex="1" id="unitTabpanel">
+					<fullStaffUnitReportExt id="fullStaffUnitReportExt" vflex="1" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

@@ -1,0 +1,86 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./systemIntfInfoConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="systemIntfInfoConfigEditWin" border="none"
+		apply="${systemIntfInfoConfigEditComposer}" closable="true"
+		width="650px" height="228px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 系统编码"
+									class="z-info-required" />
+								<textbox id="systemCode" width="96%"
+									disabled="true">
+								</textbox>
+								<label value="* 消息类型"
+									class="z-info-required" />
+								<textbox id="msgType" width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="* 全量开关"
+									class="z-info-required" />
+								<listbox id="intfSwitchAll" width="96%"
+									mold="select">
+									<listitem label="开" value="1"
+										selected="true">
+									</listitem>
+									<listitem label="关" value="0"></listitem>
+								</listbox>
+								<label value="* 增量开关"
+									class="z-info-required" />
+								<listbox id="intfSwitchIncrease"
+									width="96%" mold="select">
+									<listitem label="开" value="1"
+										selected="true">
+									</listitem>
+									<listitem label="关" value="0"></listitem>
+								</listbox>
+							</row>
+							<row>
+								<label value="* OIP编码"
+									class="z-info-required" />
+								<textbox id="serviceCode" width="96%">
+								</textbox>
+								<label value="* OIP地址"
+									class="z-info-required" />
+								<textbox id="oipUrl" width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="* 方法名称"
+									class="z-info-required" />
+								<textbox id="operationName"
+									width="96%">
+								</textbox>
+								<label value="* 参数名称"
+									class="z-info-required" />
+								<textbox id="paramName" width="96%">
+								</textbox>
+							</row>
+							<row spans="1,3">
+								<label value="命名空间" />
+								<textbox id="nameSpace" width="98%">
+								</textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

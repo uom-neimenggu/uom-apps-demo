@@ -1,0 +1,101 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./partyListboxExtPanel" ?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+
+	<panel id="partyListboxExtPanel" vflex="1">
+		<caption>
+			<toolbar align="start" style="width:auto;float:left;">
+				<hbox>
+					<label id="partyNameLab" value="名称" />
+					<textbox id="partyName" width="80px" />
+					<label id="mobilePhoneLab" value="联系号码" />
+					<textbox id="mobilePhone" width="80px" />
+					<label id="partyTypeLab" value="参与人类型" />
+					<listbox id="partyType" mold="select" width="70px" />
+					<label value="证件号码" />
+					<textbox id="certNumber" width="80px" />
+					<label id="staffAccountLab" value="员工账号" />
+					<textbox id="staffAccount" width="80px" />
+					<label id="freePartyLab" value="是否游离" />
+					<listbox id="freeParty" mold="select"
+						width="60px">
+						<listitem label="全" value="" selected="true"></listitem>
+						<listitem label="是" value="1"></listitem>
+						<listitem label="否" value="0"></listitem>
+					</listbox>
+					<toolbarbutton label="查询" forward="onPartyQuery"
+						autodisable="self" />
+					<toolbarbutton label="重置" forward="onPartyReset" />
+				</hbox>
+			</toolbar>
+			<toolbar align="end" style="width:auto;float:right;">
+				<hbox>
+					<div id="partyWindowDiv">
+						<hbox>
+							<toolbarbutton forward="onPartyAdd"
+								id="addPartyButton" label="新增" />
+							<toolbarbutton forward="onView"
+								id="viewButton" label="查看" />
+							<toolbarbutton forward="onPartyEdit"
+								id="editPartyButton" label="修改" />
+							<toolbarbutton forward="onPartyDel"
+								id="delPartyButton" label="删除" />
+						</hbox>
+					</div>
+					<div id="partyBandboxDiv" visible="false">
+						<hbox>
+							<toolbarbutton id="selectPartyButton"
+								label="选择" forward="onSelectPartyInfo" visible="false" />
+							<toolbarbutton id="closePartyButton"
+								label="关闭" forward="onClosePartyInfo" />
+							<toolbarbutton id="cleanPartyButton"
+								label="清空" forward="onCleanPartyInfo" />
+						</hbox>
+					</div>
+					<div id="partyBatchDiv" visible="false">
+						<hbox>
+							<toolbarbutton id="add" label="追加" />
+							<toolbarbutton id="del" label="剔除" />
+						</hbox>
+					</div>
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="partyListbox" sizedByContent="false"
+				sclass="zl-listbox" forward="onSelect=onPartySelectRequest"
+				vflex="1">
+				<listhead sizable="true">
+					<listheader label="名称" width="7%" />
+					<listheader label="曾用名" width="5%" />
+					<listheader label="员工账号" width="7%" />
+					<listheader label="类型" width="8%" />
+					<listheader label="角色标识" width="8%" />
+					<listheader label="角色类型" width="10%" />
+					<listheader label="证件号码" width="12%" />
+					<listheader label="联系号码" width="12%" />
+					<listheader label="生效" width="13%" />
+					<listheader label="失效" width="13%" />
+					<listheader label="状态" width="5%" />
+				</listhead>
+				<listitem self="@{each='party'}" value="@{party}"
+					tooltiptext="@{party.partyName}">
+					<listcell label="@{party.partyName}" />
+					<listcell label="@{party.partyNameFirst}" />
+					<listcell label="@{party.staffAccountStr}" />
+					<listcell label="@{party.partyTypeName}" />
+					<listcell label="@{party.partyRoleId}" />
+					<listcell label="@{party.roleTypeName}" />
+					<listcell label="@{party.certNumber}" />
+					<listcell label="@{party.mobilePhone}" />
+					<listcell label="@{party.effDate}" />
+					<listcell label="@{party.expDate}" />
+					<listcell label="@{party.statusCdName}" />
+				</listitem>
+			</listbox>
+			<paging id="partyListboxPaging"
+				forward="onPartyListboxPaging" pageSize="9" />
+		</panelchildren>
+	</panel>
+</zk>

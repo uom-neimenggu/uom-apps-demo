@@ -1,0 +1,86 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./channelPackareaRelationListboxComp"?>
+<?component name="telcomRegionTreeBandbox" extends="bandbox" class="cn.ffcs.uom.telcomregion.component.TelcomRegionTreeBandbox"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<panel id="channelPackareaRelationListboxComp" vflex="1">
+		<caption id="channelPackareaCaption">
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user"
+				style="width:auto;float:left;line-height:16px;">
+				<label value="电信管理区域" />
+				<telcomRegionTreeBandbox id="telcomRegion" width="85px" />
+				<label value="渠道编码" width="85px"  />
+				<textbox id="agentChannelNbr" width="85px" />
+				<label value="渠道名称" width="85px" />
+				<textbox id="agentChannelName" width="85px" />
+				<label value="包区编码" width="85px" />
+				<textbox id="custPackareaCode" width="85px" />
+				<label value="包区名称" width="85px" />
+				<textbox id="custPackareaName" width="85px" />
+				
+				<button label="查询" forward="onQueryChannelPackareaRelation"
+					autodisable="self" mold="trendy" />
+				<button label="重置" forward="onResetChannelPackareaRelation"
+					autodisable="self" mold="trendy" />
+
+			</toolbar>
+			<toolbar align="start" sclass="toolbar-user"
+				style="width:auto;float:right;">
+				<div id="channelPackareaRelationWindowDiv">
+					<hbox>
+						<!--<toolbarbutton id="batchChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationBatch" label="批量操作" />-->
+						<toolbarbutton id="addChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationAdd" label="新增" />
+						<toolbarbutton id="editChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationEdit" label="修改"  />
+						<toolbarbutton id="delChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationDel" label="删除"  />
+						<toolbarbutton id="viewChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationView" label="查看" />
+						<toolbarbutton id="exportChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationExport" label="导出" />
+						<toolbarbutton id="approveChannelPackareaRelationButton"
+							forward="onChannelPackareaRelationApprove" label="审批" />
+					</hbox>
+				</div>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<listbox id="channelPackareaRelationListBox"
+				forward="onSelect=onChannelPackareaRelationSelect" style="height:475px" mold="paging" >
+				<listhead sizable="true">
+					<listheader label="渠道标识" width="85px" />
+					<listheader label="渠道编码" width="85px" />
+					<listheader label="渠道名称" width="85px" />
+					<listheader label="集团渠道编码" />
+					<listheader label="包区标识" />
+					<listheader label="包区名称" width="115px" />
+					<listheader label="包区编码" />
+					<listheader label="包区EDACODE" width="90px" />
+					<listheader label="以店包区" width="60px" />
+					<listheader label="状态" width="60px" />
+					<listheader label="修改时间" />
+				</listhead>
+				<listitem self="@{each='current'}" value="@{current}">
+					<listcell label="@{current.agentChannelId}"></listcell>
+					<listcell label="@{current.agentChannelNbr}"></listcell>
+					<listcell label="@{current.agentChannelName}"></listcell>
+					<listcell label="@{current.agentChannelGroupCode}"></listcell>
+					<listcell label="@{current.custPackareaId}"></listcell>
+					<listcell label="@{current.custPackareaName}"></listcell>
+					<listcell
+						label="@{current.custPackareaCode}">
+					</listcell>
+					<listcell label="@{current.custPackareaEdaCode}"></listcell>
+					<listcell label="@{current.storeAreaFlagName}"></listcell>
+					<listcell label="@{current.statusCdName}"></listcell>
+					<listcell label="@{current.updateDate}"></listcell>
+				</listitem>
+			</listbox>
+			<!--分页展示标签 -->
+			<paging id="channelPackareaRelationListPaging" pageSize="15"
+				forward="onChannelPackareaRelationListboxPaging" />
+		</panelchildren>
+	</panel>
+</zk>

@@ -1,0 +1,46 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt" ?>
+<?component name="organizationRelationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationRelationTreeBandboxExt" ?>
+<zk>
+	<window id="organizationRelationEditWindow" border="none"
+		width="600px" closable="true"
+		apply="${organizationRelationEditComposer}">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="组织" />
+							<organizationBandboxExt id="org"
+								width="190px" />
+							<label value="关联组织" />
+							<organizationRelationBandboxExt
+								id="relaOrganizaitonRelation"
+								isAgent="${arg.organizationRelation.isAgent}"
+								isIbe="${arg.organizationRelation.isIbe}" width="190px" />
+						</row>
+						<row>
+							<label value="关系类型" />
+							<listbox id="relaCd" mold="select" rows="1"
+								width="190px">
+							</listbox>
+							<label value="变更原因" />
+							<textbox id="reason" width="190px" />
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<div align="center" style="padding:5px;">
+			<button id="saveBtn" label="确定" forward="onOk"
+				autodisable="self" />
+			<button id="cancelBtn" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

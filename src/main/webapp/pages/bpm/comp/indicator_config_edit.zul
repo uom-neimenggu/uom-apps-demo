@@ -1,0 +1,47 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./indicatorConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="indicatorConfigEditWin" border="none"
+		apply="${indicatorConfigEditComposer}" closable="true" width="650px"
+		height="120px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="指标名称" />
+								<textbox id="indicatorName" rows="1"
+									width="96%">
+								</textbox>
+								<label value="指标编码" />
+								<textbox id="indicatorCode" rows="1"
+									width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="指标类型" />
+								<textbox id="indicatorType" rows="1"
+									width="96%">
+								</textbox>
+								<label value="归属系统" />
+								<textbox id="system" rows="1"
+									width="96%">
+								</textbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

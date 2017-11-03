@@ -1,0 +1,29 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="partyRoleEditWin" border="none" apply="${partyRoleEditComposer}" width="650px" closable="true">
+		<panel>
+			<panelchildren>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="35%" />
+						<column width="15%" align="center" />
+						<column width="35%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="参与人名称"/>
+							<textbox id="partyName" width="93%" disabled="true"/>
+							<label value="参与人角色类型"/>
+							<listbox id="roleType" width="93%" mold="select"/>
+						</row>
+					</rows>
+				</grid>
+			</panelchildren>
+		</panel>
+		<toolbar id="btnToolBar" align="center" mold="panel">
+			<button id="savePartyRole" label="确定" forward="onOk" />
+			<button id="cancelPartyRole" label="取消" forward="onCancel" />
+		</toolbar>
+	</window>
+</zk>

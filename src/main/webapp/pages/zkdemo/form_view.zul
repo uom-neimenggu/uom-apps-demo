@@ -1,0 +1,62 @@
+<?component name="organizationExtendAttrExt" extends="div" class="cn.ffcs.uom.organization.component.OrganizationExtendAttrExt"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="politicalLocationTree" extends="tree" class="cn.ffcs.uom.politicallocation.component.PoliticalLocationTree"?>
+<?component name="politicalLocationBandbox" extends="bandbox" class="cn.ffcs.uom.politicallocation.component.PoliticalLocationTreeBandbox"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+
+<zk>
+	<style>
+		tr.z-row-over > td.z-row-inner, tr.z-row-over > .z-cell {
+		background-color: transparent; } tr.z-row-over >
+		td.z-row-inner,tr.z-row td.z-row-inner, tr.z-row .z-cell {
+		border: 0px; } tr.z-row-over > td.z-row-inner >
+		.z-row-cnt,div.z-column-cnt, div.z-row-cnt{color:#00547A}
+	</style>
+	<treeChooserBandbox id="orgTypeCd" range="any" mode="single"
+		className="OrgType" attrName="orgTypeCd" pattern="3,3,5"
+		width="98%">
+	</treeChooserBandbox>
+
+	<treeChooserBandbox id="treeChooserBandbox" range="any"
+		mode="multiple" className="Test" attrName="Field" pattern="2,2,2,6">
+	</treeChooserBandbox>
+	<treeChooserBandbox id="treeChooserBandbox2" range="end"
+		mode="single" className="Test" attrName="Field" pattern="6,6">
+	</treeChooserBandbox>
+
+	<html id="html"></html>
+
+	<div apply="cn.ffcs.uom.zkdemo.action.FormViewCtrl">
+		<grid>
+			<rows>
+				<row>
+					用户名:
+					<textbox id="usernameTxtBox" width="200px"
+						constraint="no empty:用户名不能为空" />
+				</row>
+				<row>
+					密码:
+					<textbox id="passwordTxtBox" width="200px"
+						type="password" constraint="no empty:密码不能为空" />
+				</row>
+				<row>
+					日期:
+					<datebox id="dateDateBox" cols="20"
+						format="yyyy-MM-dd hh:mm:ss" onCreate="self.value = new Date()"
+						mold="default" />
+				</row>
+				<row>
+					<checkbox id="rememberCheckBox" />
+				</row>
+			</rows>
+		</grid>
+		<hbox pack="right" width="100%">
+			<button label="提交" forward="onSubmit" />
+			<button label="重置" forward="onReset" />
+			<button id="stateBtn" label="状态信息" />
+			<button id="jumpBtn" label="跳转" />
+			<button id="testBtn" label="Test" />
+		</hbox>
+		<label id="mesgLbl" pre="true" style="color:red" />
+	</div>
+</zk>

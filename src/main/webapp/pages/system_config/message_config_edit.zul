@@ -1,0 +1,60 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./messageConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="messageConfigEditWin" border="none"
+		apply="${messageConfigEditComposer}" closable="true"
+		width="650px" height="160px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+							<column label="" width="15%" />
+							<column label="" width="35%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 联系人姓名"
+									class="z-info-required" />
+								<textbox id="userName" width="96%">
+								</textbox>
+								<label value="* 手机号码"
+									class="z-info-required" />
+								<textbox id="telephoneNumber"
+									width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="主数据工号" />
+								<textbox id="uomAcct" width="96%">
+								</textbox>
+								<label value="邮件地址" />
+								<textbox id="emailAddress"
+									width="96%">
+								</textbox>
+							</row>
+							<row>
+								<label value="* 全局管理标识"
+									class="z-info-required" />
+								<listbox id="overallSituation"
+									width="96%" mold="select">
+									<listitem label="是" value="1">
+									</listitem>
+									<listitem label="否" value="0" selected="true">
+									</listitem>
+								</listbox>
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

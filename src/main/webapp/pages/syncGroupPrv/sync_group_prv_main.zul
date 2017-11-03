@@ -1,0 +1,59 @@
+<?page title="对应关系管理" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./syncGroupPrvMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style>
+ .z-hbox td{vertical-align: middle;}
+</style>
+	<window id="syncGroupPrvMainWin" width="100%" height="500px">
+		<borderlayout>
+			<north size="100%">
+				<panel vflex="1">
+					<caption>
+						<toolbar style="width:auto;float:left;">
+							<hbox>
+								<label value="查询类型"></label>
+								<combobox id="qryTypeComb">
+									<attribute name = "onCreate">
+										<![CDATA[
+    List list = new ArrayList();
+    list.add("员工");
+    list.add("组织");
+    ListModelList lm = new ListModelList(list);
+    lm.addSelection(lm.get(0));
+    qryTypeComb.setModel(lm);
+]]>
+									</attribute>
+								</combobox>
+								<label value="条件2"></label>
+								<label value="条件3"></label>
+								<toolbarbutton label="查询"></toolbarbutton>
+							</hbox>
+						</toolbar>
+						<toolbar style="width:auto;float:right;">
+							<hbox>
+								<toolbarbutton label="修改"></toolbarbutton>
+							</hbox>
+						</toolbar>
+					</caption>
+					<panelchildren>
+						<listbox vflex="1" id="filterConfigListBox">
+							<listhead sizable="true">
+								<listheader label="text1"></listheader>
+								<listheader label="text2"></listheader>
+								<listheader label="text3"></listheader>
+							</listhead>
+							<listitem>
+								<listcell label="text11"></listcell>
+								<listcell label="text22"></listcell>
+								<listcell label="text33"></listcell>
+							</listitem>
+						</listbox>
+						<paging id="filterConfigPaging" pageSize="10"
+							forward="onQueryFilterConfig" />
+					</panelchildren>
+				</panel>
+			</north>
+		</borderlayout>
+	</window>
+</zk>

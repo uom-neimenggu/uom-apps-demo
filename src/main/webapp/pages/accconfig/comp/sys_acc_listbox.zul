@@ -1,0 +1,55 @@
+<?page title="配置系统列表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysAccMainWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<?link rel="stylesheet" type="text/css" href="../../../public/css/style.css"?>
+	<window id="sysAccMainWin" apply="${sysAccListboxComposer}" height="100%" width="100%">
+		<panel vflex="1">
+			<caption>
+			<toolbar align="start" id="toolbarId" sclass="toolbar-user" style="width:auto;float:left;">
+				<div id="searchDiv">
+					<hbox>
+						<label value="系统编码" />
+						<textbox id="clientCode" width="95px" />
+						<label value="系统名称" />
+						<textbox id="sysName" width="95px" />
+						<button label="查询" forward="onQuery" autodisable="self" mold="trendy"/>
+						<button label="重置" forward="onReset" autodisable="self" mold="trendy"/>
+					</hbox>
+				</div>
+			</toolbar>
+			<toolbar align="end" style="float:right;">
+					<hbox>
+						<toolbarbutton
+							id="addButton" label="新增"
+							forward="onAdd" />
+						<toolbarbutton
+							id="delButton" label="删除"
+							forward="onDel" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="sysAccListbox" forward="onSelect=onSysAccSelectRequest" vflex="1" mold="paging">
+					<listhead sizable="true">
+						<listheader label="配置名称" />
+						<listheader label="系统编码" />
+						<listheader label="系统名称" />
+					</listhead>
+					<listitem self="@{each='sysAccRela'}" value="@{sysAccRela}">
+						<listcell
+							label="@{sysAccRela.accConfig.accName}">
+						</listcell>
+						<listcell
+							label="@{sysAccRela.sysList.clientCode}">
+						</listcell>
+						<listcell
+							label="@{sysAccRela.sysList.sysName}">
+						</listcell>
+					</listitem>
+				</listbox>
+				<paging id="sysAccListboxPaging" pageSize="10" forward="onSysAccListPaging" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

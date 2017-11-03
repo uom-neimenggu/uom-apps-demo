@@ -1,0 +1,60 @@
+	/*
+	*配置于ZK.xml
+	*优先级高于ZK默认主题
+	*/
+div.z-treecol-cnt {
+	padding:0;
+}
+
+.z-treerow-img-checkbox, .z-treerow-img-radio {
+	float: right;
+}
+
+/*去边框*/
+.z-north, .z-south, .z-west, .z-center, .z-east{
+	border:none !important;
+}
+
+/*工具栏字体调大*/
+.z-toolbar .z-toolbarbutton-cnt ,.z-toolbar .z-label{
+	font-size:12px;
+}
+
+/*面板边距调小*/
+.z-panel-header{
+	padding:0 !important;
+}
+/*必填项*/
+.z-info-required{
+	color:red;
+}
+/*树内容节点不换行*/
+div.z-treecell-cnt{white-space: nowrap;}
+/*树内容横向滚动条*/
+.zt-tree-scroll table{table-layout:auto !important;}
+
+/*GRID内容行高，window、panel标题行高处理*/
+div.z-listheader-cnt, div.z-listbox-header div.z-auxheader-cnt {padding: 3px 5px 3px;}
+tr.z-row td.z-row-inner {line-height: 13px;}
+.z-window-embedded-header{padding-top: 2px;padding-bottom: 4px;}
+.z-panel-hm .z-panel-header, .z-panel-header {padding: 2px 0 5px 0;}
+/*list文字显示一行*/
+div.z-listcell-cnt {text-align: left;white-space: nowrap;}
+/*button行距缩小空间*/
+.toolbar-user {line-height: 16px;}
+.toolbar-user .z-label,.toolbar-user .z-button-os,.toolbar-user *{font-size:12px;}
+/*page行距缩小空间*/
+.z-paging {padding: 0px 2px 0px 10px;}
+.z-paging-inp, .z-paging input.z-paging-inp {height: 16px;line-height: 16px;}
+/*grid行距缩小空间*/
+tr.z-row td.z-row-inner, tr.z-row .z-cell {padding: 3px 4px 3px 6px;}
+/*panel行距缩小空间*/
+.z-panel-tl, .z-panel-tr, .z-panel-tl-gray, .z-panel-tr-gray, .z-panel-bl, .z-panel-br {height: 4px;}
+/*生失效时间固定距离*/
+.listheader-time-width{width:122px;}
+.z-textbox-disd{color:#363636!important;}
+.z-textbox-disd, .z-decimalbox-disd, .z-intbox-disd, .z-longbox-disd, .z-doublebox-disd {
+  opacity: .8;
+  -moz-opacity: .6;
+  filter: alpha(opacity=60);
+}

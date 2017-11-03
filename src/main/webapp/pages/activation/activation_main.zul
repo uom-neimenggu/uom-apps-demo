@@ -1,0 +1,25 @@
+<?page title="激活管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="staffActivationListboxExt" extends="div" class="cn.ffcs.uom.activation.component.StaffActivationListbox"?>
+<?component name="organizationActivationListboxExt" extends="div" class="cn.ffcs.uom.activation.component.OrganizationActivationListbox"?>
+<zk>
+	<window id="activationMainWin" width="98%" height="98%"
+		apply="${activationMainComposer}">
+		<tabbox id="tabBox" vflex="1">
+			<tabs>
+				<tab label="员工列表" id="staffActivationTab" />
+				<tab label="组织列表" id="organizationActivationTab" />
+			</tabs>
+			<tabpanels>
+				<tabpanel style="padding:1px;" vflex="1">
+					<staffActivationListboxExt
+						id="staffActivationListboxExt" vflex="1" />
+				</tabpanel>
+				<tabpanel style="padding:1px;" vflex="1">
+					<organizationActivationListboxExt
+						id="organizationActivationListboxExt" vflex="1" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

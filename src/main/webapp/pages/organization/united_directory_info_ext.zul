@@ -1,0 +1,30 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<panel vflex="1" id="unitedDirectoryInfoPanel">
+		<panelchildren vflex="1" style="overflow-y:auto">
+			<groupbox>
+				<caption>组织基本属性</caption>
+				<grid>
+					<columns>
+						<column width="15%" align="center" />
+						<column width="30%" />
+						<column width="15%" align="center" />
+						<column width="40%" />
+					</columns>
+					<rows>
+						<row>
+							<label value="* 组织名称" />
+							<textbox id="deptname" width="97%" disabled="true">
+							</textbox>
+							<label value="组织编码" />
+							<textbox id="ctou" width="97%"
+								disabled="true">
+							</textbox>
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+		</panelchildren>
+	</panel>
+</zk>

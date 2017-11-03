@@ -1,0 +1,51 @@
+<?page title="权限信息" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./authEditExtPanel"?>
+<zk>
+	<panel id="authEditExtPanel">
+		<caption>
+			<toolbar align="end">
+				<hbox>
+					<toolbarbutton id="editButton" label="编辑"
+						forward="onEdit" />
+					<toolbarbutton id="saveButton" label="保存"
+						forward="onSave" />
+					<toolbarbutton id="recoverButton" label="恢复"
+						forward="onRecover" />
+				</hbox>
+			</toolbar>
+		</caption>
+		<panelchildren>
+			<grid>
+				<columns>
+					<column width="15%" align="center" />
+					<column width="30%" />
+					<column width="15%" align="center" />
+					<column width="40%" />
+				</columns>
+				<rows>
+					<row>
+						<label value="权限名称" />
+						<textbox id="authName" width="97%"
+							disabled="true">
+						</textbox>
+						<label value="权限状态" />
+						<textbox id="statusCdName" width="97%"
+							disabled="true">
+						</textbox>
+					</row>
+					<row>
+						<label value="生效时间" />
+						<textbox id="effDateStr" width="97%"
+							disabled="true">
+						</textbox>
+						<label value="失效时间" />
+						<textbox id="expDateStr" width="97%"
+							disabled="true">
+						</textbox>
+					</row>
+				</rows>
+			</grid>
+		</panelchildren>
+	</panel>
+</zk>

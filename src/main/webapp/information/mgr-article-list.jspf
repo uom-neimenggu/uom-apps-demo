@@ -1,0 +1,56 @@
+<table width="100%" height="100%">
+	<tr>
+		<td valign="top">
+			<div>
+				<span>
+					<label>标题：</label>
+					<input type="text" id="imal-title" size="30"></input>
+				</span>
+				<span>
+					<label>分类：</label>
+					<select id="imal-category"></select>
+				</span>
+				<span>
+					<label>展现方式：</label>
+					<select id="imal-disp-type">
+						<option value="">不限</option>
+						<option value="normal">列表</option>
+						<option value="image">图片</option>
+						<option value="rolling">滚动</option>
+					</select>
+				</span>
+			</div>
+			<div>
+				<span>
+					<label>开始日期：</label>
+					<input type="text"  readonly="readonly" value="" id="imal-begin-date" size="10"></input>
+				</span>
+				<span>
+					<label>结束日期：</label>
+					<input type="text"  readonly="readonly" value="" id="imal-end-date" size="10"></input>
+				</span>
+			</div>
+			<div>
+				
+			</div>
+			<div>
+				<button id="imal-query">查询</button>
+				<button id="imal-reset">重置</button>
+				<button id="imal-batch-remove-release">批量删除发布</button>
+				<button id="imal-batch-remove">批量删除</button>
+				<button id="imal-batch-release">批量发布</button>
+				<button id="imal-add">新增</button>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="height:100%;padding-top:1em;">
+			<table id="imal-table" ></table>
+			<div id="imal-pager"></div>
+			<div style="text-align:right">
+ 			
+ 		</div>
+ 		</td>
+	</tr>
+
+</table>

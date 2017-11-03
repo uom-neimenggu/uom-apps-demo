@@ -1,0 +1,112 @@
+.ui-tabs-vertical {
+	width: auto;
+	/*height:33em;*/
+	border:none !important;
+}
+
+.ui-tabs-vertical .ui-tabs-nav {
+	height: 100%;/*added*/
+	padding: .2em /*.1em modded*/ 0 .2em /*.2em modded*/1em;
+	float: left;
+	width: 9em;
+	border-radius:0 !important;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+	clear: left;
+	width: 100%;
+	top:0 !important;
+	/*margin-bottom:0 !important;TODO 文字跳动*/
+}
+
+.ui-tabs-vertical .ui-tabs-nav li a {
+	display: block;
+	padding:0px 0 0;
+	font-size:13px;
+	width:100%;
+	height:100%;
+	text-align:center;
+	line-height:44px;
+	font-weight:normal;
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-selected a,
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-selected a:hover{
+	font-weight:bold !important;
+}  
+.ui-tabs-vertical .ui-tabs-panel {
+	/*padding: 2em;*/
+	/*width: 100%;*/
+	height:auto;
+}
+
+/*基础上修改*/
+.ui-tabs-vertical {/*背景色、边距*/
+	background-color:white !important;
+	padding:0 !important;
+	margin:0 !important;
+}
+.ui-tabs-vertical ul{
+	margin:0 !important;
+}
+.ui-tabs-vertical  .ui-tabs-nav{
+	background:#f4f5f8 !important;;
+	border:none !important;
+	/*border-right:1px solid #e0e2ec;*/
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+}
+.ui-tabs-vertical  .ui-tabs-nav  li.ui-state-default{
+	background-color:#f4f5f8 !important;
+	background-image: url(images/tabs-default.png) !important;/*未选中底下凹槽*/
+	background-repeat:repeat-x !important;
+	background-position:bottom !important;
+	height:44px;
+	border:none;
+}
+.ui-tabs-vertical  .ui-tabs-nav  li.ui-state-default.ui-tabs-selected{
+	background: url(images/tabs-selected.png)  no-repeat !important;/*选中背景图片*/
+	height:44px;
+	_height:34px;
+	border:none;
+	margin-top:0;
+	position:relative;
+	right:-1px;
+	_right:-4px;
+}
+.ui-tabs-vertical  .ui-tabs-nav  li a{/*文字hover不要浮起效果*/
+	top:0 !important;
+}
+.ui-tabs-vertical .ui-tabs-nav  li.ui-state-hover a{/*去掉背景按钮*/
+	background:none !important;
+	top:0;
+}
+/*end*/
+/*配合js解决分割线显示问题*/
+.ui-tabs-vertical  .ui-tabs-nav li.ui-state-default.ui-tabs-noline{
+	background:none !important;
+}
+/*end*/
+/*用table解决高度自适应问题*/
+.ui-tabs-framework{
+	width:100%;
+	height:100%;
+}
+.ui-tabs-nav-bg{
+	width:98px;
+	height:100%;
+	background:#f4f5f8;
+	text-align:top;
+	border-right:1px solid #e0e2ec;	
+	vertical-align:top;
+}
+.ui-tabs-panel-bg{
+	vertical-align:top;
+}
+/*end*/
+/*解决与平台样式冲突*/
+.ui-tabs ul.ui-tabs-nav li.current a:hover, 
+.ui-tabs ul.ui-tabs-nav li.current span:hover, 
+.ui-tabs ul.ui-tabs-nav li a:hover,
+ .ui-tabs ul.ui-tabs-nav li span:hover {
+	background: none !important;
+	font-weight: normal !important;
+}

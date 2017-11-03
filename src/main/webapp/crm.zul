@@ -1,0 +1,53 @@
+<?page title="CRM员工对照表" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./staffContrastCrmMainWin"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<window id="staffContrastCrmMainWin" width="100%" height="98%"
+		apply="${staffContrastCrmMainComposer}">
+		<panel id="staffContrastCrmListboxPanel" vflex="1">
+			<caption>
+				<toolbar align="start" sclass="toolbar-user"
+					style="width:auto;float:left;">
+					<hbox>
+						<label value="CRM原帐号" />
+						<textbox id="empeeAcct" width="80px" />
+						<label value="员工姓名" visible="false" />
+						<textbox id="certName" width="80px"
+							visible="false" />
+						<toolbarbutton label="查询"
+							forward="onStaffContrastCrmQueryRequest" autodisable="self" />
+						<toolbarbutton label="重置"
+							forward="onStaffContrastCrmReset" />
+					</hbox>
+				</toolbar>
+			</caption>
+			<panelchildren>
+				<listbox id="staffContrastCrmListbox" vflex="1"
+					mold="paging">
+					<listhead sizable="true">
+						<listheader label="员工姓名" width="20%"
+							align="center" />
+						<listheader label="原CRM帐号" width="15%"
+							align="center" />
+						<listheader label="新帐号" width="15%"
+							align="center" />
+						<listheader label="割接后归属组织全称" width="50%"
+							align="center" />
+					</listhead>
+					<listitem self="@{each='current'}"
+						value="@{current}">
+						<listcell label="@{current.certName}">
+						</listcell>
+						<listcell label="@{current.empeeAcct}">
+						</listcell>
+						<listcell label="@{current.staffAccount}"></listcell>
+						<listcell label="@{current.orgFullName}"></listcell>
+					</listitem>
+				</listbox>
+				<paging id="staffContrastCrmListboxPaging"
+					forward="onStaffContrastCrmListboxPaging" pageSize="20" />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

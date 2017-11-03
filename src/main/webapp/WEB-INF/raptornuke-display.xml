@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE display PUBLIC "-//Raptornuke//DTD Display 2.0.0//EN" "http://www.raptornuke.ffcs.cn/dtd/raptornuke-display_2_0_0.dtd">
+<display>
+	<category name="category.demo">
+		<portlet id="zkdemo"></portlet>
+	</category>
+	<category name="category.uom">
+		<portlet id="organizationManager"></portlet>
+		<portlet id="position"></portlet>
+		<portlet id="staff"></portlet>
+		<portlet id="staffPasswordQuery"></portlet>
+		<portlet id="staffPasswordReset"></portlet>
+		<portlet id="staffUnlock"></portlet>
+		<portlet id="party"></portlet>
+		<portlet id="organizationTree"></portlet>
+		<portlet id="agentTree"></portlet>
+		<portlet id="systemConfigPortlet"></portlet>
+		<portlet id="systemConfig"></portlet>
+		<portlet id="informationManagerPortlet"></portlet>
+		<portlet id="informationCenterPortlet"></portlet>
+		<portlet id="bulletinNewsPortlet"></portlet>
+		<portlet id="bulletinBulletinPortlet"></portlet>
+		<portlet id="bulletinOfficialDocPortlet"></portlet>
+		<portlet id="bulletinOpenFactoryPortlet"></portlet>
+		<portlet id="bulletinOpenPartyPortlet"></portlet>
+		<portlet id="bulletinPeopleStoryPortlet"></portlet>
+		<portlet id="bulletinImagePortlet"></portlet>
+		<portlet id="operateLog"></portlet>
+		<portlet id="activation"></portlet>
+		<portlet id="dataPermissionManager"></portlet>
+		<portlet id="compare"></portlet>
+		<portlet id="interfaceConfig"></portlet>
+		<portlet id="messageConfig"></portlet>
+		<portlet id="staffRole"></portlet>
+		<portlet id="staffSys"></portlet>
+		<portlet id="structure"></portlet>
+		<portlet id="orgRelation"></portlet>
+		<portlet id="roleAuth"></portlet>
+		<portlet id="accConfig"></portlet>
+		<portlet id="custms"></portlet>
+		<portlet id="custunit"></portlet>
+		<portlet id="staffCustms"></portlet>
+		<portlet id="idNoQuery"></portlet>
+		<portlet id="audit"></portlet>
+		<portlet id="identity"></portlet>
+		<portlet id="group"></portlet>
+		<portlet id="groupGuid"></portlet>
+		<portlet id="groupUom"></portlet>
+		<portlet id="marketingTree"></portlet>
+		<portlet id="newMarketingTree"></portlet>
+		<portlet id="newSeventeenMarketingTree"></portlet>
+		<portlet id="marketingUnit"></portlet>
+		<portlet id="newMarketingUnit"></portlet>
+		<portlet id="newSeventeenMarketingUnit"></portlet>
+		<portlet id="marketingStaff"></portlet>
+		<portlet id="dataOperatorQuery"></portlet>
+		<portlet id="systemIssuedQuery"></portlet>
+		<portlet id="costTree"></portlet>
+		<portlet id="costUnit"></portlet>
+		<portlet id="financialCenter"></portlet>
+		<portlet id="publishQuery"></portlet>
+		<portlet id="orgNetworkCheck"></portlet>
+		<portlet id="tran"></portlet>
+		<portlet id="uomGroupTran"></portlet>
+		<portlet id="mssCostTree"></portlet>
+		<portlet id="mssProfitTree"></portlet>
+		<portlet id="unitedDirectoryTree"></portlet>
+		<portlet id="grpOperators"></portlet>
+		<portlet id="grpChannel"></portlet>
+		<portlet id="grpStaff"></portlet>
+		<portlet id="gridUnitTree"></portlet>
+		<portlet id="gridSeventeenUnitTree"></portlet>
+		<portlet id="gridUnit"></portlet>
+		<portlet id="staffGridUnitTran"></portlet>
+		<portlet id="multidimensionalTree"></portlet>
+		<portlet id="staffGrpStaff"></portlet>
+		<portlet id="rbacRoleTree"></portlet>
+		<portlet id="rbacPermissionTree"></portlet>
+		<portlet id="rbacBusinessSystemTree"></portlet>
+		<portlet id="rbacResourceTree"></portlet>
+		
+		<portlet id="bmpMgr"></portlet> 
+		
+		
+		<portlet id="bpmModify"></portlet>
+		<portlet id="bpmHr"></portlet>
+		<portlet id="bpmMainStaff"></portlet>
+		<portlet id="bmpConfig"></portlet>
+		
+		<portlet id="channelPackareaRelation"></portlet>
+		<portlet id="fullCaliberStaffReport"></portlet>		
+		<portlet id="batchImport"></portlet>		
+		<portlet id="unitedDirectoryMain"></portlet>		
+		<portlet id="hrOrganization"></portlet>
+		<portlet id="realnameDataReport"></portlet>
+		<portlet id="channelPackareaApprove"></portlet>
+		<portlet id="piFinanceOrg"></portlet>
+		<portlet id="uacStaff"></portlet>
+		<portlet id="baseInfo"></portlet>
+		<portlet id="accountManage"></portlet>
+		<portlet id="familyInformation"></portlet>
+		<portlet id="politicalStatus"></portlet>
+		<portlet id="militaryDischarge"></portlet>
+		<portlet id="baseInformation"></portlet>
+		<portlet id="positionSequence"></portlet>
+		
+		<portlet id="orgBaseInfo"></portlet>
+		<portlet id="orgRelations"></portlet>
+		<portlet id="fuzerenInformation"></portlet>
+		<portlet id="costCenterData"></portlet>
+		<portlet id="costCenterRel"></portlet>
+		<portlet id="officalInformation"></portlet>
+		<portlet id="officalLeave"></portlet>
+		<portlet id="officalOrganization"></portlet>
+		<portlet id="officalContract"></portlet>
+		<portlet id="proQualification"></portlet>
+		
+		<portlet id="specialWorker"></portlet>
+		<portlet id="majorWorker"></portlet>
+		<portlet id="backboneWorker"></portlet>
+		<portlet id="authorizedPatent"></portlet>
+		<portlet id="professionalSkill"></portlet>
+		
+		<portlet id="eduExperience"></portlet>
+		<portlet id="languageSkill"></portlet>
+		<portlet id="trainingMag"></portlet>
+		
+		<portlet id="rewardMag"></portlet>
+		<portlet id="punishmentMag"></portlet>
+		
+		<portlet id="welfareType"></portlet>
+		<portlet id="welfareUsing"></portlet>
+		
+		<portlet id="selfDataquery"></portlet>
+		
+		
+	</category>
+</display>

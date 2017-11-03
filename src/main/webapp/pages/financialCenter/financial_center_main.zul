@@ -1,0 +1,37 @@
+<?page title="财务中心组织查询" contentType="text/html;charset=UTF-8"?>
+<?component name="organizationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationListboxComposer" ?>
+<?component name="organizationRelationListbox" extends="div" class="cn.ffcs.uom.organization.action.OrganizationRelationListboxComposer" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<style>
+		.toolbar-user{ line-height:23px; } .toolbar-user
+		.z-label,.toolbar-user .z-button-os,.toolbar-user *{ font-size:
+		12px; }
+	</style>
+	<window id="financialCenterOrgMainWin" height="100%"
+		apply="${financialCenterOrgMainComposer}"
+		forward="onOK=onOrganizationQuery">
+		<borderlayout>
+			<north size="50%">
+				<div vflex="1">
+					<organizationListbox id="organizationListbox"
+						vflex="1" isCostListbox="true" />
+				</div>
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1" style="padding:1px">
+					<tabs>
+						<tab label="关联组织" id="organizationRelationTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;">
+							<organizationRelationListbox
+								id="organizationRelationListbox" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

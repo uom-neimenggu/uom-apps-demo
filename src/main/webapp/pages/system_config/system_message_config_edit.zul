@@ -1,0 +1,33 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./sysMsgConfigEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="messageConfigBandboxExt" extends="bandbox" class="cn.ffcs.uom.systemconfig.action.comp.MessageConfigBandboxExt"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="sysMsgConfigEditWin" border="none"
+		apply="${systemMessageConfigEditComposer}" closable="true"
+		width="470px" height="100px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="30%" />
+							<column width="70%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 配置人员"
+									class="z-info-required" />
+								<messageConfigBandboxExt id="messageConfigBandboxExt" width="97%" />
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmitNew" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

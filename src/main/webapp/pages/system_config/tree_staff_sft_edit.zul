@@ -1,0 +1,35 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./treeStaffSftEditWin" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<zk>
+	<?link rel="stylesheet" type="text/css" href="../../public/css/style.css"?>
+	<window id="treeStaffSftEditWin" border="none"
+		apply="${treeStaffSftEditComposer}" closable="true" width="450px"
+		height="95px">
+		<vlayout>
+			<panel>
+				<panelchildren>
+					<grid>
+						<columns>
+							<column label="" width="15%" />
+							<column label="" width="85%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="* 用工性质"
+									class="z-info-required" />
+								<treeChooserBandbox id="workProp"
+									range="any" mode="multiple" className="Staff" attrName="workProp"
+									pattern="4,1" width="94%" />
+							</row>
+						</rows>
+					</grid>
+				</panelchildren>
+			</panel>
+			<div align="center">
+				<button label="确定" id="okButton" forward="onSubmit" />
+				<button label="取消" id="cancelButton" forward="onCancel" />
+			</div>
+		</vlayout>
+	</window>
+</zk>

@@ -1,0 +1,28 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="organizationBandboxExt" extends="bandbox" class="cn.ffcs.uom.organization.component.OrganizationBandboxExt"?>
+<?component name="treeChooserBandbox" extends="bandbox" class="cn.ffcs.uom.common.treechooser.component.TreeChooserBandbox"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./multidimensionalTreeNodeEditWindow" ?>
+<zk>
+	<window id="multidimensionalTreeNodeEditWindow" border="none"
+		width="280px" closable="true"
+		apply="${multidimensionalTreeNodeEditComposer}">
+		<grid>
+			<columns>
+				<column width="28%" />
+				<column width="58%" />
+				<column width="14%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="组织" />
+					<organizationBandboxExt id="organizationBandboxExt" width="97%" />
+					<toolbarbutton id="addOrgBtn" image="/public/images/pub_button/add.png" tooltiptext="新增" forward="onAddOrg" />
+				</row>
+			</rows>
+		</grid>
+		<div align="center" style="padding:5px;">
+			<button id="onAdd" label="确定" forward="onAdd" autodisable="self" />
+			<button id="onCancel" label="取消" forward="onCancel" />
+		</div>
+	</window>
+</zk>

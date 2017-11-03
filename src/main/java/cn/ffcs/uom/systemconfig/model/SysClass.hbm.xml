@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.systemconfig.model.SysClass" table="SYS_CLASS">
+		<comment>类</comment>
+		<id name="classId" type="java.lang.Long">
+			<column name="CLASS_ID" precision="12" scale="0" />
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="className" type="java.lang.String">
+			<column name="CLASS_NAME" length="300">
+				<comment>类名</comment>
+			</column>
+		</property>
+		<property name="javaCode" type="java.lang.String">
+			<column name="JAVA_CODE" length="300">
+				<comment>JAVA类名</comment>
+			</column>
+		</property>
+		<property name="tableType" type="java.lang.String">
+			<column name="TABLE_TYPE" length="3">
+				<comment>物理表类型</comment>
+			</column>
+		</property>
+		<property name="tableName" type="java.lang.String">
+			<column name="TABLE_NAME" length="300">
+				<comment>物理表名</comment>
+			</column>
+		</property>
+		<property name="isEntity" type="java.lang.Long">
+			<column name="IS_ENTITY" length="1">
+				<comment>是否实体类</comment>
+			</column>
+		</property>
+		<property name="classDesc" type="java.lang.String">
+			<column name="CLASS_DESC" length="2000">
+				<comment>描述信息</comment>
+			</column>
+		</property>
+		<property name="seqName" type="java.lang.String">
+			<column name="SEQ_NAME" length="50">
+				<comment>序列名称</comment>
+			</column>
+		</property>
+		<property name="hisTableName" type="java.lang.String">
+			<column name="HIS_TABLE_NAME" length="50">
+				<comment>历史表</comment>
+			</column>
+		</property>
+		<property name="hisSeqName" type="java.lang.String">
+			<column name="HIS_SEQ_NAME" length="50">
+				<comment>历史表序列</comment>
+			</column>
+		</property>
+		<property name="effDate" type="java.util.Date">
+			<column name="EFF_DATE" length="7">
+				<comment>生效时间</comment>
+			</column>
+		</property>
+		<property name="expDate" type="java.util.Date">
+			<column name="EXP_DATE" length="7">
+				<comment>失效时间</comment>
+			</column>
+		</property>
+		<property name="statusCd" type="java.lang.String">
+			<column name="STATUS_CD" length="6">
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="statusDate" type="java.util.Date">
+			<column name="STATUS_DATE" length="7">
+				<comment>状态时间</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<property name="createStaff" type="java.lang.Long">
+			<column name="CREATE_STAFF" length="12">
+				<comment>创建人</comment>
+			</column>
+		</property>
+		<property name="updateDate" type="java.util.Date">
+			<column name="UPDATE_DATE" length="7">
+				<comment>最后修改时间</comment>
+			</column>
+		</property>
+		<property name="updateStaff" type="java.lang.Long">
+			<column name="UPDATE_STAFF" length="12">
+				<comment>修改人</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

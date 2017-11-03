@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ffcs.uom.webservices.model.SystemMessageLog"
+		table="SYSTEM_MESSAGE_LOG">
+		<comment>短信日志表</comment>
+		<id name="systemMessageLogId" type="java.lang.Long">
+			<column name="SYSTEM_MESSAGE_LOG_ID" precision="12" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_SYSTEM_MESSAGE_LOG_ID</param>
+			</generator>
+		</id>
+		<property name="systemCode" type="java.lang.String">
+			<column name="SYSTEM_CODE" length="10">
+				<comment>系统编码</comment>
+			</column>
+		</property>
+		<property name="result" type="java.lang.Long">
+			<column name="RESULT" length="1">
+				<comment>结果</comment>
+			</column>
+		</property>
+		<property name="errCode" type="java.lang.String">
+			<column name="ERR_CODE" length="100">
+				<comment>错误编码</comment>
+			</column>
+		</property>
+		<property name="systemMessageInfo" type="java.lang.String">
+			<column name="SYSTEM_MESSAGE_INFO" length="500">
+				<comment>短信信息</comment>
+			</column>
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

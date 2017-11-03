@@ -1,0 +1,36 @@
+<?page title="网格单元管理" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?component name="gridUnitListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.GridUnitListboxExt" ?>
+<?component name="gridUnitRefListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.GridUnitRefListboxExt"?>
+<?component name="staffGridUnitTranListboxExt" extends="div" class="cn.ffcs.uom.gridUnit.component.StaffGridUnitTranListboxExt"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./gridUnitMainWin"?>
+<zk>
+	<window id="gridUnitMainWin" width="100%" height="100%"
+		apply="${gridUnitMainComposer}">
+		<borderlayout>
+			<north size="50%">
+				<gridUnitListboxExt id="gridUnitListboxExt" vflex="1" />
+			</north>
+			<south size="50%">
+				<tabbox id="tabBox" vflex="1">
+					<tabs>
+						<tab label="组织关系" id="gridUnitRefTab"
+							forward="onClickTab" />
+						<tab label="员工组织业务关系" id="staffGridUnitTranTab"
+							forward="onClickTab" />
+					</tabs>
+					<tabpanels>
+						<tabpanel style="padding:1px;" vflex="1">
+							<gridUnitRefListboxExt
+								id="gridUnitRefListboxExt" vflex="1" />
+						</tabpanel>
+						<tabpanel style="padding:1px;" vflex="1">
+							<staffGridUnitTranListboxExt
+								id="staffGridUnitTranListboxExt" vflex="1" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

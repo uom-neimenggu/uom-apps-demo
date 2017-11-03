@@ -1,0 +1,14 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./organizationPathWindow"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="organizationPathWindow" height="120px" width="600px"
+		apply="${organizationPathComposer}" closable="true" sizable="true">
+		<grid height="90%">
+			<columns>
+				<column width="20%" />
+				<column width="80%" />
+			</columns>
+			<rows id="pathRows"></rows>
+		</grid>
+	</window>
+</zk>
