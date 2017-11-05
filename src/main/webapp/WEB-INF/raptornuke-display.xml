@@ -132,6 +132,7 @@
 		<portlet id="welfareUsing"></portlet>
 		
 		<portlet id="selfDataquery"></portlet>
+		<portlet id="abroad"></portlet>
 		
 		
 	</category>

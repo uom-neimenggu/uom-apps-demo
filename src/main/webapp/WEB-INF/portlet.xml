@@ -4276,7 +4276,43 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>	
-
+	<!-- 人员信息管理-出国（出境）管理-->
+	<portlet id="abroad">
+		<portlet-name>abroad</portlet-name>
+		<display-name>abroad</display-name>
+		<portlet-class>cn.ffcs.raptornuke.plugin.common.zk.http.MainPortlet</portlet-class>
+		<init-param>
+			<name>view-page</name>
+			<value>/pages_nmg/abroad/abroad_main.zul</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>zh</supported-locale>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>i18n.abroad</resource-bundle>
+		<portlet-info>
+			<title>abroad</title>
+			<short-title>abroad</short-title>
+			<keywords>abroad</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>	
 
 																																																
 		

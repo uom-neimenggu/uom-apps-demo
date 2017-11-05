@@ -46,7 +46,7 @@
 		<property name="mappingLocations">
 			<list>
 				<value>
-					classpath*:/cn/ffcs/u*/**/model/*.hbm.xml <!-- Hibernate的实体bean的映射文件-->
+					classpath*:/cn/ffcs/*/**/model/*.hbm.xml <!-- Hibernate的实体bean的映射文件-->
 				</value>
 			</list>
 		</property>

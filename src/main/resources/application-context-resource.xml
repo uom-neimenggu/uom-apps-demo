@@ -10,7 +10,7 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
-	<context:component-scan base-package="cn.ffcs.u*" />
+	<context:component-scan base-package="cn.ffcs.*" />
 
 	<!-- 事务相关 -->
 	<bean id="txManager"
@@ -59,7 +59,7 @@
 		
 	<aop:config>
 		<aop:advisor id="serviceTx" advice-ref="serviceAdvice"
-			pointcut="execution(* cn.ffcs.uom..manager..*.*(..))" order="1"></aop:advisor>
+			pointcut="execution(* cn.ffcs.*..manager..*.*(..))" order="1"></aop:advisor>
 	</aop:config>
 	<tx:advice id="serviceAdvice" transaction-manager="transactionManager">
 		<tx:attributes>

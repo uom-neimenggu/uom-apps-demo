@@ -1680,6 +1680,21 @@
 		<header-portlet-javascript>/zkau/web/js/zk.wpd</header-portlet-javascript>
 	</portlet>		
 
+	<!--人员信息管理-出国（出境）管理 -->
+	<portlet>
+		<portlet-name>abroad</portlet-name>
+		<maximize-edit>true</maximize-edit>
+		<instanceable>true</instanceable>
+		<standalone-width>800</standalone-width>
+		<standalone-height>600</standalone-height>
+		<standalone-draggable>true</standalone-draggable>
+		<standalone-resizable>true</standalone-resizable>
+		<standalone-scrolling>auto</standalone-scrolling>
+		<standalone-modal>false</standalone-modal>
+		<standalone-auto-height>false</standalone-auto-height>
+		<standalone-interval-time>200</standalone-interval-time>
+		<header-portlet-javascript>/zkau/web/js/zk.wpd</header-portlet-javascript>
+	</portlet>	
 
 	
 	

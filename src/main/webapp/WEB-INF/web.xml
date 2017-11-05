@@ -3287,6 +3287,33 @@
 	<servlet-mapping>
 		<servlet-name>selfDataquery</servlet-name>
 		<url-pattern>/selfDataquery/*</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- 人员信息管理-出国（出境）管理 -->
+	<servlet>
+		<servlet-name>abroad</servlet-name>
+		<servlet-class>cn.ffcs.raptornuke.portal.kernel.servlet.PortletServlet</servlet-class>
+		<init-param>
+			<param-name>portlet-class</param-name>
+			<param-value>cn.ffcs.raptornuke.plugin.common.zk.plus.raptornuke.MainPortlet</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AttributeStore</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AttributeKeyStarts</param-name>
+			<param-value>RAPTORNUKE_SHARED_</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AttributeRemoveFirst</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>abroad</servlet-name>
+		<url-pattern>/abroad/*</url-pattern>
 	</servlet-mapping>				
 																											
 
